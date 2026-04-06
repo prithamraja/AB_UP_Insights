@@ -1,0 +1,26 @@
+hbp_procedure_code,specialty_code,specialty_name,package_name,procedure_name,base_package_price,has_stratification,has_implant_or_high_end,procedure_label,reserved_public_hospitals_only
+HBP-OBG-001,OBG,Obstetrics & Gynaecology,Normal Delivery Package,Normal Delivery,9000,False,False,STANDARD,False
+HBP-OBG-002,OBG,Obstetrics & Gynaecology,LSCS Package,Lower Segment Caesarean Section,17500,False,False,STANDARD,False
+HBP-OBG-003,OBG,Obstetrics & Gynaecology,High Risk Pregnancy,High Risk Delivery,14000,True,False,STANDARD,False
+HBP-OBG-004,OBG,Obstetrics & Gynaecology,Hysterectomy Package,Total Abdominal Hysterectomy,25000,True,False,STANDARD,False
+HBP-GS-001,GS,General Surgery,Hernia Repair Package,Open Inguinal Herniorrhaphy,15000,False,False,STANDARD,False
+HBP-GS-002,GS,General Surgery,Appendicectomy Package,Open Appendicectomy,12000,False,False,STANDARD,False
+HBP-GS-003,GS,General Surgery,Laparoscopic Cholecystectomy,Laparoscopic Cholecystectomy,18000,False,False,STANDARD,False
+HBP-GS-004,GS,General Surgery,Haemorrhoidectomy Package,Haemorrhoidectomy,10000,False,False,STANDARD,False
+HBP-ORTH-001,ORTH,Orthopaedics,Total Knee Replacement,Total Knee Arthroplasty,80000,True,True,STANDARD,False
+HBP-ORTH-002,ORTH,Orthopaedics,Total Hip Replacement,Total Hip Arthroplasty,90000,True,True,STANDARD,False
+HBP-ORTH-003,ORTH,Orthopaedics,ORIF Long Bone Fracture,Open Reduction Internal Fixation,25000,True,True,STANDARD,False
+HBP-OPTH-001,OPTH,Ophthalmology,Cataract Surgery Package,Phacoemulsification with IOL,8000,True,True,STANDARD,False
+HBP-OPTH-002,OPTH,Ophthalmology,Trabeculectomy Package,Trabeculectomy for Glaucoma,12000,False,False,STANDARD,False
+HBP-CARD-001,CARD,Cardiology,Coronary Angiography Package,Diagnostic Coronary Angiography,12000,False,False,STANDARD,False
+HBP-CARD-002,CARD,Cardiology,PTCA Package,Percutaneous Transluminal Coronary Angioplasty,150000,True,True,STANDARD,False
+HBP-CARD-003,CARD,Cardiology,CABG Package,Coronary Artery Bypass Grafting,200000,True,False,STANDARD,False
+HBP-MED-001,MED,General Medicine,Medical Management Package,Medical Management of Acute Illness,5000,False,False,STANDARD,False
+HBP-MED-002,MED,General Medicine,Tuberculosis Package,Anti-TB Treatment with Hospitalisation,8000,False,False,STANDARD,True
+HBP-MED-003,MED,General Medicine,Dengue Management,Dengue Fever Hospitalisation,6000,False,False,STANDARD,False
+HBP-URO-001,URO,Urology,TURP Package,Transurethral Resection of Prostate,25000,False,False,STANDARD,False
+HBP-URO-002,URO,Urology,Ureteroscopy Package,Ureteroscopy & Stone Removal,18000,False,False,STANDARD,False
+HBP-PEDS-001,PEDS,Paediatrics,Neonatal Care Package,Neonatal Intensive Care (Level II),15000,True,False,STANDARD,True
+HBP-NEURO-001,NEURO,Neurology,Stroke Management Package,Acute Ischaemic Stroke Management,20000,False,False,STANDARD,False
+HBP-ONCO-001,ONCO,Oncology,Chemotherapy Package,Chemotherapy Cycle,25000,True,False,STANDARD,False
+HBP-ENT-001,ENT,ENT,Tonsillectomy Package,Tonsillectomy and Adenoidectomy,9000,False,False,STANDARD,False

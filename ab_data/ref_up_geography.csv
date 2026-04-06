@@ -1,0 +1,642 @@
+state_code,state_name,division_name,district_name,block_name
+UP,Uttar Pradesh,Agra,Agra,Achhnera
+UP,Uttar Pradesh,Agra,Agra,Akola
+UP,Uttar Pradesh,Agra,Agra,Bah
+UP,Uttar Pradesh,Agra,Agra,Barauli Ahir
+UP,Uttar Pradesh,Agra,Agra,Bichpuri
+UP,Uttar Pradesh,Agra,Agra,Etmadpur
+UP,Uttar Pradesh,Agra,Agra,Fatehabad
+UP,Uttar Pradesh,Agra,Agra,Jagner
+UP,Uttar Pradesh,Agra,Agra,Kheragarh
+UP,Uttar Pradesh,Agra,Agra,Kiraoli
+UP,Uttar Pradesh,Agra,Agra,Pinahat
+UP,Uttar Pradesh,Agra,Agra,Samsabad
+UP,Uttar Pradesh,Agra,Agra,Shamsabad
+UP,Uttar Pradesh,Agra,Firozabad,Firozabad Block 1
+UP,Uttar Pradesh,Agra,Firozabad,Firozabad Block 2
+UP,Uttar Pradesh,Agra,Firozabad,Firozabad Block 3
+UP,Uttar Pradesh,Agra,Firozabad,Firozabad Block 4
+UP,Uttar Pradesh,Agra,Firozabad,Firozabad Block 5
+UP,Uttar Pradesh,Agra,Firozabad,Firozabad Block 6
+UP,Uttar Pradesh,Agra,Firozabad,Firozabad Block 7
+UP,Uttar Pradesh,Agra,Firozabad,Firozabad Block 8
+UP,Uttar Pradesh,Agra,Mainpuri,Mainpuri Block 1
+UP,Uttar Pradesh,Agra,Mainpuri,Mainpuri Block 2
+UP,Uttar Pradesh,Agra,Mainpuri,Mainpuri Block 3
+UP,Uttar Pradesh,Agra,Mainpuri,Mainpuri Block 4
+UP,Uttar Pradesh,Agra,Mainpuri,Mainpuri Block 5
+UP,Uttar Pradesh,Agra,Mainpuri,Mainpuri Block 6
+UP,Uttar Pradesh,Agra,Mainpuri,Mainpuri Block 7
+UP,Uttar Pradesh,Agra,Mainpuri,Mainpuri Block 8
+UP,Uttar Pradesh,Agra,Mathura,Baldeo
+UP,Uttar Pradesh,Agra,Mathura,Chhata
+UP,Uttar Pradesh,Agra,Mathura,Chaumuhan
+UP,Uttar Pradesh,Agra,Mathura,Farah
+UP,Uttar Pradesh,Agra,Mathura,Govardhan
+UP,Uttar Pradesh,Agra,Mathura,Mant
+UP,Uttar Pradesh,Agra,Mathura,Mathura
+UP,Uttar Pradesh,Agra,Mathura,Nandgaon
+UP,Uttar Pradesh,Agra,Mathura,Naujheel
+UP,Uttar Pradesh,Agra,Mathura,Raya
+UP,Uttar Pradesh,Aligarh,Aligarh,Atrauli
+UP,Uttar Pradesh,Aligarh,Aligarh,Bijauli
+UP,Uttar Pradesh,Aligarh,Aligarh,Chandaus
+UP,Uttar Pradesh,Aligarh,Aligarh,Dhanipur
+UP,Uttar Pradesh,Aligarh,Aligarh,Gabhana
+UP,Uttar Pradesh,Aligarh,Aligarh,Gangiri
+UP,Uttar Pradesh,Aligarh,Aligarh,Iglas
+UP,Uttar Pradesh,Aligarh,Aligarh,Jawan
+UP,Uttar Pradesh,Aligarh,Aligarh,Khair
+UP,Uttar Pradesh,Aligarh,Aligarh,Tappal
+UP,Uttar Pradesh,Aligarh,Etah,Etah Block 1
+UP,Uttar Pradesh,Aligarh,Etah,Etah Block 2
+UP,Uttar Pradesh,Aligarh,Etah,Etah Block 3
+UP,Uttar Pradesh,Aligarh,Etah,Etah Block 4
+UP,Uttar Pradesh,Aligarh,Etah,Etah Block 5
+UP,Uttar Pradesh,Aligarh,Etah,Etah Block 6
+UP,Uttar Pradesh,Aligarh,Etah,Etah Block 7
+UP,Uttar Pradesh,Aligarh,Etah,Etah Block 8
+UP,Uttar Pradesh,Aligarh,Hathras,Hathras Block 1
+UP,Uttar Pradesh,Aligarh,Hathras,Hathras Block 2
+UP,Uttar Pradesh,Aligarh,Hathras,Hathras Block 3
+UP,Uttar Pradesh,Aligarh,Hathras,Hathras Block 4
+UP,Uttar Pradesh,Aligarh,Hathras,Hathras Block 5
+UP,Uttar Pradesh,Aligarh,Hathras,Hathras Block 6
+UP,Uttar Pradesh,Aligarh,Hathras,Hathras Block 7
+UP,Uttar Pradesh,Aligarh,Hathras,Hathras Block 8
+UP,Uttar Pradesh,Aligarh,Kasganj,Kasganj Block 1
+UP,Uttar Pradesh,Aligarh,Kasganj,Kasganj Block 2
+UP,Uttar Pradesh,Aligarh,Kasganj,Kasganj Block 3
+UP,Uttar Pradesh,Aligarh,Kasganj,Kasganj Block 4
+UP,Uttar Pradesh,Aligarh,Kasganj,Kasganj Block 5
+UP,Uttar Pradesh,Aligarh,Kasganj,Kasganj Block 6
+UP,Uttar Pradesh,Aligarh,Kasganj,Kasganj Block 7
+UP,Uttar Pradesh,Aligarh,Kasganj,Kasganj Block 8
+UP,Uttar Pradesh,Ayodhya,Ambedkar Nagar,Ambedkar Block 1
+UP,Uttar Pradesh,Ayodhya,Ambedkar Nagar,Ambedkar Block 2
+UP,Uttar Pradesh,Ayodhya,Ambedkar Nagar,Ambedkar Block 3
+UP,Uttar Pradesh,Ayodhya,Ambedkar Nagar,Ambedkar Block 4
+UP,Uttar Pradesh,Ayodhya,Ambedkar Nagar,Ambedkar Block 5
+UP,Uttar Pradesh,Ayodhya,Ambedkar Nagar,Ambedkar Block 6
+UP,Uttar Pradesh,Ayodhya,Ambedkar Nagar,Ambedkar Block 7
+UP,Uttar Pradesh,Ayodhya,Ambedkar Nagar,Ambedkar Block 8
+UP,Uttar Pradesh,Ayodhya,Amethi,Amethi Block 1
+UP,Uttar Pradesh,Ayodhya,Amethi,Amethi Block 2
+UP,Uttar Pradesh,Ayodhya,Amethi,Amethi Block 3
+UP,Uttar Pradesh,Ayodhya,Amethi,Amethi Block 4
+UP,Uttar Pradesh,Ayodhya,Amethi,Amethi Block 5
+UP,Uttar Pradesh,Ayodhya,Amethi,Amethi Block 6
+UP,Uttar Pradesh,Ayodhya,Amethi,Amethi Block 7
+UP,Uttar Pradesh,Ayodhya,Amethi,Amethi Block 8
+UP,Uttar Pradesh,Ayodhya,Ayodhya,Ayodhya Block 1
+UP,Uttar Pradesh,Ayodhya,Ayodhya,Ayodhya Block 2
+UP,Uttar Pradesh,Ayodhya,Ayodhya,Ayodhya Block 3
+UP,Uttar Pradesh,Ayodhya,Ayodhya,Ayodhya Block 4
+UP,Uttar Pradesh,Ayodhya,Ayodhya,Ayodhya Block 5
+UP,Uttar Pradesh,Ayodhya,Ayodhya,Ayodhya Block 6
+UP,Uttar Pradesh,Ayodhya,Ayodhya,Ayodhya Block 7
+UP,Uttar Pradesh,Ayodhya,Ayodhya,Ayodhya Block 8
+UP,Uttar Pradesh,Ayodhya,Barabanki,Barabanki Block 1
+UP,Uttar Pradesh,Ayodhya,Barabanki,Barabanki Block 2
+UP,Uttar Pradesh,Ayodhya,Barabanki,Barabanki Block 3
+UP,Uttar Pradesh,Ayodhya,Barabanki,Barabanki Block 4
+UP,Uttar Pradesh,Ayodhya,Barabanki,Barabanki Block 5
+UP,Uttar Pradesh,Ayodhya,Barabanki,Barabanki Block 6
+UP,Uttar Pradesh,Ayodhya,Barabanki,Barabanki Block 7
+UP,Uttar Pradesh,Ayodhya,Barabanki,Barabanki Block 8
+UP,Uttar Pradesh,Ayodhya,Sultanpur,Sultanpur Block 1
+UP,Uttar Pradesh,Ayodhya,Sultanpur,Sultanpur Block 2
+UP,Uttar Pradesh,Ayodhya,Sultanpur,Sultanpur Block 3
+UP,Uttar Pradesh,Ayodhya,Sultanpur,Sultanpur Block 4
+UP,Uttar Pradesh,Ayodhya,Sultanpur,Sultanpur Block 5
+UP,Uttar Pradesh,Ayodhya,Sultanpur,Sultanpur Block 6
+UP,Uttar Pradesh,Ayodhya,Sultanpur,Sultanpur Block 7
+UP,Uttar Pradesh,Ayodhya,Sultanpur,Sultanpur Block 8
+UP,Uttar Pradesh,Azamgarh,Azamgarh,Ateha
+UP,Uttar Pradesh,Azamgarh,Azamgarh,Azamgarh
+UP,Uttar Pradesh,Azamgarh,Azamgarh,Bilariyaganj
+UP,Uttar Pradesh,Azamgarh,Azamgarh,Jahanaganj
+UP,Uttar Pradesh,Azamgarh,Azamgarh,Lalganj
+UP,Uttar Pradesh,Azamgarh,Azamgarh,Mehnagar
+UP,Uttar Pradesh,Azamgarh,Azamgarh,Mirzapur
+UP,Uttar Pradesh,Azamgarh,Azamgarh,Paliya
+UP,Uttar Pradesh,Azamgarh,Azamgarh,Phulpur
+UP,Uttar Pradesh,Azamgarh,Ballia,Ballia Block 1
+UP,Uttar Pradesh,Azamgarh,Ballia,Ballia Block 2
+UP,Uttar Pradesh,Azamgarh,Ballia,Ballia Block 3
+UP,Uttar Pradesh,Azamgarh,Ballia,Ballia Block 4
+UP,Uttar Pradesh,Azamgarh,Ballia,Ballia Block 5
+UP,Uttar Pradesh,Azamgarh,Ballia,Ballia Block 6
+UP,Uttar Pradesh,Azamgarh,Ballia,Ballia Block 7
+UP,Uttar Pradesh,Azamgarh,Ballia,Ballia Block 8
+UP,Uttar Pradesh,Azamgarh,Mau,Mau Block 1
+UP,Uttar Pradesh,Azamgarh,Mau,Mau Block 2
+UP,Uttar Pradesh,Azamgarh,Mau,Mau Block 3
+UP,Uttar Pradesh,Azamgarh,Mau,Mau Block 4
+UP,Uttar Pradesh,Azamgarh,Mau,Mau Block 5
+UP,Uttar Pradesh,Azamgarh,Mau,Mau Block 6
+UP,Uttar Pradesh,Azamgarh,Mau,Mau Block 7
+UP,Uttar Pradesh,Azamgarh,Mau,Mau Block 8
+UP,Uttar Pradesh,Bareilly,Badaun,Badaun Block 1
+UP,Uttar Pradesh,Bareilly,Badaun,Badaun Block 2
+UP,Uttar Pradesh,Bareilly,Badaun,Badaun Block 3
+UP,Uttar Pradesh,Bareilly,Badaun,Badaun Block 4
+UP,Uttar Pradesh,Bareilly,Badaun,Badaun Block 5
+UP,Uttar Pradesh,Bareilly,Badaun,Badaun Block 6
+UP,Uttar Pradesh,Bareilly,Badaun,Badaun Block 7
+UP,Uttar Pradesh,Bareilly,Badaun,Badaun Block 8
+UP,Uttar Pradesh,Bareilly,Bareilly,Aonla
+UP,Uttar Pradesh,Bareilly,Bareilly,Baheri
+UP,Uttar Pradesh,Bareilly,Bareilly,Bahrabad
+UP,Uttar Pradesh,Bareilly,Bareilly,Bithri Chainpur
+UP,Uttar Pradesh,Bareilly,Bareilly,Clutterbuckganj
+UP,Uttar Pradesh,Bareilly,Bareilly,Faridpur
+UP,Uttar Pradesh,Bareilly,Bareilly,Fatehganj Pashchimi
+UP,Uttar Pradesh,Bareilly,Bareilly,Fatehganj Purvi
+UP,Uttar Pradesh,Bareilly,Bareilly,Firdauspur
+UP,Uttar Pradesh,Bareilly,Bareilly,Meerganj
+UP,Uttar Pradesh,Bareilly,Bareilly,Nawabganj
+UP,Uttar Pradesh,Bareilly,Bareilly,Ramnagar
+UP,Uttar Pradesh,Bareilly,Bareilly,Richha
+UP,Uttar Pradesh,Bareilly,Bareilly,Shergarh
+UP,Uttar Pradesh,Bareilly,Bareilly,Sirsa
+UP,Uttar Pradesh,Bareilly,Pilibhit,Pilibhit Block 1
+UP,Uttar Pradesh,Bareilly,Pilibhit,Pilibhit Block 2
+UP,Uttar Pradesh,Bareilly,Pilibhit,Pilibhit Block 3
+UP,Uttar Pradesh,Bareilly,Pilibhit,Pilibhit Block 4
+UP,Uttar Pradesh,Bareilly,Pilibhit,Pilibhit Block 5
+UP,Uttar Pradesh,Bareilly,Pilibhit,Pilibhit Block 6
+UP,Uttar Pradesh,Bareilly,Pilibhit,Pilibhit Block 7
+UP,Uttar Pradesh,Bareilly,Pilibhit,Pilibhit Block 8
+UP,Uttar Pradesh,Bareilly,Shahjahanpur,Shahjahanpur Block 1
+UP,Uttar Pradesh,Bareilly,Shahjahanpur,Shahjahanpur Block 2
+UP,Uttar Pradesh,Bareilly,Shahjahanpur,Shahjahanpur Block 3
+UP,Uttar Pradesh,Bareilly,Shahjahanpur,Shahjahanpur Block 4
+UP,Uttar Pradesh,Bareilly,Shahjahanpur,Shahjahanpur Block 5
+UP,Uttar Pradesh,Bareilly,Shahjahanpur,Shahjahanpur Block 6
+UP,Uttar Pradesh,Bareilly,Shahjahanpur,Shahjahanpur Block 7
+UP,Uttar Pradesh,Bareilly,Shahjahanpur,Shahjahanpur Block 8
+UP,Uttar Pradesh,Basti,Basti,Basti Block 1
+UP,Uttar Pradesh,Basti,Basti,Basti Block 2
+UP,Uttar Pradesh,Basti,Basti,Basti Block 3
+UP,Uttar Pradesh,Basti,Basti,Basti Block 4
+UP,Uttar Pradesh,Basti,Basti,Basti Block 5
+UP,Uttar Pradesh,Basti,Basti,Basti Block 6
+UP,Uttar Pradesh,Basti,Basti,Basti Block 7
+UP,Uttar Pradesh,Basti,Basti,Basti Block 8
+UP,Uttar Pradesh,Basti,Sant Kabir Nagar,Sant Block 1
+UP,Uttar Pradesh,Basti,Sant Kabir Nagar,Sant Block 2
+UP,Uttar Pradesh,Basti,Sant Kabir Nagar,Sant Block 3
+UP,Uttar Pradesh,Basti,Sant Kabir Nagar,Sant Block 4
+UP,Uttar Pradesh,Basti,Sant Kabir Nagar,Sant Block 5
+UP,Uttar Pradesh,Basti,Sant Kabir Nagar,Sant Block 6
+UP,Uttar Pradesh,Basti,Sant Kabir Nagar,Sant Block 7
+UP,Uttar Pradesh,Basti,Sant Kabir Nagar,Sant Block 8
+UP,Uttar Pradesh,Basti,Siddharthnagar,Siddharthnagar Block 1
+UP,Uttar Pradesh,Basti,Siddharthnagar,Siddharthnagar Block 2
+UP,Uttar Pradesh,Basti,Siddharthnagar,Siddharthnagar Block 3
+UP,Uttar Pradesh,Basti,Siddharthnagar,Siddharthnagar Block 4
+UP,Uttar Pradesh,Basti,Siddharthnagar,Siddharthnagar Block 5
+UP,Uttar Pradesh,Basti,Siddharthnagar,Siddharthnagar Block 6
+UP,Uttar Pradesh,Basti,Siddharthnagar,Siddharthnagar Block 7
+UP,Uttar Pradesh,Basti,Siddharthnagar,Siddharthnagar Block 8
+UP,Uttar Pradesh,Chitrakoot,Banda,Banda Block 1
+UP,Uttar Pradesh,Chitrakoot,Banda,Banda Block 2
+UP,Uttar Pradesh,Chitrakoot,Banda,Banda Block 3
+UP,Uttar Pradesh,Chitrakoot,Banda,Banda Block 4
+UP,Uttar Pradesh,Chitrakoot,Banda,Banda Block 5
+UP,Uttar Pradesh,Chitrakoot,Banda,Banda Block 6
+UP,Uttar Pradesh,Chitrakoot,Banda,Banda Block 7
+UP,Uttar Pradesh,Chitrakoot,Banda,Banda Block 8
+UP,Uttar Pradesh,Chitrakoot,Chitrakoot,Chitrakoot Block 1
+UP,Uttar Pradesh,Chitrakoot,Chitrakoot,Chitrakoot Block 2
+UP,Uttar Pradesh,Chitrakoot,Chitrakoot,Chitrakoot Block 3
+UP,Uttar Pradesh,Chitrakoot,Chitrakoot,Chitrakoot Block 4
+UP,Uttar Pradesh,Chitrakoot,Chitrakoot,Chitrakoot Block 5
+UP,Uttar Pradesh,Chitrakoot,Chitrakoot,Chitrakoot Block 6
+UP,Uttar Pradesh,Chitrakoot,Chitrakoot,Chitrakoot Block 7
+UP,Uttar Pradesh,Chitrakoot,Chitrakoot,Chitrakoot Block 8
+UP,Uttar Pradesh,Chitrakoot,Hamirpur,Hamirpur Block 1
+UP,Uttar Pradesh,Chitrakoot,Hamirpur,Hamirpur Block 2
+UP,Uttar Pradesh,Chitrakoot,Hamirpur,Hamirpur Block 3
+UP,Uttar Pradesh,Chitrakoot,Hamirpur,Hamirpur Block 4
+UP,Uttar Pradesh,Chitrakoot,Hamirpur,Hamirpur Block 5
+UP,Uttar Pradesh,Chitrakoot,Hamirpur,Hamirpur Block 6
+UP,Uttar Pradesh,Chitrakoot,Hamirpur,Hamirpur Block 7
+UP,Uttar Pradesh,Chitrakoot,Hamirpur,Hamirpur Block 8
+UP,Uttar Pradesh,Chitrakoot,Mahoba,Mahoba Block 1
+UP,Uttar Pradesh,Chitrakoot,Mahoba,Mahoba Block 2
+UP,Uttar Pradesh,Chitrakoot,Mahoba,Mahoba Block 3
+UP,Uttar Pradesh,Chitrakoot,Mahoba,Mahoba Block 4
+UP,Uttar Pradesh,Chitrakoot,Mahoba,Mahoba Block 5
+UP,Uttar Pradesh,Chitrakoot,Mahoba,Mahoba Block 6
+UP,Uttar Pradesh,Chitrakoot,Mahoba,Mahoba Block 7
+UP,Uttar Pradesh,Chitrakoot,Mahoba,Mahoba Block 8
+UP,Uttar Pradesh,Devipatan,Bahraich,Bahraich Block 1
+UP,Uttar Pradesh,Devipatan,Bahraich,Bahraich Block 2
+UP,Uttar Pradesh,Devipatan,Bahraich,Bahraich Block 3
+UP,Uttar Pradesh,Devipatan,Bahraich,Bahraich Block 4
+UP,Uttar Pradesh,Devipatan,Bahraich,Bahraich Block 5
+UP,Uttar Pradesh,Devipatan,Bahraich,Bahraich Block 6
+UP,Uttar Pradesh,Devipatan,Bahraich,Bahraich Block 7
+UP,Uttar Pradesh,Devipatan,Bahraich,Bahraich Block 8
+UP,Uttar Pradesh,Devipatan,Balrampur,Balrampur Block 1
+UP,Uttar Pradesh,Devipatan,Balrampur,Balrampur Block 2
+UP,Uttar Pradesh,Devipatan,Balrampur,Balrampur Block 3
+UP,Uttar Pradesh,Devipatan,Balrampur,Balrampur Block 4
+UP,Uttar Pradesh,Devipatan,Balrampur,Balrampur Block 5
+UP,Uttar Pradesh,Devipatan,Balrampur,Balrampur Block 6
+UP,Uttar Pradesh,Devipatan,Balrampur,Balrampur Block 7
+UP,Uttar Pradesh,Devipatan,Balrampur,Balrampur Block 8
+UP,Uttar Pradesh,Devipatan,Gonda,Gonda Block 1
+UP,Uttar Pradesh,Devipatan,Gonda,Gonda Block 2
+UP,Uttar Pradesh,Devipatan,Gonda,Gonda Block 3
+UP,Uttar Pradesh,Devipatan,Gonda,Gonda Block 4
+UP,Uttar Pradesh,Devipatan,Gonda,Gonda Block 5
+UP,Uttar Pradesh,Devipatan,Gonda,Gonda Block 6
+UP,Uttar Pradesh,Devipatan,Gonda,Gonda Block 7
+UP,Uttar Pradesh,Devipatan,Gonda,Gonda Block 8
+UP,Uttar Pradesh,Devipatan,Shravasti,Shravasti Block 1
+UP,Uttar Pradesh,Devipatan,Shravasti,Shravasti Block 2
+UP,Uttar Pradesh,Devipatan,Shravasti,Shravasti Block 3
+UP,Uttar Pradesh,Devipatan,Shravasti,Shravasti Block 4
+UP,Uttar Pradesh,Devipatan,Shravasti,Shravasti Block 5
+UP,Uttar Pradesh,Devipatan,Shravasti,Shravasti Block 6
+UP,Uttar Pradesh,Devipatan,Shravasti,Shravasti Block 7
+UP,Uttar Pradesh,Devipatan,Shravasti,Shravasti Block 8
+UP,Uttar Pradesh,Gorakhpur,Deoria,Deoria Block 1
+UP,Uttar Pradesh,Gorakhpur,Deoria,Deoria Block 2
+UP,Uttar Pradesh,Gorakhpur,Deoria,Deoria Block 3
+UP,Uttar Pradesh,Gorakhpur,Deoria,Deoria Block 4
+UP,Uttar Pradesh,Gorakhpur,Deoria,Deoria Block 5
+UP,Uttar Pradesh,Gorakhpur,Deoria,Deoria Block 6
+UP,Uttar Pradesh,Gorakhpur,Deoria,Deoria Block 7
+UP,Uttar Pradesh,Gorakhpur,Deoria,Deoria Block 8
+UP,Uttar Pradesh,Gorakhpur,Gorakhpur,Bansgaon
+UP,Uttar Pradesh,Gorakhpur,Gorakhpur,Bhathat
+UP,Uttar Pradesh,Gorakhpur,Gorakhpur,Brahmpur
+UP,Uttar Pradesh,Gorakhpur,Gorakhpur,Campierganj
+UP,Uttar Pradesh,Gorakhpur,Gorakhpur,Chauri Chaura
+UP,Uttar Pradesh,Gorakhpur,Gorakhpur,Chargawan
+UP,Uttar Pradesh,Gorakhpur,Gorakhpur,Gagaha
+UP,Uttar Pradesh,Gorakhpur,Gorakhpur,Gola
+UP,Uttar Pradesh,Gorakhpur,Gorakhpur,Jungle Kaudiram
+UP,Uttar Pradesh,Gorakhpur,Gorakhpur,Khajani
+UP,Uttar Pradesh,Gorakhpur,Gorakhpur,Khorabar
+UP,Uttar Pradesh,Gorakhpur,Gorakhpur,Pipraich
+UP,Uttar Pradesh,Gorakhpur,Gorakhpur,Pipiganj
+UP,Uttar Pradesh,Gorakhpur,Gorakhpur,Sahjanwa
+UP,Uttar Pradesh,Gorakhpur,Gorakhpur,Sardarnagar
+UP,Uttar Pradesh,Gorakhpur,Gorakhpur,Uruwa
+UP,Uttar Pradesh,Gorakhpur,Kushinagar,Kushinagar Block 1
+UP,Uttar Pradesh,Gorakhpur,Kushinagar,Kushinagar Block 2
+UP,Uttar Pradesh,Gorakhpur,Kushinagar,Kushinagar Block 3
+UP,Uttar Pradesh,Gorakhpur,Kushinagar,Kushinagar Block 4
+UP,Uttar Pradesh,Gorakhpur,Kushinagar,Kushinagar Block 5
+UP,Uttar Pradesh,Gorakhpur,Kushinagar,Kushinagar Block 6
+UP,Uttar Pradesh,Gorakhpur,Kushinagar,Kushinagar Block 7
+UP,Uttar Pradesh,Gorakhpur,Kushinagar,Kushinagar Block 8
+UP,Uttar Pradesh,Gorakhpur,Maharajganj,Maharajganj Block 1
+UP,Uttar Pradesh,Gorakhpur,Maharajganj,Maharajganj Block 2
+UP,Uttar Pradesh,Gorakhpur,Maharajganj,Maharajganj Block 3
+UP,Uttar Pradesh,Gorakhpur,Maharajganj,Maharajganj Block 4
+UP,Uttar Pradesh,Gorakhpur,Maharajganj,Maharajganj Block 5
+UP,Uttar Pradesh,Gorakhpur,Maharajganj,Maharajganj Block 6
+UP,Uttar Pradesh,Gorakhpur,Maharajganj,Maharajganj Block 7
+UP,Uttar Pradesh,Gorakhpur,Maharajganj,Maharajganj Block 8
+UP,Uttar Pradesh,Jhansi,Jalaun,Jalaun Block 1
+UP,Uttar Pradesh,Jhansi,Jalaun,Jalaun Block 2
+UP,Uttar Pradesh,Jhansi,Jalaun,Jalaun Block 3
+UP,Uttar Pradesh,Jhansi,Jalaun,Jalaun Block 4
+UP,Uttar Pradesh,Jhansi,Jalaun,Jalaun Block 5
+UP,Uttar Pradesh,Jhansi,Jalaun,Jalaun Block 6
+UP,Uttar Pradesh,Jhansi,Jalaun,Jalaun Block 7
+UP,Uttar Pradesh,Jhansi,Jalaun,Jalaun Block 8
+UP,Uttar Pradesh,Jhansi,Jhansi,Babina
+UP,Uttar Pradesh,Jhansi,Jhansi,Badagaon
+UP,Uttar Pradesh,Jhansi,Jhansi,Bangra
+UP,Uttar Pradesh,Jhansi,Jhansi,Barua Sagar
+UP,Uttar Pradesh,Jhansi,Jhansi,Chirgaon
+UP,Uttar Pradesh,Jhansi,Jhansi,Gursarai
+UP,Uttar Pradesh,Jhansi,Jhansi,Mauranipur
+UP,Uttar Pradesh,Jhansi,Jhansi,Moth
+UP,Uttar Pradesh,Jhansi,Jhansi,Ranipur
+UP,Uttar Pradesh,Jhansi,Lalitpur,Lalitpur Block 1
+UP,Uttar Pradesh,Jhansi,Lalitpur,Lalitpur Block 2
+UP,Uttar Pradesh,Jhansi,Lalitpur,Lalitpur Block 3
+UP,Uttar Pradesh,Jhansi,Lalitpur,Lalitpur Block 4
+UP,Uttar Pradesh,Jhansi,Lalitpur,Lalitpur Block 5
+UP,Uttar Pradesh,Jhansi,Lalitpur,Lalitpur Block 6
+UP,Uttar Pradesh,Jhansi,Lalitpur,Lalitpur Block 7
+UP,Uttar Pradesh,Jhansi,Lalitpur,Lalitpur Block 8
+UP,Uttar Pradesh,Kanpur,Auraiya,Auraiya Block 1
+UP,Uttar Pradesh,Kanpur,Auraiya,Auraiya Block 2
+UP,Uttar Pradesh,Kanpur,Auraiya,Auraiya Block 3
+UP,Uttar Pradesh,Kanpur,Auraiya,Auraiya Block 4
+UP,Uttar Pradesh,Kanpur,Auraiya,Auraiya Block 5
+UP,Uttar Pradesh,Kanpur,Auraiya,Auraiya Block 6
+UP,Uttar Pradesh,Kanpur,Auraiya,Auraiya Block 7
+UP,Uttar Pradesh,Kanpur,Auraiya,Auraiya Block 8
+UP,Uttar Pradesh,Kanpur,Etawah,Etawah Block 1
+UP,Uttar Pradesh,Kanpur,Etawah,Etawah Block 2
+UP,Uttar Pradesh,Kanpur,Etawah,Etawah Block 3
+UP,Uttar Pradesh,Kanpur,Etawah,Etawah Block 4
+UP,Uttar Pradesh,Kanpur,Etawah,Etawah Block 5
+UP,Uttar Pradesh,Kanpur,Etawah,Etawah Block 6
+UP,Uttar Pradesh,Kanpur,Etawah,Etawah Block 7
+UP,Uttar Pradesh,Kanpur,Etawah,Etawah Block 8
+UP,Uttar Pradesh,Kanpur,Farrukhabad,Farrukhabad Block 1
+UP,Uttar Pradesh,Kanpur,Farrukhabad,Farrukhabad Block 2
+UP,Uttar Pradesh,Kanpur,Farrukhabad,Farrukhabad Block 3
+UP,Uttar Pradesh,Kanpur,Farrukhabad,Farrukhabad Block 4
+UP,Uttar Pradesh,Kanpur,Farrukhabad,Farrukhabad Block 5
+UP,Uttar Pradesh,Kanpur,Farrukhabad,Farrukhabad Block 6
+UP,Uttar Pradesh,Kanpur,Farrukhabad,Farrukhabad Block 7
+UP,Uttar Pradesh,Kanpur,Farrukhabad,Farrukhabad Block 8
+UP,Uttar Pradesh,Kanpur,Kannauj,Kannauj Block 1
+UP,Uttar Pradesh,Kanpur,Kannauj,Kannauj Block 2
+UP,Uttar Pradesh,Kanpur,Kannauj,Kannauj Block 3
+UP,Uttar Pradesh,Kanpur,Kannauj,Kannauj Block 4
+UP,Uttar Pradesh,Kanpur,Kannauj,Kannauj Block 5
+UP,Uttar Pradesh,Kanpur,Kannauj,Kannauj Block 6
+UP,Uttar Pradesh,Kanpur,Kannauj,Kannauj Block 7
+UP,Uttar Pradesh,Kanpur,Kannauj,Kannauj Block 8
+UP,Uttar Pradesh,Kanpur,Kanpur Dehat,Kanpur Block 1
+UP,Uttar Pradesh,Kanpur,Kanpur Dehat,Kanpur Block 2
+UP,Uttar Pradesh,Kanpur,Kanpur Dehat,Kanpur Block 3
+UP,Uttar Pradesh,Kanpur,Kanpur Dehat,Kanpur Block 4
+UP,Uttar Pradesh,Kanpur,Kanpur Dehat,Kanpur Block 5
+UP,Uttar Pradesh,Kanpur,Kanpur Dehat,Kanpur Block 6
+UP,Uttar Pradesh,Kanpur,Kanpur Dehat,Kanpur Block 7
+UP,Uttar Pradesh,Kanpur,Kanpur Dehat,Kanpur Block 8
+UP,Uttar Pradesh,Kanpur,Kanpur Nagar,Bilhaur
+UP,Uttar Pradesh,Kanpur,Kanpur Nagar,Bhitargaon
+UP,Uttar Pradesh,Kanpur,Kanpur Nagar,Ghatampur
+UP,Uttar Pradesh,Kanpur,Kanpur Nagar,Kalyanpur
+UP,Uttar Pradesh,Kanpur,Kanpur Nagar,Mandhana
+UP,Uttar Pradesh,Kanpur,Kanpur Nagar,Maharajpur
+UP,Uttar Pradesh,Kanpur,Kanpur Nagar,Patara
+UP,Uttar Pradesh,Kanpur,Kanpur Nagar,Rasulabad
+UP,Uttar Pradesh,Kanpur,Kanpur Nagar,Sarbanandapur
+UP,Uttar Pradesh,Kanpur,Kanpur Nagar,Sarvodaya Nagar
+UP,Uttar Pradesh,Lucknow,Hardoi,Hardoi Block 1
+UP,Uttar Pradesh,Lucknow,Hardoi,Hardoi Block 2
+UP,Uttar Pradesh,Lucknow,Hardoi,Hardoi Block 3
+UP,Uttar Pradesh,Lucknow,Hardoi,Hardoi Block 4
+UP,Uttar Pradesh,Lucknow,Hardoi,Hardoi Block 5
+UP,Uttar Pradesh,Lucknow,Hardoi,Hardoi Block 6
+UP,Uttar Pradesh,Lucknow,Hardoi,Hardoi Block 7
+UP,Uttar Pradesh,Lucknow,Hardoi,Hardoi Block 8
+UP,Uttar Pradesh,Lucknow,Lucknow,Bakshi Ka Talab
+UP,Uttar Pradesh,Lucknow,Lucknow,Chinhat
+UP,Uttar Pradesh,Lucknow,Lucknow,Gosainganj
+UP,Uttar Pradesh,Lucknow,Lucknow,Itaunja
+UP,Uttar Pradesh,Lucknow,Lucknow,Kakori
+UP,Uttar Pradesh,Lucknow,Lucknow,Malihabad
+UP,Uttar Pradesh,Lucknow,Lucknow,Mohanlalganj
+UP,Uttar Pradesh,Lucknow,Lucknow,Sarojini Nagar
+UP,Uttar Pradesh,Lucknow,Lucknow,Sardar Nagar
+UP,Uttar Pradesh,Lucknow,Lakhimpur Kheri,Lakhimpur Block 1
+UP,Uttar Pradesh,Lucknow,Lakhimpur Kheri,Lakhimpur Block 2
+UP,Uttar Pradesh,Lucknow,Lakhimpur Kheri,Lakhimpur Block 3
+UP,Uttar Pradesh,Lucknow,Lakhimpur Kheri,Lakhimpur Block 4
+UP,Uttar Pradesh,Lucknow,Lakhimpur Kheri,Lakhimpur Block 5
+UP,Uttar Pradesh,Lucknow,Lakhimpur Kheri,Lakhimpur Block 6
+UP,Uttar Pradesh,Lucknow,Lakhimpur Kheri,Lakhimpur Block 7
+UP,Uttar Pradesh,Lucknow,Lakhimpur Kheri,Lakhimpur Block 8
+UP,Uttar Pradesh,Lucknow,Raebareli,Raebareli Block 1
+UP,Uttar Pradesh,Lucknow,Raebareli,Raebareli Block 2
+UP,Uttar Pradesh,Lucknow,Raebareli,Raebareli Block 3
+UP,Uttar Pradesh,Lucknow,Raebareli,Raebareli Block 4
+UP,Uttar Pradesh,Lucknow,Raebareli,Raebareli Block 5
+UP,Uttar Pradesh,Lucknow,Raebareli,Raebareli Block 6
+UP,Uttar Pradesh,Lucknow,Raebareli,Raebareli Block 7
+UP,Uttar Pradesh,Lucknow,Raebareli,Raebareli Block 8
+UP,Uttar Pradesh,Lucknow,Sitapur,Sitapur Block 1
+UP,Uttar Pradesh,Lucknow,Sitapur,Sitapur Block 2
+UP,Uttar Pradesh,Lucknow,Sitapur,Sitapur Block 3
+UP,Uttar Pradesh,Lucknow,Sitapur,Sitapur Block 4
+UP,Uttar Pradesh,Lucknow,Sitapur,Sitapur Block 5
+UP,Uttar Pradesh,Lucknow,Sitapur,Sitapur Block 6
+UP,Uttar Pradesh,Lucknow,Sitapur,Sitapur Block 7
+UP,Uttar Pradesh,Lucknow,Sitapur,Sitapur Block 8
+UP,Uttar Pradesh,Lucknow,Unnao,Unnao Block 1
+UP,Uttar Pradesh,Lucknow,Unnao,Unnao Block 2
+UP,Uttar Pradesh,Lucknow,Unnao,Unnao Block 3
+UP,Uttar Pradesh,Lucknow,Unnao,Unnao Block 4
+UP,Uttar Pradesh,Lucknow,Unnao,Unnao Block 5
+UP,Uttar Pradesh,Lucknow,Unnao,Unnao Block 6
+UP,Uttar Pradesh,Lucknow,Unnao,Unnao Block 7
+UP,Uttar Pradesh,Lucknow,Unnao,Unnao Block 8
+UP,Uttar Pradesh,Meerut,Baghpat,Baghpat Block 1
+UP,Uttar Pradesh,Meerut,Baghpat,Baghpat Block 2
+UP,Uttar Pradesh,Meerut,Baghpat,Baghpat Block 3
+UP,Uttar Pradesh,Meerut,Baghpat,Baghpat Block 4
+UP,Uttar Pradesh,Meerut,Baghpat,Baghpat Block 5
+UP,Uttar Pradesh,Meerut,Baghpat,Baghpat Block 6
+UP,Uttar Pradesh,Meerut,Baghpat,Baghpat Block 7
+UP,Uttar Pradesh,Meerut,Baghpat,Baghpat Block 8
+UP,Uttar Pradesh,Meerut,Bulandshahr,Bulandshahr Block 1
+UP,Uttar Pradesh,Meerut,Bulandshahr,Bulandshahr Block 2
+UP,Uttar Pradesh,Meerut,Bulandshahr,Bulandshahr Block 3
+UP,Uttar Pradesh,Meerut,Bulandshahr,Bulandshahr Block 4
+UP,Uttar Pradesh,Meerut,Bulandshahr,Bulandshahr Block 5
+UP,Uttar Pradesh,Meerut,Bulandshahr,Bulandshahr Block 6
+UP,Uttar Pradesh,Meerut,Bulandshahr,Bulandshahr Block 7
+UP,Uttar Pradesh,Meerut,Bulandshahr,Bulandshahr Block 8
+UP,Uttar Pradesh,Meerut,Ghaziabad,Bhojpur
+UP,Uttar Pradesh,Meerut,Ghaziabad,Dadri
+UP,Uttar Pradesh,Meerut,Ghaziabad,Dhaulana
+UP,Uttar Pradesh,Meerut,Ghaziabad,Loni
+UP,Uttar Pradesh,Meerut,Ghaziabad,Modinagar
+UP,Uttar Pradesh,Meerut,Ghaziabad,Muradnagar
+UP,Uttar Pradesh,Meerut,Ghaziabad,Razapur
+UP,Uttar Pradesh,Meerut,Ghaziabad,Simbhawali
+UP,Uttar Pradesh,Meerut,Ghaziabad,Tronica City
+UP,Uttar Pradesh,Meerut,Gautam Buddha Nagar,Gautam Block 1
+UP,Uttar Pradesh,Meerut,Gautam Buddha Nagar,Gautam Block 2
+UP,Uttar Pradesh,Meerut,Gautam Buddha Nagar,Gautam Block 3
+UP,Uttar Pradesh,Meerut,Gautam Buddha Nagar,Gautam Block 4
+UP,Uttar Pradesh,Meerut,Gautam Buddha Nagar,Gautam Block 5
+UP,Uttar Pradesh,Meerut,Gautam Buddha Nagar,Gautam Block 6
+UP,Uttar Pradesh,Meerut,Gautam Buddha Nagar,Gautam Block 7
+UP,Uttar Pradesh,Meerut,Gautam Buddha Nagar,Gautam Block 8
+UP,Uttar Pradesh,Meerut,Hapur,Hapur Block 1
+UP,Uttar Pradesh,Meerut,Hapur,Hapur Block 2
+UP,Uttar Pradesh,Meerut,Hapur,Hapur Block 3
+UP,Uttar Pradesh,Meerut,Hapur,Hapur Block 4
+UP,Uttar Pradesh,Meerut,Hapur,Hapur Block 5
+UP,Uttar Pradesh,Meerut,Hapur,Hapur Block 6
+UP,Uttar Pradesh,Meerut,Hapur,Hapur Block 7
+UP,Uttar Pradesh,Meerut,Hapur,Hapur Block 8
+UP,Uttar Pradesh,Meerut,Meerut,Daurala
+UP,Uttar Pradesh,Meerut,Meerut,Hapur
+UP,Uttar Pradesh,Meerut,Meerut,Inchauli
+UP,Uttar Pradesh,Meerut,Meerut,Jani
+UP,Uttar Pradesh,Meerut,Meerut,Kharkhoda
+UP,Uttar Pradesh,Meerut,Meerut,Machhara
+UP,Uttar Pradesh,Meerut,Meerut,Mawana
+UP,Uttar Pradesh,Meerut,Meerut,Parikshitgarh
+UP,Uttar Pradesh,Meerut,Meerut,Rohta
+UP,Uttar Pradesh,Meerut,Meerut,Sardhana
+UP,Uttar Pradesh,Meerut,Meerut,Sherpur
+UP,Uttar Pradesh,Mirzapur,Mirzapur,Mirzapur Block 1
+UP,Uttar Pradesh,Mirzapur,Mirzapur,Mirzapur Block 2
+UP,Uttar Pradesh,Mirzapur,Mirzapur,Mirzapur Block 3
+UP,Uttar Pradesh,Mirzapur,Mirzapur,Mirzapur Block 4
+UP,Uttar Pradesh,Mirzapur,Mirzapur,Mirzapur Block 5
+UP,Uttar Pradesh,Mirzapur,Mirzapur,Mirzapur Block 6
+UP,Uttar Pradesh,Mirzapur,Mirzapur,Mirzapur Block 7
+UP,Uttar Pradesh,Mirzapur,Mirzapur,Mirzapur Block 8
+UP,Uttar Pradesh,Mirzapur,Sant Ravidas Nagar,Sant Block 1
+UP,Uttar Pradesh,Mirzapur,Sant Ravidas Nagar,Sant Block 2
+UP,Uttar Pradesh,Mirzapur,Sant Ravidas Nagar,Sant Block 3
+UP,Uttar Pradesh,Mirzapur,Sant Ravidas Nagar,Sant Block 4
+UP,Uttar Pradesh,Mirzapur,Sant Ravidas Nagar,Sant Block 5
+UP,Uttar Pradesh,Mirzapur,Sant Ravidas Nagar,Sant Block 6
+UP,Uttar Pradesh,Mirzapur,Sant Ravidas Nagar,Sant Block 7
+UP,Uttar Pradesh,Mirzapur,Sant Ravidas Nagar,Sant Block 8
+UP,Uttar Pradesh,Mirzapur,Sonbhadra,Sonbhadra Block 1
+UP,Uttar Pradesh,Mirzapur,Sonbhadra,Sonbhadra Block 2
+UP,Uttar Pradesh,Mirzapur,Sonbhadra,Sonbhadra Block 3
+UP,Uttar Pradesh,Mirzapur,Sonbhadra,Sonbhadra Block 4
+UP,Uttar Pradesh,Mirzapur,Sonbhadra,Sonbhadra Block 5
+UP,Uttar Pradesh,Mirzapur,Sonbhadra,Sonbhadra Block 6
+UP,Uttar Pradesh,Mirzapur,Sonbhadra,Sonbhadra Block 7
+UP,Uttar Pradesh,Mirzapur,Sonbhadra,Sonbhadra Block 8
+UP,Uttar Pradesh,Moradabad,Amroha,Amroha Block 1
+UP,Uttar Pradesh,Moradabad,Amroha,Amroha Block 2
+UP,Uttar Pradesh,Moradabad,Amroha,Amroha Block 3
+UP,Uttar Pradesh,Moradabad,Amroha,Amroha Block 4
+UP,Uttar Pradesh,Moradabad,Amroha,Amroha Block 5
+UP,Uttar Pradesh,Moradabad,Amroha,Amroha Block 6
+UP,Uttar Pradesh,Moradabad,Amroha,Amroha Block 7
+UP,Uttar Pradesh,Moradabad,Amroha,Amroha Block 8
+UP,Uttar Pradesh,Moradabad,Bijnor,Bijnor Block 1
+UP,Uttar Pradesh,Moradabad,Bijnor,Bijnor Block 2
+UP,Uttar Pradesh,Moradabad,Bijnor,Bijnor Block 3
+UP,Uttar Pradesh,Moradabad,Bijnor,Bijnor Block 4
+UP,Uttar Pradesh,Moradabad,Bijnor,Bijnor Block 5
+UP,Uttar Pradesh,Moradabad,Bijnor,Bijnor Block 6
+UP,Uttar Pradesh,Moradabad,Bijnor,Bijnor Block 7
+UP,Uttar Pradesh,Moradabad,Bijnor,Bijnor Block 8
+UP,Uttar Pradesh,Moradabad,Moradabad,Moradabad Block 1
+UP,Uttar Pradesh,Moradabad,Moradabad,Moradabad Block 2
+UP,Uttar Pradesh,Moradabad,Moradabad,Moradabad Block 3
+UP,Uttar Pradesh,Moradabad,Moradabad,Moradabad Block 4
+UP,Uttar Pradesh,Moradabad,Moradabad,Moradabad Block 5
+UP,Uttar Pradesh,Moradabad,Moradabad,Moradabad Block 6
+UP,Uttar Pradesh,Moradabad,Moradabad,Moradabad Block 7
+UP,Uttar Pradesh,Moradabad,Moradabad,Moradabad Block 8
+UP,Uttar Pradesh,Moradabad,Rampur,Rampur Block 1
+UP,Uttar Pradesh,Moradabad,Rampur,Rampur Block 2
+UP,Uttar Pradesh,Moradabad,Rampur,Rampur Block 3
+UP,Uttar Pradesh,Moradabad,Rampur,Rampur Block 4
+UP,Uttar Pradesh,Moradabad,Rampur,Rampur Block 5
+UP,Uttar Pradesh,Moradabad,Rampur,Rampur Block 6
+UP,Uttar Pradesh,Moradabad,Rampur,Rampur Block 7
+UP,Uttar Pradesh,Moradabad,Rampur,Rampur Block 8
+UP,Uttar Pradesh,Moradabad,Sambhal,Sambhal Block 1
+UP,Uttar Pradesh,Moradabad,Sambhal,Sambhal Block 2
+UP,Uttar Pradesh,Moradabad,Sambhal,Sambhal Block 3
+UP,Uttar Pradesh,Moradabad,Sambhal,Sambhal Block 4
+UP,Uttar Pradesh,Moradabad,Sambhal,Sambhal Block 5
+UP,Uttar Pradesh,Moradabad,Sambhal,Sambhal Block 6
+UP,Uttar Pradesh,Moradabad,Sambhal,Sambhal Block 7
+UP,Uttar Pradesh,Moradabad,Sambhal,Sambhal Block 8
+UP,Uttar Pradesh,Prayagraj,Fatehpur,Fatehpur Block 1
+UP,Uttar Pradesh,Prayagraj,Fatehpur,Fatehpur Block 2
+UP,Uttar Pradesh,Prayagraj,Fatehpur,Fatehpur Block 3
+UP,Uttar Pradesh,Prayagraj,Fatehpur,Fatehpur Block 4
+UP,Uttar Pradesh,Prayagraj,Fatehpur,Fatehpur Block 5
+UP,Uttar Pradesh,Prayagraj,Fatehpur,Fatehpur Block 6
+UP,Uttar Pradesh,Prayagraj,Fatehpur,Fatehpur Block 7
+UP,Uttar Pradesh,Prayagraj,Fatehpur,Fatehpur Block 8
+UP,Uttar Pradesh,Prayagraj,Kaushambi,Kaushambi Block 1
+UP,Uttar Pradesh,Prayagraj,Kaushambi,Kaushambi Block 2
+UP,Uttar Pradesh,Prayagraj,Kaushambi,Kaushambi Block 3
+UP,Uttar Pradesh,Prayagraj,Kaushambi,Kaushambi Block 4
+UP,Uttar Pradesh,Prayagraj,Kaushambi,Kaushambi Block 5
+UP,Uttar Pradesh,Prayagraj,Kaushambi,Kaushambi Block 6
+UP,Uttar Pradesh,Prayagraj,Kaushambi,Kaushambi Block 7
+UP,Uttar Pradesh,Prayagraj,Kaushambi,Kaushambi Block 8
+UP,Uttar Pradesh,Prayagraj,Prayagraj,Bahria
+UP,Uttar Pradesh,Prayagraj,Prayagraj,Bara
+UP,Uttar Pradesh,Prayagraj,Prayagraj,Chaka
+UP,Uttar Pradesh,Prayagraj,Prayagraj,Dhanupur
+UP,Uttar Pradesh,Prayagraj,Prayagraj,Holagarh
+UP,Uttar Pradesh,Prayagraj,Prayagraj,Jasra
+UP,Uttar Pradesh,Prayagraj,Prayagraj,Karachhana
+UP,Uttar Pradesh,Prayagraj,Prayagraj,Koraon
+UP,Uttar Pradesh,Prayagraj,Prayagraj,Meja
+UP,Uttar Pradesh,Prayagraj,Prayagraj,Manda
+UP,Uttar Pradesh,Prayagraj,Prayagraj,Phulpur
+UP,Uttar Pradesh,Prayagraj,Prayagraj,Pratappur
+UP,Uttar Pradesh,Prayagraj,Prayagraj,Sahson
+UP,Uttar Pradesh,Prayagraj,Prayagraj,Saidabad
+UP,Uttar Pradesh,Prayagraj,Prayagraj,Shankargarh
+UP,Uttar Pradesh,Prayagraj,Prayagraj,Soraon
+UP,Uttar Pradesh,Prayagraj,Pratapgarh,Pratapgarh Block 1
+UP,Uttar Pradesh,Prayagraj,Pratapgarh,Pratapgarh Block 2
+UP,Uttar Pradesh,Prayagraj,Pratapgarh,Pratapgarh Block 3
+UP,Uttar Pradesh,Prayagraj,Pratapgarh,Pratapgarh Block 4
+UP,Uttar Pradesh,Prayagraj,Pratapgarh,Pratapgarh Block 5
+UP,Uttar Pradesh,Prayagraj,Pratapgarh,Pratapgarh Block 6
+UP,Uttar Pradesh,Prayagraj,Pratapgarh,Pratapgarh Block 7
+UP,Uttar Pradesh,Prayagraj,Pratapgarh,Pratapgarh Block 8
+UP,Uttar Pradesh,Saharanpur,Muzaffarnagar,Muzaffarnagar Block 1
+UP,Uttar Pradesh,Saharanpur,Muzaffarnagar,Muzaffarnagar Block 2
+UP,Uttar Pradesh,Saharanpur,Muzaffarnagar,Muzaffarnagar Block 3
+UP,Uttar Pradesh,Saharanpur,Muzaffarnagar,Muzaffarnagar Block 4
+UP,Uttar Pradesh,Saharanpur,Muzaffarnagar,Muzaffarnagar Block 5
+UP,Uttar Pradesh,Saharanpur,Muzaffarnagar,Muzaffarnagar Block 6
+UP,Uttar Pradesh,Saharanpur,Muzaffarnagar,Muzaffarnagar Block 7
+UP,Uttar Pradesh,Saharanpur,Muzaffarnagar,Muzaffarnagar Block 8
+UP,Uttar Pradesh,Saharanpur,Saharanpur,Saharanpur Block 1
+UP,Uttar Pradesh,Saharanpur,Saharanpur,Saharanpur Block 2
+UP,Uttar Pradesh,Saharanpur,Saharanpur,Saharanpur Block 3
+UP,Uttar Pradesh,Saharanpur,Saharanpur,Saharanpur Block 4
+UP,Uttar Pradesh,Saharanpur,Saharanpur,Saharanpur Block 5
+UP,Uttar Pradesh,Saharanpur,Saharanpur,Saharanpur Block 6
+UP,Uttar Pradesh,Saharanpur,Saharanpur,Saharanpur Block 7
+UP,Uttar Pradesh,Saharanpur,Saharanpur,Saharanpur Block 8
+UP,Uttar Pradesh,Saharanpur,Shamli,Shamli Block 1
+UP,Uttar Pradesh,Saharanpur,Shamli,Shamli Block 2
+UP,Uttar Pradesh,Saharanpur,Shamli,Shamli Block 3
+UP,Uttar Pradesh,Saharanpur,Shamli,Shamli Block 4
+UP,Uttar Pradesh,Saharanpur,Shamli,Shamli Block 5
+UP,Uttar Pradesh,Saharanpur,Shamli,Shamli Block 6
+UP,Uttar Pradesh,Saharanpur,Shamli,Shamli Block 7
+UP,Uttar Pradesh,Saharanpur,Shamli,Shamli Block 8
+UP,Uttar Pradesh,Varanasi,Chandauli,Chandauli Block 1
+UP,Uttar Pradesh,Varanasi,Chandauli,Chandauli Block 2
+UP,Uttar Pradesh,Varanasi,Chandauli,Chandauli Block 3
+UP,Uttar Pradesh,Varanasi,Chandauli,Chandauli Block 4
+UP,Uttar Pradesh,Varanasi,Chandauli,Chandauli Block 5
+UP,Uttar Pradesh,Varanasi,Chandauli,Chandauli Block 6
+UP,Uttar Pradesh,Varanasi,Chandauli,Chandauli Block 7
+UP,Uttar Pradesh,Varanasi,Chandauli,Chandauli Block 8
+UP,Uttar Pradesh,Varanasi,Ghazipur,Ghazipur Block 1
+UP,Uttar Pradesh,Varanasi,Ghazipur,Ghazipur Block 2
+UP,Uttar Pradesh,Varanasi,Ghazipur,Ghazipur Block 3
+UP,Uttar Pradesh,Varanasi,Ghazipur,Ghazipur Block 4
+UP,Uttar Pradesh,Varanasi,Ghazipur,Ghazipur Block 5
+UP,Uttar Pradesh,Varanasi,Ghazipur,Ghazipur Block 6
+UP,Uttar Pradesh,Varanasi,Ghazipur,Ghazipur Block 7
+UP,Uttar Pradesh,Varanasi,Ghazipur,Ghazipur Block 8
+UP,Uttar Pradesh,Varanasi,Jaunpur,Jaunpur Block 1
+UP,Uttar Pradesh,Varanasi,Jaunpur,Jaunpur Block 2
+UP,Uttar Pradesh,Varanasi,Jaunpur,Jaunpur Block 3
+UP,Uttar Pradesh,Varanasi,Jaunpur,Jaunpur Block 4
+UP,Uttar Pradesh,Varanasi,Jaunpur,Jaunpur Block 5
+UP,Uttar Pradesh,Varanasi,Jaunpur,Jaunpur Block 6
+UP,Uttar Pradesh,Varanasi,Jaunpur,Jaunpur Block 7
+UP,Uttar Pradesh,Varanasi,Jaunpur,Jaunpur Block 8
+UP,Uttar Pradesh,Varanasi,Varanasi,Arajiline
+UP,Uttar Pradesh,Varanasi,Varanasi,Baragaon
+UP,Uttar Pradesh,Varanasi,Varanasi,Chiraigaon
+UP,Uttar Pradesh,Varanasi,Varanasi,Harhua
+UP,Uttar Pradesh,Varanasi,Varanasi,Kashi Vidyapeeth
+UP,Uttar Pradesh,Varanasi,Varanasi,Pindra
+UP,Uttar Pradesh,Varanasi,Varanasi,Rohania
+UP,Uttar Pradesh,Varanasi,Varanasi,Sewapuri
