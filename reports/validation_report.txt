@@ -24,7 +24,7 @@
 
 ======================================================================
 VALIDATION REPORT
-Generated: 2026-04-06 14:54:23
+Generated: 2026-04-06 15:19:18
 ======================================================================
 
 --- CHECK 1: Row Counts ---
@@ -64,6 +64,7 @@ Generated: 2026-04-06 14:54:23
   [OK]   bm_enrolment_request.enrolment_request_id: unique
   [OK]   bm_card.card_id: unique
   [OK]   hm_hospital.hospital_id: unique
+  [OK]   hm_hospital_bank_account.hospital_bank_id: unique
   [OK]   hm_license_certificate.hospital_license_id: unique
   [OK]   hm_specialty_offered.hospital_specialty_id: unique
   [OK]   hm_staff.staff_id: unique
@@ -73,6 +74,7 @@ Generated: 2026-04-06 14:54:23
   [OK]   cm_preauth_procedure_line.preauth_proc_id: unique
   [OK]   cm_discharge.discharge_id: unique
   [OK]   cm_claim.claim_id: unique
+  [OK]   cm_claim_document.claim_doc_id: unique
   [OK]   cm_adjudication_event.event_id: unique
   [OK]   cm_payment.payment_id: unique
   [OK]   ref_hbp_procedure_master.hbp_procedure_code: unique
@@ -173,3 +175,5 @@ POST-VIEW VALIDATION CHECKLIST
   [PASS] NCD share ~30%  (actual: 26.0%)
   [PASS] Gender balance: M=51.4%  F=48.6%
   [PASS] Hospital type: PUBLIC=59.2%  PRIVATE=40.8%
+  [INFO] View 3 SUM(cases_treated) = 8,549 / 22,500 View 1 cases (38.0% coverage). Gap = cases treated in specialties not listed in hm_specialty_offered for that hospital (beyond-registration utilisation).
+  [PASS] View 3 case coverage above 20% sanity threshold (38.0%)

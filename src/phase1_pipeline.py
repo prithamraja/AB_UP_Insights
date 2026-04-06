@@ -326,6 +326,7 @@ PK_MAP = {
     "bm_enrolment_request":     "enrolment_request_id",
     "bm_card":                  "card_id",
     "hm_hospital":              "hospital_id",
+    "hm_hospital_bank_account": "hospital_bank_id",
     "hm_license_certificate":   "hospital_license_id",
     "hm_specialty_offered":     "hospital_specialty_id",
     "hm_staff":                 "staff_id",
@@ -335,6 +336,7 @@ PK_MAP = {
     "cm_preauth_procedure_line": "preauth_proc_id",
     "cm_discharge":             "discharge_id",
     "cm_claim":                 "claim_id",
+    "cm_claim_document":        "claim_doc_id",
     "cm_adjudication_event":    "event_id",
     "cm_payment":               "payment_id",
     "ref_hbp_procedure_master": "hbp_procedure_code",
@@ -625,12 +627,18 @@ v1 = v1.merge(
     on="hospital_id", how="left",
 )
 v1 = v1.merge(diag_primary, on="case_id", how="left")
-v1 = v1.merge(
-    tables["cm_preauth_request"][["preauth_id", "case_id", "status"]].rename(
-        columns={"status": "preauth_status"}
-    ),
-    on="case_id", how="left",
+
+# Deduplicate preauth: keep the latest preauth request per case.
+# A case can have multiple preauths (initial + re-submissions after queries).
+# Joining without dedup would multiply rows and break the one-row-per-case grain.
+preauth_deduped = (
+    tables["cm_preauth_request"]
+    .sort_values("initiated_at")
+    .groupby("case_id", as_index=False)
+    .last()[["preauth_id", "case_id", "status"]]
+    .rename(columns={"status": "preauth_status"})
 )
+v1 = v1.merge(preauth_deduped, on="case_id", how="left")
 v1 = v1.merge(ppl_primary, on="preauth_id", how="left")
 v1 = v1.merge(
     tables["ref_hbp_procedure_master"][[
@@ -807,7 +815,13 @@ _numeric_fill_cols = [
 ]
 v2[_numeric_fill_cols] = v2[_numeric_fill_cols].fillna(0)
 
-# Cumulative enrolled beneficiaries per district (running total by month)
+# Cumulative enrolled beneficiaries per district (running total by month).
+# NOTE: This counts beneficiaries by their enrolment date (created_at),
+# not by card issuance date. So claims_per_1000_beneficiaries measures
+# "cases per 1000 enrolled beneficiaries" — including those who may not
+# yet have received their Ayushman card. This gives the broader eligible-
+# population view, which is more relevant for scheme coverage analysis.
+# Alternative: use cumulative cards_issued for a stricter card-holder denominator.
 v2 = v2.sort_values(["home_district_code", "month"])
 v2["cumulative_beneficiaries"] = (
     v2.groupby("home_district_code")["new_beneficiaries"].cumsum()
@@ -1242,6 +1256,28 @@ _ht = view1["hospital_type"].value_counts(normalize=True)
 _chk("PUBLIC" in _ht.index,
      f"Hospital type: PUBLIC={_ht.get('PUBLIC', 0)*100:.1f}%  "
      f"PRIVATE={_ht.get('PRIVATE', 0)*100:.1f}%")
+
+# ── Cross-view case count consistency (View 1 vs View 3) ─────────────────────
+# View 3 is anchored on hm_specialty_offered. Cases treated in a specialty
+# that the hospital does not formally list in hm_specialty_offered are
+# excluded from View 3's cases_treated count — they appear in hosp_spec_agg
+# but don't match any offered row in the left join.
+# This is intentional per the spec (offered-capacity vs utilisation analysis),
+# but the coverage gap is a meaningful data quality signal on its own:
+#   Gap > 0 => hospitals treating beyond their registered specialty list.
+# We flag if coverage is below 20% as a sign the join chain may be broken.
+_v1_total = len(view1)
+_v3_total = int(view3["cases_treated"].sum())
+_coverage = _v3_total / _v1_total * 100 if _v1_total > 0 else 0
+log(
+    f"  [INFO] View 3 SUM(cases_treated) = {_v3_total:,} / {_v1_total:,} View 1 cases "
+    f"({_coverage:.1f}% coverage). Gap = cases treated in specialties not listed in "
+    f"hm_specialty_offered for that hospital (beyond-registration utilisation)."
+)
+_chk(
+    _coverage > 20,
+    f"View 3 case coverage above 20% sanity threshold ({_coverage:.1f}%)",
+)
 
 # ── Flush validation report ───────────────────────────────────────────────────
 save_validation_report()
