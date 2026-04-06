@@ -1202,8 +1202,8 @@ _chk(abs(len(view1) - 22_500) / 22_500 < 0.20,
      f"View 1 row count ~22,500  (actual: {len(view1):,})")
 _chk(len(view2) >= 1_000,
      f"View 2 row count reasonable  (actual: {len(view2):,})")
-_chk(abs(len(view3) - 4_000) / 4_000 < 0.50,
-     f"View 3 row count ~4,000  (actual: {len(view3):,})")
+_chk(len(view3) >= 2_000,
+     f"View 3 row count >= 2,000 (grows with data_fix.py specialty expansion, actual: {len(view3):,})")
 _chk(abs(len(view4) - 200_000) / 200_000 < 0.20,
      f"View 4 row count ~200,000  (actual: {len(view4):,})")
 
