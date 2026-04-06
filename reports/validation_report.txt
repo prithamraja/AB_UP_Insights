@@ -1,0 +1,175 @@
+
+--- Row counts at load ---
+  ref_up_geography: 641 rows x 5 cols
+  ref_hbp_procedure_master: 25 rows x 10 cols
+  bm_household: 50,000 rows x 9 cols
+  bm_beneficiary: 205,847 rows x 16 cols
+  bm_id_document: 246,927 rows x 10 cols
+  bm_enrolment_request: 226,585 rows x 9 cols
+  bm_card: 195,619 rows x 5 cols
+  hm_hospital: 800 rows x 33 cols
+  hm_hospital_bank_account: 800 rows x 10 cols
+  hm_license_certificate: 5,614 rows x 7 cols
+  hm_specialty_offered: 2,840 rows x 6 cols
+  hm_staff: 4,130 rows x 9 cols
+  cm_case: 22,500 rows x 14 cols
+  cm_case_diagnosis: 45,014 rows x 7 cols
+  cm_preauth_request: 22,500 rows x 11 cols
+  cm_preauth_procedure_line: 29,363 rows x 14 cols
+  cm_discharge: 22,500 rows x 13 cols
+  cm_claim: 22,500 rows x 13 cols
+  cm_claim_document: 112,564 rows x 5 cols
+  cm_adjudication_event: 66,159 rows x 7 cols
+  cm_payment: 2,947 rows x 8 cols
+
+======================================================================
+VALIDATION REPORT
+Generated: 2026-04-06 14:54:23
+======================================================================
+
+--- CHECK 1: Row Counts ---
+  ref_up_geography: actual=641  expected~1,000  (35.9% diff)  [UNEXPECTED]
+  ref_hbp_procedure_master: actual=25  expected~25  (0.0% diff)  [OK]
+  bm_household: actual=50,000  expected~50,000  (0.0% diff)  [OK]
+  bm_beneficiary: actual=205,847  expected~200,000  (2.9% diff)  [OK]
+  bm_id_document: actual=246,927  expected~300,000  (17.7% diff)  [OK]
+  bm_enrolment_request: actual=226,585  expected~200,000  (13.3% diff)  [OK]
+  bm_card: actual=195,619  expected~190,000  (3.0% diff)  [OK]
+  hm_hospital: actual=800  expected~800  (0.0% diff)  [OK]
+  hm_hospital_bank_account: actual=800  expected~800  (0.0% diff)  [OK]
+  hm_license_certificate: actual=5,614  expected~4,000  (40.4% diff)  [UNEXPECTED]
+  hm_specialty_offered: actual=2,840  expected~4,000  (29.0% diff)  [UNEXPECTED]
+  hm_staff: actual=4,130  expected~5,000  (17.4% diff)  [OK]
+  cm_case: actual=22,500  expected~22,500  (0.0% diff)  [OK]
+  cm_case_diagnosis: actual=45,014  expected~35,000  (28.6% diff)  [UNEXPECTED]
+  cm_preauth_request: actual=22,500  expected~22,500  (0.0% diff)  [OK]
+  cm_preauth_procedure_line: actual=29,363  expected~28,000  (4.9% diff)  [OK]
+  cm_discharge: actual=22,500  expected~22,500  (0.0% diff)  [OK]
+  cm_claim: actual=22,500  expected~22,500  (0.0% diff)  [OK]
+  cm_claim_document: actual=112,564  expected~110,000  (2.3% diff)  [OK]
+  cm_adjudication_event: actual=66,159  expected~70,000  (5.5% diff)  [OK]
+  cm_payment: actual=2,947  expected~19,000  (84.5% diff)  [UNEXPECTED]
+
+[FAILED] CHECK 1: Row Counts
+  - ref_up_geography: 641 rows vs expected ~1,000 (35.9% diff)
+  - hm_license_certificate: 5,614 rows vs expected ~4,000 (40.4% diff)
+  - hm_specialty_offered: 2,840 rows vs expected ~4,000 (29.0% diff)
+  - cm_case_diagnosis: 45,014 rows vs expected ~35,000 (28.6% diff)
+  - cm_payment: 2,947 rows vs expected ~19,000 (84.5% diff)
+
+--- CHECK 2: Primary Key Uniqueness ---
+  [OK]   bm_household.household_id: unique
+  [OK]   bm_beneficiary.beneficiary_id: unique
+  [OK]   bm_id_document.id_doc_id: unique
+  [OK]   bm_enrolment_request.enrolment_request_id: unique
+  [OK]   bm_card.card_id: unique
+  [OK]   hm_hospital.hospital_id: unique
+  [OK]   hm_license_certificate.hospital_license_id: unique
+  [OK]   hm_specialty_offered.hospital_specialty_id: unique
+  [OK]   hm_staff.staff_id: unique
+  [OK]   cm_case.case_id: unique
+  [OK]   cm_case_diagnosis.case_diagnosis_id: unique
+  [OK]   cm_preauth_request.preauth_id: unique
+  [OK]   cm_preauth_procedure_line.preauth_proc_id: unique
+  [OK]   cm_discharge.discharge_id: unique
+  [OK]   cm_claim.claim_id: unique
+  [OK]   cm_adjudication_event.event_id: unique
+  [OK]   cm_payment.payment_id: unique
+  [OK]   ref_hbp_procedure_master.hbp_procedure_code: unique
+[PASSED] CHECK 2: Primary Key Uniqueness
+
+--- CHECK 3: Foreign Key Integrity ---
+  bm_beneficiary.household_id -> bm_household.household_id: 0/205,847 orphans (0.0%)
+  bm_id_document.beneficiary_id -> bm_beneficiary.beneficiary_id: 0/246,927 orphans (0.0%)
+  bm_enrolment_request.beneficiary_id -> bm_beneficiary.beneficiary_id: 0/226,585 orphans (0.0%)
+  bm_card.beneficiary_id -> bm_beneficiary.beneficiary_id: 0/195,619 orphans (0.0%)
+  hm_hospital_bank_account.hospital_id -> hm_hospital.hospital_id: 0/800 orphans (0.0%)
+  hm_license_certificate.hospital_id -> hm_hospital.hospital_id: 0/5,614 orphans (0.0%)
+  hm_specialty_offered.hospital_id -> hm_hospital.hospital_id: 0/2,840 orphans (0.0%)
+  hm_staff.hospital_id -> hm_hospital.hospital_id: 0/4,130 orphans (0.0%)
+  cm_case.beneficiary_id -> bm_beneficiary.beneficiary_id: 0/22,500 orphans (0.0%)
+  cm_case.hospital_id -> hm_hospital.hospital_id: 0/22,500 orphans (0.0%)
+  cm_case_diagnosis.case_id -> cm_case.case_id: 0/45,014 orphans (0.0%)
+  cm_preauth_request.case_id -> cm_case.case_id: 0/22,500 orphans (0.0%)
+  cm_preauth_procedure_line.preauth_id -> cm_preauth_request.preauth_id: 0/29,363 orphans (0.0%)
+  cm_preauth_procedure_line.hbp_procedure_code -> ref_hbp_procedure_master.hbp_procedure_code: 0/29,363 orphans (0.0%)
+  cm_preauth_procedure_line.clinician_staff_id -> hm_staff.staff_id: 0/29,363 orphans (0.0%)
+  cm_claim.case_id -> cm_case.case_id: 0/22,500 orphans (0.0%)
+  cm_claim.preauth_id -> cm_preauth_request.preauth_id: 0/22,500 orphans (0.0%)
+  cm_claim_document.claim_id -> cm_claim.claim_id: 0/112,564 orphans (0.0%)
+  cm_adjudication_event.claim_id -> cm_claim.claim_id: 0/66,159 orphans (0.0%)
+  cm_payment.claim_id -> cm_claim.claim_id: 0/2,947 orphans (0.0%)
+  cm_payment.hospital_bank_id -> hm_hospital_bank_account.hospital_bank_id: 0/2,947 orphans (0.0%)
+[PASSED] CHECK 3: Foreign Key Integrity
+
+--- CHECK 4: Null Rates (columns with >20% nulls) ---
+  bm_beneficiary.father_or_spouse_name: 30.0% null
+  bm_beneficiary.dob: 35.1% null
+  bm_beneficiary.mobile: 24.6% null
+  bm_beneficiary.ekyc_last_reference_id: 20.1% null
+  bm_enrolment_request.rejection_reason: 86.3% null
+  hm_hospital.accreditation_board: 23.1% null
+  hm_hospital.accreditation_level: 34.4% null
+  hm_hospital.accreditation_valid_upto: 58.9% null
+  hm_staff.email: 100.0% null
+  cm_preauth_request.last_query_at: 88.0% null
+  cm_preauth_request.last_query_response_at: 100.0% null
+  cm_preauth_request.cancelled_at: 100.0% null
+  cm_preauth_request.cancellation_reason: 100.0% null
+  cm_discharge.lama_date: 96.0% null
+  cm_discharge.death_date: 99.6% null
+  cm_discharge.death_certificate_uri: 99.6% null
+  cm_discharge.mortality_audit_report_uri: 99.6% null
+  cm_claim.settled_at: 86.9% null
+  cm_adjudication_event.reason_category: 95.7% null
+  cm_adjudication_event.notes: 100.0% null
+
+--- CHECK 5: Categorical Value Distributions ---
+  bm_beneficiary.gender: ['F', 'M']
+  cm_case.admission_type: ['ELECTIVE', 'EMERGENCY']
+  cm_case.discharge_type: ['DAMA', 'DEATH', 'LAMA', 'LIVE', 'NORMAL']
+  cm_claim.claim_status: ['APPROVED', 'PENDING', 'QUERY_RAISED', 'REJECTED', 'SETTLED']
+  hm_hospital.hospital_type: ['PRIVATE', 'PUBLIC']
+[PASSED] CHECK 5: Categorical Value Distributions
+
+--- CHECK 6: Date Ranges ---
+  cm_case.admission_datetime: 2023-02-28 -> 2026-01-28 (2.9 yrs)
+  cm_case.discharge_datetime: 2023-03-01 -> 2026-03-10 (3.0 yrs)
+  cm_claim.submitted_at: 2023-03-01 -> 2026-03-11 (3.0 yrs)
+  cm_claim.settled_at: 2023-03-09 -> 2026-02-27 (3.0 yrs)
+  bm_beneficiary.created_at: 2026-02-27 -> 2026-02-27 (0.0 yrs)
+  cm_payment.payment_date: 2023-03-10 -> 2026-02-27 (3.0 yrs)
+
+[FAILED] CHECK 6: Date Ranges
+  - bm_beneficiary.created_at: span=0.0 yrs (expected ~3)
+
+--- Disease Category Distribution (derived ICD mapping) ---
+  COMMUNICABLE: 28.8%
+  NCD: 26.0%
+  MATERNAL_NEONATAL: 18.5%
+  SURGICAL: 17.1%
+  INJURY: 9.6%
+
+
+======================================================================
+POST-VIEW VALIDATION CHECKLIST
+======================================================================
+  [PASS] View 1 row count ~22,500  (actual: 22,500)
+  [PASS] View 2 row count reasonable  (actual: 2,713)
+  [PASS] View 3 row count ~4,000  (actual: 2,840)
+  [PASS] View 4 row count ~200,000  (actual: 205,847)
+  [PASS] View 1: no duplicate case_ids
+  [PASS] View 2: no duplicate (district, month) pairs
+  [PASS] View 3: no duplicate (hospital_id, specialty_code) pairs
+  [PASS] View 4: no duplicate beneficiary_ids
+  [PASS] View 3: rows with cases_treated=0 exist (left join worked)
+  [PASS] View 3: rows with cases_treated>0 exist
+  [PASS] View 1: amount_claimed is non-negative
+  [PASS] View 1: amount_approved is non-negative
+  [PASS] View 1: amount_paid is non-negative
+  [PASS] Temporal span ~3 years  (actual: 2.9 yrs)
+  [PASS] View 2: approval_rate in [0, 1]
+  [PASS] View 2: claims_per_1000 is non-negative
+  [PASS] NCD share ~30%  (actual: 26.0%)
+  [PASS] Gender balance: M=51.4%  F=48.6%
+  [PASS] Hospital type: PUBLIC=59.2%  PRIVATE=40.8%

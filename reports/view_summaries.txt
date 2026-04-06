@@ -1,0 +1,478 @@
+
+======================================================================
+SUMMARY: View 1: Claims Lifecycle
+Rows: 22,500  |  Columns: 38
+======================================================================
+
+All columns: ['case_id', 'division', 'district', 'hospital_division', 'hospital_district', 'hospital_type', 'hospital_sub_type', 'specialty_code', 'specialty_name', 'procedure_name', 'disease_category', 'icd_code', 'gender', 'age_group', 'admission_type', 'discharge_type', 'is_portability', 'claim_status', 'preauth_status', 'payment_status', 'accreditation_level', 'bed_size_bucket', 'admission_month', 'admission_quarter', 'admission_year', 'length_of_stay', 'is_emergency', 'is_death', 'is_lama_dama', 'base_amount', 'computed_final_amount', 'expected_payable_amount', 'amount_claimed', 'amount_approved', 'amount_paid', 'settlement_tat_days', 'query_count', 'case_count']
+
+--- Null counts (non-zero only) ---
+  payment_status: 19,553 (86.9%)
+  accreditation_level: 7,739 (34.4%)
+  amount_approved: 3,408 (15.1%)
+  amount_paid: 19,553 (86.9%)
+  settlement_tat_days: 3,408 (15.1%)
+
+--- Dimension columns (unique count + top 5 by frequency) ---
+  case_id  [22500 unique]:
+    '530d4a8c-674d-4f0d-910e-9d399a76cd4f': 1
+    '25da463a-ba1b-407d-9f28-1c9e062d732c': 1
+    '16558ea4-2eff-43b5-a1a6-13f4f1b76cda': 1
+    '860663b4-5a78-40b9-935c-eede4d34d3a9': 1
+    '9e547713-d878-460b-b4b2-940a180c662a': 1
+  division  [18 unique]:
+    'Lucknow': 2,291
+    'Meerut': 2,091
+    'Prayagraj': 1,565
+    'Varanasi': 1,561
+    'Kanpur': 1,479
+  district  [75 unique]:
+    'Prayagraj': 790
+    'Lucknow': 618
+    'Ghaziabad': 586
+    'Bareilly': 550
+    'Kanpur Nagar': 549
+  hospital_division  [18 unique]:
+    'Lucknow': 2,447
+    'Meerut': 2,124
+    'Prayagraj': 1,671
+    'Kanpur': 1,615
+    'Moradabad': 1,425
+  hospital_district  [75 unique]:
+    'Gorakhpur': 793
+    'Lucknow': 789
+    'Prayagraj': 746
+    'Meerut': 595
+    'Kanpur Nagar': 581
+  hospital_type  [2 unique]:
+    'PUBLIC': 13,310
+    'PRIVATE': 9,190
+  hospital_sub_type  [8 unique]:
+    'Private': 3,523
+    'Trust': 3,041
+    'CHC': 2,859
+    'Civil Hospital': 2,852
+    'NGO': 2,626
+  specialty_code  [11 unique]:
+    'OBG': 3,580
+    'GS': 3,578
+    'MED': 2,813
+    'ORTH': 2,729
+    'CARD': 2,621
+  specialty_name  [11 unique]:
+    'Obstetrics & Gynaecology': 3,580
+    'General Surgery': 3,578
+    'General Medicine': 2,813
+    'Orthopaedics': 2,729
+    'Cardiology': 2,621
+  procedure_name  [25 unique]:
+    'Neonatal Intensive Care (Level II)': 966
+    'Anti-TB Treatment with Hospitalisation': 957
+    'Open Inguinal Herniorrhaphy': 936
+    'Dengue Fever Hospitalisation': 932
+    'Chemotherapy Cycle': 928
+  disease_category  [5 unique]:
+    'COMMUNICABLE': 6,524
+    'NCD': 5,830
+    'MATERNAL_NEONATAL': 4,149
+    'SURGICAL': 3,833
+    'INJURY': 2,164
+  icd_code  [47 unique]:
+    'A09': 684
+    'A15.0': 678
+    'A77.0': 678
+    'A90': 667
+    'A01.0': 649
+  gender  [2 unique]:
+    'M': 11,559
+    'F': 10,941
+  age_group  [4 unique]:
+    '60+': 8,649
+    '41-60': 6,730
+    '26-40': 5,093
+    '15-25': 2,028
+  admission_type  [2 unique]:
+    'ELECTIVE': 19,135
+    'EMERGENCY': 3,365
+  discharge_type  [5 unique]:
+    'NORMAL': 19,650
+    'LIVE': 1,403
+    'LAMA': 891
+    'DAMA': 470
+    'DEATH': 86
+  is_portability  [2 unique]:
+    np.False_: 21,661
+    np.True_: 839
+  claim_status  [5 unique]:
+    'APPROVED': 16,145
+    'SETTLED': 2,947
+    'QUERY_RAISED': 2,074
+    'REJECTED': 887
+    'PENDING': 447
+  preauth_status  [4 unique]:
+    'APPROVED': 11,220
+    'AUTO_APPROVED': 7,904
+    'QUERY_RAISED': 2,702
+    'REJECTED': 674
+  payment_status  [3 unique]:
+    nan: 19,553
+    'SUCCESS': 2,796
+    'INITIATED': 80
+    'FAILED': 71
+  accreditation_level  [2 unique]:
+    'FULL': 7,960
+    nan: 7,739
+    'PRE': 6,801
+  bed_size_bucket  [4 unique]:
+    'LARGE (101-300)': 9,180
+    'MEDIUM (31-100)': 7,322
+    'SMALL (<=30)': 4,488
+    'VERY_LARGE (300+)': 1,510
+  admission_month  [36 unique]:
+    '2023-08': 818
+    '2025-08': 777
+    '2023-07': 776
+    '2024-07': 767
+    '2025-07': 748
+  admission_quarter  [13 unique]:
+    '2023Q3': 2,338
+    '2025Q3': 2,264
+    '2024Q3': 2,211
+    '2024Q4': 1,869
+    '2025Q2': 1,866
+  admission_year  [4 unique]:
+    '2025': 7,702
+    '2024': 7,638
+    '2023': 6,616
+    '2026': 544
+
+--- Measure columns (descriptive stats) ---
+  length_of_stay: min=1.00  mean=3.89  median=2.25  max=42.25  std=3.82  nulls=0
+  is_emergency: min=0.00  mean=0.15  median=0.00  max=1.00  std=0.36  nulls=0
+  is_death: min=0.00  mean=0.00  median=0.00  max=1.00  std=0.06  nulls=0
+  is_lama_dama: min=0.00  mean=0.06  median=0.00  max=1.00  std=0.24  nulls=0
+  base_amount: min=5000.00  mean=32739.82  median=15000.00  max=200000.00  std=46374.44  nulls=0
+  computed_final_amount: min=5000.00  mean=39815.58  median=17062.94  max=249906.17  std=59303.14  nulls=0
+  expected_payable_amount: min=5000.00  mean=39815.58  median=17062.94  max=249906.17  std=59303.14  nulls=0
+  amount_claimed: min=5000.00  mean=45376.64  median=18375.00  max=354460.32  std=61636.34  nulls=0
+  amount_approved: min=4251.47  mean=41750.14  median=17239.53  max=340294.84  std=56950.83  nulls=3,408
+  amount_paid: min=4253.70  mean=40201.49  median=17185.34  max=327439.14  std=55262.67  nulls=19,553
+  settlement_tat_days: min=1.00  mean=12.51  median=11.00  max=42.00  std=6.59  nulls=3,408
+  query_count: min=0.00  mean=0.14  median=0.00  max=3.00  std=0.55  nulls=0
+  case_count: min=1.00  mean=1.00  median=1.00  max=1.00  std=0.00  nulls=0
+
+--- 5 random sample rows ---
+                             case_id  division   district hospital_division hospital_district hospital_type hospital_sub_type specialty_code   specialty_name                      procedure_name  disease_category icd_code gender age_group admission_type discharge_type  is_portability claim_status preauth_status payment_status accreditation_level bed_size_bucket admission_month admission_quarter admission_year  length_of_stay  is_emergency  is_death  is_lama_dama  base_amount  computed_final_amount  expected_payable_amount  amount_claimed  amount_approved  amount_paid  settlement_tat_days  query_count  case_count
+948ca034-28cc-4742-bd1d-1ba06bff1ba3 Devipatan   Bahraich            Kanpur      Kanpur Nagar        PUBLIC   Medical College             GS  General Surgery                   Haemorrhoidectomy      COMMUNICABLE      B54      F     26-40       ELECTIVE         NORMAL           False     APPROVED  AUTO_APPROVED            NaN                FULL MEDIUM (31-100)         2023-04            2023Q2           2023        1.250000             0         0             0      10000.0               10000.00                 10000.00        10000.00          9961.96          NaN                  6.0            0           1
+4ef3cd3d-8525-4e76-b3cc-754bf48976bb Gorakhpur Kushinagar          Bareilly          Bareilly        PUBLIC               CHC            MED General Medicine Medical Management of Acute Illness               NCD    I63.9      M     15-25       ELECTIVE         NORMAL           False     APPROVED  AUTO_APPROVED            NaN                FULL    SMALL (<=30)         2025-12            2025Q4           2025        2.250000             0         0             0       5000.0                5250.00                  5250.00         5250.00          5079.56          NaN                  5.0            0           1
+cc2f9574-848d-4f99-b1a1-12ad1f969afa Devipatan  Balrampur            Meerut           Baghpat       PRIVATE             Trust             GS  General Surgery                   Haemorrhoidectomy MATERNAL_NEONATAL      O80      F     26-40       ELECTIVE         NORMAL           False     APPROVED       APPROVED            NaN                 NaN LARGE (101-300)         2024-03            2024Q1           2024        2.083333             0         0             0      10000.0               10000.00                 10000.00        22500.00         19687.83          NaN                 10.0            0           1
+8066a4a3-06c1-4f30-8846-c26bd0f2a1ce     Basti      Basti           Ayodhya            Amethi        PUBLIC District Hospital           ONCO         Oncology                  Chemotherapy Cycle MATERNAL_NEONATAL    O69.0      M     26-40      EMERGENCY         NORMAL           False     APPROVED  AUTO_APPROVED            NaN                FULL    SMALL (<=30)         2024-10            2024Q4           2024        1.166667             1         0             0      25000.0               30380.87                 30380.87        30380.87         30139.92          NaN                 20.0            0           1
+78adb9f0-0770-42e7-bd2e-10fbc54ff7fd Prayagraj  Prayagraj            Kanpur           Auraiya       PRIVATE           Private           OPTH    Ophthalmology        Phacoemulsification with IOL MATERNAL_NEONATAL    O21.0      M       60+       ELECTIVE         NORMAL           False     APPROVED       APPROVED            NaN                 NaN LARGE (101-300)         2023-04            2023Q2           2023        5.166667             0         0             0       8000.0               12310.75                 12310.75        12310.75         11686.92          NaN                  5.0            0           1
+
+======================================================================
+SUMMARY: View 2: District-Month Performance Cube
+Rows: 2,713  |  Columns: 33
+======================================================================
+
+All columns: ['division', 'district', 'month', 'new_beneficiaries', 'new_households', 'cases_admitted', 'emergency_cases', 'portability_cases', 'deaths', 'lama_dama_cases', 'public_cases', 'private_cases', 'unique_hospitals', 'avg_length_of_stay', 'cards_issued', 'claims_submitted', 'claims_approved', 'claims_rejected', 'amount_claimed', 'amount_approved', 'avg_settlement_tat', 'amount_paid', 'payment_count', 'payment_failures', 'cumulative_beneficiaries', 'quarter', 'year', 'claims_per_1000_beneficiaries', 'approval_rate', 'emergency_share', 'death_rate', 'public_private_ratio', 'avg_claim_amount']
+
+--- Null counts (non-zero only) ---
+  avg_length_of_stay: 84 (3.1%)
+  avg_settlement_tat: 79 (2.9%)
+  claims_per_1000_beneficiaries: 2,637 (97.2%)
+  approval_rate: 67 (2.5%)
+  emergency_share: 84 (3.1%)
+  death_rate: 84 (3.1%)
+  avg_claim_amount: 67 (2.5%)
+
+--- Dimension columns (unique count + top 5 by frequency) ---
+  division  [18 unique]:
+    'Meerut': 220
+    'Lucknow': 216
+    'Kanpur': 215
+    'Moradabad': 182
+    'Ayodhya': 181
+  district  [75 unique]:
+    'Prayagraj': 38
+    'Aligarh': 37
+    'Agra': 37
+    'Gautam Buddha Nagar': 37
+    'Ghaziabad': 37
+  month  [38 unique]:
+    '2023-03': 75
+    '2023-05': 75
+    '2023-07': 75
+    '2023-06': 75
+    '2023-09': 75
+  quarter  [13 unique]:
+    '2023Q3': 225
+    '2024Q1': 225
+    '2025Q3': 225
+    '2025Q2': 225
+    '2024Q4': 225
+  year  [4 unique]:
+    '2024': 898
+    '2025': 898
+    '2023': 766
+    '2026': 151
+  claims_per_1000_beneficiaries  [1 unique]:
+    <NA>: 2,637
+    0.0: 76
+  approval_rate  [86 unique]:
+    1.0: 865
+    0.75: 155
+    0.8333333333333334: 153
+    0.6666666666666666: 152
+    0.8571428571428571: 125
+  emergency_share  [84 unique]:
+    0.0: 851
+    0.25: 182
+    0.2: 148
+    0.16666666666666666: 126
+    0.3333333333333333: 117
+  death_rate  [22 unique]:
+    0.0: 2,543
+    <NA>: 84
+    0.1111111111111111: 10
+    0.07142857142857142: 9
+    0.1: 8
+  avg_claim_amount  [2621 unique]:
+    <NA>: 67
+    9000.0: 5
+    12000.0: 5
+    13500.0: 4
+    18000.0: 4
+
+--- Measure columns (descriptive stats) ---
+  new_beneficiaries: min=0.00  mean=75.87  median=0.00  max=6899.00  std=492.07  nulls=0
+  new_households: min=0.00  mean=18.43  median=0.00  max=1664.00  std=119.55  nulls=0
+  cases_admitted: min=0.00  mean=8.29  median=8.00  max=38.00  std=5.08  nulls=0
+  emergency_cases: min=0.00  mean=1.24  median=1.00  max=10.00  std=1.29  nulls=0
+  portability_cases: min=0.00  mean=0.31  median=0.00  max=4.00  std=0.58  nulls=0
+  deaths: min=0.00  mean=0.03  median=0.00  max=1.00  std=0.18  nulls=0
+  lama_dama_cases: min=0.00  mean=0.50  median=0.00  max=5.00  std=0.76  nulls=0
+  public_cases: min=0.00  mean=4.91  median=4.00  max=26.00  std=3.31  nulls=0
+  private_cases: min=0.00  mean=3.39  median=3.00  max=19.00  std=2.49  nulls=0
+  unique_hospitals: min=0.00  mean=8.24  median=8.00  max=38.00  std=5.02  nulls=0
+  avg_length_of_stay: min=1.00  mean=3.90  median=3.66  max=20.21  std=1.63  nulls=84
+  cards_issued: min=0.00  mean=72.10  median=0.00  max=6552.00  std=467.45  nulls=0
+  claims_submitted: min=0.00  mean=8.29  median=8.00  max=38.00  std=5.03  nulls=0
+  claims_approved: min=0.00  mean=7.04  median=6.00  max=33.00  std=4.38  nulls=0
+  claims_rejected: min=0.00  mean=0.33  median=0.00  max=5.00  std=0.61  nulls=0
+  amount_claimed: min=0.00  mean=376326.73  median=318394.84  max=2301830.59  std=285099.75  nulls=0
+  amount_approved: min=0.00  mean=293805.26  median=246414.48  max=1596608.81  std=235229.72  nulls=0
+  avg_settlement_tat: min=3.00  mean=12.51  median=12.40  max=39.00  std=3.03  nulls=79
+  amount_paid: min=0.00  mean=43668.92  median=13496.98  max=450302.13  std=73255.15  nulls=0
+  payment_count: min=0.00  mean=1.09  median=1.00  max=7.00  std=1.14  nulls=0
+  payment_failures: min=0.00  mean=0.03  median=0.00  max=2.00  std=0.16  nulls=0
+  cumulative_beneficiaries: min=0.00  mean=78.42  median=0.00  max=6899.00  std=509.21  nulls=0
+  public_private_ratio: min=0.00  mean=1.30  median=1.00  max=9.00  std=1.05  nulls=0
+
+--- 5 random sample rows ---
+ division  district   month  new_beneficiaries  new_households  cases_admitted  emergency_cases  portability_cases  deaths  lama_dama_cases  public_cases  private_cases  unique_hospitals  avg_length_of_stay  cards_issued  claims_submitted  claims_approved  claims_rejected  amount_claimed  amount_approved  avg_settlement_tat  amount_paid  payment_count  payment_failures  cumulative_beneficiaries quarter year claims_per_1000_beneficiaries approval_rate emergency_share death_rate  public_private_ratio avg_claim_amount
+  Ayodhya Barabanki 2023-03                0.0             0.0             5.0              1.0                  0     0.0              0.0           1.0            4.0               5.0            2.350000           0.0               4.0              4.0              0.0        43527.01         40577.55           10.750000         0.00            0.0               0.0                       0.0  2023Q1 2023                          <NA>           1.0             0.2        0.0              0.200000       10881.7525
+  Aligarh   Kasganj 2024-06                0.0             0.0             4.0              2.0                  1     0.0              0.0           4.0            0.0               4.0            2.656250           0.0               3.0              3.0              0.0       245458.00        216531.57           17.666667         0.00            0.0               0.0                       0.0  2024Q2 2024                          <NA>           1.0             0.5        0.0              4.000000     81819.333333
+ Azamgarh       Mau 2025-05                0.0             0.0             4.0              1.0                  0     0.0              0.0           3.0            1.0               4.0            4.322917           0.0               4.0              4.0              0.0        68193.11         64718.97           10.000000         0.00            0.0               0.0                       0.0  2025Q2 2025                          <NA>           1.0            0.25        0.0              1.500000       17048.2775
+Prayagraj  Fatehpur 2025-05                0.0             0.0             4.0              1.0                  0     0.0              0.0           2.0            2.0               4.0            3.156250           0.0               4.0              3.0              1.0       200018.87        150927.57           13.333333    116827.32            1.0               0.0                       0.0  2025Q2 2025                          <NA>          0.75            0.25        0.0              0.666667       50004.7175
+  Lucknow     Unnao 2026-02             2686.0           649.0             0.0              0.0                  0     0.0              0.0           0.0            0.0               0.0                 NaN        2559.0               0.0              0.0              0.0            0.00             0.00                 NaN         0.00            0.0               0.0                    2686.0  2026Q1 2026                           0.0          <NA>            <NA>       <NA>              0.000000             <NA>
+
+======================================================================
+SUMMARY: View 3: Hospital Performance
+Rows: 2,840  |  Columns: 33
+======================================================================
+
+All columns: ['hospital_specialty_id', 'hospital_id', 'specialty_code', 'specialty_name', 'admissions_prev_fy', 'admissions_before_last_year', 'division', 'district', 'hospital_type', 'hospital_sub_type', 'accreditation_level', 'bed_size_bucket', 'total_bed_strength', 'inpatient_beds', 'has_ot', 'has_icu', 'cases_treated', 'preauth_approved', 'preauth_rejected', 'claims_approved', 'amount_claimed', 'amount_approved', 'amount_paid', 'avg_settlement_tat', 'emergency_count', 'death_count', 'total_staff', 'avg_experience_years', 'total_licenses', 'expired_licenses', 'active_licenses', 'zero_claim_flag', 'cases_per_bed']
+
+--- Null counts (non-zero only) ---
+  accreditation_level: 1,001 (35.2%)
+  preauth_approved: 423 (14.9%)
+  preauth_rejected: 423 (14.9%)
+  claims_approved: 423 (14.9%)
+  amount_claimed: 423 (14.9%)
+  amount_approved: 423 (14.9%)
+  amount_paid: 423 (14.9%)
+  avg_settlement_tat: 502 (17.7%)
+  emergency_count: 423 (14.9%)
+  death_count: 423 (14.9%)
+
+--- Dimension columns (unique count + top 5 by frequency) ---
+  hospital_specialty_id  [2840 unique]:
+    '42ed4d41-6a66-4092-bc64-3c42dfc0650d': 1
+    '440f95b0-a7c5-4de0-b1ae-d5bd41f96997': 1
+    '4d78e57e-f0c9-42c3-ba54-12f1a39a9409': 1
+    '604c18b3-8596-495d-955e-010d61b90acf': 1
+    'a5741b22-9f63-4b79-88c8-277d76f1e39b': 1
+  hospital_id  [800 unique]:
+    '8be68d63-128e-4cdd-a827-cbd619567b0c': 7
+    'b16b2e13-7767-4898-b98d-289acf8aad62': 7
+    '23ee16c7-d2bb-42e0-aee3-4f9ce3e9e2b6': 7
+    '3efb1b56-6fbf-49d4-ba7f-909feb0b898b': 7
+    'd7fdc7a5-25a5-4b3e-9830-2b9930184562': 7
+  specialty_code  [15 unique]:
+    'OBG': 517
+    'GS': 379
+    'MED': 332
+    'ORTH': 305
+    'OPTH': 225
+  specialty_name  [15 unique]:
+    'Obstetrics & Gynaecology': 517
+    'General Surgery': 379
+    'General Medicine': 332
+    'Orthopaedics': 305
+    'Ophthalmology': 225
+  division  [18 unique]:
+    'Lucknow': 330
+    'Meerut': 262
+    'Prayagraj': 210
+    'Kanpur': 208
+    'Bareilly': 181
+  district  [75 unique]:
+    'Lucknow': 101
+    'Gorakhpur': 93
+    'Prayagraj': 93
+    'Meerut': 82
+    'Kanpur Nagar': 79
+  hospital_type  [2 unique]:
+    'PUBLIC': 1,658
+    'PRIVATE': 1,182
+  hospital_sub_type  [8 unique]:
+    'Private': 448
+    'Trust': 407
+    'Civil Hospital': 374
+    'CHC': 331
+    'NGO': 327
+  accreditation_level  [2 unique]:
+    nan: 1,001
+    'FULL': 996
+    'PRE': 843
+  bed_size_bucket  [4 unique]:
+    'LARGE (101-300)': 1,182
+    'MEDIUM (31-100)': 927
+    'SMALL (<=30)': 558
+    'VERY_LARGE (300+)': 173
+  has_ot  [2 unique]:
+    np.True_: 2,039
+    np.False_: 801
+  has_icu  [2 unique]:
+    np.True_: 1,454
+    np.False_: 1,386
+
+--- Measure columns (descriptive stats) ---
+  admissions_prev_fy: min=52.00  mean=1012.84  median=1001.00  max=2000.00  std=561.74  nulls=0
+  admissions_before_last_year: min=40.00  mean=927.35  median=939.00  max=1800.00  std=511.60  nulls=0
+  total_bed_strength: min=6.00  mean=129.34  median=96.00  max=400.00  std=100.49  nulls=0
+  inpatient_beds: min=4.00  mean=106.49  median=81.00  max=369.00  std=84.02  nulls=0
+  cases_treated: min=0.00  mean=3.01  median=3.00  max=11.00  std=2.22  nulls=0
+  preauth_approved: min=0.00  mean=3.00  median=3.00  max=11.00  std=1.80  nulls=423
+  preauth_rejected: min=0.00  mean=0.11  median=0.00  max=3.00  std=0.34  nulls=423
+  claims_approved: min=0.00  mean=3.00  median=3.00  max=11.00  std=1.83  nulls=423
+  amount_claimed: min=5000.00  mean=144657.38  median=71750.00  max=1480937.29  std=193638.29  nulls=423
+  amount_approved: min=0.00  mean=112496.41  median=55273.16  max=1362521.84  std=156975.00  nulls=423
+  amount_paid: min=0.00  mean=16576.65  median=0.00  max=384719.68  std=41187.85  nulls=423
+  avg_settlement_tat: min=1.00  mean=12.46  median=12.00  max=38.00  std=4.53  nulls=502
+  emergency_count: min=0.00  mean=0.52  median=0.00  max=5.00  std=0.73  nulls=423
+  death_count: min=0.00  mean=0.01  median=0.00  max=1.00  std=0.11  nulls=423
+  total_staff: min=2.00  mean=5.17  median=5.00  max=8.00  std=1.99  nulls=0
+  avg_experience_years: min=4.10  mean=18.21  median=18.34  max=34.75  std=4.81  nulls=0
+  total_licenses: min=4.00  mean=7.04  median=7.00  max=10.00  std=2.03  nulls=0
+  expired_licenses: min=0.00  mean=3.57  median=3.00  max=9.00  std=1.76  nulls=0
+  active_licenses: min=0.00  mean=3.47  median=3.00  max=8.00  std=1.60  nulls=0
+  zero_claim_flag: min=0.00  mean=0.15  median=0.00  max=1.00  std=0.36  nulls=0
+  cases_per_bed: min=0.00  mean=0.06  median=0.02  max=1.25  std=0.12  nulls=0
+
+--- 5 random sample rows ---
+               hospital_specialty_id                          hospital_id specialty_code  specialty_name  admissions_prev_fy  admissions_before_last_year  division     district hospital_type hospital_sub_type accreditation_level bed_size_bucket  total_bed_strength  inpatient_beds  has_ot  has_icu  cases_treated  preauth_approved  preauth_rejected  claims_approved  amount_claimed  amount_approved  amount_paid  avg_settlement_tat  emergency_count  death_count  total_staff  avg_experience_years  total_licenses  expired_licenses  active_licenses  zero_claim_flag  cases_per_bed
+4962bc3b-1de6-4f50-b666-225d9a54e76f 7cb7d8d0-5a14-4534-ac0d-b0cdb0b4cee8           DERM     Dermatology                1048                         1778 Moradabad       Amroha        PUBLIC               PHC                 NaN MEDIUM (31-100)                  37              32    True    False            0.0               NaN               NaN              NaN             NaN              NaN          NaN                 NaN              NaN          NaN            8             18.650000               7                 2                5                1       0.000000
+1f3cb476-dda1-4688-81b8-63cead441487 d4b57a38-fb5d-4322-bb10-6158a89c9ad4            URO         Urology                1440                          845    Kanpur Kanpur Dehat        PUBLIC District Hospital                FULL MEDIUM (31-100)                  81              58    True     True            2.0               2.0               0.0              2.0        48975.00         47419.10         0.00            4.000000              1.0          0.0            8             15.200000               8                 3                5                0       0.024691
+9ec1c625-214e-4542-80b0-5850be0265d4 83a82ea2-ddf3-446f-97d1-169c91344581             GS General Surgery                 180                          971 Gorakhpur   Kushinagar        PUBLIC               CHC                FULL    SMALL (<=30)                   9               7   False    False            3.0               2.0               1.0              3.0        46850.00         41893.92     22513.25            7.333333              2.0          0.0            7             18.785714               5                 3                2                0       0.333333
+e0f8dcfa-19b7-437d-8630-3905dc72c05e b3f0d5b8-7cbf-4f4b-9b6d-9da5394e906a          NEURO       Neurology                1027                         1220 Moradabad       Rampur        PUBLIC               CHC                 NaN    SMALL (<=30)                  14              11   False    False            3.0               3.0               0.0              2.0        66300.00         36095.69     18688.01           17.000000              0.0          0.0            5             18.720000              10                 5                5                0       0.214286
+341ab6df-3e46-4da6-a737-5fe73d963cc4 d00bdba7-8e5c-4d18-94da-30bb4da04912           ONCO        Oncology                1977                          381    Kanpur      Kannauj        PUBLIC District Hospital                FULL MEDIUM (31-100)                  79              73    True     True            2.0               2.0               0.0              1.0        72147.16         37903.44         0.00            7.000000              0.0          0.0            3             18.933333               4                 3                1                0       0.025316
+
+======================================================================
+SUMMARY: View 4: Beneficiary Journey
+Rows: 205,847  |  Columns: 20
+======================================================================
+
+All columns: ['beneficiary_id', 'gender', 'age_group', 'bis_record_status', 'is_duplicate', 'division', 'district', 'entitlement_source', 'enrolment_status', 'auth_mode', 'card_status', 'document_count', 'has_aadhaar', 'claim_count', 'total_amount_claimed', 'total_amount_approved', 'has_claim', 'document_count_bucket', 'days_enrolment_to_card', 'days_card_to_first_claim']
+
+--- Null counts (non-zero only) ---
+  card_status: 10,228 (5.0%)
+  total_amount_claimed: 184,501 (89.6%)
+  total_amount_approved: 184,501 (89.6%)
+  days_enrolment_to_card: 10,228 (5.0%)
+  days_card_to_first_claim: 185,550 (90.1%)
+
+--- Dimension columns (unique count + top 5 by frequency) ---
+  beneficiary_id  [205847 unique]:
+    'b5852b7f-e17f-4416-be47-1e69f8332114': 1
+    '17ae7349-ad5d-4196-9a86-26c1784d8538': 1
+    '076da579-7f8c-4fcd-845a-e5ca857c9cb4': 1
+    'a3deaa2f-4d02-4ee6-a936-dcb3b308f635': 1
+    'b5e851ca-0893-4f63-8353-0b45bf87a263': 1
+  gender  [2 unique]:
+    'M': 105,337
+    'F': 100,510
+  age_group  [4 unique]:
+    '60+': 79,754
+    '41-60': 61,457
+    '26-40': 46,152
+    '15-25': 18,484
+  bis_record_status  [3 unique]:
+    'GOLD': 123,414
+    'SILVER': 61,849
+    'PENDING': 20,584
+  is_duplicate  [2 unique]:
+    np.False_: 199,852
+    np.True_: 5,995
+  division  [18 unique]:
+    'Lucknow': 21,616
+    'Meerut': 19,293
+    'Varanasi': 14,310
+    'Prayagraj': 14,032
+    'Kanpur': 13,883
+  district  [75 unique]:
+    'Prayagraj': 6,899
+    'Lucknow': 6,006
+    'Kanpur Nagar': 5,100
+    'Ghaziabad': 5,070
+    'Agra': 4,786
+  entitlement_source  [3 unique]:
+    'SECC': 123,266
+    'STATE_DB': 51,594
+    'RSBY': 30,987
+  enrolment_status  [4 unique]:
+    'AUTO_APPROVED': 68,588
+    'ISA_APPROVED': 68,319
+    'SHA_APPROVED': 48,500
+    'REJECTED': 20,440
+  auth_mode  [4 unique]:
+    'FINGERPRINT': 51,544
+    'OFFLINE': 51,492
+    'OTP': 51,477
+    'IRIS': 51,334
+  card_status  [3 unique]:
+    'ACTIVE': 179,888
+    nan: 10,228
+    'INACTIVE': 9,946
+    'DISABLED': 5,785
+  document_count_bucket  [2 unique]:
+    '1_DOC': 164,767
+    '2-3_DOCS': 41,080
+
+--- Measure columns (descriptive stats) ---
+  document_count: min=1.00  mean=1.20  median=1.00  max=2.00  std=0.40  nulls=0
+  has_aadhaar: min=0.00  mean=0.80  median=1.00  max=1.00  std=0.40  nulls=0
+  claim_count: min=0.00  mean=0.11  median=0.00  max=4.00  std=0.33  nulls=0
+  total_amount_claimed: min=5000.00  mean=47829.78  median=18900.00  max=581896.37  std=64231.95  nulls=184,501
+  total_amount_approved: min=0.00  mean=37341.59  median=15977.07  max=509176.87  std=56639.90  nulls=184,501
+  has_claim: min=0.00  mean=0.10  median=0.00  max=1.00  std=0.30  nulls=0
+  days_enrolment_to_card: min=-0.44  mean=-0.44  median=-0.44  max=-0.44  std=0.00  nulls=10,228
+  days_card_to_first_claim: min=-1094.93  mean=-573.18  median=-573.98  max=-29.33  std=308.62  nulls=185,550
+
+--- 5 random sample rows ---
+                      beneficiary_id gender age_group bis_record_status  is_duplicate division     district entitlement_source enrolment_status   auth_mode card_status  document_count  has_aadhaar  claim_count  total_amount_claimed  total_amount_approved  has_claim document_count_bucket  days_enrolment_to_card  days_card_to_first_claim
+56cdcbdd-e8b8-44ef-be4e-2969a727ead0      M     26-40            SILVER         False  Lucknow        Unnao               SECC     ISA_APPROVED         OTP      ACTIVE               1            1            0                   NaN                    NaN          0                 1_DOC               -0.436053                       NaN
+69412e0b-a732-4437-b5d7-5841bca16706      M     41-60              GOLD         False   Kanpur Kanpur Nagar               SECC    AUTO_APPROVED         OTP      ACTIVE               2            1            0                   NaN                    NaN          0              2-3_DOCS               -0.436030                       NaN
+0c38e2c4-ba89-4b0f-a77f-c54c90d479c3      F     26-40           PENDING         False     Agra    Firozabad           STATE_DB     ISA_APPROVED FINGERPRINT    INACTIVE               1            1            0                   NaN                    NaN          0                 1_DOC               -0.436053                       NaN
+be9cc580-0f18-47bd-882a-50c8b94575c0      F     15-25           PENDING         False  Lucknow      Lucknow               SECC         REJECTED         OTP         NaN               2            0            1              25688.97               23627.29          1              2-3_DOCS                     NaN                       NaN
+ca4206a5-53e3-4450-96dd-fbf62ba1b1a6      M       60+              GOLD         False  Lucknow    Raebareli               RSBY         REJECTED        IRIS      ACTIVE               2            1            0                   NaN                    NaN          0              2-3_DOCS               -0.436019                       NaN
