@@ -23,7 +23,7 @@ import json
 
 import pandas as pd
 from dotenv import load_dotenv
-from anthropic import Anthropic
+from openai import OpenAI
 
 load_dotenv(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".env"))
 
@@ -392,7 +392,7 @@ def generate_executive_report(
     output_path: str,
 ) -> str:
     """Generate the full executive report using Claude."""
-    client = Anthropic()
+    client = OpenAI()
 
     report_sections = [
         "# PM-JAY Uttar Pradesh -- Analytical Findings Report\n\n"
@@ -415,13 +415,13 @@ def generate_executive_report(
         enriched = enrich_candidates_with_stats(view_name, ranked, config)
         prompt   = build_view_prompt(view_name, enriched)
 
-        response = client.messages.create(
-            model="claude-sonnet-4-6",
-            max_tokens=2000,
+        response = client.chat.completions.create(
+            model="gpt-5.4-mini",
+            max_completion_tokens=2000,
             messages=[{"role": "user", "content": prompt}],
         )
 
-        section_text = response.content[0].text
+        section_text = response.choices[0].message.content
 
         report_sections.append(f"\n## {view_title}\n\n")
         report_sections.append(section_text)
