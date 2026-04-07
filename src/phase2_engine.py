@@ -40,6 +40,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # =============================================================================
 
 @dataclass
+class MeasureConfig:
+    """A measure with its aggregation type (sum or avg)."""
+    name: str
+    agg: str = "sum"   # "sum" or "avg"
+
+
+@dataclass
 class ViewConfig:
     """Configuration for a single analytical view passed to the engine."""
     name: str
@@ -47,13 +54,25 @@ class ViewConfig:
 
     dimensions: list            # categorical dimension columns
     temporal_dimensions: list   # temporal dimension columns (breakdown only)
-    measures: list              # numeric measure columns
-    impact_measures: list       # subset of measures used for impact scoring
+    measures: list              # list[MeasureConfig] - numeric measure columns
+    impact_measures: list       # subset of measure names used for impact scoring (always SUM)
 
     max_subspace_depth: int = 2  # max number of filters in a subspace
     tau: float = 0.5             # commonness proportion threshold
     min_impact: float = 0.01     # prune subspaces below this impact
     min_hdp_size: int = 3        # minimum HDP members to form a MetaInsight
+
+    @property
+    def measure_names(self) -> list:
+        """All measure names for iteration."""
+        return [m.name for m in self.measures]
+
+    def get_agg(self, measure_name: str) -> str:
+        """Return the aggregation type ('sum' or 'avg') for a measure."""
+        for m in self.measures:
+            if m.name == measure_name:
+                return m.agg
+        return "sum"
 
 
 # --- View 1 configuration ---
@@ -84,18 +103,18 @@ VIEW1_CONFIG = ViewConfig(
     ],
 
     measures=[
-        "case_count",
-        "amount_claimed",
-        "amount_approved",
-        "amount_paid",
-        "length_of_stay",
-        "is_emergency",
-        "is_death",
-        "is_lama_dama",
-        "settlement_tat_days",
-        "query_count",
-        "base_amount",
-        "computed_final_amount",
+        MeasureConfig("case_count",            "sum"),
+        MeasureConfig("amount_claimed",        "sum"),
+        MeasureConfig("amount_approved",       "sum"),
+        MeasureConfig("amount_paid",           "sum"),
+        MeasureConfig("length_of_stay",        "avg"),   # avg per breakdown is more meaningful than sum
+        MeasureConfig("is_emergency",          "sum"),   # count of emergency cases
+        MeasureConfig("is_death",              "sum"),   # count of deaths
+        MeasureConfig("is_lama_dama",          "sum"),   # count of LAMA/DAMA discharges
+        MeasureConfig("settlement_tat_days",   "avg"),   # avg turnaround time, not cumulative sum
+        MeasureConfig("query_count",           "sum"),
+        MeasureConfig("base_amount",           "sum"),
+        MeasureConfig("computed_final_amount", "sum"),
     ],
 
     impact_measures=[
@@ -216,7 +235,7 @@ def generate_data_scopes(subspace: Subspace, config: ViewConfig) -> list:
     return [
         DataScope(subspace, breakdown, measure)
         for breakdown in available_breakdowns
-        for measure in config.measures
+        for measure in config.measure_names
     ]
 
 
@@ -272,16 +291,21 @@ def build_priority_queue(
 # MODULE B: PATTERN DETECTOR
 # =============================================================================
 
-def query_data_scope(df: pd.DataFrame, data_scope: DataScope) -> pd.Series:
+def query_data_scope(df: pd.DataFrame, data_scope: DataScope, config: ViewConfig) -> pd.Series:
     """
-    Execute: SELECT breakdown, SUM(measure) FROM df
-             WHERE <subspace filters> GROUP BY breakdown
+    Execute a grouped aggregation respecting the measure's configured agg type.
+    SUM for additive measures; AVG for rates and durations.
     Returns a Series indexed by breakdown values, sorted by index.
     """
     filtered = apply_subspace(df, data_scope.subspace)
     if len(filtered) == 0:
         return pd.Series(dtype=float)
-    return filtered.groupby(data_scope.breakdown)[data_scope.measure].sum().sort_index()
+    agg_type = config.get_agg(data_scope.measure)
+    if agg_type == "avg":
+        result = filtered.groupby(data_scope.breakdown)[data_scope.measure].mean()
+    else:
+        result = filtered.groupby(data_scope.breakdown)[data_scope.measure].sum()
+    return result.sort_index()
 
 
 class QueryCache:
@@ -310,6 +334,7 @@ class QueryCache:
         df: pd.DataFrame,
         hdp_scopes: list,
         ext_dim: str,
+        config: ViewConfig,
     ):
         """
         Augmented-query optimisation (paper Section 4.2.2).
@@ -337,9 +362,15 @@ class QueryCache:
             filtered = apply_subspace(df, base_subspace)
             if len(filtered) == 0 or ext_dim not in filtered.columns:
                 return
-            self._aug_cache[aug_key] = (
-                filtered.groupby([breakdown, ext_dim])[measure].sum()
-            )
+            agg_type = config.get_agg(measure)
+            if agg_type == "avg":
+                self._aug_cache[aug_key] = (
+                    filtered.groupby([breakdown, ext_dim])[measure].mean()
+                )
+            else:
+                self._aug_cache[aug_key] = (
+                    filtered.groupby([breakdown, ext_dim])[measure].sum()
+                )
 
         aug_result = self._aug_cache[aug_key]
 
@@ -459,7 +490,7 @@ def detect_pattern(
     # Query (cached)
     distribution = query_cache.get(data_scope)
     if distribution is None:
-        distribution = query_data_scope(df, data_scope)
+        distribution = query_data_scope(df, data_scope, config)
         query_cache.put(data_scope, distribution)
 
     if len(distribution) == 0:
@@ -542,7 +573,7 @@ def extend_measure(data_scope: DataScope, config: ViewConfig) -> list:
     """
     siblings = [
         DataScope(data_scope.subspace, data_scope.breakdown, m)
-        for m in config.measures
+        for m in config.measure_names
     ]
     if len(siblings) >= config.min_hdp_size:
         return [("measure", "measure", siblings)]
@@ -950,7 +981,7 @@ def run_engine(config: ViewConfig, time_budget_seconds: int = 600) -> tuple:
                     # (augmented-query optimisation; measure/breakdown HDPs share
                     # one subspace so they're already cached from scope detection)
                     if ext_strategy == "subspace":
-                        query_cache.prefetch_subspace_hdp(df, hdp_scopes, ext_dim)
+                        query_cache.prefetch_subspace_hdp(df, hdp_scopes, ext_dim, config)
                     candidate = evaluate_hdp(
                         hdp_scopes, pattern_type,
                         ext_strategy, ext_dim,

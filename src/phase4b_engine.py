@@ -40,7 +40,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 # ---------------------------------------------------------------------------
 from phase4a_engine import (
     # Config
-    ViewConfig, VIEW1_CONFIG,
+    MeasureConfig, ViewConfig, VIEW1_CONFIG, VIEW2_CONFIG, VIEW3_CONFIG, VIEW4_CONFIG,
     # Data structures
     Subspace, DataScope, MetaInsightCandidate,
     # Enumeration
@@ -165,7 +165,7 @@ def run_engine(config: ViewConfig, time_budget_seconds: int = 900) -> tuple:
                         hdps_evaluated += 1
                         # Augmented-query prefetch for subspace-extending HDPs
                         if ext_strategy == "subspace":
-                            query_cache.prefetch_subspace_hdp(df, hdp_scopes, ext_dim)
+                            query_cache.prefetch_subspace_hdp(df, hdp_scopes, ext_dim, config)
                         candidate = evaluate_hdp(
                             hdp_scopes, pattern_type,
                             ext_strategy, ext_dim,
