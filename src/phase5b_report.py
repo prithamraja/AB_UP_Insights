@@ -378,7 +378,13 @@ Write a clear, readable summary of these findings for the programme officer. Fol
    - Use specific numbers from the 'stats' field: cite actual values, percentages, and shares wherever available. If stats.highlight_values is present, always cite those numbers. Use share_pct values from stats.top_values.
    - For AVG measures, mention actual average values (e.g., "average length of stay is 4.2 days")
    - End with 2-3 specific follow-up questions the officer should investigate
-   - Use formatting: bold for key entities, section headers for thematic groups
+
+8. FORMATTING RULES (strictly follow these):
+   - Use ### for thematic section headers (e.g., ### Financial Patterns)
+   - Never use **text** as a substitute for a header
+   - Use inline bold sparingly — only for specific district/entity names that are exceptions or outliers
+   - No bold for general phrases or conclusions
+   - Plain prose for everything else
 """
 
 
