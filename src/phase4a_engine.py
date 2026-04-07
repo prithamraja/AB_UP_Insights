@@ -44,7 +44,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from phase2_engine import (
     # Config & data structures
-    ViewConfig, VIEW1_CONFIG,
+    MeasureConfig, ViewConfig, VIEW1_CONFIG,
     Subspace, DataScope, Highlight, BasicDataPattern,
     # Data scope utilities
     apply_subspace, generate_subspaces, generate_data_scopes,
@@ -64,6 +64,122 @@ from phase2_engine import (
 )
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+# =============================================================================
+# ADDITIONAL VIEW CONFIGS (Views 2, 3, 4)
+# =============================================================================
+
+VIEW2_CONFIG = ViewConfig(
+    name="District-Month Performance Cube",
+    parquet_path=os.path.join(BASE_DIR, "views", "view2_district_month_cube.parquet"),
+
+    dimensions=["division", "district"],
+    temporal_dimensions=["month", "quarter", "year"],
+
+    measures=[
+        MeasureConfig("new_beneficiaries",             "sum"),
+        MeasureConfig("new_households",                "sum"),
+        MeasureConfig("cases_admitted",                "sum"),
+        MeasureConfig("emergency_cases",               "sum"),
+        MeasureConfig("portability_cases",             "sum"),
+        MeasureConfig("deaths",                        "sum"),
+        MeasureConfig("lama_dama_cases",               "sum"),
+        MeasureConfig("public_cases",                  "sum"),
+        MeasureConfig("private_cases",                 "sum"),
+        MeasureConfig("unique_hospitals",              "avg"),   # avg monthly count avoids double-counting across months
+        MeasureConfig("cards_issued",                  "sum"),
+        MeasureConfig("claims_submitted",              "sum"),
+        MeasureConfig("claims_approved",               "sum"),
+        MeasureConfig("claims_rejected",               "sum"),
+        MeasureConfig("amount_claimed",                "sum"),
+        MeasureConfig("amount_approved",               "sum"),
+        MeasureConfig("amount_paid",                   "sum"),
+        MeasureConfig("payment_count",                 "sum"),
+        MeasureConfig("payment_failures",              "sum"),
+        MeasureConfig("cumulative_beneficiaries",      "avg"),   # avg across time = typical enrollment level
+        MeasureConfig("claims_per_1000_beneficiaries", "avg"),   # rate - must be averaged
+        MeasureConfig("approval_rate",                 "avg"),   # rate
+        MeasureConfig("emergency_share",               "avg"),   # rate
+        MeasureConfig("death_rate",                    "avg"),   # rate
+        MeasureConfig("public_private_ratio",          "avg"),   # ratio
+        MeasureConfig("avg_claim_amount",              "avg"),   # already an average
+    ],
+
+    impact_measures=["cases_admitted", "amount_claimed", "cumulative_beneficiaries"],
+    max_subspace_depth=1,
+    tau=0.5,
+    min_impact=0.01,
+    min_hdp_size=3,
+)
+
+VIEW3_CONFIG = ViewConfig(
+    name="Hospital Performance",
+    parquet_path=os.path.join(BASE_DIR, "views", "view3_hospital_performance.parquet"),
+
+    dimensions=[
+        "specialty_code", "division", "district",
+        "hospital_type", "hospital_sub_type", "bed_size_bucket",
+    ],
+    temporal_dimensions=[],
+
+    measures=[
+        MeasureConfig("admissions_prev_fy",          "sum"),
+        MeasureConfig("admissions_before_last_year", "sum"),
+        MeasureConfig("total_bed_strength",          "sum"),
+        MeasureConfig("inpatient_beds",              "sum"),
+        MeasureConfig("cases_treated",               "sum"),
+        MeasureConfig("preauth_approved",            "sum"),
+        MeasureConfig("preauth_rejected",            "sum"),
+        MeasureConfig("claims_approved",             "sum"),
+        MeasureConfig("amount_claimed",              "sum"),
+        MeasureConfig("amount_approved",             "sum"),
+        MeasureConfig("amount_paid",                 "sum"),
+        MeasureConfig("emergency_count",             "sum"),
+        MeasureConfig("death_count",                 "sum"),
+        MeasureConfig("total_staff",                 "avg"),   # hospital-level attr - AVG avoids double-counting across specialty rows
+        MeasureConfig("avg_experience_years",        "avg"),   # already an average
+        MeasureConfig("total_licenses",              "avg"),   # hospital-level attr
+        MeasureConfig("expired_licenses",            "avg"),   # hospital-level attr
+        MeasureConfig("active_licenses",             "avg"),   # hospital-level attr
+        MeasureConfig("zero_claim_flag",             "sum"),   # count of zero-claim specialties
+        MeasureConfig("cases_per_bed",               "avg"),   # rate
+    ],
+
+    impact_measures=["total_bed_strength", "cases_treated", "amount_paid"],
+    max_subspace_depth=2,
+    tau=0.5,
+    min_impact=0.01,
+    min_hdp_size=3,
+)
+
+VIEW4_CONFIG = ViewConfig(
+    name="Beneficiary Journey",
+    parquet_path=os.path.join(BASE_DIR, "views", "view4_beneficiary_journey.parquet"),
+
+    dimensions=[
+        "division", "district", "gender", "age_group",
+        "entitlement_source", "bis_record_status",
+        "enrolment_status", "card_status", "document_count_bucket",
+    ],
+    temporal_dimensions=[],
+
+    measures=[
+        MeasureConfig("document_count",           "avg"),   # avg docs per beneficiary
+        MeasureConfig("has_aadhaar",              "avg"),   # proportion with Aadhaar
+        MeasureConfig("claim_count",              "sum"),
+        MeasureConfig("has_claim",                "sum"),   # count of claimants
+        MeasureConfig("claim_rate",               "avg"),   # proportion who claimed (same column, different aggregation)
+        MeasureConfig("days_enrolment_to_card",   "avg"),   # avg wait time
+        MeasureConfig("days_card_to_first_claim", "avg"),   # avg time to first use
+    ],
+
+    impact_measures=["has_claim", "claim_count"],
+    max_subspace_depth=2,
+    tau=0.5,
+    min_impact=0.01,
+    min_hdp_size=3,
+)
 
 
 # =============================================================================
@@ -520,7 +636,7 @@ def detect_pattern(
     # Query (cached)
     distribution = query_cache.get(data_scope)
     if distribution is None:
-        distribution = query_data_scope(df, data_scope)
+        distribution = query_data_scope(df, data_scope, config)
         query_cache.put(data_scope, distribution)
 
     if len(distribution) == 0:
@@ -642,7 +758,7 @@ def run_engine(config: ViewConfig, time_budget_seconds: int = 900) -> tuple:
                         hdps_evaluated += 1
                         # Augmented-query prefetch for subspace-extending HDPs
                         if ext_strategy == "subspace":
-                            query_cache.prefetch_subspace_hdp(df, hdp_scopes, ext_dim)
+                            query_cache.prefetch_subspace_hdp(df, hdp_scopes, ext_dim, config)
                         candidate = evaluate_hdp(
                             hdp_scopes, pattern_type,
                             ext_strategy, ext_dim,

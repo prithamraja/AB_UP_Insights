@@ -1051,6 +1051,7 @@ v4["document_count"] = v4["document_count"].fillna(0).astype(int)
 v4["has_aadhaar"]    = v4["has_aadhaar"].fillna(0).astype(int)
 v4["claim_count"]    = v4["claim_count"].fillna(0).astype(int)
 v4["has_claim"]      = (v4["claim_count"] > 0).astype(int)
+v4["claim_rate"]     = v4["has_claim"]    # alias for AVG aggregation: has_claim SUM=count, claim_rate AVG=proportion
 
 
 def _doc_count_bucket(n: int) -> str:
