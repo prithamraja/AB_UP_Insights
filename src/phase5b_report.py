@@ -22,7 +22,10 @@ import ast
 import json
 
 import pandas as pd
+from dotenv import load_dotenv
 from anthropic import Anthropic
+
+load_dotenv(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".env"))
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
