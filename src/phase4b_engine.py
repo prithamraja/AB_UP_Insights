@@ -1,20 +1,21 @@
 # =============================================================================
-# Engine Upgrade: HDP Deduplication (pandas query layer)
+# Phase 4b: All Four Views
 # =============================================================================
-# Single change to the Phase 4a engine:
+# Runs the MetaInsight engine (all 11 pattern types, HDP deduplication,
+# SUM/AVG aggregation) independently on all four analytical views.
 #
-#   HDP deduplication set
-#     - Tracks (member_subspaces, pattern_type, breakdown, measure) keys
-#     - Skips evaluate_hdp if the exact HDP was already evaluated
-#     - Eliminates redundant candidates discovered via different seed scopes
-#
-# Everything else is unchanged from Phase 4a:
-#   Pandas query layer (with augmented-query prefetch), all 11 pattern
-#   evaluators, HDP construction, scoring, output format.
+# Engine unchanged from Phase 4a + dedup:
+#   - Pandas query layer with augmented-query prefetch
+#   - All 11 pattern evaluators (6 categorical, 5 temporal)
+#   - HDP deduplication set (skip exact duplicate HDPs)
+#   - MeasureConfig-driven SUM/AVG dispatch
 #
 # Outputs:
-#   metainsights/view1_dedup_candidates.json
-#   reports/engine_diagnostics_dedup.txt
+#   metainsights/view1_candidates.json
+#   metainsights/view2_candidates.json
+#   metainsights/view3_candidates.json
+#   metainsights/view4_candidates.json
+#   reports/engine_diagnostics_all_views.txt
 #
 # Run from project root:
 #   python src/phase4b_engine.py
@@ -22,6 +23,7 @@
 
 import os
 import sys
+import json
 import math
 import time
 import heapq
@@ -65,20 +67,20 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # =============================================================================
-# RUN_ENGINE — Phase 4a engine + HDP deduplication
+# RUN_ENGINE — all 11 pattern types + HDP deduplication
 # =============================================================================
 
 def run_engine(config: ViewConfig, time_budget_seconds: int = 900) -> tuple:
     """
-    Phase 4a engine with HDP deduplication added.
+    MetaInsight mining loop with all 11 pattern types and HDP deduplication.
 
     Before calling evaluate_hdp, checks whether the exact same HDP
     (same member subspaces, pattern type, breakdown, measure) was already
     evaluated. If so, skips it — the candidate would be identical.
     """
-    print("=" * 70)
-    print("ENGINE: All Pattern Types + HDP Deduplication")
-    print("=" * 70)
+    print(f"\n{'=' * 70}")
+    print(f"VIEW: {config.name}")
+    print(f"{'=' * 70}")
 
     print(f"Loading {config.parquet_path} ...")
     df = pd.read_parquet(config.parquet_path)
@@ -163,7 +165,6 @@ def run_engine(config: ViewConfig, time_budget_seconds: int = 900) -> tuple:
                         # --- end dedup ---
 
                         hdps_evaluated += 1
-                        # Augmented-query prefetch for subspace-extending HDPs
                         if ext_strategy == "subspace":
                             query_cache.prefetch_subspace_hdp(df, hdp_scopes, ext_dim, config)
                         candidate = evaluate_hdp(
@@ -200,24 +201,12 @@ def run_engine(config: ViewConfig, time_budget_seconds: int = 900) -> tuple:
     if candidates:
         print(f"  Top score:             {candidates[0].score:.4f}")
 
-    # Pattern type breakdown
     type_counts: dict = {}
     for c in candidates:
         type_counts[c.pattern_type] = type_counts.get(c.pattern_type, 0) + 1
     print("\n  Candidates by pattern type:")
     for pt, cnt in sorted(type_counts.items(), key=lambda x: -x[1]):
         print(f"    {pt:20s}: {cnt:,}")
-
-    # Verify S*
-    tau, r, k = config.tau, 1.0, 3
-    tau_r     = tau ** (1.0 / r)
-    threshold = (1 - tau) * math.e / tau_r
-    s_star    = (
-        -tau * math.log2(tau) - r * (1 - tau) * math.log2((1 - tau) / k)
-        if k >= threshold else
-        -math.log2(tau) + r * (k * tau_r / math.e) * math.log2(math.e / (k * tau_r))
-    )
-    print(f"\n  S* (tau={tau}, r={r}, k={k}): {s_star:.4f}  (expected ~1.792)")
 
     diagnostics = {
         "elapsed":          elapsed,
@@ -233,84 +222,74 @@ def run_engine(config: ViewConfig, time_budget_seconds: int = 900) -> tuple:
 
 
 # =============================================================================
-# SAVE DIAGNOSTICS (adds dedup stats)
+# COMBINED DIAGNOSTICS
 # =============================================================================
 
-def save_diagnostics(candidates: list, diagnostics: dict, output_path: str):
-    """Write engine diagnostics including HDP dedup stats."""
-    qc = diagnostics["query_cache"]
-    pc = diagnostics["pattern_cache"]
-    tc = diagnostics.get("type_counts", {})
-
-    total_hdps = diagnostics["hdps_evaluated"] + diagnostics["hdps_skipped"]
-    dedup_rate = diagnostics["hdps_skipped"] / total_hdps if total_hdps > 0 else 0.0
-
+def save_all_view_diagnostics(all_diagnostics: dict, output_path: str):
+    """Write a combined diagnostics report across all views."""
     lines = [
         "=" * 70,
-        "ENGINE DIAGNOSTICS -- HDP Deduplication",
+        "METAINSIGHT ENGINE DIAGNOSTICS -- ALL VIEWS",
         "=" * 70,
-        f"Time elapsed:          {diagnostics['elapsed']:.1f}s",
-        f"Scopes evaluated:      {diagnostics['scopes_evaluated']:,}",
-        f"Patterns found:        {diagnostics['patterns_found']:,}",
-        f"HDPs evaluated:        {diagnostics['hdps_evaluated']:,}",
-        f"HDPs skipped (dedup):  {diagnostics['hdps_skipped']:,}",
-        f"HDP dedup hit rate:    {dedup_rate:.1%}",
-        f"MetaInsights:          {len(candidates):,}",
-        f"Query cache:           {qc.hits:,} hits / {qc.misses:,} misses ({qc.hit_rate:.1%})",
-        f"Pattern cache:         {pc.hits:,} hits / {pc.misses:,} misses ({pc.hit_rate:.1%})",
         "",
-        "--- Candidates by Pattern Type ---",
     ]
-    for pt, cnt in sorted(tc.items(), key=lambda x: -x[1]):
-        bar = "#" * (cnt // 100)
-        lines.append(f"  {pt:20s}: {cnt:6,}  {bar}")
 
-    zero_types = [pt for pt in PATTERN_EVALUATORS if pt not in tc]
-    if zero_types:
-        lines.append(f"\n  Zero-candidate types: {zero_types}")
+    total_candidates = 0
+    total_scopes     = 0
+    total_patterns   = 0
+    total_hdps       = 0
+    total_skipped    = 0
 
-    lines += ["", "--- Score Distribution ---"]
-    if candidates:
+    for view_name, diag in all_diagnostics.items():
+        candidates_path = os.path.join(BASE_DIR, "metainsights", f"{view_name}_candidates.json")
+        with open(candidates_path, encoding="utf-8") as f:
+            n_candidates = len(json.load(f))
+
+        total_candidates += n_candidates
+        total_scopes     += diag["scopes_evaluated"]
+        total_patterns   += diag["patterns_found"]
+        total_hdps       += diag["hdps_evaluated"]
+        total_skipped    += diag["hdps_skipped"]
+
+        hdps_all   = diag["hdps_evaluated"] + diag["hdps_skipped"]
+        dedup_rate = diag["hdps_skipped"] / hdps_all if hdps_all > 0 else 0.0
+        qc = diag["query_cache"]
+        pc = diag["pattern_cache"]
+        tc = diag["type_counts"]
+
         lines += [
-            f"  Max:    {candidates[0].score:.4f}",
-            f"  Median: {candidates[len(candidates)//2].score:.4f}",
-            f"  Min:    {candidates[-1].score:.4f}",
-            f"  Above 0.1: {sum(1 for c in candidates if c.score >= 0.1):,}",
+            f"--- {view_name} ---",
+            f"  Time:             {diag['elapsed']:.1f}s",
+            f"  Scopes evaluated: {diag['scopes_evaluated']:,}",
+            f"  Patterns found:   {diag['patterns_found']:,}",
+            f"  HDPs evaluated:   {diag['hdps_evaluated']:,}",
+            f"  HDPs skipped:     {diag['hdps_skipped']:,}  ({dedup_rate:.1%} dedup rate)",
+            f"  Candidates:       {n_candidates:,}",
+            f"  Query cache HR:   {qc.hit_rate:.1%}",
+            f"  Pattern cache HR: {pc.hit_rate:.1%}",
+            "  Candidates by pattern type:",
         ]
-    else:
-        lines.append("  (no candidates)")
+        for pt, cnt in sorted(tc.items(), key=lambda x: -x[1]):
+            lines.append(f"    {pt:20s}: {cnt:,}")
+        zero_types = [pt for pt in PATTERN_EVALUATORS if pt not in tc]
+        if zero_types:
+            lines.append(f"  Zero-candidate types: {zero_types}")
+        lines.append("")
 
-    lines += ["", "--- Top 20 MetaInsights ---"]
-    for i, c in enumerate(candidates[:20]):
-        lines.append(f"\n  #{i+1}  score={c.score:.4f}  "
-                     f"(conciseness={c.conciseness:.4f}, impact={c.impact:.4f} "
-                     f"via {c.impact_measure_used})")
-        lines.append(f"    Strategy:    {c.extending_strategy} on '{c.extending_dimension}'")
-        lines.append(f"    Pattern:     {c.pattern_type}")
-        lines.append(f"    Breakdown:   {c.breakdown}   Measure: {c.measure}")
-        lines.append(f"    Base scope:  {c.base_subspace}")
-        lines.append(f"    HDP size:    {c.hdp_size}")
-        for cs in c.commonness_sets:
-            members_str = ", ".join(str(m) for m in cs["members"][:8])
-            if len(cs["members"]) > 8:
-                members_str += f" ... (+{len(cs['members'])-8})"
-            lines.append(f"    Commonness:  {cs['highlight']}  "
-                         f"({cs['count']}/{c.hdp_size} = {cs['proportion']:.0%})")
-            lines.append(f"      Members:   {members_str}")
-        if c.exceptions:
-            lines.append(f"    Exceptions ({len(c.exceptions)}):")
-            for exc in c.exceptions[:5]:
-                lines.append(f"      - {exc['member_label']}: {exc['category']} "
-                             f"(highlight={exc['highlight']})")
-            if len(c.exceptions) > 5:
-                lines.append(f"      ... and {len(c.exceptions)-5} more")
-        else:
-            lines.append("    Exceptions:  none")
+    all_hdps = total_hdps + total_skipped
+    lines += [
+        "--- TOTALS ---",
+        f"  Total candidates: {total_candidates:,}",
+        f"  Total scopes:     {total_scopes:,}",
+        f"  Total patterns:   {total_patterns:,}",
+        f"  Total HDPs eval:  {total_hdps:,}",
+        f"  Total HDPs skip:  {total_skipped:,}  ({total_skipped/all_hdps:.1%} overall dedup rate)" if all_hdps > 0 else "",
+    ]
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
         f.write("\n".join(lines))
-    print(f"Diagnostics saved -> {output_path}")
+    print(f"\nCombined diagnostics -> {output_path}")
 
 
 # =============================================================================
@@ -318,14 +297,29 @@ def save_diagnostics(candidates: list, diagnostics: dict, output_path: str):
 # =============================================================================
 
 if __name__ == "__main__":
-    candidates, diagnostics = run_engine(VIEW1_CONFIG, time_budget_seconds=900)
+    # Test budgets: ~10 minutes total
+    # For production runs increase to 900/600/600/900
+    ALL_CONFIGS = [
+        ("view1", VIEW1_CONFIG, 300),
+        ("view2", VIEW2_CONFIG, 120),
+        ("view3", VIEW3_CONFIG, 120),
+        ("view4", VIEW4_CONFIG,  60),
+    ]
 
-    save_candidates(
-        candidates,
-        os.path.join(BASE_DIR, "metainsights", "view1_dedup_candidates.json"),
-    )
-    save_diagnostics(
-        candidates,
-        diagnostics,
-        os.path.join(BASE_DIR, "reports", "engine_diagnostics_dedup.txt"),
+    os.makedirs(os.path.join(BASE_DIR, "metainsights"), exist_ok=True)
+    os.makedirs(os.path.join(BASE_DIR, "reports"),      exist_ok=True)
+
+    all_diagnostics = {}
+
+    for view_name, config, budget in ALL_CONFIGS:
+        candidates, diagnostics = run_engine(config, time_budget_seconds=budget)
+        save_candidates(
+            candidates,
+            os.path.join(BASE_DIR, "metainsights", f"{view_name}_candidates.json"),
+        )
+        all_diagnostics[view_name] = diagnostics
+
+    save_all_view_diagnostics(
+        all_diagnostics,
+        os.path.join(BASE_DIR, "reports", "engine_diagnostics_all_views.txt"),
     )
