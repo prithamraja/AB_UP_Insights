@@ -65,9 +65,11 @@ Derived values: beneficiaries = households x 4.0 avg members; cases = households
 | `home_district_code` | District name |
 | `home_division_name` | Division name |
 | `home_block_name` | Block name |
-| `created_at` | ISO timestamp |
+| `created_at` | ISO timestamp — 0–7 days before the earliest member's `created_at` |
 
 **FK:** `home_district_code` references `ref_up_geography.district_name`
+
+> **Post-generation fix applied:** `created_at` was originally a single date. Fixed to be 0–7 days before the earliest beneficiary enrolment in that household.
 
 #### `bm_beneficiary.csv` — Individual beneficiaries
 
@@ -87,10 +89,12 @@ Derived values: beneficiaries = households x 4.0 avg members; cases = households
 | `bis_record_status` | GOLD (60%), SILVER (30%), PENDING (10%) |
 | `ekyc_last_reference_id` | eKYC reference (80% populated) |
 | `is_duplicate` | 3% are intentional duplicates with name/DOB variants |
-| `created_at` | ISO timestamp |
-| `updated_at` | ISO timestamp |
+| `created_at` | ISO timestamp — spread across 2022-01 to 2026-01, always before card issuance and first admission |
+| `updated_at` | ISO timestamp — at or after `created_at` |
 
 Name pools include Hindu and Muslim names (~19% Muslim) reflecting UP demographics. Duplicate records simulate real-world data quality issues with spelling variants.
+
+> **Post-generation fix applied:** `created_at` and `updated_at` were originally all set to a single date (2026-02-27). Fixed to span 2022–2026 with the constraint: `household.created_at ≤ beneficiary.created_at ≤ card.issued_at ≤ first admission`. Beneficiaries with claims enrol at least 14 days before their first admission; those without claims follow a beta(2,3) distribution across the full window.
 
 #### `bm_id_document.csv` — Identity documents
 
@@ -128,8 +132,10 @@ Name pools include Hindu and Muslim names (~19% Muslim) reflecting UP demographi
 | `card_id` | **PK.** UUID |
 | `beneficiary_id` | **FK** -> `bm_beneficiary` |
 | `card_status` | ACTIVE (92%), INACTIVE (5%), DISABLED (3%) |
-| `issued_at` | Issue date |
+| `issued_at` | Issue date — 1–30 days after `beneficiary.created_at`, always before first admission |
 | `card_pdf_uri` | S3 URI to card PDF |
+
+> **Post-generation fix applied:** `issued_at` was originally a single date. Fixed to be 1–30 days after enrolment, with a hard constraint that it precedes the beneficiary's first hospital admission.
 
 ---
 
@@ -196,6 +202,8 @@ Name pools include Hindu and Muslim names (~19% Muslim) reflecting UP demographi
 | `specialty_name` | Full specialty name |
 | `admissions_prev_fy` | Admissions in previous financial year |
 | `admissions_before_last_year` | Admissions year before last |
+
+> **Post-generation fix applied:** The original synthetic file had only ~2,840 rows and covered only 38% of actual case specialties. An additional 4,496 rows were added so that 97.4% of cases are treated at hospitals that formally list the relevant specialty. The remaining 2.6% are intentional anomalies (e.g. emergency referrals to hospitals without that specialty listed). Row count after fix: **7,336**.
 
 #### `hm_staff.csv` — Medical staff
 
@@ -403,7 +411,39 @@ erDiagram
 
 ---
 
+## Post-Generation Fixes
 
+Two fixes were applied to the raw synthetic data after generation (`data_fix.py`):
+
+### Fix 1 — Timestamps
+
+The following tables had all timestamp columns set to a single date (2026-02-27):
+
+| Table | Columns Fixed |
+|-------|--------------|
+| `bm_beneficiary` | `created_at`, `updated_at` |
+| `bm_household` | `created_at` |
+| `bm_card` | `issued_at` |
+| `bm_enrolment_request` | `submitted_at`, `reviewed_at` |
+
+Timestamps were regenerated to span 2022–2026 and satisfy the ordering constraint:
+```
+household.created_at ≤ beneficiary.created_at ≤ card.issued_at ≤ first admission
+```
+
+### Fix 2 — Hospital Specialty Offerings
+
+`hm_specialty_offered` originally covered only 38% of actual case specialties. 4,496 rows were added to bring coverage to 97.4%, leaving 2.6% as intentional anomalies. Row count grew from ~2,840 to **7,336**.
+
+---
+
+## Derived Columns (Added by Analytical Pipeline)
+
+The following column is added to `view4_beneficiary_journey.parquet` by the Phase 1 pipeline (not present in the raw CSVs):
+
+| Column | Source Table | Description |
+|--------|-------------|-------------|
+| `claim_rate` | Derived from `has_claim` | Alias of `has_claim` used for AVG aggregation (proportion who claimed). `has_claim` SUM = count of claimants; `claim_rate` AVG = proportion who claimed. |
 
 ---
 
