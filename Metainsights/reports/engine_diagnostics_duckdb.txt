@@ -1,0 +1,234 @@
+======================================================================
+ENGINE DIAGNOSTICS — DuckDB Query Layer + HDP Deduplication
+======================================================================
+Time elapsed:          900.0s
+Scopes evaluated:      2,407
+Patterns found:        2,432
+HDPs evaluated:        13,607
+HDPs skipped (dedup):  5,101
+HDP dedup hit rate:    27.3%
+MetaInsights:          7,738
+Query cache:           92,342 hits / 78,120 misses (54.2%)
+Pattern cache:         7,250 hits / 172,066 misses (4.0%)
+
+--- Candidates by Pattern Type ---
+  TOP_TWO             :  2,436  ########################
+  LAST_TWO            :  1,342  #############
+  OUTSTANDING_1       :  1,193  ###########
+  OUTSTANDING_LAST    :  1,178  ###########
+  ATTRIBUTION         :    899  ########
+  OUTLIER             :    209  ##
+  TREND               :    199  #
+  EVENNESS            :    153  #
+  SEASONALITY         :    128  #
+  UNIMODALITY         :      1  
+
+  Zero-candidate types: ['CHANGE_POINT']
+
+--- Score Distribution ---
+  Max:    0.9442
+  Median: 0.5658
+  Min:    0.0357
+  Above 0.1: 7,727
+
+--- Top 20 MetaInsights ---
+
+  #1  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:    subspace on 'age_group'
+    Pattern:     EVENNESS
+    Breakdown:   hospital_sub_type   Measure: case_count
+    Base scope:  {*}
+    HDP size:    4
+    Commonness:  ('EVEN',)  (4/4 = 100%)
+      Members:   60+, 26-40, 41-60, 15-25
+    Exceptions:  none
+
+  #2  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:    subspace on 'age_group'
+    Pattern:     EVENNESS
+    Breakdown:   hospital_sub_type   Measure: length_of_stay
+    Base scope:  {*}
+    HDP size:    4
+    Commonness:  ('EVEN',)  (4/4 = 100%)
+      Members:   60+, 26-40, 41-60, 15-25
+    Exceptions:  none
+
+  #3  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:    subspace on 'division'
+    Pattern:     TOP_TWO
+    Breakdown:   specialty_code   Measure: amount_claimed
+    Base scope:  {*}
+    HDP size:    18
+    Commonness:  ('CARD', 'ORTH')  (18/18 = 100%)
+      Members:   Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur ... (+10)
+    Exceptions:  none
+
+  #4  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:    subspace on 'district'
+    Pattern:     TOP_TWO
+    Breakdown:   specialty_code   Measure: amount_claimed
+    Base scope:  {*}
+    HDP size:    75
+    Commonness:  ('CARD', 'ORTH')  (75/75 = 100%)
+      Members:   Lalitpur, Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Moradabad, Meerut ... (+67)
+    Exceptions:  none
+
+  #5  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:    subspace on 'hospital_sub_type'
+    Pattern:     TOP_TWO
+    Breakdown:   specialty_code   Measure: amount_claimed
+    Base scope:  {*}
+    HDP size:    8
+    Commonness:  ('CARD', 'ORTH')  (8/8 = 100%)
+      Members:   Trust, PHC, Private, NGO, Medical College, Civil Hospital, CHC, District Hospital
+    Exceptions:  none
+
+  #6  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:    subspace on 'disease_category'
+    Pattern:     TOP_TWO
+    Breakdown:   specialty_code   Measure: amount_claimed
+    Base scope:  {*}
+    HDP size:    5
+    Commonness:  ('CARD', 'ORTH')  (5/5 = 100%)
+      Members:   NCD, SURGICAL, COMMUNICABLE, MATERNAL_NEONATAL, INJURY
+    Exceptions:  none
+
+  #7  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:    subspace on 'age_group'
+    Pattern:     TOP_TWO
+    Breakdown:   specialty_code   Measure: amount_claimed
+    Base scope:  {*}
+    HDP size:    4
+    Commonness:  ('CARD', 'ORTH')  (4/4 = 100%)
+      Members:   60+, 26-40, 41-60, 15-25
+    Exceptions:  none
+
+  #8  score=0.9442  (conciseness=0.9442, impact=1.0000 via amount_claimed)
+    Strategy:    subspace on 'claim_status'
+    Pattern:     TOP_TWO
+    Breakdown:   specialty_code   Measure: amount_claimed
+    Base scope:  {*}
+    HDP size:    5
+    Commonness:  ('CARD', 'ORTH')  (5/5 = 100%)
+      Members:   APPROVED, SETTLED, REJECTED, QUERY_RAISED, PENDING
+    Exceptions:  none
+
+  #9  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:    subspace on 'preauth_status'
+    Pattern:     TOP_TWO
+    Breakdown:   specialty_code   Measure: amount_claimed
+    Base scope:  {*}
+    HDP size:    4
+    Commonness:  ('CARD', 'ORTH')  (4/4 = 100%)
+      Members:   AUTO_APPROVED, APPROVED, QUERY_RAISED, REJECTED
+    Exceptions:  none
+
+  #10  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:    subspace on 'bed_size_bucket'
+    Pattern:     TOP_TWO
+    Breakdown:   specialty_code   Measure: amount_claimed
+    Base scope:  {*}
+    HDP size:    4
+    Commonness:  ('CARD', 'ORTH')  (4/4 = 100%)
+      Members:   SMALL (<=30), LARGE (101-300), MEDIUM (31-100), VERY_LARGE (300+)
+    Exceptions:  none
+
+  #11  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:    subspace on 'division'
+    Pattern:     TOP_TWO
+    Breakdown:   specialty_code   Measure: amount_approved
+    Base scope:  {*}
+    HDP size:    18
+    Commonness:  ('CARD', 'ORTH')  (18/18 = 100%)
+      Members:   Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur ... (+10)
+    Exceptions:  none
+
+  #12  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:    subspace on 'district'
+    Pattern:     TOP_TWO
+    Breakdown:   specialty_code   Measure: amount_approved
+    Base scope:  {*}
+    HDP size:    75
+    Commonness:  ('CARD', 'ORTH')  (75/75 = 100%)
+      Members:   Lalitpur, Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Moradabad, Meerut ... (+67)
+    Exceptions:  none
+
+  #13  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:    subspace on 'hospital_sub_type'
+    Pattern:     TOP_TWO
+    Breakdown:   specialty_code   Measure: amount_approved
+    Base scope:  {*}
+    HDP size:    8
+    Commonness:  ('CARD', 'ORTH')  (8/8 = 100%)
+      Members:   Trust, PHC, Private, NGO, Medical College, Civil Hospital, CHC, District Hospital
+    Exceptions:  none
+
+  #14  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:    subspace on 'disease_category'
+    Pattern:     TOP_TWO
+    Breakdown:   specialty_code   Measure: amount_approved
+    Base scope:  {*}
+    HDP size:    5
+    Commonness:  ('CARD', 'ORTH')  (5/5 = 100%)
+      Members:   NCD, SURGICAL, COMMUNICABLE, MATERNAL_NEONATAL, INJURY
+    Exceptions:  none
+
+  #15  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:    subspace on 'age_group'
+    Pattern:     TOP_TWO
+    Breakdown:   specialty_code   Measure: amount_approved
+    Base scope:  {*}
+    HDP size:    4
+    Commonness:  ('CARD', 'ORTH')  (4/4 = 100%)
+      Members:   60+, 26-40, 41-60, 15-25
+    Exceptions:  none
+
+  #16  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:    subspace on 'discharge_type'
+    Pattern:     TOP_TWO
+    Breakdown:   specialty_code   Measure: amount_approved
+    Base scope:  {*}
+    HDP size:    5
+    Commonness:  ('CARD', 'ORTH')  (5/5 = 100%)
+      Members:   LIVE, NORMAL, LAMA, DAMA, DEATH
+    Exceptions:  none
+
+  #17  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:    subspace on 'preauth_status'
+    Pattern:     TOP_TWO
+    Breakdown:   specialty_code   Measure: amount_approved
+    Base scope:  {*}
+    HDP size:    4
+    Commonness:  ('CARD', 'ORTH')  (4/4 = 100%)
+      Members:   AUTO_APPROVED, APPROVED, QUERY_RAISED, REJECTED
+    Exceptions:  none
+
+  #18  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:    subspace on 'bed_size_bucket'
+    Pattern:     TOP_TWO
+    Breakdown:   specialty_code   Measure: amount_approved
+    Base scope:  {*}
+    HDP size:    4
+    Commonness:  ('CARD', 'ORTH')  (4/4 = 100%)
+      Members:   SMALL (<=30), LARGE (101-300), MEDIUM (31-100), VERY_LARGE (300+)
+    Exceptions:  none
+
+  #19  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:    subspace on 'hospital_sub_type'
+    Pattern:     TOP_TWO
+    Breakdown:   specialty_code   Measure: amount_paid
+    Base scope:  {*}
+    HDP size:    8
+    Commonness:  ('CARD', 'ORTH')  (8/8 = 100%)
+      Members:   Trust, PHC, Private, NGO, Medical College, Civil Hospital, CHC, District Hospital
+    Exceptions:  none
+
+  #20  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:    subspace on 'disease_category'
+    Pattern:     TOP_TWO
+    Breakdown:   specialty_code   Measure: amount_paid
+    Base scope:  {*}
+    HDP size:    5
+    Commonness:  ('CARD', 'ORTH')  (5/5 = 100%)
+      Members:   NCD, SURGICAL, COMMUNICABLE, MATERNAL_NEONATAL, INJURY
+    Exceptions:  none
