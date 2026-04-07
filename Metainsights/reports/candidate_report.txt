@@ -1,0 +1,3218 @@
+======================================================================
+METAINSIGHT CANDIDATE REPORT  --  View 1: Claims Lifecycle
+Pattern type: OUTSTANDING_1
+======================================================================
+
+Total candidates:          11,228
+  Universal (0 exceptions): 6,513
+  Actionable (>=1 except.): 4,715
+
+Score distribution:
+  0.8-1.0:  1,549  ##############################
+  0.6-0.8:    241  ####
+  0.4-0.6:  1,897  #####################################
+  0.2-0.4:  3,606  ########################################################################
+  0.0-0.2:  3,935  ##############################################################################
+
+By extending strategy:
+  subspace    : 8,555
+  measure     : 2,673
+
+By breakdown dimension (top 10):
+  discharge_type      : 4,884
+  claim_status        : 4,427
+  specialty_code      : 875
+  preauth_status      : 653
+  bed_size_bucket     : 288
+  age_group           : 52
+  admission_year      : 25
+  disease_category    : 17
+  district            : 7
+
+By extending dimension (top 10):
+  measure             : 2,673
+  age_group           : 1,153
+  bed_size_bucket     : 1,139
+  preauth_status      : 1,127
+  disease_category    : 968
+  specialty_code      : 916
+  claim_status        : 709
+  division            : 675
+  hospital_sub_type   : 625
+  district            : 622
+
+======================================================================
+SECTION 1 -- TOP 30 CANDIDATES (ALL)
+======================================================================
+  #1  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'hospital_sub_type'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {*}
+    HDP size:   8    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  8/8 (100%)
+        Members: Trust, PHC, Private, NGO, Medical College, Civil Hospital, CHC, District Hospital
+
+  #2  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  5/5 (100%)
+        Members: NCD, SURGICAL, COMMUNICABLE, MATERNAL_NEONATAL, INJURY
+
+  #3  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'age_group'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  4/4 (100%)
+        Members: 60+, 26-40, 41-60, 15-25
+
+  #4  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'claim_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  5/5 (100%)
+        Members: APPROVED, SETTLED, REJECTED, QUERY_RAISED, PENDING
+
+  #5  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'bed_size_bucket'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  4/4 (100%)
+        Members: SMALL (<=30), LARGE (101-300), MEDIUM (31-100), VERY_LARGE (300+)
+
+  #6  score=0.9442  (conciseness=0.9442, impact=1.0000 via amount_claimed)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: case_count
+    Subspace:   {*}
+    HDP size:   18    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  18/18 (100%)
+        Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur ... (+8 more)
+
+  #7  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'hospital_sub_type'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: case_count
+    Subspace:   {*}
+    HDP size:   8    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  8/8 (100%)
+        Members: Trust, PHC, Private, NGO, Medical College, Civil Hospital, CHC, District Hospital
+
+  #8  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: case_count
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  11/11 (100%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, NEURO ... (+1 more)
+
+  #9  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: case_count
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  5/5 (100%)
+        Members: NCD, SURGICAL, COMMUNICABLE, MATERNAL_NEONATAL, INJURY
+
+  #10  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'age_group'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: case_count
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  4/4 (100%)
+        Members: 60+, 26-40, 41-60, 15-25
+
+  #11  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'claim_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: case_count
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  5/5 (100%)
+        Members: APPROVED, SETTLED, REJECTED, QUERY_RAISED, PENDING
+
+  #12  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'preauth_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: case_count
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  4/4 (100%)
+        Members: AUTO_APPROVED, APPROVED, QUERY_RAISED, REJECTED
+
+  #13  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'bed_size_bucket'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: case_count
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  4/4 (100%)
+        Members: SMALL (<=30), LARGE (101-300), MEDIUM (31-100), VERY_LARGE (300+)
+
+  #14  score=0.9442  (conciseness=0.9442, impact=1.0000 via amount_claimed)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_claimed
+    Subspace:   {*}
+    HDP size:   18    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  18/18 (100%)
+        Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur ... (+8 more)
+
+  #15  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'hospital_sub_type'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_claimed
+    Subspace:   {*}
+    HDP size:   8    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  8/8 (100%)
+        Members: Trust, PHC, Private, NGO, Medical College, Civil Hospital, CHC, District Hospital
+
+  #16  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_claimed
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  11/11 (100%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, NEURO ... (+1 more)
+
+  #17  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_claimed
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  5/5 (100%)
+        Members: NCD, SURGICAL, COMMUNICABLE, MATERNAL_NEONATAL, INJURY
+
+  #18  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'age_group'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_claimed
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  4/4 (100%)
+        Members: 60+, 26-40, 41-60, 15-25
+
+  #19  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'claim_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_claimed
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  5/5 (100%)
+        Members: APPROVED, SETTLED, REJECTED, QUERY_RAISED, PENDING
+
+  #20  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'preauth_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_claimed
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  4/4 (100%)
+        Members: AUTO_APPROVED, APPROVED, QUERY_RAISED, REJECTED
+
+  #21  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'bed_size_bucket'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_claimed
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  4/4 (100%)
+        Members: SMALL (<=30), LARGE (101-300), MEDIUM (31-100), VERY_LARGE (300+)
+
+  #22  score=0.9442  (conciseness=0.9442, impact=1.0000 via amount_claimed)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_approved
+    Subspace:   {*}
+    HDP size:   18    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  18/18 (100%)
+        Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur ... (+8 more)
+
+  #23  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'hospital_sub_type'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_approved
+    Subspace:   {*}
+    HDP size:   8    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  8/8 (100%)
+        Members: Trust, PHC, Private, NGO, Medical College, Civil Hospital, CHC, District Hospital
+
+  #24  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_approved
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  11/11 (100%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, NEURO ... (+1 more)
+
+  #25  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_approved
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  5/5 (100%)
+        Members: NCD, SURGICAL, COMMUNICABLE, MATERNAL_NEONATAL, INJURY
+
+  #26  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'age_group'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_approved
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  4/4 (100%)
+        Members: 60+, 26-40, 41-60, 15-25
+
+  #27  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'preauth_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_approved
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  4/4 (100%)
+        Members: AUTO_APPROVED, APPROVED, QUERY_RAISED, REJECTED
+
+  #28  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'bed_size_bucket'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_approved
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  4/4 (100%)
+        Members: SMALL (<=30), LARGE (101-300), MEDIUM (31-100), VERY_LARGE (300+)
+
+  #29  score=0.9442  (conciseness=0.9442, impact=1.0000 via amount_claimed)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_paid
+    Subspace:   {*}
+    HDP size:   18    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  18/18 (100%)
+        Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur ... (+8 more)
+
+  #30  score=0.9442  (conciseness=0.9442, impact=1.0000 via case_count)
+    Strategy:   subspace on 'hospital_sub_type'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_paid
+    Subspace:   {*}
+    HDP size:   8    Exceptions: 0
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  8/8 (100%)
+        Members: Trust, PHC, Private, NGO, Medical College, Civil Hospital, CHC, District Hospital
+
+
+======================================================================
+SECTION 2 -- TOP 50 ACTIONABLE CANDIDATES (WITH EXCEPTIONS)
+======================================================================
+  #1  score=0.9430  (conciseness=0.9430, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_paid
+    Subspace:   {*}
+    HDP size:   75    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  74/75 (99%)
+        Members: Lalitpur, Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Moradabad, Meerut, Farrukhabad, Chitrakoot ... (+64 more)
+    Exceptions:
+      Hamirpur              NO_PATTERN            highlight=None
+
+  #2  score=0.8861  (conciseness=0.8861, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_lama_dama
+    Subspace:   {*}
+    HDP size:   75    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  73/75 (97%)
+        Members: Lalitpur, Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Moradabad, Meerut, Farrukhabad, Chitrakoot ... (+63 more)
+    Exceptions:
+      Hamirpur              HIGHLIGHT_CHANGE      highlight=('SETTLED',)
+      Gautam Buddha Nagar   NO_PATTERN            highlight=None
+
+  #3  score=0.8273  (conciseness=0.8273, impact=1.0000 via amount_claimed)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_death
+    Subspace:   {*}
+    HDP size:   18    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  17/18 (94%)
+        Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur ... (+7 more)
+    Exceptions:
+      Aligarh               HIGHLIGHT_CHANGE      highlight=('SETTLED',)
+
+  #4  score=0.8081  (conciseness=0.9430, impact=0.8569 via amount_paid)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_paid
+    Subspace:   {admission_type:ELECTIVE}
+    HDP size:   75    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  74/75 (99%)
+        Members: Lalitpur, Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Moradabad, Meerut, Farrukhabad, Chitrakoot ... (+64 more)
+    Exceptions:
+      Hamirpur              HIGHLIGHT_CHANGE      highlight=('DAMA',)
+
+  #5  score=0.7720  (conciseness=0.9010, impact=0.8569 via amount_paid)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_lama_dama
+    Subspace:   {admission_type:ELECTIVE}
+    HDP size:   75    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  73/75 (97%)
+        Members: Lalitpur, Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Moradabad, Meerut, Farrukhabad, Chitrakoot ... (+63 more)
+    Exceptions:
+      Gautam Buddha Nagar   HIGHLIGHT_CHANGE      highlight=('SETTLED',)
+      Hamirpur              HIGHLIGHT_CHANGE      highlight=('SETTLED',)
+
+  #6  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, PEDS
+    Exceptions:
+      NEURO                 NO_PATTERN            highlight=None
+
+  #7  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_death
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, NEURO
+    Exceptions:
+      PEDS                  HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #8  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, PEDS
+    Exceptions:
+      NEURO                 NO_PATTERN            highlight=None
+
+  #9  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_death
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, NEURO
+    Exceptions:
+      PEDS                  HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #10  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, PEDS
+    Exceptions:
+      NEURO                 NO_PATTERN            highlight=None
+
+  #11  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_death
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, NEURO
+    Exceptions:
+      PEDS                  HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #12  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, PEDS
+    Exceptions:
+      NEURO                 NO_PATTERN            highlight=None
+
+  #13  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_death
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, NEURO
+    Exceptions:
+      PEDS                  HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #14  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, PEDS
+    Exceptions:
+      NEURO                 NO_PATTERN            highlight=None
+
+  #15  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_death
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, NEURO
+    Exceptions:
+      PEDS                  HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #16  score=0.7258  (conciseness=0.8273, impact=0.8774 via amount_claimed)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {discharge_type:NORMAL}
+    HDP size:   18    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  17/18 (94%)
+        Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur ... (+7 more)
+    Exceptions:
+      Azamgarh              NO_PATTERN            highlight=None
+
+  #17  score=0.7192  (conciseness=0.7192, impact=1.0000 via amount_claimed)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {*}
+    HDP size:   18    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  16/18 (89%)
+        Members: Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur, Agra ... (+6 more)
+    Exceptions:
+      Jhansi                NO_PATTERN            highlight=None
+      Azamgarh              NO_PATTERN            highlight=None
+
+  #18  score=0.7192  (conciseness=0.7192, impact=1.0000 via amount_claimed)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {*}
+    HDP size:   18    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  16/18 (89%)
+        Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Moradabad, Kanpur, Chitrakoot, Agra, Devipatan ... (+6 more)
+    Exceptions:
+      Bareilly              NO_PATTERN            highlight=None
+      Mirzapur              NO_PATTERN            highlight=None
+
+  #19  score=0.7089  (conciseness=0.8273, impact=0.8569 via amount_paid)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {admission_type:ELECTIVE}
+    HDP size:   18    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  17/18 (94%)
+        Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur ... (+7 more)
+    Exceptions:
+      Azamgarh              NO_PATTERN            highlight=None
+
+  #20  score=0.7089  (conciseness=0.8273, impact=0.8569 via amount_paid)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_death
+    Subspace:   {admission_type:ELECTIVE}
+    HDP size:   18    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('DEATH',)  17/18 (94%)
+        Members: Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur, Agra ... (+7 more)
+    Exceptions:
+      Jhansi                NO_PATTERN            highlight=None
+
+  #21  score=0.6968  (conciseness=0.6968, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'hospital_sub_type'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   8    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  7/8 (88%)
+        Members: PHC, Private, NGO, Medical College, Civil Hospital, CHC, District Hospital
+    Exceptions:
+      Trust                 NO_PATTERN            highlight=None
+
+  #22  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, amount_paid, length_of_stay, is_emergency, settlement_tat_days, query_count, base_amount, computed_final_amount
+    Exceptions:
+      is_death              HIGHLIGHT_CHANGE      highlight=('DEATH',)
+      is_lama_dama          HIGHLIGHT_CHANGE      highlight=('LAMA',)
+
+  #23  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, amount_paid, length_of_stay, is_emergency, settlement_tat_days, query_count, base_amount, computed_final_amount
+    Exceptions:
+      is_death              HIGHLIGHT_CHANGE      highlight=('DEATH',)
+      is_lama_dama          HIGHLIGHT_CHANGE      highlight=('LAMA',)
+
+  #24  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, amount_paid, length_of_stay, is_emergency, settlement_tat_days, query_count, base_amount, computed_final_amount
+    Exceptions:
+      is_death              HIGHLIGHT_CHANGE      highlight=('DEATH',)
+      is_lama_dama          HIGHLIGHT_CHANGE      highlight=('LAMA',)
+
+  #25  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, amount_paid, length_of_stay, is_emergency, settlement_tat_days, query_count, base_amount, computed_final_amount
+    Exceptions:
+      is_death              HIGHLIGHT_CHANGE      highlight=('DEATH',)
+      is_lama_dama          HIGHLIGHT_CHANGE      highlight=('LAMA',)
+
+  #26  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, amount_paid, length_of_stay, is_emergency, settlement_tat_days, query_count, base_amount, computed_final_amount
+    Exceptions:
+      is_death              HIGHLIGHT_CHANGE      highlight=('DEATH',)
+      is_lama_dama          HIGHLIGHT_CHANGE      highlight=('LAMA',)
+
+  #27  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, amount_paid, length_of_stay, is_emergency, settlement_tat_days, query_count, base_amount, computed_final_amount
+    Exceptions:
+      is_death              HIGHLIGHT_CHANGE      highlight=('DEATH',)
+      is_lama_dama          HIGHLIGHT_CHANGE      highlight=('LAMA',)
+
+  #28  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, amount_paid, length_of_stay, is_emergency, settlement_tat_days, query_count, base_amount, computed_final_amount
+    Exceptions:
+      is_death              HIGHLIGHT_CHANGE      highlight=('DEATH',)
+      is_lama_dama          HIGHLIGHT_CHANGE      highlight=('LAMA',)
+
+  #29  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, amount_paid, length_of_stay, is_emergency, settlement_tat_days, query_count, base_amount, computed_final_amount
+    Exceptions:
+      is_death              HIGHLIGHT_CHANGE      highlight=('DEATH',)
+      is_lama_dama          HIGHLIGHT_CHANGE      highlight=('LAMA',)
+
+  #30  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, amount_paid, length_of_stay, is_emergency, settlement_tat_days, query_count, base_amount, computed_final_amount
+    Exceptions:
+      is_death              HIGHLIGHT_CHANGE      highlight=('DEATH',)
+      is_lama_dama          HIGHLIGHT_CHANGE      highlight=('LAMA',)
+
+  #31  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, amount_paid, length_of_stay, is_emergency, settlement_tat_days, query_count, base_amount, computed_final_amount
+    Exceptions:
+      is_death              HIGHLIGHT_CHANGE      highlight=('DEATH',)
+      is_lama_dama          HIGHLIGHT_CHANGE      highlight=('LAMA',)
+
+  #32  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, amount_paid, length_of_stay, is_emergency, settlement_tat_days, query_count, base_amount, computed_final_amount
+    Exceptions:
+      is_death              HIGHLIGHT_CHANGE      highlight=('DEATH',)
+      is_lama_dama          HIGHLIGHT_CHANGE      highlight=('LAMA',)
+
+  #33  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, amount_paid, length_of_stay, is_emergency, settlement_tat_days, query_count, base_amount, computed_final_amount
+    Exceptions:
+      is_death              HIGHLIGHT_CHANGE      highlight=('DEATH',)
+      is_lama_dama          HIGHLIGHT_CHANGE      highlight=('LAMA',)
+
+  #34  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, length_of_stay, is_emergency, is_death, is_lama_dama, settlement_tat_days, base_amount, computed_final_amount
+    Exceptions:
+      amount_paid           HIGHLIGHT_CHANGE      highlight=('SETTLED',)
+      query_count           HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #35  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, length_of_stay, is_emergency, is_death, is_lama_dama, settlement_tat_days, base_amount, computed_final_amount
+    Exceptions:
+      amount_paid           HIGHLIGHT_CHANGE      highlight=('SETTLED',)
+      query_count           HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #36  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, length_of_stay, is_emergency, is_death, is_lama_dama, settlement_tat_days, base_amount, computed_final_amount
+    Exceptions:
+      amount_paid           HIGHLIGHT_CHANGE      highlight=('SETTLED',)
+      query_count           HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #37  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, length_of_stay, is_emergency, is_death, is_lama_dama, settlement_tat_days, base_amount, computed_final_amount
+    Exceptions:
+      amount_paid           HIGHLIGHT_CHANGE      highlight=('SETTLED',)
+      query_count           HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #38  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, length_of_stay, is_emergency, is_death, is_lama_dama, settlement_tat_days, base_amount, computed_final_amount
+    Exceptions:
+      amount_paid           HIGHLIGHT_CHANGE      highlight=('SETTLED',)
+      query_count           HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #39  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, length_of_stay, is_emergency, is_death, is_lama_dama, settlement_tat_days, base_amount, computed_final_amount
+    Exceptions:
+      amount_paid           HIGHLIGHT_CHANGE      highlight=('SETTLED',)
+      query_count           HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #40  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, length_of_stay, is_emergency, is_death, is_lama_dama, settlement_tat_days, base_amount, computed_final_amount
+    Exceptions:
+      amount_paid           HIGHLIGHT_CHANGE      highlight=('SETTLED',)
+      query_count           HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #41  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, length_of_stay, is_emergency, is_death, is_lama_dama, settlement_tat_days, base_amount, computed_final_amount
+    Exceptions:
+      amount_paid           HIGHLIGHT_CHANGE      highlight=('SETTLED',)
+      query_count           HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #42  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, length_of_stay, is_emergency, is_death, is_lama_dama, settlement_tat_days, base_amount, computed_final_amount
+    Exceptions:
+      amount_paid           HIGHLIGHT_CHANGE      highlight=('SETTLED',)
+      query_count           HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #43  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, length_of_stay, is_emergency, is_death, is_lama_dama, settlement_tat_days, base_amount, computed_final_amount
+    Exceptions:
+      amount_paid           HIGHLIGHT_CHANGE      highlight=('SETTLED',)
+      query_count           HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #44  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, length_of_stay, is_emergency, is_death, is_lama_dama, settlement_tat_days, base_amount, computed_final_amount
+    Exceptions:
+      amount_paid           HIGHLIGHT_CHANGE      highlight=('SETTLED',)
+      query_count           HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #45  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, length_of_stay, is_emergency, is_death, is_lama_dama, settlement_tat_days, base_amount, computed_final_amount
+    Exceptions:
+      amount_paid           HIGHLIGHT_CHANGE      highlight=('SETTLED',)
+      query_count           HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #46  score=0.6289  (conciseness=0.6289, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: case_count
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   75    Exceptions: 13
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  62/75 (83%)
+        Members: Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Meerut, Farrukhabad, Firozabad, Agra, Lucknow ... (+52 more)
+    Exceptions:
+      Lalitpur              NO_PATTERN            highlight=None
+      Moradabad             NO_PATTERN            highlight=None
+      Chitrakoot            NO_PATTERN            highlight=None
+      Sonbhadra             NO_PATTERN            highlight=None
+      Ballia                NO_PATTERN            highlight=None
+      Mahoba                NO_PATTERN            highlight=None
+      Shamli                NO_PATTERN            highlight=None
+      Balrampur             NO_PATTERN            highlight=None
+      ... and 5 more
+
+  #47  score=0.6289  (conciseness=0.6289, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: length_of_stay
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   75    Exceptions: 13
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  62/75 (83%)
+        Members: Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Meerut, Farrukhabad, Firozabad, Agra, Lucknow ... (+52 more)
+    Exceptions:
+      Lalitpur              NO_PATTERN            highlight=None
+      Moradabad             NO_PATTERN            highlight=None
+      Chitrakoot            NO_PATTERN            highlight=None
+      Sonbhadra             NO_PATTERN            highlight=None
+      Ballia                NO_PATTERN            highlight=None
+      Mahoba                NO_PATTERN            highlight=None
+      Shamli                NO_PATTERN            highlight=None
+      Balrampur             NO_PATTERN            highlight=None
+      ... and 5 more
+
+  #48  score=0.6289  (conciseness=0.6289, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: settlement_tat_days
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   75    Exceptions: 13
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  62/75 (83%)
+        Members: Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Meerut, Farrukhabad, Firozabad, Agra, Lucknow ... (+52 more)
+    Exceptions:
+      Lalitpur              NO_PATTERN            highlight=None
+      Moradabad             NO_PATTERN            highlight=None
+      Chitrakoot            NO_PATTERN            highlight=None
+      Sonbhadra             NO_PATTERN            highlight=None
+      Ballia                NO_PATTERN            highlight=None
+      Mahoba                NO_PATTERN            highlight=None
+      Shamli                NO_PATTERN            highlight=None
+      Balrampur             NO_PATTERN            highlight=None
+      ... and 5 more
+
+  #49  score=0.6126  (conciseness=0.6126, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_claimed
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   75    Exceptions: 14
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  61/75 (81%)
+        Members: Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Meerut, Farrukhabad, Firozabad, Agra, Lucknow ... (+51 more)
+    Exceptions:
+      Lalitpur              NO_PATTERN            highlight=None
+      Moradabad             NO_PATTERN            highlight=None
+      Chitrakoot            NO_PATTERN            highlight=None
+      Sonbhadra             NO_PATTERN            highlight=None
+      Ballia                NO_PATTERN            highlight=None
+      Mahoba                NO_PATTERN            highlight=None
+      Shamli                NO_PATTERN            highlight=None
+      Balrampur             NO_PATTERN            highlight=None
+      ... and 6 more
+
+  #50  score=0.6126  (conciseness=0.6126, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_approved
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   75    Exceptions: 14
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  61/75 (81%)
+        Members: Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Meerut, Farrukhabad, Firozabad, Agra, Lucknow ... (+51 more)
+    Exceptions:
+      Lalitpur              NO_PATTERN            highlight=None
+      Moradabad             NO_PATTERN            highlight=None
+      Chitrakoot            NO_PATTERN            highlight=None
+      Sonbhadra             NO_PATTERN            highlight=None
+      Ballia                NO_PATTERN            highlight=None
+      Mahoba                NO_PATTERN            highlight=None
+      Shamli                NO_PATTERN            highlight=None
+      Balrampur             NO_PATTERN            highlight=None
+      ... and 6 more
+
+
+======================================================================
+SECTION 3 -- TOP 10 ACTIONABLE BY BREAKDOWN DIMENSION
+======================================================================
+
+--- breakdown=discharge_type (10 shown) ---
+  #1  score=0.9430  (conciseness=0.9430, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_paid
+    Subspace:   {*}
+    HDP size:   75    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  74/75 (99%)
+        Members: Lalitpur, Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Moradabad, Meerut, Farrukhabad, Chitrakoot ... (+64 more)
+    Exceptions:
+      Hamirpur              NO_PATTERN            highlight=None
+
+  #2  score=0.8081  (conciseness=0.9430, impact=0.8569 via amount_paid)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_paid
+    Subspace:   {admission_type:ELECTIVE}
+    HDP size:   75    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  74/75 (99%)
+        Members: Lalitpur, Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Moradabad, Meerut, Farrukhabad, Chitrakoot ... (+64 more)
+    Exceptions:
+      Hamirpur              HIGHLIGHT_CHANGE      highlight=('DAMA',)
+
+  #3  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, PEDS
+    Exceptions:
+      NEURO                 NO_PATTERN            highlight=None
+
+  #4  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, PEDS
+    Exceptions:
+      NEURO                 NO_PATTERN            highlight=None
+
+  #5  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, PEDS
+    Exceptions:
+      NEURO                 NO_PATTERN            highlight=None
+
+  #6  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, PEDS
+    Exceptions:
+      NEURO                 NO_PATTERN            highlight=None
+
+  #7  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, PEDS
+    Exceptions:
+      NEURO                 NO_PATTERN            highlight=None
+
+  #8  score=0.7192  (conciseness=0.7192, impact=1.0000 via amount_claimed)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {*}
+    HDP size:   18    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  16/18 (89%)
+        Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Moradabad, Kanpur, Chitrakoot, Agra, Devipatan ... (+6 more)
+    Exceptions:
+      Bareilly              NO_PATTERN            highlight=None
+      Mirzapur              NO_PATTERN            highlight=None
+
+  #9  score=0.7089  (conciseness=0.8273, impact=0.8569 via amount_paid)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_death
+    Subspace:   {admission_type:ELECTIVE}
+    HDP size:   18    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('DEATH',)  17/18 (94%)
+        Members: Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur, Agra ... (+7 more)
+    Exceptions:
+      Jhansi                NO_PATTERN            highlight=None
+
+  #10  score=0.6968  (conciseness=0.6968, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'hospital_sub_type'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   8    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  7/8 (88%)
+        Members: PHC, Private, NGO, Medical College, Civil Hospital, CHC, District Hospital
+    Exceptions:
+      Trust                 NO_PATTERN            highlight=None
+
+
+--- breakdown=claim_status (10 shown) ---
+  #1  score=0.8861  (conciseness=0.8861, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_lama_dama
+    Subspace:   {*}
+    HDP size:   75    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  73/75 (97%)
+        Members: Lalitpur, Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Moradabad, Meerut, Farrukhabad, Chitrakoot ... (+63 more)
+    Exceptions:
+      Hamirpur              HIGHLIGHT_CHANGE      highlight=('SETTLED',)
+      Gautam Buddha Nagar   NO_PATTERN            highlight=None
+
+  #2  score=0.8273  (conciseness=0.8273, impact=1.0000 via amount_claimed)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_death
+    Subspace:   {*}
+    HDP size:   18    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  17/18 (94%)
+        Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur ... (+7 more)
+    Exceptions:
+      Aligarh               HIGHLIGHT_CHANGE      highlight=('SETTLED',)
+
+  #3  score=0.7720  (conciseness=0.9010, impact=0.8569 via amount_paid)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_lama_dama
+    Subspace:   {admission_type:ELECTIVE}
+    HDP size:   75    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  73/75 (97%)
+        Members: Lalitpur, Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Moradabad, Meerut, Farrukhabad, Chitrakoot ... (+63 more)
+    Exceptions:
+      Gautam Buddha Nagar   HIGHLIGHT_CHANGE      highlight=('SETTLED',)
+      Hamirpur              HIGHLIGHT_CHANGE      highlight=('SETTLED',)
+
+  #4  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_death
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, NEURO
+    Exceptions:
+      PEDS                  HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #5  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_death
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, NEURO
+    Exceptions:
+      PEDS                  HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #6  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_death
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, NEURO
+    Exceptions:
+      PEDS                  HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #7  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_death
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, NEURO
+    Exceptions:
+      PEDS                  HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #8  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_death
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, NEURO
+    Exceptions:
+      PEDS                  HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #9  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, length_of_stay, is_emergency, is_death, is_lama_dama, settlement_tat_days, base_amount, computed_final_amount
+    Exceptions:
+      amount_paid           HIGHLIGHT_CHANGE      highlight=('SETTLED',)
+      query_count           HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #10  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, length_of_stay, is_emergency, is_death, is_lama_dama, settlement_tat_days, base_amount, computed_final_amount
+    Exceptions:
+      amount_paid           HIGHLIGHT_CHANGE      highlight=('SETTLED',)
+      query_count           HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+
+--- breakdown=specialty_code (10 shown) ---
+  #1  score=0.7258  (conciseness=0.8273, impact=0.8774 via amount_claimed)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {discharge_type:NORMAL}
+    HDP size:   18    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  17/18 (94%)
+        Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur ... (+7 more)
+    Exceptions:
+      Azamgarh              NO_PATTERN            highlight=None
+
+  #2  score=0.7192  (conciseness=0.7192, impact=1.0000 via amount_claimed)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {*}
+    HDP size:   18    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  16/18 (89%)
+        Members: Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur, Agra ... (+6 more)
+    Exceptions:
+      Jhansi                NO_PATTERN            highlight=None
+      Azamgarh              NO_PATTERN            highlight=None
+
+  #3  score=0.7089  (conciseness=0.8273, impact=0.8569 via amount_paid)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {admission_type:ELECTIVE}
+    HDP size:   18    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  17/18 (94%)
+        Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur ... (+7 more)
+    Exceptions:
+      Azamgarh              NO_PATTERN            highlight=None
+
+  #4  score=0.5972  (conciseness=0.5972, impact=1.0000 via case_count)
+    Strategy:   subspace on 'claim_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: amount_claimed
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  4/5 (80%)
+        Members: APPROVED, SETTLED, REJECTED, QUERY_RAISED
+    Exceptions:
+      PENDING               NO_PATTERN            highlight=None
+
+  #5  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_claimed)
+    Strategy:   subspace on 'discharge_type'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  4/5 (80%)
+        Members: LIVE, NORMAL, DAMA, DEATH
+    Exceptions:
+      LAMA                  NO_PATTERN            highlight=None
+
+  #6  score=0.5972  (conciseness=0.5972, impact=1.0000 via case_count)
+    Strategy:   subspace on 'claim_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: computed_final_amount
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  4/5 (80%)
+        Members: APPROVED, SETTLED, REJECTED, QUERY_RAISED
+    Exceptions:
+      PENDING               NO_PATTERN            highlight=None
+
+  #7  score=0.5972  (conciseness=0.5972, impact=1.0000 via case_count)
+    Strategy:   subspace on 'claim_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: amount_claimed
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  4/5 (80%)
+        Members: APPROVED, SETTLED, REJECTED, QUERY_RAISED
+    Exceptions:
+      PENDING               NO_PATTERN            highlight=None
+
+  #8  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'discharge_type'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  4/5 (80%)
+        Members: LIVE, NORMAL, DAMA, DEATH
+    Exceptions:
+      LAMA                  NO_PATTERN            highlight=None
+
+  #9  score=0.5972  (conciseness=0.5972, impact=1.0000 via case_count)
+    Strategy:   subspace on 'claim_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: computed_final_amount
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  4/5 (80%)
+        Members: APPROVED, SETTLED, REJECTED, QUERY_RAISED
+    Exceptions:
+      PENDING               NO_PATTERN            highlight=None
+
+  #10  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_claimed)
+    Strategy:   subspace on 'discharge_type'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  4/5 (80%)
+        Members: LIVE, NORMAL, DAMA, DEATH
+    Exceptions:
+      LAMA                  NO_PATTERN            highlight=None
+
+
+--- breakdown=preauth_status (10 shown) ---
+  #1  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  preauth_status    Measure: is_emergency
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  4/5 (80%)
+        Members: NCD, SURGICAL, COMMUNICABLE, INJURY
+    Exceptions:
+      MATERNAL_NEONATAL     NO_PATTERN            highlight=None
+
+  #2  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  preauth_status    Measure: is_emergency
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  4/5 (80%)
+        Members: NCD, SURGICAL, COMMUNICABLE, INJURY
+    Exceptions:
+      MATERNAL_NEONATAL     NO_PATTERN            highlight=None
+
+  #3  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  preauth_status    Measure: is_emergency
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  4/5 (80%)
+        Members: NCD, SURGICAL, COMMUNICABLE, INJURY
+    Exceptions:
+      MATERNAL_NEONATAL     NO_PATTERN            highlight=None
+
+  #4  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  preauth_status    Measure: is_emergency
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  4/5 (80%)
+        Members: NCD, SURGICAL, COMMUNICABLE, INJURY
+    Exceptions:
+      MATERNAL_NEONATAL     NO_PATTERN            highlight=None
+
+  #5  score=0.5474  (conciseness=0.5474, impact=1.0000 via case_count)
+    Strategy:   subspace on 'hospital_sub_type'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  preauth_status    Measure: query_count
+    Subspace:   {*}
+    HDP size:   8    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  6/8 (75%)
+        Members: PHC, Private, Medical College, Civil Hospital, CHC, District Hospital
+    Exceptions:
+      Trust                 NO_PATTERN            highlight=None
+      NGO                   NO_PATTERN            highlight=None
+
+  #6  score=0.5284  (conciseness=0.5284, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  preauth_status    Measure: is_emergency
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 3
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  8/11 (73%)
+        Members: GS, OBG, ENT, ONCO, ORTH, URO, CARD, PEDS
+    Exceptions:
+      OPTH                  NO_PATTERN            highlight=None
+      MED                   NO_PATTERN            highlight=None
+      NEURO                 NO_PATTERN            highlight=None
+
+  #7  score=0.5284  (conciseness=0.5284, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  preauth_status    Measure: is_emergency
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 3
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  8/11 (73%)
+        Members: GS, OBG, ENT, ONCO, ORTH, URO, CARD, PEDS
+    Exceptions:
+      OPTH                  NO_PATTERN            highlight=None
+      MED                   NO_PATTERN            highlight=None
+      NEURO                 NO_PATTERN            highlight=None
+
+  #8  score=0.5284  (conciseness=0.5284, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  preauth_status    Measure: is_emergency
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 3
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  8/11 (73%)
+        Members: GS, OBG, ENT, ONCO, ORTH, URO, CARD, PEDS
+    Exceptions:
+      OPTH                  NO_PATTERN            highlight=None
+      MED                   NO_PATTERN            highlight=None
+      NEURO                 NO_PATTERN            highlight=None
+
+  #9  score=0.5284  (conciseness=0.5284, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  preauth_status    Measure: is_emergency
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 3
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  8/11 (73%)
+        Members: GS, OBG, ENT, ONCO, ORTH, URO, CARD, PEDS
+    Exceptions:
+      OPTH                  NO_PATTERN            highlight=None
+      MED                   NO_PATTERN            highlight=None
+      NEURO                 NO_PATTERN            highlight=None
+
+  #10  score=0.5284  (conciseness=0.5284, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  preauth_status    Measure: is_emergency
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 3
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  8/11 (73%)
+        Members: GS, OBG, ENT, ONCO, ORTH, URO, CARD, PEDS
+    Exceptions:
+      OPTH                  NO_PATTERN            highlight=None
+      MED                   NO_PATTERN            highlight=None
+      NEURO                 NO_PATTERN            highlight=None
+
+
+--- breakdown=bed_size_bucket (10 shown) ---
+  #1  score=0.3852  (conciseness=0.9430, impact=0.4084 via case_count)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  bed_size_bucket    Measure: case_count
+    Subspace:   {hospital_type:PRIVATE}
+    HDP size:   75    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LARGE (101-300)',)  74/75 (99%)
+        Members: Lalitpur, Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Moradabad, Meerut, Farrukhabad, Sonbhadra ... (+64 more)
+    Exceptions:
+      Chitrakoot            NO_PATTERN            highlight=None
+
+  #2  score=0.3379  (conciseness=0.8273, impact=0.4084 via case_count)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  bed_size_bucket    Measure: is_emergency
+    Subspace:   {hospital_type:PRIVATE}
+    HDP size:   18    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LARGE (101-300)',)  17/18 (94%)
+        Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Mirzapur, Agra ... (+7 more)
+    Exceptions:
+      Chitrakoot            NO_PATTERN            highlight=None
+
+  #3  score=0.3379  (conciseness=0.8273, impact=0.4084 via case_count)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  bed_size_bucket    Measure: is_lama_dama
+    Subspace:   {hospital_type:PRIVATE}
+    HDP size:   18    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LARGE (101-300)',)  17/18 (94%)
+        Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur ... (+7 more)
+    Exceptions:
+      Saharanpur            NO_PATTERN            highlight=None
+
+  #4  score=0.3379  (conciseness=0.8273, impact=0.4084 via case_count)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  bed_size_bucket    Measure: query_count
+    Subspace:   {hospital_type:PRIVATE}
+    HDP size:   18    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LARGE (101-300)',)  17/18 (94%)
+        Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Mirzapur, Agra ... (+7 more)
+    Exceptions:
+      Chitrakoot            NO_PATTERN            highlight=None
+
+  #5  score=0.3280  (conciseness=0.5474, impact=0.5992 via amount_paid)
+    Strategy:   subspace on 'preauth_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  bed_size_bucket    Measure: is_death
+    Subspace:   {hospital_type:PUBLIC}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('MEDIUM (31-100)',)  3/4 (75%)
+        Members: AUTO_APPROVED, APPROVED, REJECTED
+    Exceptions:
+      QUERY_RAISED          HIGHLIGHT_CHANGE      highlight=('SMALL (<=30)',)
+
+  #6  score=0.3280  (conciseness=0.5474, impact=0.5992 via amount_paid)
+    Strategy:   subspace on 'preauth_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  bed_size_bucket    Measure: is_death
+    Subspace:   {hospital_type:PUBLIC}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('MEDIUM (31-100)',)  3/4 (75%)
+        Members: AUTO_APPROVED, APPROVED, REJECTED
+    Exceptions:
+      QUERY_RAISED          HIGHLIGHT_CHANGE      highlight=('SMALL (<=30)',)
+
+  #7  score=0.3279  (conciseness=0.8028, impact=0.4084 via case_count)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  bed_size_bucket    Measure: length_of_stay
+    Subspace:   {hospital_type:PRIVATE}
+    HDP size:   75    Exceptions: 5
+    Commonness:
+      [OUTSTANDING_1] highlight=('LARGE (101-300)',)  70/75 (93%)
+        Members: Lalitpur, Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Meerut, Farrukhabad, Sonbhadra, Firozabad ... (+60 more)
+    Exceptions:
+      Moradabad             NO_PATTERN            highlight=None
+      Chitrakoot            NO_PATTERN            highlight=None
+      Kasganj               NO_PATTERN            highlight=None
+      Sant Ravidas Nagar    NO_PATTERN            highlight=None
+      Jalaun                NO_PATTERN            highlight=None
+
+  #8  score=0.3279  (conciseness=0.8028, impact=0.4084 via case_count)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  bed_size_bucket    Measure: settlement_tat_days
+    Subspace:   {hospital_type:PRIVATE}
+    HDP size:   75    Exceptions: 5
+    Commonness:
+      [OUTSTANDING_1] highlight=('LARGE (101-300)',)  70/75 (93%)
+        Members: Lalitpur, Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Moradabad, Meerut, Farrukhabad, Sonbhadra ... (+60 more)
+    Exceptions:
+      Chitrakoot            NO_PATTERN            highlight=None
+      Badaun                NO_PATTERN            highlight=None
+      Kasganj               NO_PATTERN            highlight=None
+      Fatehpur              NO_PATTERN            highlight=None
+      Sant Ravidas Nagar    NO_PATTERN            highlight=None
+
+  #9  score=0.3168  (conciseness=0.7756, impact=0.4084 via case_count)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  bed_size_bucket    Measure: base_amount
+    Subspace:   {hospital_type:PRIVATE}
+    HDP size:   75    Exceptions: 6
+    Commonness:
+      [OUTSTANDING_1] highlight=('LARGE (101-300)',)  69/75 (92%)
+        Members: Lalitpur, Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Moradabad, Meerut, Farrukhabad, Sonbhadra ... (+59 more)
+    Exceptions:
+      Chitrakoot            NO_PATTERN            highlight=None
+      Ambedkar Nagar        NO_PATTERN            highlight=None
+      Kannauj               NO_PATTERN            highlight=None
+      Fatehpur              NO_PATTERN            highlight=None
+      Sant Ravidas Nagar    NO_PATTERN            highlight=None
+      Jalaun                NO_PATTERN            highlight=None
+
+  #10  score=0.3168  (conciseness=0.7756, impact=0.4084 via case_count)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  bed_size_bucket    Measure: computed_final_amount
+    Subspace:   {hospital_type:PRIVATE}
+    HDP size:   75    Exceptions: 6
+    Commonness:
+      [OUTSTANDING_1] highlight=('LARGE (101-300)',)  69/75 (92%)
+        Members: Lalitpur, Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Moradabad, Meerut, Farrukhabad, Sonbhadra ... (+59 more)
+    Exceptions:
+      Chitrakoot            NO_PATTERN            highlight=None
+      Ambedkar Nagar        NO_PATTERN            highlight=None
+      Kannauj               NO_PATTERN            highlight=None
+      Fatehpur              NO_PATTERN            highlight=None
+      Sant Ravidas Nagar    NO_PATTERN            highlight=None
+      Jalaun                NO_PATTERN            highlight=None
+
+
+--- breakdown=age_group (10 shown) ---
+  #1  score=0.3064  (conciseness=0.5972, impact=0.5131 via amount_paid)
+    Strategy:   subspace on 'claim_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  age_group    Measure: is_death
+    Subspace:   {preauth_status:APPROVED}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('41-60',)  4/5 (80%)
+        Members: APPROVED, SETTLED, QUERY_RAISED, PENDING
+    Exceptions:
+      REJECTED              NO_PATTERN            highlight=None
+
+  #2  score=0.3064  (conciseness=0.5972, impact=0.5131 via amount_paid)
+    Strategy:   subspace on 'claim_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  age_group    Measure: is_death
+    Subspace:   {preauth_status:APPROVED}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('41-60',)  4/5 (80%)
+        Members: APPROVED, SETTLED, QUERY_RAISED, PENDING
+    Exceptions:
+      REJECTED              NO_PATTERN            highlight=None
+
+  #3  score=0.3064  (conciseness=0.5972, impact=0.5131 via amount_paid)
+    Strategy:   subspace on 'claim_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  age_group    Measure: is_death
+    Subspace:   {preauth_status:APPROVED}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('41-60',)  4/5 (80%)
+        Members: APPROVED, SETTLED, QUERY_RAISED, PENDING
+    Exceptions:
+      REJECTED              NO_PATTERN            highlight=None
+
+  #4  score=0.2809  (conciseness=0.5474, impact=0.5131 via amount_paid)
+    Strategy:   subspace on 'bed_size_bucket'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  age_group    Measure: is_death
+    Subspace:   {preauth_status:APPROVED}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('41-60',)  3/4 (75%)
+        Members: SMALL (<=30), MEDIUM (31-100), VERY_LARGE (300+)
+    Exceptions:
+      LARGE (101-300)       NO_PATTERN            highlight=None
+
+  #5  score=0.2809  (conciseness=0.5474, impact=0.5131 via amount_paid)
+    Strategy:   subspace on 'bed_size_bucket'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  age_group    Measure: is_death
+    Subspace:   {preauth_status:APPROVED}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('41-60',)  3/4 (75%)
+        Members: SMALL (<=30), MEDIUM (31-100), VERY_LARGE (300+)
+    Exceptions:
+      LARGE (101-300)       NO_PATTERN            highlight=None
+
+  #6  score=0.2352  (conciseness=0.2352, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  age_group    Measure: is_death
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('60+',)  3/5 (60%)
+        Members: NCD, SURGICAL, INJURY
+    Exceptions:
+      MATERNAL_NEONATAL     HIGHLIGHT_CHANGE      highlight=('26-40',)
+      COMMUNICABLE          NO_PATTERN            highlight=None
+
+  #7  score=0.2352  (conciseness=0.2352, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  age_group    Measure: is_death
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('60+',)  3/5 (60%)
+        Members: NCD, SURGICAL, INJURY
+    Exceptions:
+      MATERNAL_NEONATAL     HIGHLIGHT_CHANGE      highlight=('26-40',)
+      COMMUNICABLE          NO_PATTERN            highlight=None
+
+  #8  score=0.2352  (conciseness=0.2352, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  age_group    Measure: is_death
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('60+',)  3/5 (60%)
+        Members: NCD, SURGICAL, INJURY
+    Exceptions:
+      MATERNAL_NEONATAL     HIGHLIGHT_CHANGE      highlight=('26-40',)
+      COMMUNICABLE          NO_PATTERN            highlight=None
+
+  #9  score=0.2352  (conciseness=0.2352, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  age_group    Measure: is_death
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('60+',)  3/5 (60%)
+        Members: NCD, SURGICAL, INJURY
+    Exceptions:
+      MATERNAL_NEONATAL     HIGHLIGHT_CHANGE      highlight=('26-40',)
+      COMMUNICABLE          NO_PATTERN            highlight=None
+
+  #10  score=0.2352  (conciseness=0.4583, impact=0.5131 via amount_paid)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  age_group    Measure: query_count
+    Subspace:   {preauth_status:APPROVED}
+    HDP size:   5    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('60+',)  3/5 (60%)
+        Members: NCD, COMMUNICABLE, INJURY
+    Exceptions:
+      SURGICAL              NO_PATTERN            highlight=None
+      MATERNAL_NEONATAL     NO_PATTERN            highlight=None
+
+
+======================================================================
+SECTION 4 -- TOP 10 ACTIONABLE BY EXTENDING DIMENSION
+======================================================================
+
+--- extending_dimension=measure (10 shown) ---
+  #1  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, amount_paid, length_of_stay, is_emergency, settlement_tat_days, query_count, base_amount, computed_final_amount
+    Exceptions:
+      is_death              HIGHLIGHT_CHANGE      highlight=('DEATH',)
+      is_lama_dama          HIGHLIGHT_CHANGE      highlight=('LAMA',)
+
+  #2  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, amount_paid, length_of_stay, is_emergency, settlement_tat_days, query_count, base_amount, computed_final_amount
+    Exceptions:
+      is_death              HIGHLIGHT_CHANGE      highlight=('DEATH',)
+      is_lama_dama          HIGHLIGHT_CHANGE      highlight=('LAMA',)
+
+  #3  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, amount_paid, length_of_stay, is_emergency, settlement_tat_days, query_count, base_amount, computed_final_amount
+    Exceptions:
+      is_death              HIGHLIGHT_CHANGE      highlight=('DEATH',)
+      is_lama_dama          HIGHLIGHT_CHANGE      highlight=('LAMA',)
+
+  #4  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, amount_paid, length_of_stay, is_emergency, settlement_tat_days, query_count, base_amount, computed_final_amount
+    Exceptions:
+      is_death              HIGHLIGHT_CHANGE      highlight=('DEATH',)
+      is_lama_dama          HIGHLIGHT_CHANGE      highlight=('LAMA',)
+
+  #5  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, amount_paid, length_of_stay, is_emergency, settlement_tat_days, query_count, base_amount, computed_final_amount
+    Exceptions:
+      is_death              HIGHLIGHT_CHANGE      highlight=('DEATH',)
+      is_lama_dama          HIGHLIGHT_CHANGE      highlight=('LAMA',)
+
+  #6  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, amount_paid, length_of_stay, is_emergency, settlement_tat_days, query_count, base_amount, computed_final_amount
+    Exceptions:
+      is_death              HIGHLIGHT_CHANGE      highlight=('DEATH',)
+      is_lama_dama          HIGHLIGHT_CHANGE      highlight=('LAMA',)
+
+  #7  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, amount_paid, length_of_stay, is_emergency, settlement_tat_days, query_count, base_amount, computed_final_amount
+    Exceptions:
+      is_death              HIGHLIGHT_CHANGE      highlight=('DEATH',)
+      is_lama_dama          HIGHLIGHT_CHANGE      highlight=('LAMA',)
+
+  #8  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, amount_paid, length_of_stay, is_emergency, settlement_tat_days, query_count, base_amount, computed_final_amount
+    Exceptions:
+      is_death              HIGHLIGHT_CHANGE      highlight=('DEATH',)
+      is_lama_dama          HIGHLIGHT_CHANGE      highlight=('LAMA',)
+
+  #9  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, amount_paid, length_of_stay, is_emergency, settlement_tat_days, query_count, base_amount, computed_final_amount
+    Exceptions:
+      is_death              HIGHLIGHT_CHANGE      highlight=('DEATH',)
+      is_lama_dama          HIGHLIGHT_CHANGE      highlight=('LAMA',)
+
+  #10  score=0.6373  (conciseness=0.6373, impact=1.0000 via case_count)
+    Strategy:   measure on 'measure'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: (varies)
+    Subspace:   {*}
+    HDP size:   12    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  10/12 (83%)
+        Members: case_count, amount_claimed, amount_approved, amount_paid, length_of_stay, is_emergency, settlement_tat_days, query_count, base_amount, computed_final_amount
+    Exceptions:
+      is_death              HIGHLIGHT_CHANGE      highlight=('DEATH',)
+      is_lama_dama          HIGHLIGHT_CHANGE      highlight=('LAMA',)
+
+
+--- extending_dimension=age_group (10 shown) ---
+  #1  score=0.5474  (conciseness=0.5474, impact=1.0000 via case_count)
+    Strategy:   subspace on 'age_group'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: amount_paid
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  3/4 (75%)
+        Members: 26-40, 41-60, 15-25
+    Exceptions:
+      60+                   NO_PATTERN            highlight=None
+
+  #2  score=0.5474  (conciseness=0.5474, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'age_group'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: amount_claimed
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  3/4 (75%)
+        Members: 26-40, 41-60, 15-25
+    Exceptions:
+      60+                   NO_PATTERN            highlight=None
+
+  #3  score=0.5474  (conciseness=0.5474, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'age_group'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: amount_approved
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  3/4 (75%)
+        Members: 26-40, 41-60, 15-25
+    Exceptions:
+      60+                   NO_PATTERN            highlight=None
+
+  #4  score=0.5474  (conciseness=0.5474, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'age_group'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: amount_paid
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  3/4 (75%)
+        Members: 26-40, 41-60, 15-25
+    Exceptions:
+      60+                   NO_PATTERN            highlight=None
+
+  #5  score=0.5474  (conciseness=0.5474, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'age_group'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_death
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('DEATH',)  3/4 (75%)
+        Members: 60+, 26-40, 41-60
+    Exceptions:
+      15-25                 NO_PATTERN            highlight=None
+
+  #6  score=0.5474  (conciseness=0.5474, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'age_group'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  3/4 (75%)
+        Members: 60+, 26-40, 41-60
+    Exceptions:
+      15-25                 NO_PATTERN            highlight=None
+
+  #7  score=0.5474  (conciseness=0.5474, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'age_group'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_death
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('DEATH',)  3/4 (75%)
+        Members: 60+, 26-40, 41-60
+    Exceptions:
+      15-25                 NO_PATTERN            highlight=None
+
+  #8  score=0.5474  (conciseness=0.5474, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'age_group'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  3/4 (75%)
+        Members: 60+, 26-40, 41-60
+    Exceptions:
+      15-25                 NO_PATTERN            highlight=None
+
+  #9  score=0.5474  (conciseness=0.5474, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'age_group'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: amount_claimed
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  3/4 (75%)
+        Members: 26-40, 41-60, 15-25
+    Exceptions:
+      60+                   NO_PATTERN            highlight=None
+
+  #10  score=0.5474  (conciseness=0.5474, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'age_group'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: amount_approved
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  3/4 (75%)
+        Members: 26-40, 41-60, 15-25
+    Exceptions:
+      60+                   NO_PATTERN            highlight=None
+
+
+--- extending_dimension=bed_size_bucket (10 shown) ---
+  #1  score=0.5474  (conciseness=0.5474, impact=1.0000 via case_count)
+    Strategy:   subspace on 'bed_size_bucket'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: amount_claimed
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  3/4 (75%)
+        Members: LARGE (101-300), MEDIUM (31-100), VERY_LARGE (300+)
+    Exceptions:
+      SMALL (<=30)          NO_PATTERN            highlight=None
+
+  #2  score=0.5474  (conciseness=0.5474, impact=1.0000 via case_count)
+    Strategy:   subspace on 'bed_size_bucket'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: amount_approved
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  3/4 (75%)
+        Members: LARGE (101-300), MEDIUM (31-100), VERY_LARGE (300+)
+    Exceptions:
+      SMALL (<=30)          NO_PATTERN            highlight=None
+
+  #3  score=0.5474  (conciseness=0.5474, impact=1.0000 via case_count)
+    Strategy:   subspace on 'bed_size_bucket'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: computed_final_amount
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  3/4 (75%)
+        Members: LARGE (101-300), MEDIUM (31-100), VERY_LARGE (300+)
+    Exceptions:
+      SMALL (<=30)          NO_PATTERN            highlight=None
+
+  #4  score=0.5474  (conciseness=0.5474, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'bed_size_bucket'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  3/4 (75%)
+        Members: SMALL (<=30), LARGE (101-300), MEDIUM (31-100)
+    Exceptions:
+      VERY_LARGE (300+)     NO_PATTERN            highlight=None
+
+  #5  score=0.5474  (conciseness=0.5474, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'bed_size_bucket'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_death
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('DEATH',)  3/4 (75%)
+        Members: SMALL (<=30), LARGE (101-300), MEDIUM (31-100)
+    Exceptions:
+      VERY_LARGE (300+)     NO_PATTERN            highlight=None
+
+  #6  score=0.5474  (conciseness=0.5474, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'bed_size_bucket'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  3/4 (75%)
+        Members: LARGE (101-300), MEDIUM (31-100), VERY_LARGE (300+)
+    Exceptions:
+      SMALL (<=30)          NO_PATTERN            highlight=None
+
+  #7  score=0.5474  (conciseness=0.5474, impact=1.0000 via case_count)
+    Strategy:   subspace on 'bed_size_bucket'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: amount_claimed
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  3/4 (75%)
+        Members: LARGE (101-300), MEDIUM (31-100), VERY_LARGE (300+)
+    Exceptions:
+      SMALL (<=30)          NO_PATTERN            highlight=None
+
+  #8  score=0.5474  (conciseness=0.5474, impact=1.0000 via case_count)
+    Strategy:   subspace on 'bed_size_bucket'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: amount_approved
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  3/4 (75%)
+        Members: LARGE (101-300), MEDIUM (31-100), VERY_LARGE (300+)
+    Exceptions:
+      SMALL (<=30)          NO_PATTERN            highlight=None
+
+  #9  score=0.5474  (conciseness=0.5474, impact=1.0000 via case_count)
+    Strategy:   subspace on 'bed_size_bucket'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: computed_final_amount
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  3/4 (75%)
+        Members: LARGE (101-300), MEDIUM (31-100), VERY_LARGE (300+)
+    Exceptions:
+      SMALL (<=30)          NO_PATTERN            highlight=None
+
+  #10  score=0.5474  (conciseness=0.5474, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'bed_size_bucket'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  3/4 (75%)
+        Members: SMALL (<=30), LARGE (101-300), MEDIUM (31-100)
+    Exceptions:
+      VERY_LARGE (300+)     NO_PATTERN            highlight=None
+
+
+--- extending_dimension=preauth_status (10 shown) ---
+  #1  score=0.5474  (conciseness=0.5474, impact=1.0000 via case_count)
+    Strategy:   subspace on 'preauth_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: amount_claimed
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  3/4 (75%)
+        Members: AUTO_APPROVED, APPROVED, REJECTED
+    Exceptions:
+      QUERY_RAISED          NO_PATTERN            highlight=None
+
+  #2  score=0.5474  (conciseness=0.5474, impact=1.0000 via case_count)
+    Strategy:   subspace on 'preauth_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: amount_approved
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  3/4 (75%)
+        Members: AUTO_APPROVED, APPROVED, REJECTED
+    Exceptions:
+      QUERY_RAISED          NO_PATTERN            highlight=None
+
+  #3  score=0.5474  (conciseness=0.5474, impact=1.0000 via case_count)
+    Strategy:   subspace on 'preauth_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: amount_paid
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  3/4 (75%)
+        Members: AUTO_APPROVED, APPROVED, QUERY_RAISED
+    Exceptions:
+      REJECTED              NO_PATTERN            highlight=None
+
+  #4  score=0.5474  (conciseness=0.5474, impact=1.0000 via case_count)
+    Strategy:   subspace on 'preauth_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  3/4 (75%)
+        Members: AUTO_APPROVED, APPROVED, REJECTED
+    Exceptions:
+      QUERY_RAISED          NO_PATTERN            highlight=None
+
+  #5  score=0.5474  (conciseness=0.5474, impact=1.0000 via case_count)
+    Strategy:   subspace on 'preauth_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: computed_final_amount
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  3/4 (75%)
+        Members: AUTO_APPROVED, APPROVED, REJECTED
+    Exceptions:
+      QUERY_RAISED          NO_PATTERN            highlight=None
+
+  #6  score=0.5474  (conciseness=0.5474, impact=1.0000 via case_count)
+    Strategy:   subspace on 'preauth_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: amount_claimed
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  3/4 (75%)
+        Members: AUTO_APPROVED, APPROVED, REJECTED
+    Exceptions:
+      QUERY_RAISED          NO_PATTERN            highlight=None
+
+  #7  score=0.5474  (conciseness=0.5474, impact=1.0000 via case_count)
+    Strategy:   subspace on 'preauth_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: amount_approved
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  3/4 (75%)
+        Members: AUTO_APPROVED, APPROVED, REJECTED
+    Exceptions:
+      QUERY_RAISED          NO_PATTERN            highlight=None
+
+  #8  score=0.5474  (conciseness=0.5474, impact=1.0000 via case_count)
+    Strategy:   subspace on 'preauth_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: amount_paid
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  3/4 (75%)
+        Members: AUTO_APPROVED, APPROVED, QUERY_RAISED
+    Exceptions:
+      REJECTED              NO_PATTERN            highlight=None
+
+  #9  score=0.5474  (conciseness=0.5474, impact=1.0000 via case_count)
+    Strategy:   subspace on 'preauth_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  3/4 (75%)
+        Members: AUTO_APPROVED, APPROVED, REJECTED
+    Exceptions:
+      QUERY_RAISED          NO_PATTERN            highlight=None
+
+  #10  score=0.5474  (conciseness=0.5474, impact=1.0000 via case_count)
+    Strategy:   subspace on 'preauth_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: computed_final_amount
+    Subspace:   {*}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  3/4 (75%)
+        Members: AUTO_APPROVED, APPROVED, REJECTED
+    Exceptions:
+      QUERY_RAISED          NO_PATTERN            highlight=None
+
+
+--- extending_dimension=disease_category (10 shown) ---
+  #1  score=0.5972  (conciseness=0.5972, impact=1.0000 via case_count)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_death
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  4/5 (80%)
+        Members: NCD, SURGICAL, COMMUNICABLE, INJURY
+    Exceptions:
+      MATERNAL_NEONATAL     NO_PATTERN            highlight=None
+
+  #2  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  4/5 (80%)
+        Members: NCD, SURGICAL, COMMUNICABLE, MATERNAL_NEONATAL
+    Exceptions:
+      INJURY                NO_PATTERN            highlight=None
+
+  #3  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  preauth_status    Measure: is_emergency
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  4/5 (80%)
+        Members: NCD, SURGICAL, COMMUNICABLE, INJURY
+    Exceptions:
+      MATERNAL_NEONATAL     NO_PATTERN            highlight=None
+
+  #4  score=0.5972  (conciseness=0.5972, impact=1.0000 via case_count)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_death
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  4/5 (80%)
+        Members: NCD, SURGICAL, COMMUNICABLE, INJURY
+    Exceptions:
+      MATERNAL_NEONATAL     NO_PATTERN            highlight=None
+
+  #5  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  4/5 (80%)
+        Members: NCD, SURGICAL, COMMUNICABLE, MATERNAL_NEONATAL
+    Exceptions:
+      INJURY                NO_PATTERN            highlight=None
+
+  #6  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  preauth_status    Measure: is_emergency
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  4/5 (80%)
+        Members: NCD, SURGICAL, COMMUNICABLE, INJURY
+    Exceptions:
+      MATERNAL_NEONATAL     NO_PATTERN            highlight=None
+
+  #7  score=0.5972  (conciseness=0.5972, impact=1.0000 via case_count)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_death
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  4/5 (80%)
+        Members: NCD, SURGICAL, COMMUNICABLE, INJURY
+    Exceptions:
+      MATERNAL_NEONATAL     NO_PATTERN            highlight=None
+
+  #8  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  4/5 (80%)
+        Members: NCD, SURGICAL, COMMUNICABLE, MATERNAL_NEONATAL
+    Exceptions:
+      INJURY                NO_PATTERN            highlight=None
+
+  #9  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  preauth_status    Measure: is_emergency
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  4/5 (80%)
+        Members: NCD, SURGICAL, COMMUNICABLE, INJURY
+    Exceptions:
+      MATERNAL_NEONATAL     NO_PATTERN            highlight=None
+
+  #10  score=0.5972  (conciseness=0.5972, impact=1.0000 via case_count)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_death
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  4/5 (80%)
+        Members: NCD, SURGICAL, COMMUNICABLE, INJURY
+    Exceptions:
+      MATERNAL_NEONATAL     NO_PATTERN            highlight=None
+
+
+--- extending_dimension=specialty_code (10 shown) ---
+  #1  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, PEDS
+    Exceptions:
+      NEURO                 NO_PATTERN            highlight=None
+
+  #2  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_death
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, NEURO
+    Exceptions:
+      PEDS                  HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #3  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, PEDS
+    Exceptions:
+      NEURO                 NO_PATTERN            highlight=None
+
+  #4  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_death
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, NEURO
+    Exceptions:
+      PEDS                  HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #5  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, PEDS
+    Exceptions:
+      NEURO                 NO_PATTERN            highlight=None
+
+  #6  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_death
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, NEURO
+    Exceptions:
+      PEDS                  HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #7  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, PEDS
+    Exceptions:
+      NEURO                 NO_PATTERN            highlight=None
+
+  #8  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_death
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, NEURO
+    Exceptions:
+      PEDS                  HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+  #9  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, PEDS
+    Exceptions:
+      NEURO                 NO_PATTERN            highlight=None
+
+  #10  score=0.7548  (conciseness=0.7548, impact=1.0000 via case_count)
+    Strategy:   subspace on 'specialty_code'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_death
+    Subspace:   {*}
+    HDP size:   11    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  10/11 (91%)
+        Members: OPTH, GS, OBG, ENT, ONCO, ORTH, URO, CARD, MED, NEURO
+    Exceptions:
+      PEDS                  HIGHLIGHT_CHANGE      highlight=('QUERY_RAISED',)
+
+
+--- extending_dimension=claim_status (10 shown) ---
+  #1  score=0.5972  (conciseness=0.5972, impact=1.0000 via case_count)
+    Strategy:   subspace on 'claim_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: amount_claimed
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  4/5 (80%)
+        Members: APPROVED, SETTLED, REJECTED, QUERY_RAISED
+    Exceptions:
+      PENDING               NO_PATTERN            highlight=None
+
+  #2  score=0.5972  (conciseness=0.5972, impact=1.0000 via case_count)
+    Strategy:   subspace on 'claim_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: computed_final_amount
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  4/5 (80%)
+        Members: APPROVED, SETTLED, REJECTED, QUERY_RAISED
+    Exceptions:
+      PENDING               NO_PATTERN            highlight=None
+
+  #3  score=0.5972  (conciseness=0.5972, impact=1.0000 via case_count)
+    Strategy:   subspace on 'claim_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  4/5 (80%)
+        Members: APPROVED, SETTLED, REJECTED, QUERY_RAISED
+    Exceptions:
+      PENDING               NO_PATTERN            highlight=None
+
+  #4  score=0.5972  (conciseness=0.5972, impact=1.0000 via case_count)
+    Strategy:   subspace on 'claim_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: amount_claimed
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  4/5 (80%)
+        Members: APPROVED, SETTLED, REJECTED, QUERY_RAISED
+    Exceptions:
+      PENDING               NO_PATTERN            highlight=None
+
+  #5  score=0.5972  (conciseness=0.5972, impact=1.0000 via case_count)
+    Strategy:   subspace on 'claim_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: computed_final_amount
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  4/5 (80%)
+        Members: APPROVED, SETTLED, REJECTED, QUERY_RAISED
+    Exceptions:
+      PENDING               NO_PATTERN            highlight=None
+
+  #6  score=0.5972  (conciseness=0.5972, impact=1.0000 via case_count)
+    Strategy:   subspace on 'claim_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  4/5 (80%)
+        Members: APPROVED, SETTLED, REJECTED, QUERY_RAISED
+    Exceptions:
+      PENDING               NO_PATTERN            highlight=None
+
+  #7  score=0.5972  (conciseness=0.5972, impact=1.0000 via case_count)
+    Strategy:   subspace on 'claim_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: amount_claimed
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  4/5 (80%)
+        Members: APPROVED, SETTLED, REJECTED, QUERY_RAISED
+    Exceptions:
+      PENDING               NO_PATTERN            highlight=None
+
+  #8  score=0.5972  (conciseness=0.5972, impact=1.0000 via case_count)
+    Strategy:   subspace on 'claim_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: computed_final_amount
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  4/5 (80%)
+        Members: APPROVED, SETTLED, REJECTED, QUERY_RAISED
+    Exceptions:
+      PENDING               NO_PATTERN            highlight=None
+
+  #9  score=0.5972  (conciseness=0.5972, impact=1.0000 via case_count)
+    Strategy:   subspace on 'claim_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {*}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  4/5 (80%)
+        Members: APPROVED, SETTLED, REJECTED, QUERY_RAISED
+    Exceptions:
+      PENDING               NO_PATTERN            highlight=None
+
+  #10  score=0.5240  (conciseness=0.5972, impact=0.8774 via amount_claimed)
+    Strategy:   subspace on 'claim_status'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  preauth_status    Measure: is_emergency
+    Subspace:   {discharge_type:NORMAL}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  4/5 (80%)
+        Members: APPROVED, SETTLED, REJECTED, QUERY_RAISED
+    Exceptions:
+      PENDING               NO_PATTERN            highlight=None
+
+
+--- extending_dimension=division (10 shown) ---
+  #1  score=0.8273  (conciseness=0.8273, impact=1.0000 via amount_claimed)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_death
+    Subspace:   {*}
+    HDP size:   18    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  17/18 (94%)
+        Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur ... (+7 more)
+    Exceptions:
+      Aligarh               HIGHLIGHT_CHANGE      highlight=('SETTLED',)
+
+  #2  score=0.7258  (conciseness=0.8273, impact=0.8774 via amount_claimed)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {discharge_type:NORMAL}
+    HDP size:   18    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  17/18 (94%)
+        Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur ... (+7 more)
+    Exceptions:
+      Azamgarh              NO_PATTERN            highlight=None
+
+  #3  score=0.7192  (conciseness=0.7192, impact=1.0000 via amount_claimed)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {*}
+    HDP size:   18    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  16/18 (89%)
+        Members: Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur, Agra ... (+6 more)
+    Exceptions:
+      Jhansi                NO_PATTERN            highlight=None
+      Azamgarh              NO_PATTERN            highlight=None
+
+  #4  score=0.7192  (conciseness=0.7192, impact=1.0000 via amount_claimed)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {*}
+    HDP size:   18    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  16/18 (89%)
+        Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Moradabad, Kanpur, Chitrakoot, Agra, Devipatan ... (+6 more)
+    Exceptions:
+      Bareilly              NO_PATTERN            highlight=None
+      Mirzapur              NO_PATTERN            highlight=None
+
+  #5  score=0.7089  (conciseness=0.8273, impact=0.8569 via amount_paid)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {admission_type:ELECTIVE}
+    HDP size:   18    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  17/18 (94%)
+        Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur ... (+7 more)
+    Exceptions:
+      Azamgarh              NO_PATTERN            highlight=None
+
+  #6  score=0.7089  (conciseness=0.8273, impact=0.8569 via amount_paid)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_death
+    Subspace:   {admission_type:ELECTIVE}
+    HDP size:   18    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('DEATH',)  17/18 (94%)
+        Members: Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur, Agra ... (+7 more)
+    Exceptions:
+      Jhansi                NO_PATTERN            highlight=None
+
+  #7  score=0.5942  (conciseness=0.8273, impact=0.7182 via amount_claimed)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {claim_status:APPROVED}
+    HDP size:   18    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  17/18 (94%)
+        Members: Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur, Agra ... (+7 more)
+    Exceptions:
+      Jhansi                NO_PATTERN            highlight=None
+
+  #8  score=0.5942  (conciseness=0.8273, impact=0.7182 via amount_claimed)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {claim_status:APPROVED}
+    HDP size:   18    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  17/18 (94%)
+        Members: Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur, Agra ... (+7 more)
+    Exceptions:
+      Jhansi                NO_PATTERN            highlight=None
+
+  #9  score=0.5244  (conciseness=0.5244, impact=1.0000 via amount_claimed)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: computed_final_amount
+    Subspace:   {*}
+    HDP size:   18    Exceptions: 5
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  13/18 (72%)
+        Members: Lucknow, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur, Devipatan, Saharanpur, Aligarh ... (+3 more)
+    Exceptions:
+      Jhansi                NO_PATTERN            highlight=None
+      Varanasi              NO_PATTERN            highlight=None
+      Meerut                NO_PATTERN            highlight=None
+      Agra                  NO_PATTERN            highlight=None
+      Azamgarh              NO_PATTERN            highlight=None
+
+  #10  score=0.4957  (conciseness=0.8273, impact=0.5992 via amount_paid)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_death
+    Subspace:   {hospital_type:PUBLIC}
+    HDP size:   18    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('DEATH',)  17/18 (94%)
+        Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Agra ... (+7 more)
+    Exceptions:
+      Mirzapur              NO_PATTERN            highlight=None
+
+
+======================================================================
+SECTION 5 -- TOP 30 ACTIONABLE IN NON-TRIVIAL SUBSPACES (depth>=1)
+======================================================================
+  #1  score=0.8081  (conciseness=0.9430, impact=0.8569 via amount_paid)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_paid
+    Subspace:   {admission_type:ELECTIVE}
+    HDP size:   75    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  74/75 (99%)
+        Members: Lalitpur, Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Moradabad, Meerut, Farrukhabad, Chitrakoot ... (+64 more)
+    Exceptions:
+      Hamirpur              HIGHLIGHT_CHANGE      highlight=('DAMA',)
+
+  #2  score=0.7720  (conciseness=0.9010, impact=0.8569 via amount_paid)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_lama_dama
+    Subspace:   {admission_type:ELECTIVE}
+    HDP size:   75    Exceptions: 2
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  73/75 (97%)
+        Members: Lalitpur, Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Moradabad, Meerut, Farrukhabad, Chitrakoot ... (+63 more)
+    Exceptions:
+      Gautam Buddha Nagar   HIGHLIGHT_CHANGE      highlight=('SETTLED',)
+      Hamirpur              HIGHLIGHT_CHANGE      highlight=('SETTLED',)
+
+  #3  score=0.7258  (conciseness=0.8273, impact=0.8774 via amount_claimed)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {discharge_type:NORMAL}
+    HDP size:   18    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  17/18 (94%)
+        Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur ... (+7 more)
+    Exceptions:
+      Azamgarh              NO_PATTERN            highlight=None
+
+  #4  score=0.7089  (conciseness=0.8273, impact=0.8569 via amount_paid)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {admission_type:ELECTIVE}
+    HDP size:   18    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  17/18 (94%)
+        Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur ... (+7 more)
+    Exceptions:
+      Azamgarh              NO_PATTERN            highlight=None
+
+  #5  score=0.7089  (conciseness=0.8273, impact=0.8569 via amount_paid)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_death
+    Subspace:   {admission_type:ELECTIVE}
+    HDP size:   18    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('DEATH',)  17/18 (94%)
+        Members: Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur, Agra ... (+7 more)
+    Exceptions:
+      Jhansi                NO_PATTERN            highlight=None
+
+  #6  score=0.6968  (conciseness=0.6968, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'hospital_sub_type'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   8    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  7/8 (88%)
+        Members: PHC, Private, NGO, Medical College, Civil Hospital, CHC, District Hospital
+    Exceptions:
+      Trust                 NO_PATTERN            highlight=None
+
+  #7  score=0.6289  (conciseness=0.6289, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: case_count
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   75    Exceptions: 13
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  62/75 (83%)
+        Members: Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Meerut, Farrukhabad, Firozabad, Agra, Lucknow ... (+52 more)
+    Exceptions:
+      Lalitpur              NO_PATTERN            highlight=None
+      Moradabad             NO_PATTERN            highlight=None
+      Chitrakoot            NO_PATTERN            highlight=None
+      Sonbhadra             NO_PATTERN            highlight=None
+      Ballia                NO_PATTERN            highlight=None
+      Mahoba                NO_PATTERN            highlight=None
+      Shamli                NO_PATTERN            highlight=None
+      Balrampur             NO_PATTERN            highlight=None
+      ... and 5 more
+
+  #8  score=0.6289  (conciseness=0.6289, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: length_of_stay
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   75    Exceptions: 13
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  62/75 (83%)
+        Members: Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Meerut, Farrukhabad, Firozabad, Agra, Lucknow ... (+52 more)
+    Exceptions:
+      Lalitpur              NO_PATTERN            highlight=None
+      Moradabad             NO_PATTERN            highlight=None
+      Chitrakoot            NO_PATTERN            highlight=None
+      Sonbhadra             NO_PATTERN            highlight=None
+      Ballia                NO_PATTERN            highlight=None
+      Mahoba                NO_PATTERN            highlight=None
+      Shamli                NO_PATTERN            highlight=None
+      Balrampur             NO_PATTERN            highlight=None
+      ... and 5 more
+
+  #9  score=0.6289  (conciseness=0.6289, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: settlement_tat_days
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   75    Exceptions: 13
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  62/75 (83%)
+        Members: Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Meerut, Farrukhabad, Firozabad, Agra, Lucknow ... (+52 more)
+    Exceptions:
+      Lalitpur              NO_PATTERN            highlight=None
+      Moradabad             NO_PATTERN            highlight=None
+      Chitrakoot            NO_PATTERN            highlight=None
+      Sonbhadra             NO_PATTERN            highlight=None
+      Ballia                NO_PATTERN            highlight=None
+      Mahoba                NO_PATTERN            highlight=None
+      Shamli                NO_PATTERN            highlight=None
+      Balrampur             NO_PATTERN            highlight=None
+      ... and 5 more
+
+  #10  score=0.6126  (conciseness=0.6126, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_claimed
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   75    Exceptions: 14
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  61/75 (81%)
+        Members: Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Meerut, Farrukhabad, Firozabad, Agra, Lucknow ... (+51 more)
+    Exceptions:
+      Lalitpur              NO_PATTERN            highlight=None
+      Moradabad             NO_PATTERN            highlight=None
+      Chitrakoot            NO_PATTERN            highlight=None
+      Sonbhadra             NO_PATTERN            highlight=None
+      Ballia                NO_PATTERN            highlight=None
+      Mahoba                NO_PATTERN            highlight=None
+      Shamli                NO_PATTERN            highlight=None
+      Balrampur             NO_PATTERN            highlight=None
+      ... and 6 more
+
+  #11  score=0.6126  (conciseness=0.6126, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_approved
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   75    Exceptions: 14
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  61/75 (81%)
+        Members: Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Meerut, Farrukhabad, Firozabad, Agra, Lucknow ... (+51 more)
+    Exceptions:
+      Lalitpur              NO_PATTERN            highlight=None
+      Moradabad             NO_PATTERN            highlight=None
+      Chitrakoot            NO_PATTERN            highlight=None
+      Sonbhadra             NO_PATTERN            highlight=None
+      Ballia                NO_PATTERN            highlight=None
+      Mahoba                NO_PATTERN            highlight=None
+      Shamli                NO_PATTERN            highlight=None
+      Balrampur             NO_PATTERN            highlight=None
+      ... and 6 more
+
+  #12  score=0.6126  (conciseness=0.6126, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: amount_paid
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   75    Exceptions: 14
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  61/75 (81%)
+        Members: Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Meerut, Farrukhabad, Firozabad, Agra, Lucknow ... (+51 more)
+    Exceptions:
+      Lalitpur              NO_PATTERN            highlight=None
+      Moradabad             NO_PATTERN            highlight=None
+      Chitrakoot            NO_PATTERN            highlight=None
+      Sonbhadra             NO_PATTERN            highlight=None
+      Ballia                NO_PATTERN            highlight=None
+      Mahoba                NO_PATTERN            highlight=None
+      Shamli                NO_PATTERN            highlight=None
+      Balrampur             NO_PATTERN            highlight=None
+      ... and 6 more
+
+  #13  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'discharge_type'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  4/5 (80%)
+        Members: LIVE, NORMAL, DAMA, DEATH
+    Exceptions:
+      LAMA                  NO_PATTERN            highlight=None
+
+  #14  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  4/5 (80%)
+        Members: NCD, SURGICAL, COMMUNICABLE, MATERNAL_NEONATAL
+    Exceptions:
+      INJURY                NO_PATTERN            highlight=None
+
+  #15  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  preauth_status    Measure: is_emergency
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  4/5 (80%)
+        Members: NCD, SURGICAL, COMMUNICABLE, INJURY
+    Exceptions:
+      MATERNAL_NEONATAL     NO_PATTERN            highlight=None
+
+  #16  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'discharge_type'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  4/5 (80%)
+        Members: LIVE, NORMAL, DAMA, DEATH
+    Exceptions:
+      LAMA                  NO_PATTERN            highlight=None
+
+  #17  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  4/5 (80%)
+        Members: NCD, SURGICAL, COMMUNICABLE, MATERNAL_NEONATAL
+    Exceptions:
+      INJURY                NO_PATTERN            highlight=None
+
+  #18  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  preauth_status    Measure: is_emergency
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  4/5 (80%)
+        Members: NCD, SURGICAL, COMMUNICABLE, INJURY
+    Exceptions:
+      MATERNAL_NEONATAL     NO_PATTERN            highlight=None
+
+  #19  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  4/5 (80%)
+        Members: NCD, SURGICAL, COMMUNICABLE, MATERNAL_NEONATAL
+    Exceptions:
+      INJURY                NO_PATTERN            highlight=None
+
+  #20  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  preauth_status    Measure: is_emergency
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  4/5 (80%)
+        Members: NCD, SURGICAL, COMMUNICABLE, INJURY
+    Exceptions:
+      MATERNAL_NEONATAL     NO_PATTERN            highlight=None
+
+  #21  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  4/5 (80%)
+        Members: NCD, SURGICAL, COMMUNICABLE, MATERNAL_NEONATAL
+    Exceptions:
+      INJURY                NO_PATTERN            highlight=None
+
+  #22  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  preauth_status    Measure: is_emergency
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  4/5 (80%)
+        Members: NCD, SURGICAL, COMMUNICABLE, INJURY
+    Exceptions:
+      MATERNAL_NEONATAL     NO_PATTERN            highlight=None
+
+  #23  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'disease_category'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   5    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  4/5 (80%)
+        Members: NCD, SURGICAL, COMMUNICABLE, MATERNAL_NEONATAL
+    Exceptions:
+      INJURY                NO_PATTERN            highlight=None
+
+  #24  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: base_amount
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   75    Exceptions: 15
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  60/75 (80%)
+        Members: Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Meerut, Farrukhabad, Firozabad, Agra, Lucknow ... (+50 more)
+    Exceptions:
+      Lalitpur              NO_PATTERN            highlight=None
+      Moradabad             NO_PATTERN            highlight=None
+      Chitrakoot            NO_PATTERN            highlight=None
+      Sonbhadra             NO_PATTERN            highlight=None
+      Ballia                NO_PATTERN            highlight=None
+      Mahoba                NO_PATTERN            highlight=None
+      Shamli                NO_PATTERN            highlight=None
+      Balrampur             NO_PATTERN            highlight=None
+      ... and 7 more
+
+  #25  score=0.5972  (conciseness=0.5972, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: computed_final_amount
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   75    Exceptions: 15
+    Commonness:
+      [OUTSTANDING_1] highlight=('NORMAL',)  60/75 (80%)
+        Members: Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Meerut, Farrukhabad, Firozabad, Agra, Lucknow ... (+50 more)
+    Exceptions:
+      Lalitpur              NO_PATTERN            highlight=None
+      Moradabad             NO_PATTERN            highlight=None
+      Chitrakoot            NO_PATTERN            highlight=None
+      Sonbhadra             NO_PATTERN            highlight=None
+      Ballia                NO_PATTERN            highlight=None
+      Mahoba                NO_PATTERN            highlight=None
+      Shamli                NO_PATTERN            highlight=None
+      Balrampur             NO_PATTERN            highlight=None
+      ... and 7 more
+
+  #26  score=0.5970  (conciseness=0.6968, impact=0.8569 via amount_paid)
+    Strategy:   subspace on 'hospital_sub_type'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_death
+    Subspace:   {admission_type:ELECTIVE}
+    HDP size:   8    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  7/8 (88%)
+        Members: Trust, Private, NGO, Medical College, Civil Hospital, CHC, District Hospital
+    Exceptions:
+      PHC                   NO_PATTERN            highlight=None
+
+  #27  score=0.5942  (conciseness=0.8273, impact=0.7182 via amount_claimed)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: base_amount
+    Subspace:   {claim_status:APPROVED}
+    HDP size:   18    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  17/18 (94%)
+        Members: Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur, Agra ... (+7 more)
+    Exceptions:
+      Jhansi                NO_PATTERN            highlight=None
+
+  #28  score=0.5942  (conciseness=0.8273, impact=0.7182 via amount_claimed)
+    Strategy:   subspace on 'division'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  discharge_type    Measure: is_lama_dama
+    Subspace:   {claim_status:APPROVED}
+    HDP size:   18    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('LAMA',)  17/18 (94%)
+        Members: Lucknow, Varanasi, Meerut, Prayagraj, Bareilly, Moradabad, Kanpur, Chitrakoot, Mirzapur, Agra ... (+7 more)
+    Exceptions:
+      Jhansi                NO_PATTERN            highlight=None
+
+  #29  score=0.5650  (conciseness=0.9430, impact=0.5992 via amount_paid)
+    Strategy:   subspace on 'district'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  claim_status    Measure: is_emergency
+    Subspace:   {hospital_type:PUBLIC}
+    HDP size:   75    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('APPROVED',)  74/75 (99%)
+        Members: Lalitpur, Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur, Moradabad, Meerut, Farrukhabad, Chitrakoot ... (+64 more)
+    Exceptions:
+      Sant Ravidas Nagar    NO_PATTERN            highlight=None
+
+  #30  score=0.5474  (conciseness=0.5474, impact=1.0000 via amount_paid)
+    Strategy:   subspace on 'age_group'
+    Pattern:    OUTSTANDING_1
+    Breakdown:  specialty_code    Measure: amount_claimed
+    Subspace:   {claim_status:SETTLED}
+    HDP size:   4    Exceptions: 1
+    Commonness:
+      [OUTSTANDING_1] highlight=('CARD',)  3/4 (75%)
+        Members: 26-40, 41-60, 15-25
+    Exceptions:
+      60+                   NO_PATTERN            highlight=None
