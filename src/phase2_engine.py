@@ -642,7 +642,7 @@ class MetaInsightCandidate:
             "pattern_type":        self.pattern_type,
             "breakdown":           self.breakdown,
             "measure":             self.measure,
-            "base_subspace":       str(self.base_subspace),
+            "base_subspace":       [list(f) for f in self.base_subspace.filters],
             "hdp_size":            self.hdp_size,
             "commonness_sets":     self.commonness_sets,
             "exceptions":          self.exceptions,
@@ -1039,6 +1039,32 @@ def save_candidates(candidates: list, output_path: str):
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump([c.to_dict() for c in candidates], f, indent=2, default=str)
     print(f"Saved {len(candidates):,} candidates -> {output_path}")
+
+
+def load_candidates(path: str) -> list:
+    """Load candidates from JSON and reconstruct MetaInsightCandidate objects."""
+    with open(path, encoding="utf-8") as f:
+        data = json.load(f)
+    candidates = []
+    for d in data:
+        base_subspace = Subspace(frozenset(tuple(f) for f in d["base_subspace"]))
+        c = MetaInsightCandidate(
+            extending_strategy=d["extending_strategy"],
+            extending_dimension=d["extending_dimension"],
+            pattern_type=d["pattern_type"],
+            breakdown=d["breakdown"],
+            measure=d["measure"],
+            base_subspace=base_subspace,
+            commonness_sets=d["commonness_sets"],
+            exceptions=d["exceptions"],
+            hdp_size=d["hdp_size"],
+            conciseness=d["conciseness"],
+            impact=d["impact"],
+            score=d["score"],
+            impact_measure_used=d["impact_measure_used"],
+        )
+        candidates.append(c)
+    return candidates
 
 
 def save_diagnostics(candidates: list, diagnostics: dict, output_path: str):
