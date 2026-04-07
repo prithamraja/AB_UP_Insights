@@ -1,0 +1,520 @@
+======================================================================
+LAYER 3P -- RANKED PER-VIEW DASHBOARD
+======================================================================
+
+======================================================================
+VIEW: view1  |  Selected 15 from 7,476 candidates
+======================================================================
+
+Diversity:
+  Pattern types (9): ATTRIBUTION, EVENNESS, LAST_TWO, OUTLIER, OUTSTANDING_1, OUTSTANDING_LAST, SEASONALITY, TOP_TWO, TREND
+  Extending dims (8): age_group, bed_size_bucket, disease_category, district, division, hospital_sub_type, preauth_status, temporal_grain
+  Measures (6): amount_claimed, base_amount, case_count, length_of_stay, query_count, settlement_tat_days
+
+TotalUse: 14.0474  |  Sum of scores: 14.0474  |  Redundancy penalty: 0.0000
+
+--- Ranked MetaInsights ---
+
+  #1  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on hospital_sub_type  |  EVENNESS  |  breakdown=division  |  measure=length_of_stay
+    Subspace: {*}  |  HDP: 8
+    Commonness: [EVENNESS] ('EVEN',)  (8/8 = 100%)
+      Members: Trust, PHC, Private, NGO, Medical College, Civil Hospital +2 more
+    >> Across all hospital_sub_type values, length_of_stay is evenly distributed across division values
+
+  #2  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on division  |  TOP_TWO  |  breakdown=specialty_code  |  measure=amount_claimed
+    Subspace: {*}  |  HDP: 18
+    Commonness: [TOP_TWO] ('CARD', 'ORTH')  (18/18 = 100%)
+      Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly +12 more
+    >> Across all division values, CARD and ORTH lead in amount_claimed among specialty_code values
+
+  #3  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on hospital_sub_type  |  OUTSTANDING_1  |  breakdown=specialty_code  |  measure=base_amount
+    Subspace: {*}  |  HDP: 8
+    Commonness: [OUTSTANDING_1] ('CARD',)  (8/8 = 100%)
+      Members: Trust, PHC, Private, NGO, Medical College, Civil Hospital +2 more
+    >> Across all hospital_sub_type values, CARD has the highest base_amount among specialty_code values
+
+  #4  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on age_group  |  OUTSTANDING_LAST  |  breakdown=disease_category  |  measure=case_count
+    Subspace: {*}  |  HDP: 4
+    Commonness: [OUTSTANDING_LAST] ('INJURY',)  (4/4 = 100%)
+      Members: 60+, 26-40, 41-60, 15-25
+    >> Across all age_group values, INJURY has the lowest case_count among disease_category values
+
+  #5  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on preauth_status  |  LAST_TWO  |  breakdown=age_group  |  measure=case_count
+    Subspace: {*}  |  HDP: 4
+    Commonness: [LAST_TWO] ('15-25', '26-40')  (4/4 = 100%)
+      Members: AUTO_APPROVED, APPROVED, QUERY_RAISED, REJECTED
+    >> Across all preauth_status values, 15-25 and 26-40 are lowest in case_count among age_group values
+
+  #6  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on division  |  ATTRIBUTION  |  breakdown=discharge_type  |  measure=case_count
+    Subspace: {*}  |  HDP: 18
+    Commonness: [ATTRIBUTION] ('NORMAL',)  (18/18 = 100%)
+      Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly +12 more
+    >> Across all division values, NORMAL accounts for the majority of case_count among discharge_type values
+
+  #7  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on hospital_sub_type  |  OUTLIER  |  breakdown=admission_month  |  measure=case_count
+    Subspace: {*}  |  HDP: 8
+    Commonness: [OUTLIER] (('2023-02', 'BELOW'),)  (8/8 = 100%)
+      Members: Trust, PHC, Private, NGO, Medical College, Civil Hospital +2 more
+    >> Across all hospital_sub_type values, case_count has an outlier at 2023-02 (below) in admission_month
+
+  #8  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on bed_size_bucket  |  SEASONALITY  |  breakdown=admission_month  |  measure=case_count
+    Subspace: {*}  |  HDP: 4
+    Commonness: [SEASONALITY] ('PERIOD_12',)  (4/4 = 100%)
+      Members: SMALL (<=30), LARGE (101-300), MEDIUM (31-100), VERY_LARGE (300+)
+    >> Across all bed_size_bucket values, case_count shows seasonal pattern (PERIOD_12) over admission_month
+
+  #9  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on division  |  EVENNESS  |  breakdown=district  |  measure=settlement_tat_days
+    Subspace: {claim_status:SETTLED}  |  HDP: 18
+    Commonness: [EVENNESS] ('EVEN',)  (18/18 = 100%)
+      Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly +12 more
+    >> Across all division values, settlement_tat_days is evenly distributed across district values
+
+  #10  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on disease_category  |  TOP_TWO  |  breakdown=age_group  |  measure=base_amount
+    Subspace: {claim_status:SETTLED}  |  HDP: 5
+    Commonness: [TOP_TWO] ('41-60', '60+')  (5/5 = 100%)
+      Members: NCD, SURGICAL, COMMUNICABLE, MATERNAL_NEONATAL, INJURY
+    >> Across all disease_category values, 41-60 and 60+ lead in base_amount among age_group values
+
+  #11  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on division  |  OUTSTANDING_1  |  breakdown=discharge_type  |  measure=case_count
+    Subspace: {claim_status:SETTLED}  |  HDP: 18
+    Commonness: [OUTSTANDING_1] ('NORMAL',)  (18/18 = 100%)
+      Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly +12 more
+    >> Across all division values, NORMAL has the highest case_count among discharge_type values
+
+  #12  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on disease_category  |  LAST_TWO  |  breakdown=preauth_status  |  measure=amount_claimed
+    Subspace: {claim_status:SETTLED}  |  HDP: 5
+    Commonness: [LAST_TWO] ('QUERY_RAISED', 'REJECTED')  (5/5 = 100%)
+      Members: NCD, SURGICAL, COMMUNICABLE, MATERNAL_NEONATAL, INJURY
+    >> Across all disease_category values, QUERY_RAISED and REJECTED are lowest in amount_claimed among preauth_status values
+
+  #13  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on division  |  TREND  |  breakdown=admission_month  |  measure=query_count
+    Subspace: {claim_status:SETTLED}  |  HDP: 18
+    Commonness: [TREND] ('DECREASING',)  (18/18 = 100%)
+      Members: Jhansi, Lucknow, Varanasi, Meerut, Prayagraj, Bareilly +12 more
+    >> Across all division values, query_count is decreasing over admission_month
+
+  #14  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    breakdown on temporal_grain  |  TREND  |  breakdown=(varies)  |  measure=query_count
+    Subspace: {claim_status:SETTLED}  |  HDP: 3
+    Commonness: [TREND] ('DECREASING',)  (3/3 = 100%)
+      Members: admission_month, admission_quarter, admission_year
+    >> Across all temporal_grain values, query_count is decreasing over (varies)
+
+  #15  score=0.8284  (conciseness=0.9442, impact=0.8774)
+    subspace on district  |  OUTSTANDING_1  |  breakdown=claim_status  |  measure=amount_claimed
+    Subspace: {discharge_type:NORMAL}  |  HDP: 75
+    Commonness: [OUTSTANDING_1] ('APPROVED',)  (75/75 = 100%)
+      Members: Lalitpur, Hardoi, Ghazipur, Ghaziabad, Kaushambi, Shahjahanpur +69 more
+    >> Across all district values, APPROVED has the highest amount_claimed among claim_status values
+
+
+======================================================================
+VIEW: view2  |  Selected 15 from 792 candidates
+======================================================================
+
+Diversity:
+  Pattern types (5): CHANGE_POINT, EVENNESS, SEASONALITY, TREND, UNIMODALITY
+  Extending dims (4): district, division, measure, temporal_grain
+  Measures (5): cases_admitted, claims_per_1000_beneficiaries, cumulative_beneficiaries, new_beneficiaries, new_households
+
+TotalUse: 9.4033  |  Sum of scores: 11.6405  |  Redundancy penalty: 2.2372
+
+--- Ranked MetaInsights ---
+
+  #1  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on division  |  EVENNESS  |  breakdown=district  |  measure=claims_per_1000_beneficiaries
+    Subspace: {*}  |  HDP: 18
+    Commonness: [EVENNESS] ('EVEN',)  (18/18 = 100%)
+      Members: Agra, Aligarh, Ayodhya, Moradabad, Kanpur, Azamgarh +12 more
+    >> Across all division values, claims_per_1000_beneficiaries is evenly distributed across district values
+
+  #2  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on division  |  TREND  |  breakdown=month  |  measure=new_beneficiaries
+    Subspace: {*}  |  HDP: 18
+    Commonness: [TREND] ('DECREASING',)  (18/18 = 100%)
+      Members: Agra, Aligarh, Ayodhya, Moradabad, Kanpur, Azamgarh +12 more
+    >> Across all division values, new_beneficiaries is decreasing over month
+
+  #3  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on division  |  SEASONALITY  |  breakdown=month  |  measure=new_beneficiaries
+    Subspace: {*}  |  HDP: 18
+    Commonness: [SEASONALITY] ('PERIOD_3',)  (18/18 = 100%)
+      Members: Agra, Aligarh, Ayodhya, Moradabad, Kanpur, Azamgarh +12 more
+    >> Across all division values, new_beneficiaries shows seasonal pattern (PERIOD_3) over month
+
+  #4  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on division  |  CHANGE_POINT  |  breakdown=month  |  measure=cases_admitted
+    Subspace: {*}  |  HDP: 18
+    Commonness: [CHANGE_POINT] ('2023-03',)  (18/18 = 100%)
+      Members: Agra, Aligarh, Ayodhya, Moradabad, Kanpur, Azamgarh +12 more
+    >> Across all division values, cases_admitted has a significant shift at 2023-03 in month
+
+  #5  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    breakdown on temporal_grain  |  TREND  |  breakdown=(varies)  |  measure=cumulative_beneficiaries
+    Subspace: {*}  |  HDP: 3
+    Commonness: [TREND] ('INCREASING',)  (3/3 = 100%)
+      Members: month, quarter, year
+    >> Across all temporal_grain values, cumulative_beneficiaries is increasing over (varies)
+
+  #6  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on division  |  UNIMODALITY  |  breakdown=year  |  measure=new_beneficiaries
+    Subspace: {*}  |  HDP: 18
+    Commonness: [UNIMODALITY] ('PEAK', '2023')  (18/18 = 100%)
+      Members: Agra, Aligarh, Ayodhya, Moradabad, Kanpur, Azamgarh +12 more
+    >> Across all division values, new_beneficiaries forms a peak at 2023 over year
+
+  #7  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on district  |  TREND  |  breakdown=quarter  |  measure=cumulative_beneficiaries
+    Subspace: {*}  |  HDP: 75
+    Commonness: [TREND] ('INCREASING',)  (75/75 = 100%)
+      Members: Agra, Aligarh, Ambedkar Nagar, Amethi, Amroha, Auraiya +69 more
+    >> Across all district values, cumulative_beneficiaries is increasing over quarter
+
+  #8  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on district  |  SEASONALITY  |  breakdown=quarter  |  measure=cumulative_beneficiaries
+    Subspace: {*}  |  HDP: 75
+    Commonness: [SEASONALITY] ('PERIOD_3',)  (75/75 = 100%)
+      Members: Agra, Aligarh, Ambedkar Nagar, Amethi, Amroha, Auraiya +69 more
+    >> Across all district values, cumulative_beneficiaries shows seasonal pattern (PERIOD_3) over quarter
+
+  #9  score=0.9430  (conciseness=0.9430, impact=1.0000)
+    subspace on district  |  CHANGE_POINT  |  breakdown=quarter  |  measure=claims_per_1000_beneficiaries
+    Subspace: {*}  |  HDP: 75
+    Commonness: [CHANGE_POINT] ('2023Q1',)  (74/75 = 99%)
+      Members: Agra, Aligarh, Ambedkar Nagar, Amethi, Amroha, Auraiya +68 more
+    Exceptions (1):
+      Balrampur                 HIGHLIGHT_CHANGE     ('2023Q2',)
+    >> Across nearly all district values (74/75), claims_per_1000_beneficiaries has a significant shift at 2023Q1 in quarter. Exception: Balrampur (claims_per_1000_beneficiaries has a significant shift at 2023Q2 in quarter)
+
+  #10  score=0.4877  (conciseness=0.4877, impact=1.0000)
+    breakdown on temporal_grain  |  SEASONALITY  |  breakdown=(varies)  |  measure=new_beneficiaries
+    Subspace: {*}  |  HDP: 3
+    Commonness: [SEASONALITY] ('PERIOD_3',)  (2/3 = 67%)
+      Members: month, quarter
+    Exceptions (1):
+      year                      TYPE_CHANGE          
+    >> Across most temporal_grain values (2/3), new_beneficiaries shows seasonal pattern (PERIOD_3) over (varies). Exception: year (different pattern)
+
+  #11  score=0.4470  (conciseness=0.4470, impact=1.0000)
+    measure on measure  |  SEASONALITY  |  breakdown=month  |  measure=(varies)
+    Subspace: {*}  |  HDP: 26
+    Commonness: [SEASONALITY] ('PERIOD_3',)  (20/26 = 77%)
+      Members: new_beneficiaries, new_households, cases_admitted, emergency_cases, deaths, lama_dama_cases +14 more
+    Exceptions (6):
+      portability_cases         HIGHLIGHT_CHANGE     ('PERIOD_4',)
+      payment_failures          HIGHLIGHT_CHANGE     ('PERIOD_4',)
+      approval_rate             TYPE_CHANGE          
+      emergency_share           TYPE_CHANGE          
+      ... +2 more
+    >> Across most measure values (20/26), (varies) shows seasonal pattern (PERIOD_3) over month. Exceptions: portability_cases ((varies) shows seasonal pattern (PERIOD_4) over month); payment_failures ((varies) shows seasonal pattern (PERIOD_4) over month); approval_rate (different pattern) and 3 others
+
+  #12  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on district  |  UNIMODALITY  |  breakdown=year  |  measure=new_households
+    Subspace: {*}  |  HDP: 75
+    Commonness: [UNIMODALITY] ('PEAK', '2023')  (75/75 = 100%)
+      Members: Agra, Aligarh, Ambedkar Nagar, Amethi, Amroha, Auraiya +69 more
+    >> Across all district values, new_households forms a peak at 2023 over year
+
+  #13  score=0.2894  (conciseness=0.2894, impact=1.0000)
+    measure on measure  |  CHANGE_POINT  |  breakdown=month  |  measure=(varies)
+    Subspace: {*}  |  HDP: 26
+    Commonness: [CHANGE_POINT] ('2023-03',)  (17/26 = 65%)
+      Members: cases_admitted, emergency_cases, portability_cases, deaths, lama_dama_cases, public_cases +11 more
+    Exceptions (9):
+      new_beneficiaries         HIGHLIGHT_CHANGE     ('2025-06',)
+      new_households            HIGHLIGHT_CHANGE     ('2025-06',)
+      cards_issued              HIGHLIGHT_CHANGE     ('2025-06',)
+      payment_failures          HIGHLIGHT_CHANGE     ('2023-04',)
+      ... +5 more
+    >> Across most measure values (17/26), (varies) has a significant shift at 2023-03 in month. Exceptions: new_beneficiaries ((varies) has a significant shift at 2025-06 in month); new_households ((varies) has a significant shift at 2025-06 in month); cards_issued ((varies) has a significant shift at 2025-06 in month) and 6 others
+
+  #14  score=0.4877  (conciseness=0.4877, impact=1.0000)
+    breakdown on temporal_grain  |  TREND  |  breakdown=(varies)  |  measure=new_beneficiaries
+    Subspace: {*}  |  HDP: 3
+    Commonness: [TREND] ('DECREASING',)  (2/3 = 67%)
+      Members: month, quarter
+    Exceptions (1):
+      year                      TYPE_CHANGE          
+    >> Across most temporal_grain values (2/3), new_beneficiaries is decreasing over (varies). Exception: year (different pattern)
+
+  #15  score=0.4877  (conciseness=0.4877, impact=1.0000)
+    breakdown on temporal_grain  |  SEASONALITY  |  breakdown=(varies)  |  measure=new_households
+    Subspace: {*}  |  HDP: 3
+    Commonness: [SEASONALITY] ('PERIOD_3',)  (2/3 = 67%)
+      Members: month, quarter
+    Exceptions (1):
+      year                      TYPE_CHANGE          
+    >> Across most temporal_grain values (2/3), new_households shows seasonal pattern (PERIOD_3) over (varies). Exception: year (different pattern)
+
+
+======================================================================
+VIEW: view3  |  Selected 15 from 1,539 candidates
+======================================================================
+
+Diversity:
+  Pattern types (6): ATTRIBUTION, EVENNESS, LAST_TWO, OUTSTANDING_1, OUTSTANDING_LAST, TOP_TWO
+  Extending dims (5): bed_size_bucket, division, hospital_sub_type, measure, specialty_code
+  Measures (8): admissions_before_last_year, amount_approved, amount_claimed, avg_experience_years, cases_per_bed, total_bed_strength, total_licenses, total_staff
+
+TotalUse: 9.7046  |  Sum of scores: 10.6143  |  Redundancy penalty: 0.9097
+
+--- Ranked MetaInsights ---
+
+  #1  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on division  |  TOP_TWO  |  breakdown=specialty_code  |  measure=amount_claimed
+    Subspace: {*}  |  HDP: 18
+    Commonness: [TOP_TWO] ('CARD', 'ORTH')  (18/18 = 100%)
+      Members: Varanasi, Moradabad, Basti, Gorakhpur, Prayagraj, Aligarh +12 more
+    >> Across all division values, CARD and ORTH lead in amount_claimed among specialty_code values
+
+  #2  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on hospital_sub_type  |  EVENNESS  |  breakdown=specialty_code  |  measure=total_staff
+    Subspace: {*}  |  HDP: 8
+    Commonness: [EVENNESS] ('EVEN',)  (8/8 = 100%)
+      Members: PHC, CHC, Private, Civil Hospital, District Hospital, Medical College +2 more
+    >> Across all hospital_sub_type values, total_staff is evenly distributed across specialty_code values
+
+  #3  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on hospital_sub_type  |  LAST_TWO  |  breakdown=specialty_code  |  measure=cases_per_bed
+    Subspace: {*}  |  HDP: 8
+    Commonness: [LAST_TWO] ('BURNS', 'DERM')  (8/8 = 100%)
+      Members: PHC, CHC, Private, Civil Hospital, District Hospital, Medical College +2 more
+    >> Across all hospital_sub_type values, BURNS and DERM are lowest in cases_per_bed among specialty_code values
+
+  #4  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on specialty_code  |  OUTSTANDING_1  |  breakdown=bed_size_bucket  |  measure=total_bed_strength
+    Subspace: {*}  |  HDP: 15
+    Commonness: [OUTSTANDING_1] ('LARGE (101-300)',)  (15/15 = 100%)
+      Members: BURNS, ENT, OPTH, ORTH, CARD, OBG +9 more
+    >> Across all specialty_code values, LARGE (101-300) has the highest total_bed_strength among bed_size_bucket values
+
+  #5  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on specialty_code  |  ATTRIBUTION  |  breakdown=bed_size_bucket  |  measure=total_bed_strength
+    Subspace: {*}  |  HDP: 15
+    Commonness: [ATTRIBUTION] ('LARGE (101-300)',)  (15/15 = 100%)
+      Members: BURNS, ENT, OPTH, ORTH, CARD, OBG +9 more
+    >> Across all specialty_code values, LARGE (101-300) accounts for the majority of total_bed_strength among bed_size_bucket values
+
+  #6  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on bed_size_bucket  |  EVENNESS  |  breakdown=division  |  measure=avg_experience_years
+    Subspace: {*}  |  HDP: 4
+    Commonness: [EVENNESS] ('EVEN',)  (4/4 = 100%)
+      Members: MEDIUM (31-100), LARGE (101-300), SMALL (<=30), VERY_LARGE (300+)
+    >> Across all bed_size_bucket values, avg_experience_years is evenly distributed across division values
+
+  #7  score=0.5646  (conciseness=0.9442, impact=0.5980)
+    subspace on specialty_code  |  OUTSTANDING_LAST  |  breakdown=bed_size_bucket  |  measure=total_bed_strength
+    Subspace: {hospital_type:PUBLIC}  |  HDP: 15
+    Commonness: [OUTSTANDING_LAST] ('SMALL (<=30)',)  (15/15 = 100%)
+      Members: BURNS, ENT, OPTH, ORTH, CARD, OBG +9 more
+    >> Across all specialty_code values, SMALL (<=30) has the lowest total_bed_strength among bed_size_bucket values
+
+  #8  score=0.5646  (conciseness=0.9442, impact=0.5980)
+    subspace on specialty_code  |  EVENNESS  |  breakdown=bed_size_bucket  |  measure=total_licenses
+    Subspace: {hospital_type:PUBLIC}  |  HDP: 15
+    Commonness: [EVENNESS] ('EVEN',)  (15/15 = 100%)
+      Members: BURNS, ENT, OPTH, ORTH, CARD, OBG +9 more
+    >> Across all specialty_code values, total_licenses is evenly distributed across bed_size_bucket values
+
+  #9  score=0.5083  (conciseness=0.5083, impact=1.0000)
+    measure on measure  |  EVENNESS  |  breakdown=hospital_sub_type  |  measure=(varies)
+    Subspace: {*}  |  HDP: 20
+    Commonness: [EVENNESS] ('EVEN',)  (14/20 = 70%)
+      Members: admissions_prev_fy, admissions_before_last_year, cases_treated, preauth_approved, claims_approved, amount_claimed +8 more
+    Exceptions (6):
+      total_bed_strength        NO_PATTERN           
+      inpatient_beds            NO_PATTERN           
+      preauth_rejected          NO_PATTERN           
+      death_count               NO_PATTERN           
+      ... +2 more
+    >> Across most measure values (14/20), (varies) is evenly distributed across hospital_sub_type values. Exceptions: total_bed_strength (no clear pattern); inpatient_beds (no clear pattern); preauth_rejected (no clear pattern) and 3 others
+
+  #10  score=0.5939  (conciseness=0.9442, impact=0.6290)
+    subspace on hospital_sub_type  |  TOP_TWO  |  breakdown=specialty_code  |  measure=amount_approved
+    Subspace: {bed_size_bucket:LARGE (101-300)}  |  HDP: 8
+    Commonness: [TOP_TWO] ('CARD', 'ORTH')  (8/8 = 100%)
+      Members: PHC, CHC, Private, Civil Hospital, District Hospital, Medical College +2 more
+    >> Across all hospital_sub_type values, CARD and ORTH lead in amount_approved among specialty_code values
+
+  #11  score=0.5646  (conciseness=0.9442, impact=0.5980)
+    subspace on division  |  OUTSTANDING_1  |  breakdown=bed_size_bucket  |  measure=cases_per_bed
+    Subspace: {hospital_type:PUBLIC}  |  HDP: 18
+    Commonness: [OUTSTANDING_1] ('SMALL (<=30)',)  (18/18 = 100%)
+      Members: Varanasi, Moradabad, Basti, Gorakhpur, Prayagraj, Aligarh +12 more
+    >> Across all division values, SMALL (<=30) has the highest cases_per_bed among bed_size_bucket values
+
+  #12  score=0.5646  (conciseness=0.9442, impact=0.5980)
+    subspace on division  |  ATTRIBUTION  |  breakdown=bed_size_bucket  |  measure=cases_per_bed
+    Subspace: {hospital_type:PUBLIC}  |  HDP: 18
+    Commonness: [ATTRIBUTION] ('SMALL (<=30)',)  (18/18 = 100%)
+      Members: Varanasi, Moradabad, Basti, Gorakhpur, Prayagraj, Aligarh +12 more
+    >> Across all division values, SMALL (<=30) accounts for the majority of cases_per_bed among bed_size_bucket values
+
+  #13  score=0.4583  (conciseness=0.4583, impact=1.0000)
+    measure on measure  |  LAST_TWO  |  breakdown=bed_size_bucket  |  measure=(varies)
+    Subspace: {*}  |  HDP: 20
+    Commonness: [LAST_TWO] ('SMALL (<=30)', 'VERY_LARGE (300+)')  (12/20 = 60%)
+      Members: admissions_prev_fy, admissions_before_last_year, cases_treated, preauth_approved, preauth_rejected, claims_approved +6 more
+    Exceptions (8):
+      total_bed_strength        TYPE_CHANGE          
+      inpatient_beds            TYPE_CHANGE          
+      total_staff               TYPE_CHANGE          
+      avg_experience_years      TYPE_CHANGE          
+      ... +4 more
+    >> Across most measure values (12/20), SMALL (<=30) and VERY_LARGE (300+) are lowest in (varies) among bed_size_bucket values. Exceptions: total_bed_strength (different pattern); inpatient_beds (different pattern); total_staff (different pattern) and 5 others
+
+  #14  score=0.4461  (conciseness=0.4461, impact=1.0000)
+    measure on measure  |  OUTSTANDING_LAST  |  breakdown=bed_size_bucket  |  measure=(varies)
+    Subspace: {*}  |  HDP: 20
+    Commonness: [OUTSTANDING_LAST] ('VERY_LARGE (300+)',)  (11/20 = 55%)
+      Members: admissions_prev_fy, admissions_before_last_year, cases_treated, preauth_approved, preauth_rejected, claims_approved +5 more
+    Exceptions (9):
+      total_bed_strength        TYPE_CHANGE          
+      inpatient_beds            TYPE_CHANGE          
+      total_staff               TYPE_CHANGE          
+      avg_experience_years      TYPE_CHANGE          
+      ... +5 more
+    >> Across most measure values (11/20), VERY_LARGE (300+) has the lowest (varies) among bed_size_bucket values. Exceptions: total_bed_strength (different pattern); inpatient_beds (different pattern); total_staff (different pattern) and 6 others
+
+  #15  score=0.6840  (conciseness=0.6840, impact=1.0000)
+    subspace on specialty_code  |  TOP_TWO  |  breakdown=bed_size_bucket  |  measure=admissions_before_last_year
+    Subspace: {*}  |  HDP: 15
+    Commonness: [TOP_TWO] ('LARGE (101-300)', 'MEDIUM (31-100)')  (13/15 = 87%)
+      Members: BURNS, ENT, OPTH, ORTH, CARD, OBG +7 more
+    Exceptions (2):
+      DERM                      TYPE_CHANGE          
+      PSYCH                     TYPE_CHANGE          
+    >> Across most specialty_code values (13/15), LARGE (101-300) and MEDIUM (31-100) lead in admissions_before_last_year among bed_size_bucket values. Exception: DERM (different pattern); PSYCH (different pattern)
+
+
+======================================================================
+VIEW: view4  |  Selected 15 from 940 candidates
+======================================================================
+
+Diversity:
+  Pattern types (6): ATTRIBUTION, EVENNESS, LAST_TWO, OUTSTANDING_1, OUTSTANDING_LAST, TOP_TWO
+  Extending dims (5): age_group, bis_record_status, district, enrolment_status, entitlement_source
+  Measures (5): claim_count, days_enrolment_to_card, document_count, has_aadhaar, has_claim
+
+TotalUse: 12.3523  |  Sum of scores: 12.8161  |  Redundancy penalty: 0.4639
+
+--- Ranked MetaInsights ---
+
+  #1  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on age_group  |  EVENNESS  |  breakdown=division  |  measure=document_count
+    Subspace: {*}  |  HDP: 4
+    Commonness: [EVENNESS] ('EVEN',)  (4/4 = 100%)
+      Members: 26-40, 41-60, 60+, 15-25
+    >> Across all age_group values, document_count is evenly distributed across division values
+
+  #2  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on entitlement_source  |  OUTSTANDING_LAST  |  breakdown=age_group  |  measure=claim_count
+    Subspace: {*}  |  HDP: 3
+    Commonness: [OUTSTANDING_LAST] ('15-25',)  (3/3 = 100%)
+      Members: SECC, STATE_DB, RSBY
+    >> Across all entitlement_source values, 15-25 has the lowest claim_count among age_group values
+
+  #3  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on entitlement_source  |  LAST_TWO  |  breakdown=age_group  |  measure=claim_count
+    Subspace: {*}  |  HDP: 3
+    Commonness: [LAST_TWO] ('15-25', '26-40')  (3/3 = 100%)
+      Members: SECC, STATE_DB, RSBY
+    >> Across all entitlement_source values, 15-25 and 26-40 are lowest in claim_count among age_group values
+
+  #4  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on age_group  |  OUTSTANDING_1  |  breakdown=entitlement_source  |  measure=claim_count
+    Subspace: {*}  |  HDP: 4
+    Commonness: [OUTSTANDING_1] ('SECC',)  (4/4 = 100%)
+      Members: 26-40, 41-60, 60+, 15-25
+    >> Across all age_group values, SECC has the highest claim_count among entitlement_source values
+
+  #5  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on age_group  |  ATTRIBUTION  |  breakdown=entitlement_source  |  measure=claim_count
+    Subspace: {*}  |  HDP: 4
+    Commonness: [ATTRIBUTION] ('SECC',)  (4/4 = 100%)
+      Members: 26-40, 41-60, 60+, 15-25
+    >> Across all age_group values, SECC accounts for the majority of claim_count among entitlement_source values
+
+  #6  score=0.9442  (conciseness=0.9442, impact=1.0000)
+    subspace on age_group  |  TOP_TWO  |  breakdown=enrolment_status  |  measure=claim_count
+    Subspace: {*}  |  HDP: 4
+    Commonness: [TOP_TWO] ('AUTO_APPROVED', 'ISA_APPROVED')  (4/4 = 100%)
+      Members: 26-40, 41-60, 60+, 15-25
+    >> Across all age_group values, AUTO_APPROVED and ISA_APPROVED lead in claim_count among enrolment_status values
+
+  #7  score=0.8257  (conciseness=0.9442, impact=0.8745)
+    subspace on bis_record_status  |  EVENNESS  |  breakdown=district  |  measure=has_aadhaar
+    Subspace: {card_status:ACTIVE}  |  HDP: 3
+    Commonness: [EVENNESS] ('EVEN',)  (3/3 = 100%)
+      Members: GOLD, SILVER, PENDING
+    >> Across all bis_record_status values, has_aadhaar is evenly distributed across district values
+
+  #8  score=0.8257  (conciseness=0.9442, impact=0.8745)
+    subspace on enrolment_status  |  OUTSTANDING_1  |  breakdown=bis_record_status  |  measure=has_claim
+    Subspace: {card_status:ACTIVE}  |  HDP: 4
+    Commonness: [OUTSTANDING_1] ('GOLD',)  (4/4 = 100%)
+      Members: ISA_APPROVED, AUTO_APPROVED, SHA_APPROVED, REJECTED
+    >> Across all enrolment_status values, GOLD has the highest has_claim among bis_record_status values
+
+  #9  score=0.8257  (conciseness=0.9442, impact=0.8745)
+    subspace on district  |  OUTSTANDING_LAST  |  breakdown=enrolment_status  |  measure=has_claim
+    Subspace: {card_status:ACTIVE}  |  HDP: 75
+    Commonness: [OUTSTANDING_LAST] ('REJECTED',)  (75/75 = 100%)
+      Members: Kushinagar, Bareilly, Lucknow, Ambedkar Nagar, Shamli, Saharanpur +69 more
+    >> Across all district values, REJECTED has the lowest has_claim among enrolment_status values
+
+  #10  score=0.8257  (conciseness=0.9442, impact=0.8745)
+    subspace on age_group  |  LAST_TWO  |  breakdown=enrolment_status  |  measure=has_claim
+    Subspace: {card_status:ACTIVE}  |  HDP: 4
+    Commonness: [LAST_TWO] ('REJECTED', 'SHA_APPROVED')  (4/4 = 100%)
+      Members: 26-40, 41-60, 60+, 15-25
+    >> Across all age_group values, REJECTED and SHA_APPROVED are lowest in has_claim among enrolment_status values
+
+  #11  score=0.7555  (conciseness=0.9442, impact=0.8002)
+    subspace on district  |  EVENNESS  |  breakdown=age_group  |  measure=days_enrolment_to_card
+    Subspace: {document_count_bucket:1_DOC}  |  HDP: 75
+    Commonness: [EVENNESS] ('EVEN',)  (75/75 = 100%)
+      Members: Kushinagar, Bareilly, Lucknow, Ambedkar Nagar, Shamli, Saharanpur +69 more
+    >> Across all district values, days_enrolment_to_card is evenly distributed across age_group values
+
+  #12  score=0.7555  (conciseness=0.9442, impact=0.8002)
+    subspace on district  |  ATTRIBUTION  |  breakdown=card_status  |  measure=has_claim
+    Subspace: {document_count_bucket:1_DOC}  |  HDP: 75
+    Commonness: [ATTRIBUTION] ('ACTIVE',)  (75/75 = 100%)
+      Members: Kushinagar, Bareilly, Lucknow, Ambedkar Nagar, Shamli, Saharanpur +69 more
+    >> Across all district values, ACTIVE accounts for the majority of has_claim among card_status values
+
+  #13  score=0.7555  (conciseness=0.9442, impact=0.8002)
+    subspace on district  |  OUTSTANDING_1  |  breakdown=card_status  |  measure=claim_count
+    Subspace: {document_count_bucket:1_DOC}  |  HDP: 75
+    Commonness: [OUTSTANDING_1] ('ACTIVE',)  (75/75 = 100%)
+      Members: Kushinagar, Bareilly, Lucknow, Ambedkar Nagar, Shamli, Saharanpur +69 more
+    >> Across all district values, ACTIVE has the highest claim_count among card_status values
+
+  #14  score=0.7555  (conciseness=0.9442, impact=0.8002)
+    subspace on entitlement_source  |  TOP_TWO  |  breakdown=enrolment_status  |  measure=has_claim
+    Subspace: {document_count_bucket:1_DOC}  |  HDP: 3
+    Commonness: [TOP_TWO] ('AUTO_APPROVED', 'ISA_APPROVED')  (3/3 = 100%)
+      Members: SECC, STATE_DB, RSBY
+    >> Across all entitlement_source values, AUTO_APPROVED and ISA_APPROVED lead in has_claim among enrolment_status values
+
+  #15  score=0.8257  (conciseness=0.9442, impact=0.8745)
+    subspace on bis_record_status  |  ATTRIBUTION  |  breakdown=entitlement_source  |  measure=has_claim
+    Subspace: {card_status:ACTIVE}  |  HDP: 3
+    Commonness: [ATTRIBUTION] ('SECC',)  (3/3 = 100%)
+      Members: GOLD, SILVER, PENDING
+    >> Across all bis_record_status values, SECC accounts for the majority of has_claim among entitlement_source values
+

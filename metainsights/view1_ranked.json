@@ -1,0 +1,611 @@
+[
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "hospital_sub_type",
+    "pattern_type": "EVENNESS",
+    "breakdown": "division",
+    "measure": "length_of_stay",
+    "base_subspace": [],
+    "hdp_size": 8,
+    "commonness_sets": [
+      {
+        "highlight": "('EVEN',)",
+        "pattern_type": "EVENNESS",
+        "members": [
+          "Trust",
+          "PHC",
+          "Private",
+          "NGO",
+          "Medical College",
+          "Civil Hospital",
+          "CHC",
+          "District Hospital"
+        ],
+        "count": 8,
+        "proportion": 1.0
+      }
+    ],
+    "exceptions": [],
+    "conciseness": 0.944211,
+    "impact": 1.0,
+    "score": 0.944211,
+    "impact_measure_used": "case_count"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "division",
+    "pattern_type": "TOP_TWO",
+    "breakdown": "specialty_code",
+    "measure": "amount_claimed",
+    "base_subspace": [],
+    "hdp_size": 18,
+    "commonness_sets": [
+      {
+        "highlight": "('CARD', 'ORTH')",
+        "pattern_type": "TOP_TWO",
+        "members": [
+          "Jhansi",
+          "Lucknow",
+          "Varanasi",
+          "Meerut",
+          "Prayagraj",
+          "Bareilly",
+          "Moradabad",
+          "Kanpur",
+          "Chitrakoot",
+          "Mirzapur",
+          "Agra",
+          "Devipatan",
+          "Azamgarh",
+          "Saharanpur",
+          "Aligarh",
+          "Basti",
+          "Ayodhya",
+          "Gorakhpur"
+        ],
+        "count": 18,
+        "proportion": 1.0
+      }
+    ],
+    "exceptions": [],
+    "conciseness": 0.944211,
+    "impact": 1.0,
+    "score": 0.944211,
+    "impact_measure_used": "amount_claimed"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "hospital_sub_type",
+    "pattern_type": "OUTSTANDING_1",
+    "breakdown": "specialty_code",
+    "measure": "base_amount",
+    "base_subspace": [],
+    "hdp_size": 8,
+    "commonness_sets": [
+      {
+        "highlight": "('CARD',)",
+        "pattern_type": "OUTSTANDING_1",
+        "members": [
+          "Trust",
+          "PHC",
+          "Private",
+          "NGO",
+          "Medical College",
+          "Civil Hospital",
+          "CHC",
+          "District Hospital"
+        ],
+        "count": 8,
+        "proportion": 1.0
+      }
+    ],
+    "exceptions": [],
+    "conciseness": 0.944211,
+    "impact": 1.0,
+    "score": 0.944211,
+    "impact_measure_used": "case_count"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "age_group",
+    "pattern_type": "OUTSTANDING_LAST",
+    "breakdown": "disease_category",
+    "measure": "case_count",
+    "base_subspace": [],
+    "hdp_size": 4,
+    "commonness_sets": [
+      {
+        "highlight": "('INJURY',)",
+        "pattern_type": "OUTSTANDING_LAST",
+        "members": [
+          "60+",
+          "26-40",
+          "41-60",
+          "15-25"
+        ],
+        "count": 4,
+        "proportion": 1.0
+      }
+    ],
+    "exceptions": [],
+    "conciseness": 0.944211,
+    "impact": 1.0,
+    "score": 0.944211,
+    "impact_measure_used": "case_count"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "preauth_status",
+    "pattern_type": "LAST_TWO",
+    "breakdown": "age_group",
+    "measure": "case_count",
+    "base_subspace": [],
+    "hdp_size": 4,
+    "commonness_sets": [
+      {
+        "highlight": "('15-25', '26-40')",
+        "pattern_type": "LAST_TWO",
+        "members": [
+          "AUTO_APPROVED",
+          "APPROVED",
+          "QUERY_RAISED",
+          "REJECTED"
+        ],
+        "count": 4,
+        "proportion": 1.0
+      }
+    ],
+    "exceptions": [],
+    "conciseness": 0.944211,
+    "impact": 1.0,
+    "score": 0.944211,
+    "impact_measure_used": "case_count"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "division",
+    "pattern_type": "ATTRIBUTION",
+    "breakdown": "discharge_type",
+    "measure": "case_count",
+    "base_subspace": [],
+    "hdp_size": 18,
+    "commonness_sets": [
+      {
+        "highlight": "('NORMAL',)",
+        "pattern_type": "ATTRIBUTION",
+        "members": [
+          "Jhansi",
+          "Lucknow",
+          "Varanasi",
+          "Meerut",
+          "Prayagraj",
+          "Bareilly",
+          "Moradabad",
+          "Kanpur",
+          "Chitrakoot",
+          "Mirzapur",
+          "Agra",
+          "Devipatan",
+          "Azamgarh",
+          "Saharanpur",
+          "Aligarh",
+          "Basti",
+          "Ayodhya",
+          "Gorakhpur"
+        ],
+        "count": 18,
+        "proportion": 1.0
+      }
+    ],
+    "exceptions": [],
+    "conciseness": 0.944211,
+    "impact": 1.0,
+    "score": 0.944211,
+    "impact_measure_used": "amount_claimed"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "hospital_sub_type",
+    "pattern_type": "OUTLIER",
+    "breakdown": "admission_month",
+    "measure": "case_count",
+    "base_subspace": [],
+    "hdp_size": 8,
+    "commonness_sets": [
+      {
+        "highlight": "(('2023-02', 'BELOW'),)",
+        "pattern_type": "OUTLIER",
+        "members": [
+          "Trust",
+          "PHC",
+          "Private",
+          "NGO",
+          "Medical College",
+          "Civil Hospital",
+          "CHC",
+          "District Hospital"
+        ],
+        "count": 8,
+        "proportion": 1.0
+      }
+    ],
+    "exceptions": [],
+    "conciseness": 0.944211,
+    "impact": 1.0,
+    "score": 0.944211,
+    "impact_measure_used": "case_count"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "bed_size_bucket",
+    "pattern_type": "SEASONALITY",
+    "breakdown": "admission_month",
+    "measure": "case_count",
+    "base_subspace": [],
+    "hdp_size": 4,
+    "commonness_sets": [
+      {
+        "highlight": "('PERIOD_12',)",
+        "pattern_type": "SEASONALITY",
+        "members": [
+          "SMALL (<=30)",
+          "LARGE (101-300)",
+          "MEDIUM (31-100)",
+          "VERY_LARGE (300+)"
+        ],
+        "count": 4,
+        "proportion": 1.0
+      }
+    ],
+    "exceptions": [],
+    "conciseness": 0.944211,
+    "impact": 1.0,
+    "score": 0.944211,
+    "impact_measure_used": "case_count"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "division",
+    "pattern_type": "EVENNESS",
+    "breakdown": "district",
+    "measure": "settlement_tat_days",
+    "base_subspace": [
+      [
+        "claim_status",
+        "SETTLED"
+      ]
+    ],
+    "hdp_size": 18,
+    "commonness_sets": [
+      {
+        "highlight": "('EVEN',)",
+        "pattern_type": "EVENNESS",
+        "members": [
+          "Jhansi",
+          "Lucknow",
+          "Varanasi",
+          "Meerut",
+          "Prayagraj",
+          "Bareilly",
+          "Moradabad",
+          "Kanpur",
+          "Chitrakoot",
+          "Mirzapur",
+          "Agra",
+          "Devipatan",
+          "Azamgarh",
+          "Saharanpur",
+          "Aligarh",
+          "Basti",
+          "Ayodhya",
+          "Gorakhpur"
+        ],
+        "count": 18,
+        "proportion": 1.0
+      }
+    ],
+    "exceptions": [],
+    "conciseness": 0.944211,
+    "impact": 1.0,
+    "score": 0.944211,
+    "impact_measure_used": "amount_paid"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "disease_category",
+    "pattern_type": "TOP_TWO",
+    "breakdown": "age_group",
+    "measure": "base_amount",
+    "base_subspace": [
+      [
+        "claim_status",
+        "SETTLED"
+      ]
+    ],
+    "hdp_size": 5,
+    "commonness_sets": [
+      {
+        "highlight": "('41-60', '60+')",
+        "pattern_type": "TOP_TWO",
+        "members": [
+          "NCD",
+          "SURGICAL",
+          "COMMUNICABLE",
+          "MATERNAL_NEONATAL",
+          "INJURY"
+        ],
+        "count": 5,
+        "proportion": 1.0
+      }
+    ],
+    "exceptions": [],
+    "conciseness": 0.944211,
+    "impact": 1.0,
+    "score": 0.944211,
+    "impact_measure_used": "amount_paid"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "division",
+    "pattern_type": "OUTSTANDING_1",
+    "breakdown": "discharge_type",
+    "measure": "case_count",
+    "base_subspace": [
+      [
+        "claim_status",
+        "SETTLED"
+      ]
+    ],
+    "hdp_size": 18,
+    "commonness_sets": [
+      {
+        "highlight": "('NORMAL',)",
+        "pattern_type": "OUTSTANDING_1",
+        "members": [
+          "Jhansi",
+          "Lucknow",
+          "Varanasi",
+          "Meerut",
+          "Prayagraj",
+          "Bareilly",
+          "Moradabad",
+          "Kanpur",
+          "Chitrakoot",
+          "Mirzapur",
+          "Agra",
+          "Devipatan",
+          "Azamgarh",
+          "Saharanpur",
+          "Aligarh",
+          "Basti",
+          "Ayodhya",
+          "Gorakhpur"
+        ],
+        "count": 18,
+        "proportion": 1.0
+      }
+    ],
+    "exceptions": [],
+    "conciseness": 0.944211,
+    "impact": 1.0,
+    "score": 0.944211,
+    "impact_measure_used": "amount_paid"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "disease_category",
+    "pattern_type": "LAST_TWO",
+    "breakdown": "preauth_status",
+    "measure": "amount_claimed",
+    "base_subspace": [
+      [
+        "claim_status",
+        "SETTLED"
+      ]
+    ],
+    "hdp_size": 5,
+    "commonness_sets": [
+      {
+        "highlight": "('QUERY_RAISED', 'REJECTED')",
+        "pattern_type": "LAST_TWO",
+        "members": [
+          "NCD",
+          "SURGICAL",
+          "COMMUNICABLE",
+          "MATERNAL_NEONATAL",
+          "INJURY"
+        ],
+        "count": 5,
+        "proportion": 1.0
+      }
+    ],
+    "exceptions": [],
+    "conciseness": 0.944211,
+    "impact": 1.0,
+    "score": 0.944211,
+    "impact_measure_used": "amount_paid"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "division",
+    "pattern_type": "TREND",
+    "breakdown": "admission_month",
+    "measure": "query_count",
+    "base_subspace": [
+      [
+        "claim_status",
+        "SETTLED"
+      ]
+    ],
+    "hdp_size": 18,
+    "commonness_sets": [
+      {
+        "highlight": "('DECREASING',)",
+        "pattern_type": "TREND",
+        "members": [
+          "Jhansi",
+          "Lucknow",
+          "Varanasi",
+          "Meerut",
+          "Prayagraj",
+          "Bareilly",
+          "Moradabad",
+          "Kanpur",
+          "Chitrakoot",
+          "Mirzapur",
+          "Agra",
+          "Devipatan",
+          "Azamgarh",
+          "Saharanpur",
+          "Aligarh",
+          "Basti",
+          "Ayodhya",
+          "Gorakhpur"
+        ],
+        "count": 18,
+        "proportion": 1.0
+      }
+    ],
+    "exceptions": [],
+    "conciseness": 0.944211,
+    "impact": 1.0,
+    "score": 0.944211,
+    "impact_measure_used": "amount_paid"
+  },
+  {
+    "extending_strategy": "breakdown",
+    "extending_dimension": "temporal_grain",
+    "pattern_type": "TREND",
+    "breakdown": "(varies)",
+    "measure": "query_count",
+    "base_subspace": [
+      [
+        "claim_status",
+        "SETTLED"
+      ]
+    ],
+    "hdp_size": 3,
+    "commonness_sets": [
+      {
+        "highlight": "('DECREASING',)",
+        "pattern_type": "TREND",
+        "members": [
+          "admission_month",
+          "admission_quarter",
+          "admission_year"
+        ],
+        "count": 3,
+        "proportion": 1.0
+      }
+    ],
+    "exceptions": [],
+    "conciseness": 0.944211,
+    "impact": 1.0,
+    "score": 0.944211,
+    "impact_measure_used": "amount_paid"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "district",
+    "pattern_type": "OUTSTANDING_1",
+    "breakdown": "claim_status",
+    "measure": "amount_claimed",
+    "base_subspace": [
+      [
+        "discharge_type",
+        "NORMAL"
+      ]
+    ],
+    "hdp_size": 75,
+    "commonness_sets": [
+      {
+        "highlight": "('APPROVED',)",
+        "pattern_type": "OUTSTANDING_1",
+        "members": [
+          "Lalitpur",
+          "Hardoi",
+          "Ghazipur",
+          "Ghaziabad",
+          "Kaushambi",
+          "Shahjahanpur",
+          "Moradabad",
+          "Meerut",
+          "Farrukhabad",
+          "Chitrakoot",
+          "Sonbhadra",
+          "Firozabad",
+          "Agra",
+          "Lucknow",
+          "Shravasti",
+          "Kanpur Nagar",
+          "Bareilly",
+          "Jaunpur",
+          "Chandauli",
+          "Mirzapur",
+          "Lakhimpur Kheri",
+          "Ballia",
+          "Prayagraj",
+          "Muzaffarnagar",
+          "Aligarh",
+          "Basti",
+          "Unnao",
+          "Jhansi",
+          "Badaun",
+          "Gonda",
+          "Kanpur Dehat",
+          "Ambedkar Nagar",
+          "Sitapur",
+          "Mathura",
+          "Bijnor",
+          "Pilibhit",
+          "Saharanpur",
+          "Mahoba",
+          "Shamli",
+          "Balrampur",
+          "Ayodhya",
+          "Gautam Buddha Nagar",
+          "Amroha",
+          "Mainpuri",
+          "Kannauj",
+          "Sant Kabir Nagar",
+          "Azamgarh",
+          "Maharajganj",
+          "Etawah",
+          "Bulandshahr",
+          "Pratapgarh",
+          "Bahraich",
+          "Hapur",
+          "Siddharthnagar",
+          "Varanasi",
+          "Hamirpur",
+          "Gorakhpur",
+          "Amethi",
+          "Kasganj",
+          "Sultanpur",
+          "Auraiya",
+          "Barabanki",
+          "Raebareli",
+          "Hathras",
+          "Kushinagar",
+          "Deoria",
+          "Mau",
+          "Fatehpur",
+          "Sambhal",
+          "Etah",
+          "Sant Ravidas Nagar",
+          "Baghpat",
+          "Banda",
+          "Rampur",
+          "Jalaun"
+        ],
+        "count": 75,
+        "proportion": 1.0
+      }
+    ],
+    "exceptions": [],
+    "conciseness": 0.944211,
+    "impact": 0.877382,
+    "score": 0.828434,
+    "impact_measure_used": "amount_claimed"
+  }
+]
