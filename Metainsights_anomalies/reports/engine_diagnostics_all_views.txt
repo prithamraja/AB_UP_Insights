@@ -3,40 +3,40 @@ METAINSIGHT ENGINE DIAGNOSTICS -- ALL VIEWS
 ======================================================================
 
 --- view1 ---
-  Time:             301.7s
-  Scopes evaluated: 2,413
-  Patterns found:   2,348
-  HDPs evaluated:   13,275
-  HDPs skipped:     4,842  (26.7% dedup rate)
-  Candidates:       7,476
+  Time:             300.0s
+  Scopes evaluated: 3,481
+  Patterns found:   3,441
+  HDPs evaluated:   17,790
+  HDPs skipped:     7,002  (28.2% dedup rate)
+  Candidates:       9,602
   Query cache HR:   99.4%
-  Pattern cache HR: 4.7%
+  Pattern cache HR: 5.3%
   Candidates by pattern type:
-    TOP_TWO             : 2,032
-    OUTSTANDING_1       : 1,136
-    LAST_TWO            : 1,089
-    EVENNESS            : 965
-    OUTSTANDING_LAST    : 919
-    ATTRIBUTION         : 840
-    TREND               : 240
-    OUTLIER             : 158
-    SEASONALITY         : 96
+    TOP_TWO             : 2,606
+    OUTSTANDING_1       : 1,551
+    LAST_TWO            : 1,367
+    EVENNESS            : 1,198
+    OUTSTANDING_LAST    : 1,161
+    ATTRIBUTION         : 1,157
+    TREND               : 254
+    OUTLIER             : 195
+    SEASONALITY         : 112
     UNIMODALITY         : 1
   Zero-candidate types: ['CHANGE_POINT']
 
 --- view2 ---
-  Time:             120.1s
-  Scopes evaluated: 3,589
-  Patterns found:   4,693
-  HDPs evaluated:   4,210
-  HDPs skipped:     10,003  (70.4% dedup rate)
-  Candidates:       792
-  Query cache HR:   98.9%
-  Pattern cache HR: 44.4%
+  Time:             120.7s
+  Scopes evaluated: 3,177
+  Patterns found:   4,214
+  HDPs evaluated:   3,864
+  HDPs skipped:     8,912  (69.8% dedup rate)
+  Candidates:       719
+  Query cache HR:   99.0%
+  Pattern cache HR: 43.6%
   Candidates by pattern type:
-    TREND               : 490
-    SEASONALITY         : 184
-    CHANGE_POINT        : 91
+    TREND               : 436
+    SEASONALITY         : 167
+    CHANGE_POINT        : 89
     UNIMODALITY         : 12
     EVENNESS            : 6
     OUTSTANDING_1       : 5
@@ -46,44 +46,44 @@ METAINSIGHT ENGINE DIAGNOSTICS -- ALL VIEWS
   Zero-candidate types: ['ATTRIBUTION', 'OUTLIER']
 
 --- view3 ---
-  Time:             120.2s
-  Scopes evaluated: 5,993
-  Patterns found:   4,288
-  HDPs evaluated:   9,321
-  HDPs skipped:     6,501  (41.1% dedup rate)
-  Candidates:       1,539
-  Query cache HR:   99.3%
-  Pattern cache HR: 14.5%
+  Time:             120.0s
+  Scopes evaluated: 1,500
+  Patterns found:   997
+  HDPs evaluated:   2,752
+  HDPs skipped:     1,249  (31.2% dedup rate)
+  Candidates:       616
+  Query cache HR:   99.2%
+  Pattern cache HR: 7.8%
   Candidates by pattern type:
-    EVENNESS            : 630
-    OUTSTANDING_1       : 309
-    TOP_TWO             : 280
-    ATTRIBUTION         : 156
-    LAST_TWO            : 103
-    OUTSTANDING_LAST    : 61
+    EVENNESS            : 286
+    TOP_TWO             : 112
+    OUTSTANDING_1       : 100
+    ATTRIBUTION         : 61
+    LAST_TWO            : 40
+    OUTSTANDING_LAST    : 17
   Zero-candidate types: ['TREND', 'OUTLIER', 'SEASONALITY', 'CHANGE_POINT', 'UNIMODALITY']
 
 --- view4 ---
   Time:             60.1s
-  Scopes evaluated: 248
-  Patterns found:   225
-  HDPs evaluated:   1,075
-  HDPs skipped:     260  (19.5% dedup rate)
-  Candidates:       940
-  Query cache HR:   99.5%
-  Pattern cache HR: 3.3%
+  Scopes evaluated: 287
+  Patterns found:   265
+  HDPs evaluated:   1,288
+  HDPs skipped:     327  (20.2% dedup rate)
+  Candidates:       1,125
+  Query cache HR:   99.6%
+  Pattern cache HR: 3.4%
   Candidates by pattern type:
-    EVENNESS            : 626
-    OUTSTANDING_1       : 92
-    OUTSTANDING_LAST    : 73
-    ATTRIBUTION         : 62
-    LAST_TWO            : 53
-    TOP_TWO             : 34
+    EVENNESS            : 737
+    OUTSTANDING_1       : 112
+    OUTSTANDING_LAST    : 88
+    ATTRIBUTION         : 77
+    LAST_TWO            : 66
+    TOP_TWO             : 45
   Zero-candidate types: ['TREND', 'OUTLIER', 'SEASONALITY', 'CHANGE_POINT', 'UNIMODALITY']
 
 --- TOTALS ---
-  Total candidates: 10,747
-  Total scopes:     12,243
-  Total patterns:   11,554
-  Total HDPs eval:  27,881
-  Total HDPs skip:  21,606  (43.7% overall dedup rate)
+  Total candidates: 12,062
+  Total scopes:     8,445
+  Total patterns:   8,917
+  Total HDPs eval:  25,694
+  Total HDPs skip:  17,490  (40.5% overall dedup rate)
