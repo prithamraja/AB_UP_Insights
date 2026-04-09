@@ -809,7 +809,7 @@ def compute_conciseness(candidate: MetaInsightCandidate, config: ViewConfig) -> 
     tau   = config.tau
     r     = 1.0
     k     = 3
-    gamma = 0.1
+    gamma = 0.5
 
     # Commonness proportions (alpha)
     alphas = [cs["proportion"] for cs in candidate.commonness_sets]
