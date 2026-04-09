@@ -7,7 +7,7 @@ export function AppHeader() {
         <Shield className="h-5 w-5 text-white/80" />
         <div>
           <h1 className="text-sm font-semibold text-white">
-            PM-JAY Query Assistant — Uttar Pradesh
+            PM-JAY Assistant — Uttar Pradesh
           </h1>
           <p className="text-[11px] text-white/60">
             Ayushman Bharat Pradhan Mantri Jan Arogya Yojana
