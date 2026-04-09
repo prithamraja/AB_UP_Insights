@@ -1,0 +1,946 @@
+[
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "district",
+    "pattern_type": "OUTSTANDING_1",
+    "breakdown": "entitlement_source",
+    "measure": "claim_count",
+    "base_subspace": [],
+    "hdp_size": 75,
+    "commonness_sets": [
+      {
+        "highlight": "('SECC',)",
+        "pattern_type": "OUTSTANDING_1",
+        "members": [
+          "Kushinagar",
+          "Bareilly",
+          "Lucknow",
+          "Ambedkar Nagar",
+          "Shamli",
+          "Saharanpur",
+          "Chandauli",
+          "Varanasi",
+          "Kanpur Nagar",
+          "Pratapgarh",
+          "Mahoba",
+          "Bulandshahr",
+          "Azamgarh",
+          "Gonda",
+          "Mathura",
+          "Fatehpur",
+          "Shahjahanpur",
+          "Hamirpur",
+          "Gorakhpur",
+          "Amethi",
+          "Prayagraj",
+          "Etawah",
+          "Hardoi",
+          "Etah",
+          "Pilibhit",
+          "Raebareli",
+          "Bijnor",
+          "Ghazipur",
+          "Sultanpur",
+          "Auraiya",
+          "Ayodhya",
+          "Basti",
+          "Maharajganj",
+          "Hathras",
+          "Meerut",
+          "Kasganj",
+          "Sitapur",
+          "Muzaffarnagar",
+          "Mau",
+          "Kaushambi",
+          "Jaunpur",
+          "Gautam Buddha Nagar",
+          "Deoria",
+          "Kanpur Dehat",
+          "Banda",
+          "Siddharthnagar",
+          "Chitrakoot",
+          "Lakhimpur Kheri",
+          "Barabanki",
+          "Jalaun",
+          "Ghaziabad",
+          "Mirzapur",
+          "Shravasti",
+          "Unnao",
+          "Agra",
+          "Moradabad",
+          "Aligarh",
+          "Badaun",
+          "Firozabad",
+          "Ballia",
+          "Rampur",
+          "Mainpuri",
+          "Kannauj",
+          "Hapur",
+          "Farrukhabad",
+          "Jhansi",
+          "Amroha",
+          "Baghpat",
+          "Bahraich",
+          "Sant Ravidas Nagar",
+          "Sambhal",
+          "Sonbhadra",
+          "Sant Kabir Nagar",
+          "Balrampur"
+        ],
+        "count": 74,
+        "proportion": 0.9867
+      }
+    ],
+    "exceptions": [
+      {
+        "member_label": "Lalitpur",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      }
+    ],
+    "conciseness": 0.943034,
+    "impact": 1.0,
+    "score": 0.943034,
+    "impact_measure_used": "has_claim"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "district",
+    "pattern_type": "EVENNESS",
+    "breakdown": "card_status",
+    "measure": "days_enrolment_to_card",
+    "base_subspace": [],
+    "hdp_size": 75,
+    "commonness_sets": [
+      {
+        "highlight": "('EVEN',)",
+        "pattern_type": "EVENNESS",
+        "members": [
+          "Kushinagar",
+          "Bareilly",
+          "Lucknow",
+          "Ambedkar Nagar",
+          "Shamli",
+          "Saharanpur",
+          "Chandauli",
+          "Varanasi",
+          "Kanpur Nagar",
+          "Pratapgarh",
+          "Mahoba",
+          "Bulandshahr",
+          "Azamgarh",
+          "Gonda",
+          "Lalitpur",
+          "Mathura",
+          "Fatehpur",
+          "Shahjahanpur",
+          "Hamirpur",
+          "Gorakhpur",
+          "Amethi",
+          "Prayagraj",
+          "Etawah",
+          "Hardoi",
+          "Etah",
+          "Pilibhit",
+          "Raebareli",
+          "Bijnor",
+          "Ghazipur",
+          "Sultanpur",
+          "Auraiya",
+          "Ayodhya",
+          "Basti",
+          "Maharajganj",
+          "Hathras",
+          "Meerut",
+          "Kasganj",
+          "Sitapur",
+          "Muzaffarnagar",
+          "Mau",
+          "Kaushambi",
+          "Jaunpur",
+          "Gautam Buddha Nagar",
+          "Deoria",
+          "Kanpur Dehat",
+          "Banda",
+          "Siddharthnagar",
+          "Lakhimpur Kheri",
+          "Barabanki",
+          "Jalaun",
+          "Ghaziabad",
+          "Mirzapur",
+          "Shravasti",
+          "Unnao",
+          "Agra",
+          "Moradabad",
+          "Aligarh",
+          "Badaun",
+          "Firozabad",
+          "Ballia",
+          "Rampur",
+          "Mainpuri",
+          "Kannauj",
+          "Hapur",
+          "Farrukhabad",
+          "Jhansi",
+          "Amroha",
+          "Baghpat",
+          "Bahraich",
+          "Sant Ravidas Nagar",
+          "Sambhal",
+          "Sonbhadra",
+          "Sant Kabir Nagar",
+          "Balrampur"
+        ],
+        "count": 74,
+        "proportion": 0.9867
+      }
+    ],
+    "exceptions": [
+      {
+        "member_label": "Chitrakoot",
+        "category": "NO_PATTERN",
+        "highlight": null,
+        "pattern_type": "NO_PATTERN"
+      }
+    ],
+    "conciseness": 0.943034,
+    "impact": 1.0,
+    "score": 0.943034,
+    "impact_measure_used": "has_claim"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "division",
+    "pattern_type": "LAST_TWO",
+    "breakdown": "enrolment_status",
+    "measure": "claim_count",
+    "base_subspace": [],
+    "hdp_size": 18,
+    "commonness_sets": [
+      {
+        "highlight": "('REJECTED', 'SHA_APPROVED')",
+        "pattern_type": "LAST_TWO",
+        "members": [
+          "Gorakhpur",
+          "Bareilly",
+          "Lucknow",
+          "Ayodhya",
+          "Saharanpur",
+          "Varanasi",
+          "Kanpur",
+          "Prayagraj",
+          "Chitrakoot",
+          "Meerut",
+          "Azamgarh",
+          "Devipatan",
+          "Jhansi",
+          "Agra",
+          "Aligarh",
+          "Moradabad",
+          "Basti"
+        ],
+        "count": 17,
+        "proportion": 0.9444
+      }
+    ],
+    "exceptions": [
+      {
+        "member_label": "Mirzapur",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      }
+    ],
+    "conciseness": 0.827276,
+    "impact": 1.0,
+    "score": 0.827276,
+    "impact_measure_used": "has_claim"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "district",
+    "pattern_type": "OUTSTANDING_LAST",
+    "breakdown": "enrolment_status",
+    "measure": "has_claim",
+    "base_subspace": [],
+    "hdp_size": 75,
+    "commonness_sets": [
+      {
+        "highlight": "('REJECTED',)",
+        "pattern_type": "OUTSTANDING_LAST",
+        "members": [
+          "Kushinagar",
+          "Bareilly",
+          "Lucknow",
+          "Ambedkar Nagar",
+          "Shamli",
+          "Saharanpur",
+          "Chandauli",
+          "Varanasi",
+          "Kanpur Nagar",
+          "Pratapgarh",
+          "Mahoba",
+          "Bulandshahr",
+          "Azamgarh",
+          "Gonda",
+          "Mathura",
+          "Fatehpur",
+          "Shahjahanpur",
+          "Hamirpur",
+          "Gorakhpur",
+          "Prayagraj",
+          "Hardoi",
+          "Etah",
+          "Pilibhit",
+          "Raebareli",
+          "Bijnor",
+          "Ghazipur",
+          "Sultanpur",
+          "Auraiya",
+          "Ayodhya",
+          "Basti",
+          "Maharajganj",
+          "Hathras",
+          "Meerut",
+          "Kasganj",
+          "Sitapur",
+          "Muzaffarnagar",
+          "Mau",
+          "Kaushambi",
+          "Jaunpur",
+          "Gautam Buddha Nagar",
+          "Deoria",
+          "Kanpur Dehat",
+          "Banda",
+          "Siddharthnagar",
+          "Lakhimpur Kheri",
+          "Barabanki",
+          "Jalaun",
+          "Ghaziabad",
+          "Mirzapur",
+          "Unnao",
+          "Agra",
+          "Moradabad",
+          "Aligarh",
+          "Badaun",
+          "Firozabad",
+          "Ballia",
+          "Rampur",
+          "Mainpuri",
+          "Hapur",
+          "Farrukhabad",
+          "Jhansi",
+          "Amroha",
+          "Baghpat",
+          "Bahraich",
+          "Sant Ravidas Nagar",
+          "Sambhal",
+          "Sonbhadra",
+          "Sant Kabir Nagar"
+        ],
+        "count": 68,
+        "proportion": 0.9067
+      }
+    ],
+    "exceptions": [
+      {
+        "member_label": "Lalitpur",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "Amethi",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "Etawah",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "Chitrakoot",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "Shravasti",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "Kannauj",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "Balrampur",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      }
+    ],
+    "conciseness": 0.750371,
+    "impact": 1.0,
+    "score": 0.750371,
+    "impact_measure_used": "has_claim"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "district",
+    "pattern_type": "ATTRIBUTION",
+    "breakdown": "entitlement_source",
+    "measure": "claim_count",
+    "base_subspace": [],
+    "hdp_size": 75,
+    "commonness_sets": [
+      {
+        "highlight": "('SECC',)",
+        "pattern_type": "ATTRIBUTION",
+        "members": [
+          "Kushinagar",
+          "Bareilly",
+          "Lucknow",
+          "Ambedkar Nagar",
+          "Shamli",
+          "Saharanpur",
+          "Chandauli",
+          "Varanasi",
+          "Kanpur Nagar",
+          "Pratapgarh",
+          "Mahoba",
+          "Bulandshahr",
+          "Azamgarh",
+          "Gonda",
+          "Mathura",
+          "Fatehpur",
+          "Shahjahanpur",
+          "Hamirpur",
+          "Gorakhpur",
+          "Amethi",
+          "Prayagraj",
+          "Etawah",
+          "Hardoi",
+          "Etah",
+          "Pilibhit",
+          "Raebareli",
+          "Bijnor",
+          "Ghazipur",
+          "Sultanpur",
+          "Auraiya",
+          "Ayodhya",
+          "Basti",
+          "Maharajganj",
+          "Hathras",
+          "Meerut",
+          "Kasganj",
+          "Sitapur",
+          "Mau",
+          "Kaushambi",
+          "Jaunpur",
+          "Deoria",
+          "Banda",
+          "Siddharthnagar",
+          "Lakhimpur Kheri",
+          "Barabanki",
+          "Jalaun",
+          "Ghaziabad",
+          "Mirzapur",
+          "Shravasti",
+          "Unnao",
+          "Moradabad",
+          "Badaun",
+          "Firozabad",
+          "Ballia",
+          "Rampur",
+          "Mainpuri",
+          "Kannauj",
+          "Hapur",
+          "Farrukhabad",
+          "Jhansi",
+          "Amroha",
+          "Baghpat",
+          "Bahraich",
+          "Sambhal",
+          "Sonbhadra",
+          "Sant Kabir Nagar",
+          "Balrampur"
+        ],
+        "count": 67,
+        "proportion": 0.8933
+      }
+    ],
+    "exceptions": [
+      {
+        "member_label": "Lalitpur",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "Muzaffarnagar",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "Gautam Buddha Nagar",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "Kanpur Dehat",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "Chitrakoot",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "Agra",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "Aligarh",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "Sant Ravidas Nagar",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      }
+    ],
+    "conciseness": 0.726735,
+    "impact": 1.0,
+    "score": 0.726735,
+    "impact_measure_used": "has_claim"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "division",
+    "pattern_type": "EVENNESS",
+    "breakdown": "entitlement_source",
+    "measure": "claim_rate",
+    "base_subspace": [
+      [
+        "card_status",
+        "ACTIVE"
+      ]
+    ],
+    "hdp_size": 18,
+    "commonness_sets": [
+      {
+        "highlight": "('EVEN',)",
+        "pattern_type": "EVENNESS",
+        "members": [
+          "Gorakhpur",
+          "Bareilly",
+          "Lucknow",
+          "Ayodhya",
+          "Varanasi",
+          "Kanpur",
+          "Prayagraj",
+          "Chitrakoot",
+          "Meerut",
+          "Azamgarh",
+          "Devipatan",
+          "Jhansi",
+          "Agra",
+          "Aligarh",
+          "Moradabad",
+          "Basti",
+          "Mirzapur"
+        ],
+        "count": 17,
+        "proportion": 0.9444
+      }
+    ],
+    "exceptions": [
+      {
+        "member_label": "Saharanpur",
+        "category": "NO_PATTERN",
+        "highlight": null,
+        "pattern_type": "NO_PATTERN"
+      }
+    ],
+    "conciseness": 0.827276,
+    "impact": 0.874533,
+    "score": 0.723481,
+    "impact_measure_used": "claim_count"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "age_group",
+    "pattern_type": "TOP_TWO",
+    "breakdown": "enrolment_status",
+    "measure": "claim_count",
+    "base_subspace": [],
+    "hdp_size": 4,
+    "commonness_sets": [
+      {
+        "highlight": "('AUTO_APPROVED', 'ISA_APPROVED')",
+        "pattern_type": "TOP_TWO",
+        "members": [
+          "26-40",
+          "41-60",
+          "60+",
+          "15-25"
+        ],
+        "count": 4,
+        "proportion": 1.0
+      }
+    ],
+    "exceptions": [],
+    "conciseness": 0.721057,
+    "impact": 1.0,
+    "score": 0.721057,
+    "impact_measure_used": "has_claim"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "division",
+    "pattern_type": "OUTSTANDING_LAST",
+    "breakdown": "age_group",
+    "measure": "claim_count",
+    "base_subspace": [
+      [
+        "card_status",
+        "ACTIVE"
+      ]
+    ],
+    "hdp_size": 18,
+    "commonness_sets": [
+      {
+        "highlight": "('15-25',)",
+        "pattern_type": "OUTSTANDING_LAST",
+        "members": [
+          "Gorakhpur",
+          "Bareilly",
+          "Lucknow",
+          "Ayodhya",
+          "Saharanpur",
+          "Varanasi",
+          "Kanpur",
+          "Prayagraj",
+          "Chitrakoot",
+          "Meerut",
+          "Azamgarh",
+          "Devipatan",
+          "Jhansi",
+          "Agra",
+          "Aligarh",
+          "Moradabad",
+          "Basti",
+          "Mirzapur"
+        ],
+        "count": 18,
+        "proportion": 1.0
+      }
+    ],
+    "exceptions": [],
+    "conciseness": 0.721057,
+    "impact": 0.874533,
+    "score": 0.630588,
+    "impact_measure_used": "claim_count"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "enrolment_status",
+    "pattern_type": "LAST_TWO",
+    "breakdown": "age_group",
+    "measure": "has_claim",
+    "base_subspace": [
+      [
+        "card_status",
+        "ACTIVE"
+      ]
+    ],
+    "hdp_size": 4,
+    "commonness_sets": [
+      {
+        "highlight": "('15-25', '26-40')",
+        "pattern_type": "LAST_TWO",
+        "members": [
+          "ISA_APPROVED",
+          "AUTO_APPROVED",
+          "SHA_APPROVED",
+          "REJECTED"
+        ],
+        "count": 4,
+        "proportion": 1.0
+      }
+    ],
+    "exceptions": [],
+    "conciseness": 0.721057,
+    "impact": 0.874533,
+    "score": 0.630588,
+    "impact_measure_used": "claim_count"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "division",
+    "pattern_type": "OUTSTANDING_1",
+    "breakdown": "bis_record_status",
+    "measure": "has_claim",
+    "base_subspace": [
+      [
+        "card_status",
+        "ACTIVE"
+      ]
+    ],
+    "hdp_size": 18,
+    "commonness_sets": [
+      {
+        "highlight": "('GOLD',)",
+        "pattern_type": "OUTSTANDING_1",
+        "members": [
+          "Gorakhpur",
+          "Bareilly",
+          "Lucknow",
+          "Ayodhya",
+          "Saharanpur",
+          "Varanasi",
+          "Kanpur",
+          "Prayagraj",
+          "Chitrakoot",
+          "Meerut",
+          "Azamgarh",
+          "Devipatan",
+          "Jhansi",
+          "Agra",
+          "Aligarh",
+          "Moradabad",
+          "Basti",
+          "Mirzapur"
+        ],
+        "count": 18,
+        "proportion": 1.0
+      }
+    ],
+    "exceptions": [],
+    "conciseness": 0.721057,
+    "impact": 0.874533,
+    "score": 0.630588,
+    "impact_measure_used": "claim_count"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "division",
+    "pattern_type": "ATTRIBUTION",
+    "breakdown": "entitlement_source",
+    "measure": "has_claim",
+    "base_subspace": [
+      [
+        "card_status",
+        "ACTIVE"
+      ]
+    ],
+    "hdp_size": 18,
+    "commonness_sets": [
+      {
+        "highlight": "('SECC',)",
+        "pattern_type": "ATTRIBUTION",
+        "members": [
+          "Gorakhpur",
+          "Bareilly",
+          "Lucknow",
+          "Ayodhya",
+          "Saharanpur",
+          "Varanasi",
+          "Kanpur",
+          "Prayagraj",
+          "Chitrakoot",
+          "Meerut",
+          "Azamgarh",
+          "Devipatan",
+          "Jhansi",
+          "Agra",
+          "Aligarh",
+          "Moradabad",
+          "Basti",
+          "Mirzapur"
+        ],
+        "count": 18,
+        "proportion": 1.0
+      }
+    ],
+    "exceptions": [],
+    "conciseness": 0.721057,
+    "impact": 0.874533,
+    "score": 0.630588,
+    "impact_measure_used": "claim_count"
+  },
+  {
+    "extending_strategy": "measure",
+    "extending_dimension": "measure",
+    "pattern_type": "EVENNESS",
+    "breakdown": "division",
+    "measure": "(varies)",
+    "base_subspace": [],
+    "hdp_size": 7,
+    "commonness_sets": [
+      {
+        "highlight": "('EVEN',)",
+        "pattern_type": "EVENNESS",
+        "members": [
+          "document_count",
+          "has_aadhaar",
+          "claim_rate",
+          "days_enrolment_to_card",
+          "days_card_to_first_claim"
+        ],
+        "count": 5,
+        "proportion": 0.7143
+      }
+    ],
+    "exceptions": [
+      {
+        "member_label": "claim_count",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "has_claim",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      }
+    ],
+    "conciseness": 0.518485,
+    "impact": 1.0,
+    "score": 0.518485,
+    "impact_measure_used": "has_claim"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "enrolment_status",
+    "pattern_type": "TOP_TWO",
+    "breakdown": "division",
+    "measure": "has_claim",
+    "base_subspace": [
+      [
+        "card_status",
+        "ACTIVE"
+      ]
+    ],
+    "hdp_size": 4,
+    "commonness_sets": [
+      {
+        "highlight": "('Lucknow', 'Meerut')",
+        "pattern_type": "TOP_TWO",
+        "members": [
+          "ISA_APPROVED",
+          "AUTO_APPROVED",
+          "SHA_APPROVED"
+        ],
+        "count": 3,
+        "proportion": 0.75
+      }
+    ],
+    "exceptions": [
+      {
+        "member_label": "REJECTED",
+        "category": "NO_PATTERN",
+        "highlight": null,
+        "pattern_type": "NO_PATTERN"
+      }
+    ],
+    "conciseness": 0.547399,
+    "impact": 0.874533,
+    "score": 0.478719,
+    "impact_measure_used": "claim_count"
+  },
+  {
+    "extending_strategy": "measure",
+    "extending_dimension": "measure",
+    "pattern_type": "EVENNESS",
+    "breakdown": "district",
+    "measure": "(varies)",
+    "base_subspace": [
+      [
+        "card_status",
+        "ACTIVE"
+      ]
+    ],
+    "hdp_size": 7,
+    "commonness_sets": [
+      {
+        "highlight": "('EVEN',)",
+        "pattern_type": "EVENNESS",
+        "members": [
+          "document_count",
+          "has_aadhaar",
+          "claim_rate",
+          "days_enrolment_to_card",
+          "days_card_to_first_claim"
+        ],
+        "count": 5,
+        "proportion": 0.7143
+      }
+    ],
+    "exceptions": [
+      {
+        "member_label": "claim_count",
+        "category": "NO_PATTERN",
+        "highlight": null,
+        "pattern_type": "NO_PATTERN"
+      },
+      {
+        "member_label": "has_claim",
+        "category": "NO_PATTERN",
+        "highlight": null,
+        "pattern_type": "NO_PATTERN"
+      }
+    ],
+    "conciseness": 0.518485,
+    "impact": 0.874533,
+    "score": 0.453432,
+    "impact_measure_used": "claim_count"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "age_group",
+    "pattern_type": "EVENNESS",
+    "breakdown": "division",
+    "measure": "document_count",
+    "base_subspace": [],
+    "hdp_size": 4,
+    "commonness_sets": [
+      {
+        "highlight": "('EVEN',)",
+        "pattern_type": "EVENNESS",
+        "members": [
+          "26-40",
+          "41-60",
+          "60+",
+          "15-25"
+        ],
+        "count": 4,
+        "proportion": 1.0
+      }
+    ],
+    "exceptions": [],
+    "conciseness": 0.721057,
+    "impact": 1.0,
+    "score": 0.721057,
+    "impact_measure_used": "has_claim"
+  }
+]

@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 215 25% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 12%;
+
+    --primary: 187 72% 21%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 14% 92%;
+    --secondary-foreground: 215 20% 25%;
+
+    --muted: 210 14% 94%;
+    --muted-foreground: 215 10% 46%;
+
+    --accent: 187 72% 21%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 14% 89%;
+    --input: 214 14% 89%;
+    --ring: 187 72% 21%;
+
+    --radius: 0.5rem;
+
+    --sidebar-bg: 210 20% 98%;
+    --sidebar-fg: 215 15% 30%;
+    --sidebar-border: 214 13% 91%;
+    --sidebar-hover: 210 14% 94%;
+    --sidebar-active: 213 72% 95%;
+
+    --chat-user: 191 72% 21%;
+    --chat-user-fg: 0 0% 100%;
+    --chat-bot: 187 20% 95%;
+    --chat-bot-fg: 187 40% 15%;
+    --chat-input-bg: 0 0% 100%;
+
+    --sidebar-background: 210 20% 98%;
+    --sidebar-foreground: 215 15% 30%;
+    --sidebar-primary: 187 72% 21%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 187 72% 95%;
+    --sidebar-accent-foreground: 215 25% 15%;
+    --sidebar-ring: 187 72% 21%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--border));
+    border-radius: 3px;
+  }
+}
