@@ -2,15 +2,18 @@ import { useState, useCallback } from "react";
 import { sendMessage } from "@/services/api";
 import { ChatArea } from "@/components/chat/ChatArea";
 import { AppHeader } from "@/components/layout/AppHeader";
+import { AnomaliesView } from "@/components/insights/AnomaliesView";
 import { InsightsPlaceholder } from "@/components/insights/InsightsPlaceholder";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import type { Message } from "@/types/chat";
+
+type ActiveView = "ask" | "discover" | "track";
 
 function generateId() {
   return crypto.randomUUID();
 }
 
 const Index = () => {
+  const [activeView, setActiveView] = useState<ActiveView>("ask");
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -96,33 +99,37 @@ const Index = () => {
     <div className="flex h-screen overflow-hidden">
       <main className="flex flex-1 flex-col min-w-0">
         <AppHeader />
-        <Tabs defaultValue="chatbot" className="flex flex-1 flex-col min-h-0">
-          <TabsList className="w-full justify-start rounded-none border-b border-border bg-background px-6 h-11">
-            <TabsTrigger
-              value="chatbot"
-              className="data-[state=active]:bg-[#0f4c5c] data-[state=active]:text-white data-[state=active]:shadow-none"
-            >
-              Chatbot
-            </TabsTrigger>
-            <TabsTrigger
-              value="insights"
-              className="data-[state=active]:bg-[#0f4c5c] data-[state=active]:text-white data-[state=active]:shadow-none"
-            >
-              Insights
-            </TabsTrigger>
-          </TabsList>
-          <TabsContent value="chatbot" className="flex flex-col flex-1 min-h-0 mt-0">
+        <div className="flex justify-center gap-2 border-b border-border bg-background px-6 py-1.5">
+          {([["ask", "Ask"], ["discover", "Discover"], ["track", "Track"]] as const).map(
+            ([key, label]) => (
+              <button
+                key={key}
+                onClick={() => setActiveView(key)}
+                className={`rounded-md px-10 py-1.5 text-sm font-medium transition-colors ${
+                  activeView === key
+                    ? "bg-[#0f4c5c] text-white"
+                    : "text-muted-foreground hover:bg-muted"
+                }`}
+              >
+                {label}
+              </button>
+            )
+          )}
+        </div>
+        <div className="flex-1 min-h-0 flex flex-col">
+          {activeView === "ask" ? (
             <ChatArea
               messages={messages}
               isLoading={isLoading}
               onSend={handleSend}
               onDateRangeUpdate={handleDateRangeUpdate}
             />
-          </TabsContent>
-          <TabsContent value="insights" className="flex-1 min-h-0 mt-0 flex">
+          ) : activeView === "discover" ? (
+            <AnomaliesView />
+          ) : (
             <InsightsPlaceholder />
-          </TabsContent>
-        </Tabs>
+          )}
+        </div>
       </main>
     </div>
   );

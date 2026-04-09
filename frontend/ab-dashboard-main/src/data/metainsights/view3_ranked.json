@@ -1,0 +1,845 @@
+[
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "district",
+    "pattern_type": "TOP_TWO",
+    "breakdown": "specialty_code",
+    "measure": "amount_claimed",
+    "base_subspace": [],
+    "hdp_size": 75,
+    "commonness_sets": [
+      {
+        "highlight": "('CARD', 'ORTH')",
+        "pattern_type": "TOP_TWO",
+        "members": [
+          "Chandauli",
+          "Rampur",
+          "Basti",
+          "Deoria",
+          "Prayagraj",
+          "Aligarh",
+          "Auraiya",
+          "Siddharthnagar",
+          "Raebareli",
+          "Ambedkar Nagar",
+          "Kaushambi",
+          "Varanasi",
+          "Chitrakoot",
+          "Bijnor",
+          "Bulandshahr",
+          "Lucknow",
+          "Gorakhpur",
+          "Etawah",
+          "Badaun",
+          "Maharajganj",
+          "Muzaffarnagar",
+          "Hathras",
+          "Jaunpur",
+          "Ballia",
+          "Shahjahanpur",
+          "Etah",
+          "Sambhal",
+          "Kanpur Nagar",
+          "Pratapgarh",
+          "Amethi",
+          "Banda",
+          "Baghpat",
+          "Mirzapur",
+          "Bareilly",
+          "Ghaziabad",
+          "Bahraich",
+          "Moradabad",
+          "Gautam Buddha Nagar",
+          "Kasganj",
+          "Ghazipur",
+          "Lakhimpur Kheri",
+          "Meerut",
+          "Barabanki",
+          "Jhansi",
+          "Gonda",
+          "Sitapur",
+          "Azamgarh",
+          "Ayodhya",
+          "Agra",
+          "Sultanpur",
+          "Hardoi",
+          "Sant Kabir Nagar",
+          "Firozabad",
+          "Amroha",
+          "Hamirpur",
+          "Balrampur",
+          "Kanpur Dehat",
+          "Unnao",
+          "Fatehpur",
+          "Mathura",
+          "Farrukhabad",
+          "Sant Ravidas Nagar",
+          "Mainpuri",
+          "Shravasti",
+          "Saharanpur",
+          "Kannauj",
+          "Kushinagar",
+          "Mau",
+          "Jalaun",
+          "Mahoba",
+          "Lalitpur",
+          "Sonbhadra",
+          "Pilibhit",
+          "Hapur"
+        ],
+        "count": 74,
+        "proportion": 0.9867
+      }
+    ],
+    "exceptions": [
+      {
+        "member_label": "Shamli",
+        "category": "HIGHLIGHT_CHANGE",
+        "highlight": "('CARD', 'OBG')",
+        "pattern_type": "TOP_TWO"
+      }
+    ],
+    "conciseness": 0.943034,
+    "impact": 1.0,
+    "score": 0.943034,
+    "impact_measure_used": "cases_treated"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "division",
+    "pattern_type": "EVENNESS",
+    "breakdown": "specialty_code",
+    "measure": "avg_experience_years",
+    "base_subspace": [],
+    "hdp_size": 18,
+    "commonness_sets": [
+      {
+        "highlight": "('EVEN',)",
+        "pattern_type": "EVENNESS",
+        "members": [
+          "Varanasi",
+          "Moradabad",
+          "Basti",
+          "Gorakhpur",
+          "Prayagraj",
+          "Aligarh",
+          "Kanpur",
+          "Lucknow",
+          "Ayodhya",
+          "Chitrakoot",
+          "Meerut",
+          "Bareilly",
+          "Saharanpur",
+          "Azamgarh",
+          "Mirzapur",
+          "Devipatan",
+          "Jhansi"
+        ],
+        "count": 17,
+        "proportion": 0.9444
+      }
+    ],
+    "exceptions": [
+      {
+        "member_label": "Agra",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      }
+    ],
+    "conciseness": 0.827276,
+    "impact": 1.0,
+    "score": 0.827276,
+    "impact_measure_used": "total_bed_strength"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "division",
+    "pattern_type": "ATTRIBUTION",
+    "breakdown": "bed_size_bucket",
+    "measure": "cases_per_bed",
+    "base_subspace": [],
+    "hdp_size": 18,
+    "commonness_sets": [
+      {
+        "highlight": "('SMALL (<=30)',)",
+        "pattern_type": "ATTRIBUTION",
+        "members": [
+          "Varanasi",
+          "Moradabad",
+          "Basti",
+          "Gorakhpur",
+          "Prayagraj",
+          "Aligarh",
+          "Kanpur",
+          "Lucknow",
+          "Ayodhya",
+          "Chitrakoot",
+          "Meerut",
+          "Bareilly",
+          "Saharanpur",
+          "Azamgarh",
+          "Mirzapur",
+          "Devipatan",
+          "Agra"
+        ],
+        "count": 17,
+        "proportion": 0.9444
+      }
+    ],
+    "exceptions": [
+      {
+        "member_label": "Jhansi",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      }
+    ],
+    "conciseness": 0.827276,
+    "impact": 1.0,
+    "score": 0.827276,
+    "impact_measure_used": "total_bed_strength"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "hospital_sub_type",
+    "pattern_type": "LAST_TWO",
+    "breakdown": "specialty_code",
+    "measure": "cases_per_bed",
+    "base_subspace": [],
+    "hdp_size": 8,
+    "commonness_sets": [
+      {
+        "highlight": "('BURNS', 'DERM')",
+        "pattern_type": "LAST_TWO",
+        "members": [
+          "PHC",
+          "CHC",
+          "Private",
+          "Civil Hospital",
+          "District Hospital",
+          "Medical College",
+          "NGO",
+          "Trust"
+        ],
+        "count": 8,
+        "proportion": 1.0
+      }
+    ],
+    "exceptions": [],
+    "conciseness": 0.721057,
+    "impact": 1.0,
+    "score": 0.721057,
+    "impact_measure_used": "cases_treated"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "specialty_code",
+    "pattern_type": "OUTSTANDING_1",
+    "breakdown": "bed_size_bucket",
+    "measure": "total_bed_strength",
+    "base_subspace": [],
+    "hdp_size": 15,
+    "commonness_sets": [
+      {
+        "highlight": "('LARGE (101-300)',)",
+        "pattern_type": "OUTSTANDING_1",
+        "members": [
+          "BURNS",
+          "ENT",
+          "OPTH",
+          "ORTH",
+          "CARD",
+          "OBG",
+          "PEDS",
+          "MED",
+          "DERM",
+          "GS",
+          "NEURO",
+          "ONCO",
+          "NEPHRO",
+          "PSYCH",
+          "URO"
+        ],
+        "count": 15,
+        "proportion": 1.0
+      }
+    ],
+    "exceptions": [],
+    "conciseness": 0.721057,
+    "impact": 1.0,
+    "score": 0.721057,
+    "impact_measure_used": "total_bed_strength"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "specialty_code",
+    "pattern_type": "OUTSTANDING_LAST",
+    "breakdown": "bed_size_bucket",
+    "measure": "cases_treated",
+    "base_subspace": [],
+    "hdp_size": 15,
+    "commonness_sets": [
+      {
+        "highlight": "('VERY_LARGE (300+)',)",
+        "pattern_type": "OUTSTANDING_LAST",
+        "members": [
+          "ENT",
+          "OPTH",
+          "ORTH",
+          "CARD",
+          "OBG",
+          "PEDS",
+          "MED",
+          "GS",
+          "NEURO",
+          "ONCO",
+          "URO"
+        ],
+        "count": 11,
+        "proportion": 0.7333
+      }
+    ],
+    "exceptions": [
+      {
+        "member_label": "BURNS",
+        "category": "NO_PATTERN",
+        "highlight": null,
+        "pattern_type": "NO_PATTERN"
+      },
+      {
+        "member_label": "DERM",
+        "category": "NO_PATTERN",
+        "highlight": null,
+        "pattern_type": "NO_PATTERN"
+      },
+      {
+        "member_label": "NEPHRO",
+        "category": "NO_PATTERN",
+        "highlight": null,
+        "pattern_type": "NO_PATTERN"
+      },
+      {
+        "member_label": "PSYCH",
+        "category": "NO_PATTERN",
+        "highlight": null,
+        "pattern_type": "NO_PATTERN"
+      }
+    ],
+    "conciseness": 0.533231,
+    "impact": 1.0,
+    "score": 0.533231,
+    "impact_measure_used": "total_bed_strength"
+  },
+  {
+    "extending_strategy": "measure",
+    "extending_dimension": "measure",
+    "pattern_type": "EVENNESS",
+    "breakdown": "hospital_sub_type",
+    "measure": "(varies)",
+    "base_subspace": [],
+    "hdp_size": 20,
+    "commonness_sets": [
+      {
+        "highlight": "('EVEN',)",
+        "pattern_type": "EVENNESS",
+        "members": [
+          "admissions_prev_fy",
+          "admissions_before_last_year",
+          "cases_treated",
+          "preauth_approved",
+          "claims_approved",
+          "amount_claimed",
+          "amount_approved",
+          "amount_paid",
+          "emergency_count",
+          "total_staff",
+          "avg_experience_years",
+          "total_licenses",
+          "expired_licenses",
+          "active_licenses"
+        ],
+        "count": 14,
+        "proportion": 0.7
+      }
+    ],
+    "exceptions": [
+      {
+        "member_label": "total_bed_strength",
+        "category": "NO_PATTERN",
+        "highlight": null,
+        "pattern_type": "NO_PATTERN"
+      },
+      {
+        "member_label": "inpatient_beds",
+        "category": "NO_PATTERN",
+        "highlight": null,
+        "pattern_type": "NO_PATTERN"
+      },
+      {
+        "member_label": "preauth_rejected",
+        "category": "NO_PATTERN",
+        "highlight": null,
+        "pattern_type": "NO_PATTERN"
+      },
+      {
+        "member_label": "death_count",
+        "category": "NO_PATTERN",
+        "highlight": null,
+        "pattern_type": "NO_PATTERN"
+      },
+      {
+        "member_label": "zero_claim_flag",
+        "category": "NO_PATTERN",
+        "highlight": null,
+        "pattern_type": "NO_PATTERN"
+      },
+      {
+        "member_label": "cases_per_bed",
+        "category": "NO_PATTERN",
+        "highlight": null,
+        "pattern_type": "NO_PATTERN"
+      }
+    ],
+    "conciseness": 0.50834,
+    "impact": 1.0,
+    "score": 0.50834,
+    "impact_measure_used": "total_bed_strength"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "specialty_code",
+    "pattern_type": "EVENNESS",
+    "breakdown": "hospital_sub_type",
+    "measure": "total_licenses",
+    "base_subspace": [],
+    "hdp_size": 15,
+    "commonness_sets": [
+      {
+        "highlight": "('EVEN',)",
+        "pattern_type": "EVENNESS",
+        "members": [
+          "ENT",
+          "OPTH",
+          "ORTH",
+          "CARD",
+          "OBG",
+          "PEDS",
+          "MED",
+          "DERM",
+          "GS",
+          "NEURO",
+          "ONCO",
+          "NEPHRO",
+          "PSYCH",
+          "URO"
+        ],
+        "count": 14,
+        "proportion": 0.9333
+      }
+    ],
+    "exceptions": [
+      {
+        "member_label": "BURNS",
+        "category": "NO_PATTERN",
+        "highlight": null,
+        "pattern_type": "NO_PATTERN"
+      }
+    ],
+    "conciseness": 0.802841,
+    "impact": 1.0,
+    "score": 0.802841,
+    "impact_measure_used": "total_bed_strength"
+  },
+  {
+    "extending_strategy": "measure",
+    "extending_dimension": "measure",
+    "pattern_type": "LAST_TWO",
+    "breakdown": "bed_size_bucket",
+    "measure": "(varies)",
+    "base_subspace": [],
+    "hdp_size": 20,
+    "commonness_sets": [
+      {
+        "highlight": "('SMALL (<=30)', 'VERY_LARGE (300+)')",
+        "pattern_type": "LAST_TWO",
+        "members": [
+          "admissions_prev_fy",
+          "admissions_before_last_year",
+          "cases_treated",
+          "preauth_approved",
+          "preauth_rejected",
+          "claims_approved",
+          "amount_claimed",
+          "amount_approved",
+          "amount_paid",
+          "emergency_count",
+          "death_count",
+          "zero_claim_flag"
+        ],
+        "count": 12,
+        "proportion": 0.6
+      }
+    ],
+    "exceptions": [
+      {
+        "member_label": "total_bed_strength",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "inpatient_beds",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "total_staff",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "avg_experience_years",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "total_licenses",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "expired_licenses",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "active_licenses",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "cases_per_bed",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      }
+    ],
+    "conciseness": 0.45832,
+    "impact": 1.0,
+    "score": 0.45832,
+    "impact_measure_used": "total_bed_strength"
+  },
+  {
+    "extending_strategy": "measure",
+    "extending_dimension": "measure",
+    "pattern_type": "OUTSTANDING_LAST",
+    "breakdown": "bed_size_bucket",
+    "measure": "(varies)",
+    "base_subspace": [],
+    "hdp_size": 20,
+    "commonness_sets": [
+      {
+        "highlight": "('VERY_LARGE (300+)',)",
+        "pattern_type": "OUTSTANDING_LAST",
+        "members": [
+          "admissions_prev_fy",
+          "admissions_before_last_year",
+          "cases_treated",
+          "preauth_approved",
+          "preauth_rejected",
+          "claims_approved",
+          "amount_claimed",
+          "amount_approved",
+          "amount_paid",
+          "emergency_count",
+          "death_count"
+        ],
+        "count": 11,
+        "proportion": 0.55
+      }
+    ],
+    "exceptions": [
+      {
+        "member_label": "total_bed_strength",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "inpatient_beds",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "total_staff",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "avg_experience_years",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "total_licenses",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "expired_licenses",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "active_licenses",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "zero_claim_flag",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "cases_per_bed",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      }
+    ],
+    "conciseness": 0.446145,
+    "impact": 1.0,
+    "score": 0.446145,
+    "impact_measure_used": "total_bed_strength"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "division",
+    "pattern_type": "TOP_TWO",
+    "breakdown": "bed_size_bucket",
+    "measure": "cases_per_bed",
+    "base_subspace": [],
+    "hdp_size": 18,
+    "commonness_sets": [
+      {
+        "highlight": "('MEDIUM (31-100)', 'SMALL (<=30)')",
+        "pattern_type": "TOP_TWO",
+        "members": [
+          "Varanasi",
+          "Moradabad",
+          "Basti",
+          "Gorakhpur",
+          "Prayagraj",
+          "Aligarh",
+          "Kanpur",
+          "Lucknow",
+          "Chitrakoot",
+          "Meerut",
+          "Bareilly",
+          "Azamgarh",
+          "Mirzapur",
+          "Devipatan",
+          "Jhansi",
+          "Agra"
+        ],
+        "count": 16,
+        "proportion": 0.8889
+      }
+    ],
+    "exceptions": [
+      {
+        "member_label": "Ayodhya",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "Saharanpur",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      }
+    ],
+    "conciseness": 0.719247,
+    "impact": 1.0,
+    "score": 0.719247,
+    "impact_measure_used": "total_bed_strength"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "specialty_code",
+    "pattern_type": "LAST_TWO",
+    "breakdown": "bed_size_bucket",
+    "measure": "admissions_before_last_year",
+    "base_subspace": [],
+    "hdp_size": 15,
+    "commonness_sets": [
+      {
+        "highlight": "('SMALL (<=30)', 'VERY_LARGE (300+)')",
+        "pattern_type": "LAST_TWO",
+        "members": [
+          "BURNS",
+          "ENT",
+          "OPTH",
+          "ORTH",
+          "CARD",
+          "OBG",
+          "PEDS",
+          "MED",
+          "GS",
+          "NEURO",
+          "ONCO",
+          "NEPHRO",
+          "URO"
+        ],
+        "count": 13,
+        "proportion": 0.8667
+      }
+    ],
+    "exceptions": [
+      {
+        "member_label": "DERM",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      },
+      {
+        "member_label": "PSYCH",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      }
+    ],
+    "conciseness": 0.683975,
+    "impact": 1.0,
+    "score": 0.683975,
+    "impact_measure_used": "total_bed_strength"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "hospital_sub_type",
+    "pattern_type": "TOP_TWO",
+    "breakdown": "specialty_code",
+    "measure": "amount_approved",
+    "base_subspace": [
+      [
+        "bed_size_bucket",
+        "LARGE (101-300)"
+      ]
+    ],
+    "hdp_size": 8,
+    "commonness_sets": [
+      {
+        "highlight": "('CARD', 'ORTH')",
+        "pattern_type": "TOP_TWO",
+        "members": [
+          "PHC",
+          "CHC",
+          "Private",
+          "Civil Hospital",
+          "District Hospital",
+          "Medical College",
+          "NGO",
+          "Trust"
+        ],
+        "count": 8,
+        "proportion": 1.0
+      }
+    ],
+    "exceptions": [],
+    "conciseness": 0.721057,
+    "impact": 0.628961,
+    "score": 0.453517,
+    "impact_measure_used": "total_bed_strength"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "hospital_sub_type",
+    "pattern_type": "EVENNESS",
+    "breakdown": "specialty_code",
+    "measure": "total_staff",
+    "base_subspace": [
+      [
+        "bed_size_bucket",
+        "LARGE (101-300)"
+      ]
+    ],
+    "hdp_size": 8,
+    "commonness_sets": [
+      {
+        "highlight": "('EVEN',)",
+        "pattern_type": "EVENNESS",
+        "members": [
+          "PHC",
+          "CHC",
+          "Private",
+          "Civil Hospital",
+          "District Hospital",
+          "Medical College",
+          "NGO"
+        ],
+        "count": 7,
+        "proportion": 0.875
+      }
+    ],
+    "exceptions": [
+      {
+        "member_label": "Trust",
+        "category": "TYPE_CHANGE",
+        "highlight": null,
+        "pattern_type": "OTHER_PATTERN"
+      }
+    ],
+    "conciseness": 0.696753,
+    "impact": 0.628961,
+    "score": 0.43823,
+    "impact_measure_used": "total_bed_strength"
+  },
+  {
+    "extending_strategy": "subspace",
+    "extending_dimension": "bed_size_bucket",
+    "pattern_type": "EVENNESS",
+    "breakdown": "division",
+    "measure": "avg_experience_years",
+    "base_subspace": [
+      [
+        "hospital_type",
+        "PUBLIC"
+      ]
+    ],
+    "hdp_size": 4,
+    "commonness_sets": [
+      {
+        "highlight": "('EVEN',)",
+        "pattern_type": "EVENNESS",
+        "members": [
+          "MEDIUM (31-100)",
+          "LARGE (101-300)",
+          "SMALL (<=30)",
+          "VERY_LARGE (300+)"
+        ],
+        "count": 4,
+        "proportion": 1.0
+      }
+    ],
+    "exceptions": [],
+    "conciseness": 0.721057,
+    "impact": 0.597961,
+    "score": 0.431164,
+    "impact_measure_used": "amount_paid"
+  }
+]
