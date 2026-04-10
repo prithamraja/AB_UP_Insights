@@ -34,13 +34,13 @@ export function ChatInput({ onSend, disabled }: ChatInputProps) {
 
   return (
     <div className="border-t border-border bg-card px-4 py-3">
-      <div className="mx-auto flex max-w-3xl items-end gap-2 rounded-xl border border-border bg-chat-input-bg p-2 shadow-sm focus-within:ring-2 focus-within:ring-ring/30 transition-shadow">
+      <div className="mx-auto flex max-w-5xl items-end gap-2 rounded-xl border border-border bg-chat-input-bg p-2 shadow-sm focus-within:ring-2 focus-within:ring-ring/30 transition-shadow">
         <textarea
           ref={textareaRef}
           value={value}
           onChange={(e) => setValue(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Ask about PM-JAY claims, hospitals, packages…"
+          placeholder="Ask about PM-JAY enrolment, claims, hospitals…"
           rows={1}
           disabled={disabled}
           className="flex-1 resize-none bg-transparent px-2 py-1.5 text-sm text-foreground placeholder:text-muted-foreground outline-none disabled:opacity-50"

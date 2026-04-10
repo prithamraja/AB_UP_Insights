@@ -179,18 +179,44 @@ Write insights for ALL findings provided. Follow this exact format:
 
 2. EXAMPLE FORMAT:
 
-   **Cardiology and Orthopaedics dominate PM-JAY spending in 17 of 18 divisions -- except Basti, where General Surgery leads instead.**
+   **Cardiology and Orthopaedics dominate PM-JAY spending in 17 of 18 divisions — except Basti, where General Surgery leads instead.**
 
    1. Statewide, Cardiology accounts for INR 401.9 crore (39.4%) and Orthopaedics INR 260.2 crore (25.5%) of total claim amounts.
    2. This pattern holds across 17 of 18 divisions -- every division except Basti.
    3. In Basti, General Surgery overtakes both, accounting for 34% of local claims vs Cardiology at 28%.
    4. Implication: Basti's different specialty mix may reflect local hospital capabilities, referral patterns, or coding practices worth reviewing.
 
-3. HEADLINE RULES:
-   - Must be a single sentence
-   - {headline_guidance}
-   - Must be self-contained -- a reader who only reads headlines should get the full picture
-   - Use specific entity names: district names, specialty names, hospital types -- not "some districts"
+3. HEADLINE RULES — write one sentence that's easy to grasp AND interesting enough to make the reader pause:
+
+   a. **Tell a mini-story.** The strongest headlines set up a pattern with a number, then reveal a surprise:
+      "[subject + verb + scope with a number] — except [named entity], where [what's different in 3-6 words]."
+      The reader should finish the sentence curious about the exception. The example above is the gold standard — match its rhythm.
+
+   b. **No throat-clearing.** Drop dead openers like "Across Uttar Pradesh,", "In settled NORMAL admissions,", "For NORMAL discharges,", "At the division level,". Start with the actual subject doing something.
+      - BAD:  "Across Uttar Pradesh, NORMAL discharges dominate claim value, but Hamirpur is the only district where LAMA/DAMA together outweigh NORMAL cases."
+      - GOOD: "NORMAL discharges drive 85.6% of PM-JAY claim value statewide — except in Hamirpur, where LAMA/DAMA exits take over."
+
+   c. **One concrete number in the headline.** Always: "17 of 18 divisions", "85.6%", "INR 10 crore", "3.70–3.95 days". Never a vague evaluation. The number is what makes the pattern feel real.
+      - BAD:  "Treatment duration is remarkably even across divisions, with only a 0.25-day spread."
+      - GOOD: "Length of stay barely moves (3.70–3.95 days) across all 5 disease groups — except in Chitrakoot."
+
+   d. **No vague evaluators.** Banned in headlines: *remarkably, broadly, fairly, consistently, generally, very, slightly, modestly, somewhat, important, material, notable, significant, substantial, dominated by, a small but X, an important Y*. Replace with the actual number or drop the word.
+
+   e. **One main clause + one exception clause. Max ~20 words.** Two main clauses are one too many — pick the more interesting angle and let the bullets carry the rest. If you can't fit it, you're trying to say two things.
+      - BAD (3 clauses):  "District approval mix is dominated by ISA/AUTO_APPROVED, but rejected claims remain a minority and Mirzapur is the only division-level outlier."
+      - GOOD: "ISA and AUTO approvals run 66.8% of claims in 17 of 18 divisions — except Mirzapur, the lone outlier."
+
+   f. **Plain English over scheme jargon.** Prefer "spend" to "claim value", "settle time" to "settlement turnaround", "stays" to "length-of-stay days". If a term needs decoding (LAMA/DAMA, SECC), give a 1-word hint ("LAMA/DAMA exits", "SECC beneficiaries").
+
+   g. **Name at most 2 entities.** Never roll-call 5+ districts. Summarise as "7 districts (incl. Lalitpur and Amethi)" and list the rest in the bullets.
+      - BAD:  "...several districts including Lalitpur, Amethi, Etawah, Chitrakoot, Shravasti, Kannauj, and Balrampur break the pattern."
+      - GOOD: "Rejected enrolments still drive claims everywhere — except in 7 districts, led by Lalitpur and Amethi."
+
+   h. **For universal patterns (no exception), lead with the eye-catching number.** Without a contrast, the number alone has to do the work.
+      - GOOD: "Patients aged 60+ alone claim INR 39.6 crore — 38.8% of all PM-JAY spending statewide."
+      - GOOD: "Card issuance takes 15.2–15.5 days regardless of beneficiary status — no delay differences anywhere."
+
+   i. {headline_guidance}
 
 4. BULLET RULES:
    - Every bullet must contain a specific number from the stats

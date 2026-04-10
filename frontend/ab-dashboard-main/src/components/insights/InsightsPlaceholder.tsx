@@ -3,15 +3,15 @@ import { Building2, MapPin, Activity } from "lucide-react";
 import { GeographicCoverage } from "./GeographicCoverage";
 
 const subpages = [
-  { key: "resource-constraints", label: "Resource Constraints", icon: Building2 },
-  { key: "geographic-coverage", label: "Geographic Coverage", icon: MapPin },
+  { key: "geographic-coverage", label: "Speciality Coverage", icon: MapPin },
   { key: "hospital-performance", label: "Hospital Performance", icon: Activity },
+  { key: "beneficiary-enrolment", label: "Beneficiary Enrolment", icon: Building2 },
 ] as const;
 
 type SubpageKey = (typeof subpages)[number]["key"];
 
 export function InsightsPlaceholder() {
-  const [activePage, setActivePage] = useState<SubpageKey>("resource-constraints");
+  const [activePage, setActivePage] = useState<SubpageKey>("geographic-coverage");
 
   return (
     <div className="flex flex-1 min-h-0">
