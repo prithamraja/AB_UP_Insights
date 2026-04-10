@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { AlertCircle, AlertTriangle, Pencil, Check, X, Download, ArrowUp, ArrowDown, ArrowUpDown, BarChart3 } from "lucide-react";
+import { Pencil, Check, X, Download, ArrowUp, ArrowDown, ArrowUpDown, BarChart3 } from "lucide-react";
 import { BarChart, Bar, XAxis as ReXAxis, YAxis as ReYAxis, CartesianGrid, Tooltip as ReTooltip, ResponsiveContainer } from "recharts";
 import { format, parse } from "date-fns";
 import type { Message } from "@/types/chat";
@@ -317,9 +317,8 @@ export function MessageBubble({ message, onDateRangeUpdate }: MessageBubbleProps
       <div className="max-w-[90%] space-y-2">
         {/* Error state */}
         {message.error && (
-          <div className="flex items-start gap-2 rounded-lg border border-destructive/30 bg-destructive/5 px-4 py-3 text-sm text-destructive">
-            <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
-            <p>{message.error}</p>
+          <div className="rounded-2xl px-4 py-2.5 text-sm leading-relaxed shadow-sm bg-chat-bot text-chat-bot-foreground rounded-bl-md">
+            <p className="whitespace-pre-wrap break-words">{message.error.replace(/\*/g, "")}</p>
           </div>
         )}
 
@@ -329,25 +328,13 @@ export function MessageBubble({ message, onDateRangeUpdate }: MessageBubbleProps
             className={`rounded-2xl px-4 py-2.5 text-sm leading-relaxed shadow-sm ${
               isUser
                 ? "bg-chat-user text-chat-user-foreground rounded-br-md"
-                : isFallback
-                  ? "bg-amber-50 text-amber-900 border border-amber-200 rounded-bl-md"
-                  : "bg-chat-bot text-chat-bot-foreground rounded-bl-md"
+                : "bg-chat-bot text-chat-bot-foreground rounded-bl-md"
             }`}
           >
-            {isFallback && (
-              <div className="flex items-center gap-1.5 mb-1.5 text-amber-600">
-                <AlertTriangle className="h-3.5 w-3.5" />
-                <span className="text-[11px] font-medium">Approximate answer</span>
-              </div>
-            )}
-            <p className="whitespace-pre-wrap break-words">{message.content}</p>
+            <p className="whitespace-pre-wrap break-words">{message.content.replace(/\*/g, "")}</p>
             <span
               className={`mt-1 block text-[10px] ${
-                isUser
-                  ? "text-primary-foreground/60"
-                  : isFallback
-                    ? "text-amber-500"
-                    : "text-muted-foreground"
+                isUser ? "text-primary-foreground/60" : "text-muted-foreground"
               }`}
             >
               {new Date(message.timestamp).toLocaleTimeString([], {

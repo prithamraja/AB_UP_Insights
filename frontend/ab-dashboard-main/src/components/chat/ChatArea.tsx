@@ -25,7 +25,7 @@ export function ChatArea({ messages, isLoading, onSend, onDateRangeUpdate }: Cha
     <div className="flex flex-1 min-h-0 flex-col bg-background">
       {/* Messages */}
       <div ref={scrollRef} className="flex-1 overflow-y-auto scrollbar-thin px-4 py-6">
-        <div className="mx-auto max-w-3xl space-y-4">
+        <div className="mx-auto max-w-5xl space-y-4">
           {messages.length === 0 && (
             <div className="flex flex-col items-center justify-center py-16 text-center text-muted-foreground">
               <Shield className="mb-3 h-10 w-10 opacity-20" />

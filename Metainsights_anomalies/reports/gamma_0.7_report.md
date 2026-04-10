@@ -4,724 +4,691 @@
 
 ## Claims Processing & Treatment Patterns
 
-**Across Uttar Pradesh districts, NORMAL discharges account for 85.6% of paid amount, while Hamirpur is the only district where LAMA/DAMA together replace NORMAL as the leading discharge pattern.**
+**Normal discharges account for INR 10.14 crore, but Hamirpur breaks the district pattern with more LAMA/DAMA spend than normal spend.**
 
-1. Statewide, NORMAL discharges account for INR 10.14 crore out of INR 11.85 crore paid, or 85.6% of all paid value.
-2. The same pattern holds in 74 of 75 districts; Hamirpur is the lone exception.
-3. In Hamirpur, the leading discharge pattern switches to LAMA and DAMA together, while NORMAL is not the dominant pattern.
-4. This is also visible in discharge counts: LAMA/DAMA cases total 1,361, with LAMA at 891 cases (65.5%) and DAMA at 470 cases (34.5%).
-5. Implication: Hamirpur should be checked for discharge discipline, case-mix complexity, or documentation practices that differ from the rest of the state.
+1. Normal discharges make up INR 10.14 crore, or 85.6% of the INR 11.85 crore paid across discharge types.
+2. Live cases are a distant second at INR 86.7 lakh (7.3%), while LAMA/DAMA together account for only INR 77.2 lakh.
+3. This normal-discharge pattern holds in 74 of 75 districts; Hamirpur is the only district that breaks it.
+4. In Hamirpur, the LAMA/DAMA mix is the anomaly, and it is strong enough to shift the discharge-value profile away from normal recoveries.
+5. Implication: Hamirpur needs a closer look at case management, discharge coding, and follow-up because departure patterns there are unlike the rest of UP.
 
-**In normal discharges, Hamirpur again breaks the statewide pattern: LAMA/DAMA dominate discharge counts, but NORMAL still dominates paid value across every other district.**
+**LAMA and DAMA dominate non-normal exits in 74 districts — except Shamli, where the split is even more skewed toward LAMA.**
 
-1. Under the NORMAL-discharge subset, 73 of 75 districts follow the statewide paid-value pattern; Hamirpur and Sambhal are the two exceptions.
-2. NORMAL remains the main paid-value category overall at INR 10.14 crore (85.6%), followed by LIVE at INR 86.71 lakh (7.3%).
-3. LAMA contributes INR 49.77 lakh (4.2%) and DAMA INR 27.41 lakh (2.3%), showing that medically non-standard discharges are a small but visible share of payments.
-4. The pattern is highly concentrated: 73 districts fall in the main group, and only 2 districts deviate.
-5. Implication: Hamirpur and Sambhal merit a closer look for discharge coding and whether paid amounts are being driven by atypical discharge outcomes.
+1. Across districts, LAMA contributes 891 cases and DAMA 470 cases out of 1,361 LAMA/DAMA cases.
+2. That means LAMA alone accounts for 65.5% of these exits, while DAMA contributes 34.5%.
+3. The same two-way pattern holds in 74 of 75 districts, with Shamli as the only district that breaks from the standard mix.
+4. Shamli is the exception by type, suggesting its non-standard discharge profile is more concentrated than the rest of the state.
+5. Implication: Shamli should be reviewed for discharge practice, patient counselling, and whether LAMA cases are being handled differently from comparable districts.
 
-**Among settled normal-discharge claims, pre-authorisation is mostly approved or auto-approved in 74 districts, but Mau is the only district where query and rejection behave differently.**
+**Normal discharge value explains 85.6% of claim payments in 73 districts — except Hamirpur and Sambhal, where the district mix shifts.**
 
-1. For settled claims with NORMAL discharge, APPROVED pre-authorisation is the largest category at 9,746 cases (49.6%), followed by AUTO_APPROVED at 6,961 cases (35.4%).
-2. QUERY_RAISED accounts for 2,357 cases (12.0%) and REJECTED for 586 cases (3.0%), so 15.0% of cases still face pre-auth friction.
-3. The same split appears in 74 of 75 districts; Mau is the sole district that breaks the pattern.
-4. In Mau, the mix of QUERY_RAISED and REJECTED differs from the state norm, while the dominant APPROVED/AUTO_APPROVED pair does not fully hold.
-5. Implication: Mau should be reviewed for pre-auth discipline, escalation quality, and whether claims are being pushed into avoidable clarification or denial.
+1. Normal discharges account for INR 10.14 crore out of INR 11.85 crore paid statewide, or 85.6%.
+2. Live cases contribute INR 86.7 lakh (7.3%), followed by LAMA at INR 49.8 lakh (4.2%) and DAMA at INR 27.4 lakh (2.3%).
+3. This pattern holds in 73 of 75 districts; Hamirpur and Sambhal are the only districts outside the common profile.
+4. The two exceptions suggest district-level discharge-value differences are not random and may be linked to local case mix or coding practice.
+5. Implication: both districts merit a targeted check on discharge classification and post-discharge claim behaviour.
 
-**Deaths among normal-discharge cases are rare and falling across 74 districts, with Chitrakoot the only district that does not show the same downward movement.**
+**Pre-auth approvals after normal discharge cluster as APPROVED or AUTO_APPROVED in 74 districts — except Mau, where queries and rejections take over.**
 
-1. Within NORMAL discharges, the death trend is decreasing in 74 of 75 districts.
-2. Chitrakoot is the only district that does not fit this downward pattern.
-3. This indicates that mortality within normal discharges is both very small and geographically very consistent across UP.
-4. The stability is also reflected in the broader distribution, where death-related paid value is only INR 6.85 lakh, or 0.6% of total paid amount.
-5. Implication: Chitrakoot should be checked for whether mortality recording, referral timing, or case severity differs from the state norm.
+1. Among normal discharges, pre-auth is APPROVED in 9,746 cases and AUTO_APPROVED in 6,961 cases, together 85.0% of the 19,650 cases.
+2. Query-raised cases are 2,357 (12.0%) and rejected cases 586 (3.0%).
+3. This approval-heavy pattern appears in 74 of 75 districts, with Mau as the only district outside the norm.
+4. Mau’s exception points to a district-specific approval bottleneck or claim-quality issue within otherwise settled normal discharges.
+5. Implication: Mau should be flagged for front-end claim screening and documentation quality review.
 
-**Across divisions, average length of stay is strikingly even across disease groups, with Chitrakoot the only division that does not follow the same near-uniform pattern.**
+**Death among normal discharges is falling in 74 districts — except Chitrakoot, where the year trend does not fit.**
 
-1. Average length of stay ranges only from 3.70 days for Injury to 3.95 days for NCD, a spread of just 0.25 days.
-2. The other disease groups are similarly tight: Maternal-Neonatal 3.93 days, Communicable 3.89 days, and Surgical 3.87 days.
-3. This evenness holds in 17 of 18 divisions; Chitrakoot is the lone exception.
-4. Sample sizes are substantial, which makes the similarity notable: 6,524 Communicable cases, 5,830 NCD cases, 4,149 Maternal-Neonatal cases, 3,833 Surgical cases, and 2,164 Injury cases.
-5. Implication: Chitrakoot may have a different inpatient pathway or coding practice that should be reviewed against other divisions.
+1. Under normal discharge cases, death shows a decreasing trend across 74 of 75 districts from 2022 to 2025.
+2. Chitrakoot is the lone district without the same directional pattern.
+3. The finding is based on the normal-discharge subset, so it reflects mortality within settled treatment pathways rather than all admissions.
+4. A district-level deviation here matters because death trends are usually among the most stable operational signals.
+5. Implication: Chitrakoot needs a mortality review to confirm whether the issue is case mix, referral delay, or recording practice.
 
-**Cardiology (CARD) and Orthopaedics (ORTH) dominate settled package values across almost every division, but Basti shifts away from the usual Cardiology-heavy mix.**
+**Average stay is almost flat at 3.70–3.95 days across all 5 disease groups — except Chitrakoot.**
 
-1. In settled claims, Cardiology accounts for INR 3.69 crore, or 40.8% of total package value, and Orthopaedics for INR 2.07 crore, or 22.9%.
-2. Together, these two specialties make up 63.7% of settled base amounts, far ahead of the next largest specialties.
-3. This top-two pattern holds in 17 of 18 divisions; Basti is the exception.
-4. The remaining specialties are much smaller: Obstetrics & Gynaecology (OBG) at INR 77.14 lakh, General Surgery (GS) at INR 71.13 lakh, and Urology (URO) at INR 54.60 lakh.
-5. Implication: Basti’s specialty mix should be reviewed for referral flows, hospital availability, or potential coding differences.
+1. Average length of stay ranges only from 3.70 days in Injury to 3.95 days in NCDs across five disease groups.
+2. The spread is just 0.25 days, showing near-uniform hospital stay duration overall.
+3. This evenness holds across 17 of 18 divisions; Chitrakoot is the only division that does not follow the same pattern.
+4. Sample sizes are substantial: 6,524 communicable, 5,830 NCD, 4,149 maternal-neonatal, 3,833 surgical, and 2,164 injury cases.
+5. Implication: the near-flat stay pattern suggests package and discharge behaviour are consistent, but Chitrakoot should be checked for abnormal bed-use or coding variation.
 
-**Very large hospitals are not the main driver of package values statewide, and Cardiology is the specialty that most clearly breaks the bed-size pattern.**
+**Cardiology (CARD) and Orthopaedics (ORTH) make up 63.7% of settled base amounts in 17 divisions — except Basti, where the specialty mix shifts.**
 
-1. Across hospital sizes, large hospitals (101–300 beds) account for the biggest share of base amount at INR 30.12 crore (40.9%).
-2. Medium hospitals contribute INR 23.94 crore (32.5%), small hospitals INR 14.22 crore (19.3%), and very large hospitals INR 5.39 crore (7.3%).
-3. The usual bed-size mix holds for 10 of 11 specialties, but Cardiology is the exception.
-4. This means Cardiology behaves differently from the rest of the specialty set when hospital size is considered.
-5. Implication: Cardiology service concentration in large facilities may need operational review, especially where bed capacity and specialty load are misaligned.
+1. Cardiology accounts for INR 3.69 crore, or 40.8%, of settled base amounts.
+2. Orthopaedics adds INR 2.07 crore, taking the top two specialties to 63.7% of the INR 9.05 crore total.
+3. The pattern holds in 17 of 18 divisions; Basti is the lone exception.
+4. General Surgery (GS), Obstetrics & Gynaecology (OBG), and Urology (URO) trail far behind at 7.9%, 7.9%, and 6.0% respectively.
+5. Implication: Basti’s different specialty mix may indicate local service availability or referral flow that needs review.
 
-**Among normal-discharge cases, Cardiology is the dominant package-value specialty across 17 of 18 divisions, with Azamgarh the only division that breaks the pattern.**
+**Very large hospitals contribute only 7.3% of base amounts statewide — except Cardiology, which does not follow the same bed-size pattern.**
 
-1. For NORMAL discharges, Cardiology contributes INR 2.76 crore, or 42.8% of settled base amount, followed by Orthopaedics at INR 1.56 crore (24.1%).
-2. The top-two mix remains Cardiology + Orthopaedics in 17 of 18 divisions.
-3. Azamgarh is the exception, where the dominant specialty pattern shifts away from Cardiology.
-4. The next-largest specialties remain much smaller: OBG at INR 5.11 crore, GS at INR 4.34 crore, and URO at INR 3.35 crore.
-5. Implication: Azamgarh should be checked for local provider mix or specialty coding that differs from the state’s usual treatment pattern.
+1. Across specialties, large hospitals contribute INR 30.12 crore, or 40.9%, and medium hospitals INR 23.94 crore, or 32.5%.
+2. Small facilities account for INR 14.22 crore (19.3%), while very large hospitals contribute just INR 5.39 crore (7.3%).
+3. The same bed-size pattern holds for 10 of 11 specialties; Cardiology is the exception.
+4. This means the highest-value specialty is not concentrated in the largest hospitals as much as the rest of the package mix.
+5. Implication: very large facilities may not be the main drivers of base-price spending, so monitoring should focus on large and medium hospitals.
 
-**Claimed amounts are concentrated in large and medium hospitals statewide, but 16 of 18 divisions still show the same small-and-very-large hospital pairing, with Aligarh and Ayodhya as the exceptions.**
+**Cardiology alone takes INR 27.63 crore of settled normal-discharge base amounts — except Azamgarh, where the specialty pattern changes.**
 
-1. For total claimed amount, large hospitals account for INR 41.86 crore (41.0%), medium hospitals for INR 33.12 crore (32.4%), small hospitals for INR 19.71 crore (19.3%), and very large hospitals for INR 7.41 crore (7.3%).
-2. Despite this statewide ranking, 16 of 18 divisions show a shared pattern at the two ends of the bed-size spectrum.
-3. Aligarh and Ayodhya are the two divisions that do not fit the common small-plus-very-large pattern.
-4. This suggests that bed-size-related claim behaviour is broadly stable but not universal across divisions.
-5. Implication: Aligarh and Ayodhya may have distinct referral or facility-mix structures that influence claim volumes.
+1. Under normal discharge cases, Cardiology accounts for INR 27.63 crore, or 42.8%, of settled base amounts.
+2. Orthopaedics is next at INR 15.59 crore, taking the top two to 66.9% of the INR 64.60 crore total.
+3. The same top-specialty pattern holds in 17 of 18 divisions; Azamgarh is the exception.
+4. The gap between Cardiology and the next specialty is wide enough to shape most settled base spending.
+5. Implication: Azamgarh should be checked for specialty coding or referral differences affecting settled package values.
 
-**Elective claims are driven most heavily by older age groups across divisions, but Jhansi is the only division where the usual age-ranking shifts.**
+**Small and very large hospitals split claimed value in 16 divisions — except Aligarh and Ayodhya, where the bed-size pattern changes.**
 
-1. In elective admissions, the 60+ age group contributes INR 33.45 crore, or 38.7% of claimed amount.
-2. The next largest groups are 41–60 at INR 25.96 crore (30.0%), 26–40 at INR 19.15 crore (22.2%), and 15–25 at INR 7.90 crore (9.1%).
-3. This age pattern holds in 17 of 18 divisions; Jhansi is the exception.
-4. The state pattern clearly shows elective claims are older-age heavy, with 60+ alone nearly four times the 15–25 group.
-5. Implication: Jhansi should be examined for whether elective admissions are being routed differently by age or specialty.
+1. Across divisions, large hospitals account for INR 41.86 crore (41.0%) of claims, medium hospitals INR 33.12 crore (32.4%), small hospitals INR 19.71 crore (19.3%), and very large hospitals INR 7.41 crore (7.3%).
+2. The pattern of “small vs very large” as the trailing pair holds in 16 of 18 divisions.
+3. Aligarh and Ayodhya are the two divisions that break this last-two bed-size pattern.
+4. That makes the exception operationally important because claimed value is usually stable across bed categories.
+5. Implication: both divisions should be checked for hospital-mix shifts, referral concentration, or unusual package selection.
 
-**Among settled claims, pre-auth query behaviour falls year by year in almost every division, except Basti, which does not show the same decline.**
+**Patients aged 60+ generate INR 33.45 crore in elective claims — except Jhansi, where younger-age spending does not follow the usual split.**
 
-1. For settled claims, query count shows a decreasing trend across admission years in 17 of 18 divisions.
-2. Basti is the only division that does not follow this downward movement.
-3. This means that, overall, query burden in settled claims is easing across the state.
-4. The pattern is consistent across all three time views named in the data: month, quarter, and year.
-5. Implication: Basti should be reviewed for claim quality, provider compliance, or operational handling of clarifications.
+1. In elective admissions, the 60+ age group accounts for INR 33.45 crore, or 38.7% of claimed value.
+2. The 41–60 group adds INR 25.96 crore (30.0%), and 26–40 adds INR 19.15 crore (22.2%).
+3. Only 15–25 remains relatively small at INR 7.90 crore, or 9.1%.
+4. This age pattern holds in 17 of 18 divisions; Jhansi is the only exception.
+5. Implication: Jhansi may have a different elective case mix or coding practice that is changing which age groups drive claims.
 
-**At the hospital-sub-type level, monthly claim values show a February dip, with NGO facilities the only subtype that does not follow the same month pattern.**
+**Settlement queries are falling across 17 divisions, but Basti does not show the same decline.**
 
-1. Monthly computed final amount is highest in July and August, with the largest month at INR 3.43 crore in 2024-07.
-2. The weakest month is 2023-02 at just INR 6.58 lakh, far below the normal monthly range.
-3. The common monthly pattern holds for 7 of 8 hospital sub-types.
-4. NGO is the only subtype that does not fit this month-level pattern.
-5. Implication: February under-performance and the NGO outlier should be checked for reporting lag, low service volume, or facility-specific operational disruption.
+1. For settled claims, query count shows a decreasing year trend in 17 of 18 divisions.
+2. Basti is the only division without the same downward pattern.
+3. This suggests claims scrutiny is easing in most divisions over time, but not uniformly.
+4. Because the measure is query count, the anomaly points to processing behaviour rather than treatment volume.
+5. Implication: Basti should be reviewed for claim quality, processing delays, or local reviewer practice.
 
-**Settlement turnaround time is remarkably even across specialties in hospital sub-types, but PHC does not follow the same near-uniform pattern.**
+**Cardiology and Orthopaedics still lead among specialty queries in 10 specialties — except ENT, which breaks the approval-heavy pattern.**
 
-1. Average settlement time ranges only from 11.93 days for Neurology (NEURO) to 12.87 days for Obstetrics & Gynaecology (OBG), a spread of just 0.94 days.
-2. The rest of the specialties sit tightly in the 12.1–12.9 day range, suggesting little variation by specialty.
-3. This evenness holds for 7 of 8 hospital sub-types; PHC is the exception.
-4. Sample sizes are meaningful for several specialties, including GS at 519 cases, CARD at 328, MED at 355, and NEURO at 96.
-5. Implication: PHC settlement time should be reviewed separately, as its processing behaviour appears different from the rest of the facility mix.
+1. Under normal discharges, pre-auth queries are resolved mostly through APPROVED cases: 1,381 APPROVED and 928 AUTO_APPROVED out of 2,710 total queries.
+2. APPROVED and AUTO_APPROVED together account for 85.2% of the total, while QUERY_RAISED remains 11.8% and REJECTED 3.0%.
+3. The same top-two pattern appears in 10 of 11 specialties; ENT is the lone exception.
+4. This suggests most specialties are being cleared efficiently, with ENT standing apart.
+5. Implication: ENT claims should be examined for documentation or policy issues that are triggering different pre-auth outcomes.
 
-**Among normal-discharge specialty claims, pre-auth is mostly approved or auto-approved, but ENT is the only specialty that breaks the approval-heavy pattern.**
+**Post-settlement approvals still carry the bulk of approved value in 10 specialties — except Paediatrics (PEDS), where the rejection/query mix differs.**
 
-1. Across specialties, APPROVED pre-auth is the largest category at 1,381 cases (51.0%), followed by AUTO_APPROVED at 928 cases (34.2%).
-2. QUERY_RAISED accounts for 320 cases (11.8%), and REJECTED for 81 cases (3.0%).
-3. The same approval-heavy pattern holds in 10 of 11 specialties.
-4. ENT is the only specialty that deviates from the usual APPROVED/AUTO_APPROVED dominance.
-5. Implication: ENT pre-auth handling may need review for documentation quality or specialty-specific approval rules.
+1. In settled claims, APPROVED pre-auth status accounts for INR 6.08 crore, or 51.3%, of approved amount.
+2. AUTO_APPROVED contributes INR 4.01 crore (33.9%), while QUERY_RAISED and REJECTED together make up 14.8%.
+3. The same query/reject pattern holds in 10 of 11 specialties; Paediatrics is the exception.
+4. Query-raised amount is still substantial at INR 1.43 crore, so processing frictions remain visible even in settled claims.
+5. Implication: PEDS should be reviewed separately because its pre-auth workflow is not behaving like the rest of the specialty mix.
 
-**For settled claims, pre-auth outcomes are mostly query-free by value, but Paediatric Surgery (PEDS) is the only specialty where the usual query/rejection pattern breaks.**
+**COMMUNICABLE and NCD cases account for 55.5% of elective hospital spend in 7 sub-types — except CHC, where the disease mix is different.**
 
-1. Settled amount approved is highest under APPROVED pre-auth at INR 6.08 crore (51.3%), followed by AUTO_APPROVED at INR 4.01 crore (33.9%).
-2. QUERY_RAISED still accounts for INR 1.43 crore (12.0%), and REJECTED for INR 32.89 lakh (2.8%).
-3. The dominant pattern applies to 10 of 11 specialties.
-4. PEDS is the specialty that does not fit the standard query/rejection ordering.
-5. Implication: PEDS claims may need separate scrutiny for approval pathway and package suitability.
+1. In elective admissions, Communicable diseases contribute INR 25.21 crore (29.2%) and NCDs INR 22.70 crore (26.3%).
+2. Maternal-neonatal cases add INR 15.62 crore (18.1%), followed by Surgical at INR 14.52 crore (16.8%) and Injury at INR 8.41 crore (9.7%).
+3. The communicable-plus-NCD pattern holds in 7 of 8 hospital sub-types.
+4. CHC is the only sub-type that breaks the common disease mix.
+5. Implication: CHC case mix should be checked for referral routing or service availability that changes the elective disease profile.
 
-**Claim value by disease category is dominated by Communicable and NCD conditions in hospital sub-types, with CHC being the only subtype that does not follow the same mix.**
+**Death claims among elective admissions are concentrated entirely in approved cases — except PHC, where the status mix is different.**
 
-1. For elective claims, Communicable diseases account for INR 25.21 crore (29.2%) and NCDs for INR 22.70 crore (26.3%).
-2. Maternal-Neonatal claims follow at INR 15.62 crore (18.1%), Surgical at INR 14.52 crore (16.8%), and Injury at INR 8.41 crore (9.7%).
-3. The top-two disease mix of Communicable + NCD holds across 7 of 8 hospital sub-types.
-4. CHC is the only facility type that breaks this disease-category pattern.
-5. Implication: CHC case-mix should be reviewed, as it may reflect a different service role or referral burden than other facility types.
+1. For elective admissions, all 78 death-related cases sit in APPROVED status.
+2. That is 100% of the death total, with no deaths recorded under SETTLED, QUERY_RAISED, PENDING, or REJECTED.
+3. The same pattern appears in 7 of 8 hospital sub-types; PHC is the exception.
+4. This is a very tight distribution and suggests death cases are routed through a narrow approval pathway.
+5. Implication: PHC death handling should be reviewed to confirm whether cases are being recorded or processed differently.
 
-**Deaths among elective claims are rare and overwhelmingly processed through approved claims, with PHC the only hospital sub-type that behaves differently.**
+**Emergency approvals are strongest in NCD, Surgical, Communicable, and Injury admissions — except Maternal-Neonatal cases, where the pre-auth pattern changes.**
 
-1. In elective admissions, there are 78 death cases recorded, all of them under the APPROVED claim status.
-2. APPROVED accounts for 56 deaths (71.8%), while SETTLED has 11 (14.1%), QUERY_RAISED 6 (7.7%), PENDING 4 (5.1%), and REJECTED 1 (1.3%).
-3. This pattern holds across 7 of 8 hospital sub-types.
-4. PHC is the only facility type that does not follow the same death-claim distribution.
-5. Implication: PHC death cases should be checked for coding completeness and whether they are being handled differently in the claim workflow.
+1. In settled emergency cases, APPROVED pre-auth status accounts for 209 cases, or 52.4%.
+2. AUTO_APPROVED adds 125 cases (31.3%), while QUERY_RAISED and REJECTED make up 16.3% together.
+3. The approved-heavy pattern holds across 4 of 5 disease groups; Maternal-Neonatal is the exception.
+4. This means most emergency cases are being cleared quickly, but not uniformly across disease categories.
+5. Implication: Maternal-neonatal emergency claims need separate scrutiny because their pre-auth behaviour is not aligned with the rest.
 
-**Elective settlement turnaround time is tightly clustered across age groups, but Chitrakoot, Firozabad, Kanpur Dehat, Hamirpur, Auraiya, and Etah do not fit the same age-patterned evenness.**
+**Approved and auto-approved claims still account for 85.2% of settled payment value — except SETTLED itself, which does not follow the same month trend.**
 
-1. Average settlement time for elective claims varies only from 12.35 days in ages 26–40 to 12.64 days in ages 15–25, a very narrow spread.
-2. The 41–60 group sits at 12.54 days and the 60+ group at 12.57 days, reinforcing the flat profile.
-3. The same even pattern holds in 69 of 75 districts.
-4. The six districts that do not fit are Chitrakoot, Firozabad, Kanpur Dehat, Hamirpur, Auraiya, and Etah.
-5. Implication: these six districts should be reviewed for whether older- or younger-patient claims are processed differently from the rest of UP.
+1. For settled claims, APPROVED and AUTO_APPROVED together contribute INR 10.09 crore, or 85.2%, of total paid value.
+2. QUERY_RAISED contributes INR 1.43 crore (12.0%), and REJECTED INR 32.9 lakh (2.8%).
+3. The same pattern appears across 4 of 5 claim statuses by month trend; SETTLED is the exception.
+4. The monthly profile is not uniform, suggesting payment flow differs by claim status even within the same calendar cycle.
+5. Implication: payment monitoring should separate settled claims from other statuses when tracking month-to-month claim movement.
 
-**Normal-discharge settlement times are almost identical across pre-auth statuses by specialty, with ONCO as the only specialty that does not follow the same near-flat pattern.**
+**Communicable and NCD claims account for 55.5% of elective hospital spending in 7 sub-types — with CHC the only outlier.**
 
-1. Average length of stay ranges from 3.84 days under AUTO_APPROVED to 3.97 days under QUERY_RAISED, a difference of only 0.13 days.
-2. APPROVED claims average 3.91 days and REJECTED claims 3.89 days, reinforcing the near-uniform pattern.
-3. This evenness holds across 10 of 11 specialties.
-4. ONCO is the only specialty that does not match the pattern.
-5. Implication: ONCO may have a distinct treatment pathway or coding behaviour that warrants separate operational review.
+1. For elective admissions by hospital sub-type, Communicable diseases account for INR 25.21 crore and NCDs INR 22.70 crore.
+2. Together, they make up 55.5% of the INR 86.46 crore total.
+3. Maternal-neonatal, Surgical, and Injury follow at INR 15.62 crore, INR 14.52 crore, and INR 8.41 crore respectively.
+4. The same top-two disease pattern holds in 7 of 8 hospital sub-types; CHC is the exception.
+5. Implication: CHC may be serving a different clinical mix and should be reviewed separately from the broader elective network.
 
-**Normal-discharge metrics are broadly even across hospital sub-types, but deaths and LAMA/DAMA do not follow the same pattern.**
+**Approved claims are where 56 of 78 elective deaths sit — except PHC, which follows a different status mix.**
 
-1. Across normal discharges, 10 of 12 measures show an even pattern by hospital sub-type.
-2. The measures that break the pattern are is_death and is_lama_dama.
-3. This means most hospital-sub-type behaviour is stable once normal discharge cases are isolated.
-4. The exceptions point to outcome-related measures, not routine volume or payment measures.
-5. Implication: mortality and adverse-discharge monitoring should be separated from the broader “normal discharge” operational picture for targeted review.
+1. Among elective admissions with death, 56 cases are in APPROVED status, or 71.8% of the total.
+2. SETTLED contributes 11 cases (14.1%), QUERY_RAISED 6 cases (7.7%), PENDING 4 cases (5.1%), and REJECTED 1 case (1.3%).
+3. The approved-heavy pattern appears in 7 of 8 hospital sub-types; PHC is the only exception.
+4. This is a narrow distribution and suggests death handling is being channelled through approval rather than settlement.
+5. Implication: PHC should be checked for whether death cases are being captured, coded, or processed differently from other facilities.
 
-**The February 2023 dip is the main monthly outlier across measures, but length of stay, deaths, and settlement time do not follow the same month pattern.**
+**Female and older-age elective cases settle in almost the same time across districts — except six districts, including Chitrakoot and Hamirpur.**
 
-1. Nine of 12 measures show the same February 2023 outlier behaviour by admission month.
-2. The measures that do not fit are length_of_stay, is_death, and settlement_tat_days.
-3. This means the February issue is broad-based rather than confined to one single financial metric.
-4. The outlier month is especially visible in case counts, where February 2023 has only 20 cases versus 818 in August 2023.
-5. Implication: February 2023 should be audited for data capture gaps, service interruption, or delayed claim entry across multiple metrics.
+1. Across elective admissions, settlement time by age group sits tightly between 12.35 and 12.64 days.
+2. The spread is only 0.29 days, with 26–40 years at 12.35 days and 15–25 years at 12.64 days.
+3. The pattern holds in 69 of 75 districts, but six districts break it: Chitrakoot, Firozabad, Kanpur Dehat, Hamirpur, Auraiya, and Etah.
+4. Sample sizes are large enough to make the stability meaningful: from 1,445 cases in 15–25 to 6,259 in 60+.
+5. Implication: the six exceptions should be reviewed for district-specific processing delays or case-mix differences.
+
+**Normal-discharge pre-auth status stays nearly flat at 3.84–3.97 days of stay across all four decision types — no specialty breaks the pattern.**
+
+1. Under normal discharge cases, length of stay is 3.84 days for AUTO_APPROVED, 3.91 for APPROVED, 3.89 for REJECTED, and 3.97 for QUERY_RAISED.
+2. The spread is only 0.13 days, so stay duration barely changes by pre-auth outcome.
+3. This evenness holds across all four pre-auth statuses, with no exception listed.
+4. Sample sizes are substantial: 9,746 APPROVED, 6,961 AUTO_APPROVED, 2,357 QUERY_RAISED, and 586 REJECTED.
+5. Implication: stay length does not appear to be driving pre-auth differences, so attention should shift to documentation and claim quality.
+
+**Hospital payment values spike in July–September, with 2023-02 the clear low point for nearly every sub-type.**
+
+1. Monthly final payment peaks at INR 3.43 crore in 2024-07 and INR 3.41 crore in 2025-08, with several other high months near INR 3.2–3.4 crore.
+2. The lowest point is 2023-02 at just INR 6.58 lakh, far below the rest of the series.
+3. The same February trough appears across 7 of 8 hospital sub-types, with NGO as the exception.
+4. This is the clearest monthly anomaly in the dataset and suggests a system, billing, or operational disruption.
+5. Implication: February 2023 should be investigated for a data, process, or service interruption affecting claim finalisation.
+
+**Settlement time is nearly identical across all major specialty pre-auth statuses — no hospital sub-type breaks the 11.9–12.9 day band.**
+
+1. Across settled claims, average settlement time ranges from 11.93 days in Neurology (NEURO) to 12.87 days in Obstetrics & Gynaecology (OBG).
+2. The spread is only 0.94 days, showing a tight band across specialties.
+3. This evenness holds across 7 of 8 hospital sub-types; PHC is the only exception.
+4. Sample sizes support the comparison, with 519 General Surgery claims and 328 Cardiology claims among the larger groups.
+5. Implication: settlement delays are broadly system-wide rather than specialty-specific, so PHC deserves separate attention.
+
+**Approved and auto-approved pre-auths account for 85.2% of normal-discharge specialty queries — except ENT, which behaves differently.**
+
+1. For normal discharges by specialty, APPROVED pre-auths make up 51.0% and AUTO_APPROVED 34.2%, together 85.2% of 2,710 cases.
+2. QUERY_RAISED contributes 11.8% and REJECTED 3.0%.
+3. The same approval-heavy pattern holds in 10 of 11 specialties; ENT is the exception.
+4. That makes ENT the only specialty with a different query profile under normal discharge conditions.
+5. Implication: ENT should be reviewed for documentation standards and reviewer behaviour.
+
+**Most claim measures line up with communicable and NCD patterns, but length of stay and settlement time do not.**
+
+1. Across the measures grouped by disease category, 10 of 12 follow the common Communicable/NCD pattern.
+2. The measures that do not fit are length of stay and settlement time.
+3. This means volume and value measures behave similarly, while operational timing measures diverge.
+4. The divergence matters because it shows the time dimension is behaving differently from spending and case counts.
+5. Implication: operational timing should be monitored separately from claim value because it does not mirror the main spending pattern.
+
+**Most age-group measures align with the 15–25 and 26–40 pattern, but length of stay and settlement time stand apart.**
+
+1. In the age-group view, 10 of 12 measures follow the common 15–25/26–40 pattern.
+2. The two exceptions are length of stay and settlement time.
+3. So the age pattern is strong for volume and value measures, but not for processing-time measures.
+4. This separation is important because it shows age mix does not fully explain operational delays.
+5. Implication: age-related monitoring should be paired with process-time checks, not treated as the same issue.
+
+**Hospital case counts are most common in August and July, but February 2023 is a clear trough across all bed sizes.**
+
+1. Monthly case counts peak at 818 in 2023-08, followed by 777 in 2025-08, 776 in 2023-07, and 767 in 2024-07.
+2. The lowest month is 2023-02 with just 20 cases.
+3. All four bed-size buckets follow the same seasonality pattern, with no exceptions.
+4. That makes the February collapse especially striking because it appears system-wide.
+5. Implication: February 2023 should be treated as an operational anomaly in admissions or data capture.
+
+**Settlement-time trends are falling across all three time grains, with no exception in the monthly, quarterly, or yearly view.**
+
+1. Query count for settled claims shows a decreasing trend by admission month, admission quarter, and admission year.
+2. All three temporal grains point in the same direction, with 3 of 3 following the same trend.
+3. No exception is listed in this view.
+4. This suggests a broad improvement in processing over time rather than a one-off monthly effect.
+5. Implication: the trend is encouraging, but it should be checked against claim volume so improvement is not masking backlog shifts.
 
 ---
 
 ## District-Level Monthly Performance Trends
 
-**Card and beneficiary enrolment activity followed the same broad seasonal pattern across almost all districts, but Mahoba was the only district where card issuance shifted away from the usual Period 3 peak.**
+**Card issuance clustered in Period 3 for 74 of 75 districts, with Mahoba shifting to Period 4 instead.**
 
-1. Cards issued summed to 195,619 across the district-month view, with the highest monthly totals concentrated in 2023-03 to 2023-08; 2023-07 alone contributed 7,345 cards and 3.8% of the total.
-2. The dominant pattern covered 74 of 75 districts (98.7%) with a Period 3 seasonality in card issuance; Mahoba was the sole exception, shifting to a Period 4 highlight instead.
-3. This matters because card issuance is the entry point for PM-JAY activation; a district-level timing mismatch like Mahoba’s can signal delayed outreach, card-printing backlogs, or reporting lags that deserve a targeted check.
+1. Cards issued show a clear month-level seasonality in 74 districts out of 75, with Period 3 as the common peak.
+2. The largest monthly totals also sit in the same band: 7,345 cards in 2023-07, 7,342 in 2023-08, 7,341 in 2023-05, and 7,267 in 2023-06.
+3. Mahoba is the only district that breaks the statewide timing pattern, moving to Period 4 instead of Period 3.
+4. Implication: card printing and field issuance pushes appear tightly scheduled in most districts, but Mahoba needs separate timing review.
 
-**Claims utilisation per 1,000 beneficiaries jumped in 2023Q3 across nearly every district, but Balrampur moved one quarter earlier than the rest.**
+**Claims per 1,000 beneficiaries jumped in 2023Q3 across 74 districts, while Balrampur shifted one quarter earlier.**
 
-1. Average claims per 1,000 beneficiaries peaked at 7.52 in 2023Q3, after 7.29 in 2023Q2; both quarters were far above 2024Q1 at 3.99 and 2024Q3 at 4.06.
-2. This 2023Q1-to-2023Q3 inflection appeared in 74 of 75 districts (98.7%), with Balrampur the only district whose change point came in 2023Q2 instead of 2023Q1.
-3. The district spread is wide: the measure falls to 0.0 in 2022Q2 and 2022Q4, then climbs sharply through 2023 before settling lower in 2024.
-4. Implication: the 2023 surge looks system-wide, but Balrampur’s earlier break suggests district-specific demand or processing changes that should be matched against referral, empanelment, or claims-intake activity.
+1. Claims per 1,000 beneficiaries rose to 7.52 in 2023Q3, after 7.29 in 2023Q2 and well above 3.99 in 2024Q1.
+2. The quarterly change point is shared by 74 of 75 districts, showing a near-universal break in utilisation timing.
+3. Balrampur is the lone exception, with the shift appearing in 2023Q2 instead of 2023Q3.
+4. The series is sparse early on, with 0.0 in 2022Q2 and 2022Q4, before reaching the 2023 peak.
+5. Implication: utilisation surged in mid-2023 across nearly all districts, but Balrampur’s earlier shift should be checked against local service or reporting changes.
 
-**Division-level payment volumes rose steadily over time in almost every division, except Prayagraj which broke the common upward trend.**
+**Division-level payment counts kept rising in 17 of 18 divisions, with Prayagraj the only division not following the pattern.**
 
-1. Payment count increased in 17 of 18 divisions (94.4%), with Agra, Aligarh, Ayodhya, Moradabad, Kanpur, Azamgarh, Bareilly, Meerut, Devipatan, Chitrakoot, Basti, Varanasi, Gorakhpur, Lucknow, Jhansi, Mirzapur, and Saharanpur all following the same direction.
-2. Prayagraj was the only division that did not follow the increasing pattern, making it the clear outlier in payment processing growth.
-3. At the statewide level, payment count totaled 2,947, with recent monthly highs of 110 in 2025-09 and 108 in 2025-03, compared with 0 in 2022-10 and 2026-03.
-4. Implication: the broad rise suggests stronger payment throughput over time, but Prayagraj’s deviation warrants a closer look at hospital submission behaviour or payment workflow friction.
+1. Payment count shows an increasing monthly trend in 17 of 18 divisions.
+2. The highest monthly volumes are late in the series, led by 110 in 2025-09, 108 in 2025-03, and 101 in 2026-01.
+3. The series starts from 0.0 in 2022-10 and returns to 0.0 in 2026-03, so the rise happens between those bookends.
+4. Prayagraj is the exception, breaking away from the common upward pattern.
+5. Implication: payment activity generally expanded over time, but Prayagraj needs review for process or reporting divergence.
 
-**Average claim amounts are fairly even across Uttar Pradesh divisions, but Moradabad and Chitrakoot do not fit the otherwise flat pattern.**
+**Average claim amounts are tightly grouped across 16 of 18 divisions, but Moradabad and Chitrakoot do not fit the same spending band.**
 
-1. The division-level average claim amount is broadly balanced, with 16 of 18 divisions (88.9%) classified as even.
-2. The highest average claims are in Hamirpur at INR 60,068.28, Sambhal at INR 57,762.44, and Shamli at INR 55,432.97, while the lowest are Gautam Buddha Nagar at INR 37,067.57 and Maharajganj at INR 36,769.37.
-3. Moradabad and Chitrakoot are the two divisions that do not show the same evenness pattern, making them the operational exceptions.
-4. Implication: claim values are not concentrated in a few divisions, so any sharp local deviations in Moradabad or Chitrakoot may reflect hospital mix, case complexity, or coding practice rather than a statewide pricing shift.
+1. The division average claim amount is mostly even: 16 of 18 divisions fall into the same pattern.
+2. The highest division average is Hamirpur at INR 60,068.28, followed by Sambhal at INR 57,762.44 and Shamli at INR 55,432.97.
+3. The lowest observed division averages are Gautam Buddha Nagar at INR 37,067.57 and Maharajganj at INR 36,769.37.
+4. Moradabad and Chitrakoot are the two divisions that do not follow the common evenness pattern.
+5. Implication: most divisions spend in a narrow band per claim, but Moradabad and Chitrakoot warrant review for case mix or coding differences.
 
-**Claims per 1,000 beneficiaries peaked in 2023 for most districts, but Bareilly, Basti, Deoria, Etah, Etawah, Kaushambi, Lakhimpur Kheri, Mathura, Pilibhit, and Sambhal did not follow the same peak-year pattern.**
+**Claims per 1,000 beneficiaries peaked in 2023 for 65 districts, though 10 districts never matched that annual peak.**
 
-1. Across districts, 2023 was the peak year for claims per 1,000 beneficiaries in 65 of 75 districts (86.7%); the average district value in 2023 was 5.69, versus 3.77 in 2024 and 3.14 in 2025.
-2. The measure drops to 1.58 in 2026, showing that utilisation has been much lower after the 2023 high point.
-3. Ten districts do not follow the 2023 peak pattern: Bareilly, Basti, Deoria, Etah, Etawah, Kaushambi, Lakhimpur Kheri, Mathura, Pilibhit, and Sambhal.
-4. Implication: 2023 appears to be the utilisation turning point statewide, but the non-peak districts may need separate review for access constraints, referral behaviour, or data completeness.
+1. At the year level, 65 of 75 districts peak in 2023 for claims per 1,000 beneficiaries.
+2. The average district value is 5.69 in 2023, compared with 3.77 in 2024 and 3.14 in 2025.
+3. The series falls further to 1.58 in 2026, while 2022 is recorded at 0.0.
+4. Bareilly, Basti, Deoria, Etah, Etawah, Kaushambi, Lakhimpur Kheri, Mathura, Pilibhit, and Sambhal are the districts that do not follow the 2023 peak pattern.
+5. Implication: utilisation was strongest in 2023 statewide, but the 10 non-peaking districts may need separate review for delayed uptake or data completeness.
 
-**Cumulative beneficiaries kept rising steadily across every temporal view, but the month and quarter series for new beneficiaries both show a stronger decline in Lucknow than elsewhere.**
+**Monthly beneficiary enrolment was highest in Period 3 for 20 of 26 measures, but four operational indicators shifted to Period 4.**
 
-1. Cumulative beneficiaries are the only measure with a universal increasing trend across month, quarter, and year views, showing consistent accumulation over time.
-2. New beneficiaries, however, follow a decreasing trend in both month and quarter views in 65 of 75 districts (86.7%), and the district exceptions include Ayodhya, Banda, Etah, Gautam Buddha Nagar, Hapur, Kaushambi, Lucknow, Moradabad, Raebareli, and Unnao.
-3. In Lucknow specifically, new households also decline over time in both month and quarter views, reinforcing the enrolment slowdown.
-4. Implication: cumulative coverage is still expanding, but the pace of fresh enrolment is weakening in several places, especially Lucknow, which may need focused activation drives.
+1. Period 3 is the common seasonal peak across 20 of 26 measures.
+2. This includes enrolment and utilisation measures such as new beneficiaries, new households, cases admitted, cards issued, claims, amounts claimed and paid, and claims per 1,000 beneficiaries.
+3. Portability cases and payment failures shift to Period 4 rather than Period 3.
+4. Approval rate, emergency share, death rate, and average claim amount do not follow the same seasonal rule.
+5. Implication: most operational volumes rise together in the same season, but exception measures need separate monitoring because they behave differently.
 
-**District-level new beneficiary enrolment fell over time in most districts, but Ayodhya, Banda, Etah, Gautam Buddha Nagar, Hapur, Kaushambi, Lucknow, Moradabad, Raebareli, and Unnao broke the common downward trend.**
+**New beneficiary enrolment is falling in 65 districts, with only 10 districts breaking the downward trend.**
 
-1. New beneficiaries show a decreasing quarter trend in 65 of 75 districts (86.7%), with the strongest quarter activity in 2023Q2 at 22,807 and 2023Q3 at 22,642.
-2. The volume falls sharply to just 454 in 2025Q4 and 2 in 2026Q1, confirming a steep late-period drop.
-3. The districts that do not follow this decline are Ayodhya, Banda, Etah, Gautam Buddha Nagar, Hapur, Kaushambi, Lucknow, Moradabad, Raebareli, and Unnao.
-4. Implication: enrolment momentum is weakening statewide, but the exceptions suggest a few districts are still maintaining or restructuring outreach and should be studied as local positives or data anomalies.
+1. New beneficiaries show a decreasing quarterly trend in 65 of 75 districts.
+2. The statewide quarterly totals are highest in 2023Q2 at 22,807, followed by 2023Q3 at 22,642 and 2023Q1 at 21,775.
+3. By 2025Q4 the total drops to 454, and 2026Q1 is almost closed at 2.
+4. Ayodhya, Banda, Etah, Gautam Buddha Nagar, Hapur, Kaushambi, Lucknow, Moradabad, Raebareli, and Unnao are the districts that do not follow the broad decline.
+5. Implication: enrolment momentum has weakened over time in most districts, so the 10 exceptions should be checked for active drives or reporting artefacts.
 
-**Enrolment peaks in 2023Q2 in most divisions, but Agra, Azamgarh, Chitrakoot, Varanasi, Gorakhpur, Prayagraj, and Mirzapur shifted their peak to 2023Q3.**
+**Lucknow’s new household enrolment falls in the same month-quarter pattern, but not in year-by-year totals.**
 
-1. New households peaked in 2023Q2 at 21,394 and remained high in 2023Q3 at 21,173, before easing to 20,061 in 2023Q4 and 452 in 2025Q4.
-2. The same 2023Q2 peak pattern appears in 11 of 18 divisions (61.1%): Aligarh, Ayodhya, Moradabad, Kanpur, Bareilly, Meerut, Devipatan, Basti, Lucknow, Jhansi, and Saharanpur.
-3. Seven divisions shifted to a later peak in 2023Q3: Agra, Azamgarh, Chitrakoot, Varanasi, Gorakhpur, Prayagraj, and Mirzapur.
-4. Implication: district activation campaigns were strongest in mid-2023, but the later peaks in these seven divisions suggest delayed mobilisation or staggered campaign rollout.
+1. In Lucknow, new households are decreasing over month and quarter, matching the broader downward pattern.
+2. The year series is the exception, so the decline is not uniform across all time views.
+3. This matters because Lucknow is one of the few districts with a separate district-level trend callout for the same measure.
+4. Implication: monthly and quarterly field performance in Lucknow appears weaker, but the annual view may be masking timing effects.
 
-**New households declined over time in both month and quarter views across most districts, but Ayodhya, Banda, Etah, Gautam Buddha Nagar, Hapur, Kaushambi, Lucknow, Moradabad, Raebareli, and Unnao did not follow the same downward trajectory.**
+**Lucknow’s unique hospitals also show the same seasonal rhythm, with Period 3 as the common peak across month and quarter.**
 
-1. The temporal-grain view shows new households decreasing in both month and quarter series, while year is classified differently.
-2. In the district-quarter trend, 65 of 75 districts (86.7%) follow the decreasing pattern, matching the broad decline seen in new beneficiary enrolment.
-3. The exceptions are the same 10 districts: Ayodhya, Banda, Etah, Gautam Buddha Nagar, Hapur, Kaushambi, Lucknow, Moradabad, Raebareli, and Unnao.
-4. Implication: household enrolment has slowed in a consistent way, but the same set of districts repeatedly breaks the pattern and should be prioritised for operational review.
+1. Unique hospitals in Lucknow follow Period 3 seasonality in both month and quarter views.
+2. The year view does not fit the same seasonal pattern.
+3. This mirrors the enrolment pattern in the same division, suggesting a common operational calendar.
+4. Implication: hospital activation in Lucknow seems tied to the same seasonal cycle as enrolment, so planning can be aligned more tightly.
 
-**Claims processing by year was heaviest in 2023, and the quarterly pattern changed sharply around 2023Q1, with only a few measures breaking away from that common inflection.**
+**Meerut’s admissions and cumulative enrolment both keep rising in month and quarter views, but not in year views.**
 
-1. Across districts, 2023 was the strongest year for claims per 1,000 beneficiaries, with a district average of 5.69 and a statewide total pattern concentrated in 2023Q2 and 2023Q3.
-2. The quarterly change point for claims-related measures occurs in 14 of 26 measures (53.8%) at 2023Q1, including cases admitted, emergency cases, portability cases, lama-dama cases, public and private cases, unique hospitals, claims submitted/approved/rejected, amount claimed, cumulative beneficiaries, claims per 1,000 beneficiaries, and public-private ratio.
-3. New beneficiaries, new households, cards issued, deaths, amount approved, amount paid, payment count, and payment failures do not follow that same 2023Q1 break, with some shifting to 2023Q2 or 2025Q3.
-4. Implication: 2023Q1 appears to be the main system-wide reset for claims activity, but the measures that move later need separate tracking because their drivers are likely administrative rather than clinical.
+1. In Meerut, cases admitted show an increasing trend over month and quarter.
+2. Cumulative beneficiaries also rise over month and quarter, indicating that both utilisation and enrolled base are expanding.
+3. The year view is the exception in both measures.
+4. Implication: Meerut’s growth is real at short and medium horizons, but annual aggregation may be flattening the same movement.
 
-**Claims and admissions rose from 2023Q1 in almost every division, but Aligarh’s public case break came one month later than the rest.**
+**Varanasi shows two different rises: portability cases increase, and private cases follow the Period 3 cycle.**
 
-1. Public cases show a common change point at 2023-03 in 17 of 18 divisions (94.4%), including Agra, Ayodhya, Moradabad, Kanpur, Azamgarh, Bareilly, Meerut, Devipatan, Chitrakoot, Basti, Varanasi, Gorakhpur, Prayagraj, Lucknow, Jhansi, Mirzapur, and Saharanpur.
-2. Aligarh is the only division that shifts the break to 2023-04.
-3. The statewide monthly total for public cases is 13,310, with recent highs of 480 in 2025-08 and 464 in 2023-08; the highlight month 2023-03 stands at 375.
-4. Implication: the public-provider caseload shift is nearly universal, but Aligarh’s one-month delay suggests a local administrative lag or facility-specific reporting change.
+1. Portability cases in Varanasi increase over month and quarter.
+2. Private cases in the same division show Period 3 seasonality in month and quarter views.
+3. Both measures shift away from the year view, which does not follow the same pattern.
+4. Implication: Varanasi has both rising cross-district movement and seasonal private-hospital activity, so portability and empanelled private capacity should be monitored together.
 
-**Division-level new beneficiary enrolment peaked in 2023Q2 across most divisions, but Azamgarh, Varanasi, and Saharanpur did not follow that timing.**
+**Prayagraj’s cards issued fall over month and quarter, while payment count keeps the usual Period 3 seasonality.**
 
-1. New beneficiaries by division and quarter peaked in 2023Q2 at 22,807, after 21,775 in 2023Q1 and before 21,367 in 2023Q4.
-2. The same 2023Q2 peak appears in 15 of 18 divisions (83.3%), including Agra, Aligarh, Ayodhya, Moradabad, Kanpur, Bareilly, Meerut, Devipatan, Chitrakoot, Basti, Gorakhpur, Prayagraj, Lucknow, Jhansi, and Mirzapur.
-3. Azamgarh, Varanasi, and Saharanpur are the three divisions that do not match the common 2023Q2 peak pattern.
-4. Implication: enrolment efforts were concentrated in mid-2023, but the three exceptions may indicate either later campaign peaks or uneven district-level data capture.
+1. In Prayagraj, cards issued are decreasing over month and quarter, unlike the broader statewide pattern.
+2. Payment count in the same division still follows Period 3 seasonality.
+3. This split suggests enrolment-side slowdown without a matching collapse in payment activity.
+4. Implication: Prayagraj may be operating with an older enrolled base, so fresh card issuance and claim flow need to be reviewed separately.
 
-**Claims per 1,000 beneficiaries rose in 2023 across most districts, while 2024 and 2025 show a broad slowdown despite a few districts still standing out.**
+**Kanpur’s emergency admissions rise, and its approved amounts still peak in Period 3.**
 
-1. Yearly claims per 1,000 beneficiaries averaged 5.69 in 2023, then fell to 3.77 in 2024 and 3.14 in 2025, with 2026 at 1.58.
-2. The 2023 peak is seen in 65 of 75 districts (86.7%), while 10 districts do not follow the same peak-year pattern.
-3. The monthly and quarterly breakdowns reinforce the same story: utilisation peaks in 2023 and then weakens, with bottom values of 0.0 in early periods such as 2022Q2 and 2022Q4.
-4. Implication: utilisation has cooled after the 2023 surge, so districts outside the peak pattern should be checked for access, claim submission behaviour, or missing records.
+1. Emergency cases in Kanpur show an increasing trend over month and quarter.
+2. Amount approved in the same division follows Period 3 seasonality across month and quarter.
+3. The year view does not carry the same structure.
+4. Implication: Kanpur is seeing rising acute need while financial outgo still concentrates in the usual seasonal window, so bed pressure and payment planning should be aligned.
 
-**The enrolment and card-issuance system shows one common turning point in 2025Q3 for district measures, but deaths, amount approved, amount paid, payment count, and payment failures shifted earlier than the rest.**
+**Bareilly’s LAMA/DAMA cases rise over time, while the division’s monthly claims continue to follow Period 3.**
 
-1. In the measure-level quarter view, 14 of 26 measures (53.8%) change at 2023Q1, including cases, claims, amount claimed, cumulative beneficiaries, claims per 1,000 beneficiaries, and public-private ratio.
-2. New beneficiaries, new households, and cards issued instead shift at 2025Q3, making them the main late-moving enrolment measures.
-3. Deaths, amount approved, amount paid, payment count, and payment failures shift at 2023Q2, while approval rate, emergency share, death rate, and average claim amount do not follow a clear pattern.
-4. Implication: enrolment behaviour is being reset later than claims behaviour, so the supply-side and demand-side curves are not moving together and should be monitored separately.
+1. LAMA/DAMA cases in Bareilly show an increasing trend over month and quarter.
+2. The division’s broader monthly claim activity still follows Period 3 seasonality.
+3. This means discharge-related anomalies are rising even while overall claim timing stays routine.
+4. Implication: Bareilly needs a closer look at discharge behaviour and post-admission pathways, not just total claim volume.
 
-**Lucknow is the clearest enrolment exception: new households are falling there over time, while unique hospitals still show the usual seasonal pattern.**
+**Moradabad is unusual because public cases keep rising, but the district-level enrolment trend is not moving the same way.**
 
-1. In Lucknow, new households follow a decreasing trend across month and quarter views, matching the broader state decline.
-2. Unique hospitals in Lucknow still show the expected Period 3 seasonality, with month and quarter both following the same pattern.
-3. This means Lucknow is not breaking the system on hospital participation, but it is weakening on the enrolment side.
-4. Implication: the district may have functioning provider availability but softer beneficiary mobilisation, so outreach and card-generation efforts should be the priority.
-
-**Meerut shows the standard rise in admissions and beneficiary accumulation, but its cumulative beneficiary curve still reflects the broader seasonal behaviour seen statewide.**
-
-1. In Meerut, cases admitted trend upward in both month and quarter views.
-2. Cumulative beneficiaries in Meerut also follow the expected Period 3 seasonality at month and quarter level.
-3. This combination suggests that utilisation growth and stock accumulation are moving in the same direction in Meerut, unlike districts with enrolment slowdowns.
-4. Implication: Meerut looks operationally aligned, so it can serve as a reference district for comparing enrolment-to-utilisation conversion.
-
-**Varanasi stands out for rising portability, but its private-case activity still follows the common seasonal pattern.**
-
-1. In Varanasi, portability cases trend upward across month and quarter views, marking a different growth path from many enrolment measures.
-2. Private cases in Varanasi still follow Period 3 seasonality at both month and quarter level.
-3. The district therefore shows stable seasonal private activity alongside increasing portability flow.
-4. Implication: Varanasi may be a useful district to review portability management, especially if rising mobility is linked to referral or beneficiary movement across districts.
-
-**Prayagraj combines falling cards issued with the usual seasonal payment count pattern, making it a mixed-performance district rather than a uniform outlier.**
-
-1. Cards issued in Prayagraj follow a decreasing trend in both month and quarter views.
-2. Payment count in Prayagraj still shows Period 3 seasonality at month and quarter level.
-3. That means processing volume remains seasonally normal even as enrolment activation weakens.
-4. Implication: Prayagraj may need separate action on card issuance and beneficiary mobilisation rather than payment workflow alone.
-
-**Kanpur’s emergency case activity is rising, but amount approved still follows the standard seasonal cycle.**
-
-1. In Kanpur, emergency cases trend upward across month and quarter views.
-2. Amount approved in Kanpur continues to show Period 3 seasonality at month and quarter level.
-3. This suggests emergency admissions are increasing even while financial approval timing remains cyclical.
-4. Implication: Kanpur should be watched for changing case mix, because rising emergencies can affect bed load, claim complexity, and payment planning.
-
-**Bareilly is unusual because both lama-dama case growth and the normal claims cycle are present together, which may reflect a more complex utilisation profile.**
-
-1. Lama-dama cases in Bareilly trend upward in month and quarter views.
-2. The broader claims-related measures across districts still show the main 2023Q1 break and 2023 utilisation peak.
-3. Bareilly therefore sits in a group where one service subtype is expanding while the overall claim system follows the state-wide cycle.
-4. Implication: Bareilly may need closer scrutiny of case mix and service coding to understand whether the rise is clinical, operational, or both.
-
-**Moradabad is one of the few divisions where public case activity still rises over time, even though enrolment is declining and claim amounts do not show a clear division pattern.**
-
-1. Public cases in Moradabad trend upward across month and quarter views.
-2. New beneficiaries and new households in the broader district pattern are still declining in most districts, including Moradabad’s surrounding trend set.
-3. Average claim amount by division is otherwise even, with Moradabad one of the two divisions that do not fit the evenness pattern.
-4. Implication: Moradabad appears to be growing on the utilisation side rather than the enrolment side, so admissions and claims should be reviewed together to understand the district’s workload shift.
+1. Public cases in Moradabad increase over month and quarter.
+2. Yet Moradabad is one of the districts that does not follow the common decreasing trend in new beneficiaries.
+3. This combination suggests utilisation pressure without the standard enrolment decline seen elsewhere.
+4. Implication: Moradabad may be drawing more public-hospital demand than its enrolment trend alone would suggest, so service load and beneficiary base should be checked together.
 
 ---
 
 ## Hospital Infrastructure & Specialty Capacity
 
-**Cardiology and Orthopaedics dominate claim value across Uttar Pradesh districts, but Shamli breaks the pattern by placing Obstetrics & Gynaecology ahead of them.**
+**Cardiology and Orthopaedics account for two-thirds of all specialty spending in 74 of 75 districts — with Shamli the only district where Obstetrics-Gynaecology (OBG) breaks into the top two.**
 
-1. Statewide claim value is concentrated in Cardiology (CARD) at INR 40.0 crore (39.9%) and Orthopaedics (ORTH) at INR 25.8 crore (25.7%) out of INR 100.3 crore total.
-2. Across 74 of 75 districts, the top two specialties are Cardiology and Orthopaedics; Shamli is the only exception.
-3. In Shamli, the leading pair shifts to Cardiology and Obstetrics & Gynaecology (OBG), indicating a different local case mix from the rest of the state.
-4. Implication: Shamli should be reviewed for whether referral flow, maternity load, or specialty coding is pulling claim value away from the usual cardiology-orthopaedics mix.
+1. Statewide, Cardiology (CARD) contributes INR 40.0 crore, or 39.9% of all claim value, and Orthopaedics (ORTH) INR 25.8 crore, or 25.7%.
+2. The same top-two pattern appears in 74 of 75 districts, covering 98.7% of districts.
+3. Shamli is the lone exception: OBG replaces Orthopaedics in the top two, while Cardiology remains the largest specialty.
+4. Implication: district-level claim concentration is highly standardised, so Shamli’s different specialty mix deserves a closer look for local service availability or coding behaviour.
 
-**Average clinical experience is remarkably uniform across divisions, with Agra the only division that does not follow the statewide “even” pattern.**
+**Average clinical experience is almost flat across divisions, but Agra breaks the pattern with a different experience profile.**
 
-1. Average staff experience is tightly clustered by specialty, ranging only from 16.58 years in Burns (BURNS) to 18.32 years in Pediatrics (PEDS) and Oncology (ONCO), with a total profile average of 18.01 years across specialties.
-2. The same even distribution is seen in 17 of 18 divisions; Agra is the sole deviation.
-3. Agra does not fit the same experience pattern as the other divisions, which otherwise vary by only about 1.7 years from lowest to highest specialty average.
-4. Implication: Agra is worth checking for staffing mix, recruitment history, or whether one specialty is being staffed noticeably differently from the state norm.
+1. Division-level average experience ranges only from 16.58 years in Burns (BURNS) to 18.32 years in Paediatrics (PEDS) and Oncology (ONCO), a narrow 1.74-year spread.
+2. Seventeen of 18 divisions follow the same even pattern across specialties.
+3. Agra is the exception, showing a different profile from the other 17 divisions.
+4. Implication: staffing depth looks stable statewide, and Agra should be checked for whether a distinct case mix or staffing model is driving the deviation.
 
-**Small hospitals are the main driver of cases per bed across almost every division, with Jhansi the only division that does not fit the same pattern.**
+**Small hospitals generate the highest cases-per-bed rates in 17 of 18 divisions — except Jhansi, which breaks from the small-hospital pattern.**
 
-1. Hospitals with 30 beds or fewer contribute the highest average utilization at 0.20 PM-JAY cases per bed, versus 0.05 in medium hospitals, 0.02 in large hospitals, and 0.01 in very large hospitals.
-2. This “small-hospital advantage” holds in 17 of 18 divisions; Jhansi is the exception.
-3. The gap is large: small hospitals generate about four times the cases per bed of medium hospitals and roughly ten times large hospitals.
-4. Implication: Jhansi should be reviewed to see whether capacity, specialty mix, or referral capture is suppressing utilization in smaller facilities.
+1. Hospitals with 30 beds or fewer average 0.20 cases per bed, versus 0.05 in 31–100 bed hospitals, 0.02 in 101–300 bed hospitals, and 0.01 in 300+ bed hospitals.
+2. This small-hospital advantage appears in 17 of 18 divisions, or 94.4% of them.
+3. Jhansi is the only division that does not follow the same bed-size pattern.
+4. Implication: low-bed facilities are carrying disproportionate PM-JAY activity, so operational load and referral support at smaller hospitals need attention.
 
-**Admissions are concentrated in larger hospitals, but Dermatology and Psychiatry do not follow the usual bed-size split.**
+**Before-last-year admissions are heaviest in 101–300 bed hospitals, while Burns (BURNS) and Neurophrology (NEPHRO) are the clearest specialty outliers.**
 
-1. Across specialties, admissions before last year are highest in large hospitals at 28.5 lakh cases (41.3%), followed by medium hospitals at 22.7 lakh (32.9%), small hospitals at 13.5 lakh (19.5%), and very large hospitals at 4.3 lakh (6.3%).
-2. Thirteen of 15 specialties follow the same broad bed-size ranking; Dermatology (DERM) and Psychiatry (PSYCH) are the exceptions.
-3. These two specialties do not conform to the typical “small/very-large” admission pattern seen elsewhere.
-4. Implication: Dermatology and Psychiatry deserve a separate look because their admission behavior is structurally different from mainstream specialties.
+1. Medium-large hospitals (101–300 beds) account for INR 28.5 lakh admissions before last year, or 41.3% of the total, ahead of 31–100 bed hospitals at 32.9%.
+2. Thirteen of 15 specialties follow the same last-two pattern, or 86.7%.
+3. Burns and Neurophrology form the highlighted pair, while Dermatology (DERM) and Psychiatry (PSYCH) do not.
+4. Implication: historical admission load is concentrated in mid-sized hospitals, but the Burns/Neurophrology exceptions may reflect niche service placement or reporting gaps.
 
-**Large hospitals hold most bed capacity across all specialties, with no specialty deviating from that pattern.**
+**Large hospitals hold most beds statewide, but their PM-JAY utilisation is not where the bed base sits.**
 
-1. Large hospitals account for 5,94,988 beds, or 62.9% of total bed strength, out of 9,45,986 beds statewide.
-2. Very large hospitals contribute 1,63,126 beds (17.2%), medium hospitals 1,60,335 beds (16.9%), and small hospitals only 27,537 beds (2.9%).
-3. All 15 specialties share this same bed-capacity distribution; there are no exceptions.
-4. Implication: PM-JAY operations are heavily dependent on large facilities for capacity, so disruption there will affect specialty access quickly.
+1. Large hospitals (101–300 beds) hold 5,94,988 beds, or 62.9% of total bed strength.
+2. Very large hospitals hold 1,63,126 beds (17.2%), medium hospitals 1,60,335 (16.9%), and small hospitals only 27,537 (2.9%).
+3. The full pattern is uniform across all 15 specialties.
+4. Implication: capacity is concentrated in large facilities, so any operational bottleneck there will affect a large share of the network.
 
-**Very large hospitals account for most treated cases in nearly all specialties, but Burns, Dermatology, Nephrology and Psychiatry do not follow that utilization pattern.**
+**Very large hospitals account for the lowest current specialty case volume, with Burns, Dermatology, Nephrology, and Psychiatry deviating from the usual pattern.**
 
-1. Across specialties, treated cases are highest in large hospitals at 8,940 cases (40.8%), followed by medium hospitals at 7,139 (32.6%), small hospitals at 4,369 (19.9%), and very large hospitals at only 1,476 (6.7%).
-2. Eleven of 15 specialties are concentrated in very large hospitals; Burns (BURNS), Dermatology (DERM), Nephrology (NEPHRO), and Psychiatry (PSYCH) are the exceptions.
-3. This means the largest hospitals are not automatically generating the most PM-JAY cases for every specialty.
-4. Implication: The low case volumes in very large hospitals for these four specialties may point to referral restrictions, absent services, or limited demand that should be checked separately.
+1. Very large hospitals (300+ beds) treated only 1,476 cases, or 6.7% of the total, versus 40.8% in large hospitals and 32.6% in medium hospitals.
+2. Eleven of 15 specialties follow the same last-two pattern.
+3. Burns, Dermatology, Nephrology, and Psychiatry do not follow the pattern.
+4. Implication: the biggest facilities are not carrying the most current PM-JAY specialty volume, suggesting under-use of large-bed capacity or concentration in other facility bands.
 
-**Hospital sub-types are broadly similar on most operational measures, but bed counts and utilization rate remain the main outliers.**
+**Most hospital indicators move together across bed-size groups, but bed count, inpatient beds, rejected preauths, deaths, and cases per bed do not follow the same pattern.**
 
-1. Across hospital sub-types, 14 of 20 measures show an even pattern, including admissions, claims, amounts paid, staff, experience, and licenses.
-2. The measures that do not behave evenly are total bed strength, inpatient beds, pre-auth rejected, death count, zero-claim flag, and cases per bed.
-3. This means most structural and claims indicators move together across hospital sub-types, but bed availability and utilization do not.
-4. Implication: Operational review should focus on the few measures that break the even pattern, especially beds and utilization.
+1. Fourteen of 20 indicators are evenly distributed across hospital sub-types, including admissions, claims, payments, staff, and licence counts.
+2. Total beds, inpatient beds, preauth rejected, death count, zero-claim flag, and cases per bed break from that evenness.
+3. This means the basic operating profile is stable, but utilisation and outcome-type metrics are not.
+4. Implication: staffing and licensing look broadly comparable, so the main variation to monitor is in service flow and utilisation rather than workforce count.
 
-**Average license holdings are very similar across specialty groups and hospital sub-types, with Burns the only specialty that departs from the general pattern.**
+**Professional licence counts are almost identical across facility types, but Burns (BURNS) sits outside the usual specialty pattern.**
 
-1. Total licenses average 7.27 in CHCs, 7.16 in private hospitals, 7.10 in district hospitals, 7.02 in medical colleges, and 6.95 in PHCs, showing a narrow spread of just 0.50.
-2. Fourteen of 15 specialties follow the same even pattern; Burns is the only exception.
-3. The lowest averages are still close: Trust hospitals at 6.80 and NGOs at 6.77.
-4. Implication: License availability is broadly stable, so any compliance concern is likely to be localized rather than systemic.
+1. Average total licences range from 6.77 in NGO hospitals to 7.27 in CHCs, with a narrow spread of just 0.50.
+2. Thirteen of 15 specialties follow the same even pattern across hospital sub-types.
+3. Burns and Psychiatry (PSYCH) are the exceptions.
+4. Implication: licence coverage looks steady across the provider mix, so the key risk is not licence volume but whether licences match the specialty actually delivered.
 
-**Small and very large hospitals dominate the admission profile across measures, but beds, staffing, licenses and utilization do not always move in the same direction.**
+**Burns and Dermatology have zero cases per bed in every hospital sub-type, while other specialties still generate some throughput.**
 
-1. For 12 of 20 measures, the top two bed-size groups are small hospitals and very large hospitals, including admissions, claims, deaths, and zero-claim flags.
-2. This pattern excludes structural measures such as total bed strength, inpatient beds, staff, experience, licenses, and cases per bed.
-3. The split suggests that activity-based measures and infrastructure measures do not align neatly across the hospital set.
-4. Implication: Programme monitoring should separate “activity” measures from “capacity” measures rather than assuming they move together.
+1. Cases per bed is exactly 0.00 for Burns and Dermatology across all 8 hospital sub-types.
+2. Other specialties do generate activity, with Obstetrics-Gynaecology (OBG) at 0.10, General Surgery (GS) at 0.09, and Cardiology (CARD), Orthopaedics (ORTH), and Medicine (MED) at 0.07.
+3. All 8 hospital sub-types show the same last-two pattern.
+4. Implication: Burns and Dermatology may be empanelled without real operational throughput, which should trigger a review of service readiness or claim capture.
 
-**Large hospitals are the bed-capacity anchor in private facilities, but cases per bed are highest in small private hospitals instead.**
+**Under public hospitals, small facilities get the highest cases-per-bed rate, and the pattern holds in all 18 divisions.**
 
-1. In private hospitals, large facilities dominate 14 of 20 measures, including admissions, claims, bed strength, staffing, and licenses.
-2. The key exception is cases per bed, where small private hospitals take the lead instead of large hospitals.
-3. This means larger private hospitals hold the capacity and the volumes, but smaller private hospitals are more intense users of each bed.
-4. Implication: Private small hospitals may need closer review for throughput, bed discipline, or possible under-reporting of capacity.
+1. Public hospitals with 30 beds or fewer average 0.22 cases per bed, more than four times the 0.05 in 31–100 bed facilities.
+2. Large hospitals average 0.02 and very large hospitals 0.01.
+3. All 18 divisions follow the same pattern.
+4. Implication: public-sector case flow is heavily dependent on small hospitals, so bed-load pressure and referral support should be monitored there first.
 
-**Cardiology and Orthopaedics again dominate claim payouts in large hospitals, with no hospital sub-type breaking the pattern.**
+**Cardiology dominates public-hospital admissions history, but Nephrology (NEPHRO) and Psychiatry (PSYCH) pull the pattern off-track in medium public hospitals.**
 
-1. In large hospitals, Cardiology (CARD) accounts for INR 12.72 crore (40.2%) and Orthopaedics (ORTH) INR 8.02 crore (25.3%) of INR 31.66 crore approved claims.
-2. The same top-two specialty order appears across all eight hospital sub-types.
-3. Other specialties are far smaller: Obstetrics & Gynaecology at INR 2.58 crore (8.2%) and General Surgery at INR 2.31 crore (7.3%).
-4. Implication: The large-hospital claims profile is highly concentrated and stable across provider types, so major budget movement will come from these two specialties.
+1. In public hospitals, 101–300 bed facilities account for INR 43.6 lakh admissions before last year, and the largest specialties are Obstetrics-Gynaecology at INR 4.86 lakh and General Surgery at INR 4.75 lakh.
+2. Thirteen of 15 specialties follow the same Burns/Nephrology last-two pattern.
+3. Medium public hospitals are the exception, where the highlight shifts to Nephrology and Psychiatry.
+4. Implication: medium public hospitals may be serving a distinct specialty mix, so this group needs separate operational review rather than being treated like the rest.
 
-**Public hospitals show the same small-hospital utilization spike as the overall system, with no division breaking the pattern.**
+**Public-hospital payments are concentrated in Cardiology and Orthopaedics across all bed sizes.**
 
-1. In public hospitals, small facilities average 0.22 cases per bed, compared with 0.05 in medium hospitals, 0.02 in large hospitals, and 0.01 in very large hospitals.
-2. All 18 divisions follow this same ranking, so there is no district-level public-sector exception.
-3. The small-hospital rate is more than four times the medium-hospital rate and about 22 times the very large-hospital rate.
-4. Implication: Public small facilities are carrying disproportionate activity per bed, and this should be factored into workload and staffing decisions.
+1. Cardiology (CARD) accounts for INR 2.70 crore, or 38.8% of public-hospital paid amount.
+2. Orthopaedics contributes INR 1.67 crore, or 24.0%, while OBG adds INR 64.85 lakh and General Surgery INR 63.49 lakh.
+3. The same top-two pattern holds across all four bed-size groups.
+4. Implication: payment exposure in public hospitals is heavily concentrated in two specialties, so audit focus should start there.
 
-**Public hospitals are carrying most admissions in every size band, except for a small shift in medium hospitals toward Nephrology and Psychiatry.**
+**Public hospitals keep smaller bed-counted facilities at the bottom, but large and very large hospitals still carry almost 72% of beds.**
 
-1. Across public hospitals, admissions before last year total 43.6 lakh cases, led by Obstetrics & Gynaecology at 4.86 lakh (11.1%), General Surgery at 4.75 lakh (10.9%), and Medicine at 4.69 lakh (10.8%).
-2. The broad size pattern is consistent in 3 of 4 bed-size groups: large hospitals, small hospitals, and very large hospitals.
-3. Medium hospitals are the only exception, where the highlight shifts to Nephrology (NEPHRO) and Psychiatry (PSYCH) instead of the expected pattern.
-4. Implication: Medium public hospitals may have a different specialty profile that needs separate operational attention.
+1. Public hospitals with 30 beds or fewer hold only 20,872 beds, or 4.3% of total bed strength.
+2. Large hospitals hold 1,89,149 beds (38.9%) and very large hospitals 1,63,126 (33.5%).
+3. Medium hospitals contribute 1,13,601 beds (23.3%).
+4. Implication: bed capacity in public hospitals is structurally concentrated, so any closure or outage in large public facilities will have outsized impact.
 
-**Cardiology and Orthopaedics also dominate paid amounts in public hospitals, with no bed-size exception.**
+**Private hospitals with 101–300 beds generate most specialty spending, and Cardiology remains the biggest line everywhere except small hospitals.**
 
-1. In public hospitals, Cardiology (CARD) contributes INR 2.70 crore (38.8%) of paid amount and Orthopaedics (ORTH) INR 1.67 crore (24.0%) out of INR 6.96 crore total.
-2. This top-two split holds across all four bed-size buckets.
-3. The remaining specialties are much smaller, with Obstetrics & Gynaecology at INR 64.85 lakh (9.3%) and General Surgery at INR 63.49 lakh (9.1%).
-4. Implication: Public payment exposure is concentrated in two specialties, so any shift in their volumes will quickly affect state payouts.
+1. In private hospitals, large facilities account for INR 16.48 crore in Cardiology spend and INR 10.57 crore in Orthopaedics, with Cardiology at 40.1% of the total.
+2. Fourteen of 20 private-hospital indicators follow the same large-hospital pattern.
+3. Cases per bed is the main exception, where the highlight shifts to small hospitals.
+4. Implication: large private hospitals dominate most volume and payment measures, but small private hospitals are the pressure point for utilisation.
 
-**Expired licenses in private hospitals are tightly clustered by bed size, with Burns and Psychiatry the only specialties that do not follow the same average pattern.**
+**Private hospitals also show the highest zero-claim counts in large facilities, while OBG is the specialty that does not fit.**
 
-1. Private hospitals average 3.59 expired licenses in medium facilities, 3.51 in large facilities, and 3.14 in small facilities, a narrow range of just 0.45.
-2. Thirteen of 15 specialties follow this even pattern; Burns (BURNS) and Psychiatry (PSYCH) are the exceptions.
-3. The sample sizes are substantial: 2,052 large private hospitals, 707 medium, and 289 small.
-4. Implication: License expiry is broadly similar across private hospitals, so the exceptions may point to specialty-specific compliance gaps.
+1. Large private hospitals account for 127 zero-claim combinations, or 70.2% of all zero-claim flags.
+2. Medium hospitals contribute 32 (17.7%) and small hospitals 22 (12.2%).
+3. Fourteen of 15 specialties follow this same large-hospital concentration.
+4. OBG is the only specialty that breaks the pattern.
+5. Implication: large private facilities are most often empanelled but inactive for particular specialties, so zero-claim follow-up should prioritise that segment.
 
-**Cardiology dominates claim value in large hospitals, but small hospitals are the only bed-size group that breaks the pattern.**
+**Expired licences are rare and tightly clustered in private hospitals, with Burns and Psychiatry as the only specialty exceptions.**
 
-1. In large hospitals, Cardiology (CARD) contributes INR 16.48 crore (40.1%) of claims, followed by Orthopaedics (ORTH) at INR 10.57 crore (25.7%).
-2. The same Cardiology-first pattern holds across five of eight hospital sub-types: CHC, private, civil hospital, district hospital, and Trust.
-3. PHC, medical college, and NGO hospitals are the exceptions, meaning they do not follow the same specialty concentration.
-4. Implication: Large-hospital Cardiology billing is robust, but PHCs, medical colleges and NGOs should be checked for different specialty mixes or coding behaviour.
+1. Average expired licences in private hospitals range from 3.14 in small hospitals to 3.59 in medium hospitals, a narrow spread of 0.45.
+2. Thirteen of 15 specialties follow the same even pattern across bed-size groups.
+3. Burns and Psychiatry are the only specialties outside that pattern.
+4. Implication: licence expiry is not widespread, but the Burns/Psychiatry exceptions may point to under-served or administratively weaker specialty lines.
 
-**Public hospital bed capacity is overwhelmingly in larger facilities, with small hospitals contributing very little.**
+**Private hospitals with 101–300 beds dominate claim amounts, but small hospitals are the only group where cases per bed flips the pattern.**
 
-1. In public hospitals, large facilities hold 1,89,149 beds (38.9%), very large facilities 1,63,126 (33.5%), medium facilities 1,13,601 (23.3%), and small facilities just 20,872 (4.3%).
-2. The pattern is consistent across all specialties.
-3. Small facilities account for less than one-twentieth of public bed strength statewide.
-4. Implication: Any public-sector bed expansion or contraction will be driven mainly by large and very large hospitals, not small ones.
+1. Large private hospitals account for INR 16.48 crore in Cardiology claims, or 40.1% of the total specialty claim value in this slice.
+2. Fourteen of 20 indicators behave the same way in large private hospitals.
+3. Cases per bed is the exception, where small hospitals become the highlighted group instead.
+4. Implication: big private hospitals are the financial centre of gravity, but utilisation pressure sits with small facilities.
 
-**Private hospitals keep most specialty and claims measures concentrated in large facilities, but cases per bed are unusually highest in small hospitals.**
+**Public-hospital experience levels are evenly spread across bed sizes, with Chitrakoot highest and Basti lowest.**
 
-1. In private hospitals, 14 of 20 measures are led by large facilities, including admissions, claims, bed strength, staffing, and licenses.
-2. The key deviation is cases per bed, where small hospitals become the standout rather than large ones.
-3. This means large private hospitals carry most of the system’s absolute load, while small private hospitals are the most intensive per bed.
-4. Implication: Small private hospitals may be under the most pressure on a per-bed basis and should be assessed separately for capacity adequacy.
+1. Average clinical experience by division ranges from 15.54 years in Basti to 21.51 years in Chitrakoot.
+2. All four bed-size groups follow the same even pattern in public hospitals.
+3. The spread is 5.97 years across divisions, but no bed-size group breaks the distribution.
+4. Implication: workforce maturity appears balanced in the public sector, so performance differences are more likely due to operations than experience alone.
 
-**Zero-claim private hospitals are overwhelmingly large, and Obstetrics & Gynaecology is the only specialty that does not follow that pattern.**
+**Public hospitals with 30 beds or fewer post the highest cases-per-bed rate in all 18 divisions, leaving no division-level outlier.**
 
-1. Among private hospitals with zero claims, large hospitals account for 127 instances, or 70.2%, versus 32 in medium hospitals (17.7%) and 22 in small hospitals (12.2%).
-2. Fourteen of 15 specialties follow this large-hospital concentration.
-3. Obstetrics & Gynaecology (OBG) is the only specialty that does not match the pattern.
-4. Implication: Large private hospitals are where most zero-claim cases sit, so audit attention should start there.
+1. Public hospitals with 30 beds or fewer average 0.22 cases per bed, compared with 0.05 in 31–100 bed hospitals, 0.02 in 101–300 bed hospitals, and 0.01 in 300+ bed hospitals.
+2. All 18 divisions follow this same pattern.
+3. No division deviates from the small-hospital lead.
+4. Implication: this is a systemwide public-sector utilisation pattern, not a local anomaly, so planning should assume small hospitals are the main throughput points.
 
-**Cardiology and Orthopaedics dominate claimed amounts in large hospitals, but the state’s smaller hospitals are the main exception in the amount-approved view.**
+**Private-hospital licence expiry remains nearly uniform across specialties, but Burns and Psychiatry again sit outside the norm.**
 
-1. In large hospitals, Cardiology (CARD) leads amount claimed at INR 16.48 crore (40.1%) and Orthopaedics (ORTH) follows at INR 10.57 crore (25.7%) out of INR 41.08 crore total.
-2. The same large-hospital Cardiology lead appears across five of eight hospital sub-types.
-3. PHC, medical college and NGO hospitals deviate from that pattern.
-4. Implication: Amount-claimed concentration is stable in large hospitals, but non-standard provider types should be reviewed for different specialty mixes.
+1. In private hospitals, average expired licences are 3.59 in medium facilities, 3.51 in large facilities, and 3.14 in small facilities.
+2. Thirteen of 15 specialties follow the same pattern.
+3. Burns and Psychiatry are the exceptions.
+4. Implication: the licence problem is not scale-driven; the exception specialties should be checked for compliance and staffing continuity.
 
-**Public hospital experience levels are evenly distributed across all bed-size groups, with no size-band exception.**
+**Claims paid in private large hospitals are concentrated in Cardiology and Orthopaedics, mirroring the claim-amount pattern exactly.**
 
-1. Across public hospitals, average clinical experience ranges from 15.54 years in Basti to 21.51 years in Chitrakoot, with a statewide total profile average of 18.13 years across divisions.
-2. All four bed-size groups follow the same even distribution.
-3. The spread is modest, indicating that bed size does not materially change experience in the public sector.
-4. Implication: Public-sector staffing experience appears balanced across facility sizes, so the main watchpoint is not experience but how that experience is deployed.
+1. Cardiology payment in large private hospitals is INR 16.48 crore, or 40.1% of the total.
+2. Orthopaedics is next at INR 10.57 crore, or 25.7%, followed by OBG at INR 3.37 crore and General Surgery at INR 2.98 crore.
+3. This top-two pattern is present across all eight private hospital sub-types.
+4. Implication: payment concentration is extremely stable in large private hospitals, so claims review and medical audit should focus first on Cardiology and Orthopaedics.
 
-**Small public hospitals generate the highest cases per bed, while all divisions follow the same pattern.**
+**Private hospitals show even performance across most measures, but bed count, inpatient beds, preauth approval, emergencies, deaths, zero claims, and cases per bed do not behave like the rest.**
 
-1. In public hospitals, small facilities average 0.22 cases per bed, compared with 0.05 in medium hospitals, 0.02 in large hospitals, and 0.01 in very large hospitals.
-2. Every division shows this same size-based ranking, so there is no public-sector geographic exception.
-3. The difference is substantial: small facilities produce more than four times medium-hospital utilization per bed.
-4. Implication: Bed allocation and staffing in public small hospitals should be viewed through a high-utilization lens, not as marginal facilities.
+1. Fourteen of 20 indicators are evenly spread across private hospital sub-types.
+2. The main exceptions are bed stock, inpatient beds, preauth approval, emergency count, death count, zero-claim flag, and cases per bed.
+3. This indicates the variation is about activity and utilisation, not staffing or licence counts.
+4. Implication: operational differences in private hospitals are concentrated in flow metrics, so those should be the first control points for monitoring.
 
-**Burns and Nephrology split the public hospital admission pattern, with medium hospitals shifting to Nephrology and Psychiatry.**
+**Cardiology dominates public-hospital claims in large facilities, and the same top-two specialty order holds across all bed sizes.**
 
-1. Public admissions before last year total 43.6 lakh, led by Obstetrics & Gynaecology, General Surgery and Medicine.
-2. Three of the four bed-size groups follow the same pattern, but medium public hospitals shift to Nephrology (NEPHRO) and Psychiatry (PSYCH).
-3. Burns (BURNS) also appears in the highlight set for the other size groups, showing that low-volume specialties are part of the tail behaviour.
-4. Implication: Medium public hospitals may need a specialty-specific review because their admission mix is not the same as the rest of the public system.
+1. In large public hospitals, Cardiology claim amount is INR 12.72 crore, or 40.2%, and Orthopaedics INR 8.02 crore, or 25.3%.
+2. OBG contributes INR 2.58 crore and General Surgery INR 2.31 crore.
+3. The Cardiology-Orthopaedics top-two pattern holds across all four bed-size groups.
+4. Implication: public-hospital claim pressure is concentrated in two surgical/cardiac specialties, which likely warrant the tightest claim scrutiny.
 
-**Public hospitals pay out mainly for Cardiology and Orthopaedics across all bed sizes.**
+**Private hospitals’ zero-claim flags are overwhelmingly concentrated in large facilities, and OBG is the only specialty that doesn’t follow that rule.**
 
-1. In public hospitals, Cardiology (CARD) accounts for INR 2.70 crore (38.8%) of paid amounts and Orthopaedics (ORTH) INR 1.67 crore (24.0%) out of INR 6.96 crore total.
-2. The same ranking holds in all four bed-size categories.
-3. The remaining specialties are much smaller, with Obstetrics & Gynaecology at INR 64.85 lakh and General Surgery at INR 63.49 lakh.
-4. Implication: Public payment control efforts should focus first on Cardiology and Orthopaedics because they drive most of the spend.
+1. Large private hospitals account for 127 zero-claim flags, or 70.2% of the total 181.
+2. Medium hospitals account for 32 and small hospitals for 22.
+3. Fourteen of 15 specialties follow the same pattern.
+4. OBG is the only specialty outside the pattern.
+5. Implication: large private hospitals are the main source of inactive specialty lines, so empanelment quality checks should start there.
 
-**Private hospitals show the same license-expiry pattern as the overall system, with Burns and Psychiatry as the only exceptions.**
+**Private hospitals with 101–300 beds hold the biggest share of activity, but cases per bed is the one metric that shifts down to small hospitals.**
 
-1. Private hospitals average 3.59 expired licenses in medium facilities, 3.51 in large facilities, and 3.14 in small facilities.
-2. Thirteen of 15 specialties fit this pattern; Burns and Psychiatry do not.
-3. The data cover 2,052 large, 707 medium and 289 small private hospitals, so the pattern is not driven by tiny samples.
-4. Implication: Private compliance monitoring should focus on specialty pockets that diverge from the general license-expiry profile.
+1. Large private hospitals carry 70.0% of the indicators in the same direction, including admissions, claims, payments, staff, experience, and licences.
+2. Cases per bed is the only highlighted exception, shifting to small hospitals.
+3. This means scale drives most measures, but utilisation intensity does not.
+4. Implication: the network is large-facility heavy for most metrics, yet small hospitals deserve attention for utilisation outliers.
 
-**Private-hospital zero claims are concentrated in large facilities, and OBG is the only specialty that breaks away from that pattern.**
+**Cardiology’s district-level licence footprint is nearly even across UP, but Shamli, Kanpur, Chitrakoot, and Saharanpur do not follow the same distribution.**
 
-1. Among private zero-claim hospitals, large facilities account for 127 cases (70.2%), versus 32 in medium facilities and 22 in small facilities.
-2. Fourteen of 15 specialties follow this same size-based concentration.
-3. Obstetrics & Gynaecology (OBG) is the only specialty not aligned with the pattern.
-4. Implication: Large private facilities should be the first stop for zero-claim investigation, with OBG checked separately for why it behaves differently.
-
-**Private hospitals’ cases-per-bed pattern is inverted: large hospitals dominate most measures, but small hospitals lead utilization intensity.**
-
-1. In private hospitals, 14 of 20 measures are dominated by large facilities, including admissions, claims, bed strength, staffing, and licenses.
-2. Cases per bed is the main reversal, where small private hospitals are the standout group rather than large hospitals.
-3. This means high-volume private facilities are not necessarily the most efficient on a per-bed basis.
-4. Implication: Capacity and utilisation need to be reviewed together, because the busiest hospitals by volume are not always the busiest by bed.
-
-**Across divisions and hospital types, Cardiology and Orthopaedics remain the dominant claim drivers, but a few districts and provider types pull away from that mix.**
-
-1. Statewide, Cardiology (CARD) contributes INR 40.0 crore and Orthopaedics (ORTH) INR 25.8 crore, together making up 65.6% of total claim amount.
-2. The Cardiology–Orthopaedics pair appears in 74 of 75 districts and in all major hospital-type and bed-size splits shown.
-3. The main district exception is Shamli, where Obstetrics & Gynaecology replaces Orthopaedics in the top pair.
-4. Implication: Claim concentration is very stable overall, so exceptions are likely to reflect local service mix or referral behaviour rather than random fluctuation.
+1. For Cardiology (CARD), the average total licence count by district is tightly clustered between 5.50 in Hapur and 10.00 in Shamli.
+2. Fifteen of 18 divisions follow the same even pattern.
+3. Kanpur, Chitrakoot, and Saharanpur are the districts that break the pattern.
+4. Implication: licence distribution for Cardiology is broadly balanced, but the outlier districts may need a closer look at empanelment depth or reporting consistency.
 
 ---
 
 ## Beneficiary Enrolment & Scheme Uptake
 
-**Across 74 of 75 districts, SECC beneficiaries generated the largest share of claims and enrolments, with Lalitpur the only district that breaks from this SECC-led pattern.**
+**SECC beneficiaries generate 60.2% of claims in 74 of 75 districts — with Lalitpur the lone district where the mix shifts.**
 
-1. SECC dominates the enrolment pipeline statewide, with 13,547 of 22,500 beneficiaries (60.2%) linked to SECC versus 5,630 (25.0%) from STATE_DB and 3,323 (14.8%) from RSBY.
-2. The same SECC-led pattern appears in claim volume across 74 of 75 districts; Lalitpur is the lone district that does not follow this distribution.
-3. This is not a small effect: SECC accounts for the largest share in both the full enrolled cohort and the claim-producing cohort, indicating the scheme is still primarily driven by legacy census-linked eligibility.
-4. **Implication:** Lalitpur should be checked for entitlement-source mix, as a district-level break from the state norm can signal data mapping differences, local enrolment practice variation, or beneficiary identification issues.
+1. SECC accounts for 13,547 claims out of 22,500 statewide, far ahead of STATE_DB at 5,630 and RSBY at 3,323.
+2. This SECC-heavy pattern appears in 74 of 75 districts; Lalitpur is the only district that breaks the rule.
+3. The same SECC concentration also holds in active cards, where SECC contributes 11,866 claims, or 60.3% of the 19,677 total.
+4. Implication: claim utilisation is still anchored in SECC-linked beneficiaries, so districts outside this channel may need closer enrolment and follow-up attention.
 
-**Card issuance time is almost identical across ACTIVE, INACTIVE, and DISABLED cards, with Chitrakoot the only district that does not fit the otherwise flat pattern.**
+**Card issue times are almost identical at 15.2–15.5 days across all 75 districts, with Chitrakoot the only district that refuses the pattern.**
 
-1. The average enrolment-to-card time is tightly clustered at 15.48 days for ACTIVE cards, 15.37 days for INACTIVE cards, and 15.22 days for DISABLED cards.
-2. Across 74 of 75 districts, this timing is evenly distributed; Chitrakoot is the sole district that breaks the pattern.
-3. The spread is only 0.26 days across card statuses, so the issue is not status-specific but system-wide and operationally stable.
-4. **Implication:** Chitrakoot merits a process check for card issuance workflow, since it is the only district not mirroring the otherwise uniform turnaround time.
+1. Average enrolment-to-card time is 15.48 days for ACTIVE cards, 15.37 for INACTIVE, and 15.22 for DISABLED — a spread of only 0.26 days.
+2. This near-uniformity holds in 74 of 75 districts; Chitrakoot is the only district with no clear pattern.
+3. Card status does not materially change the average either: ACTIVE cards account for 179,888 beneficiaries, versus 9,946 INACTIVE and 5,785 DISABLED.
+4. Implication: card turnaround looks operationally steady, so delays are unlikely to explain uneven uptake across districts.
 
-**Rejected enrolments still contribute meaningful claim activity across 68 of 75 districts, but Lalitpur, Amethi, Etawah, Chitrakoot, Shravasti, Kannauj, and Balrampur do not follow that same rejected-claim footprint.**
+**Rejected enrolments still file claims in 17 of 18 divisions — except Mirzapur, where the enrolment mix behaves differently.**
 
-1. Rejected enrolments account for 2,107 claims, or 9.9% of all claims, which is only below ISA_APPROVED and AUTO_APPROVED in overall claim volume.
-2. This rejected-claim pattern is seen in 68 of 75 districts; the exceptions are Lalitpur, Amethi, Etawah, Chitrakoot, Shravasti, Kannauj, and Balrampur.
-3. Rejected enrolments are therefore not just a data-quality artifact; they are linked to actual scheme use in most districts.
-4. **Implication:** The seven exception districts should be reviewed to understand whether rejections are being handled differently, whether claims are suppressed, or whether local correction/referral pathways differ.
+1. Rejected enrolments contribute 2,199 claims, or 9.8% of all claims, after ISA_APPROVED at 7,635 and AUTO_APPROVED at 7,404.
+2. In 17 of 18 divisions, the pattern is the same; Mirzapur is the lone exception.
+3. The same shape appears in claims among active beneficiaries, where REJECTED still accounts for 2,107 claims and SHA_APPROVED for 4,973.
+4. Implication: rejection does not fully stop utilisation in most divisions, so review of post-rejection follow-up and card status actions is warranted.
 
-**Even rejected beneficiaries still use the scheme in 68 of 75 districts, showing that scheme uptake is broad, but the seven exception districts again stand apart.**
+**Rejected enrolments also remain claim-active in 68 of 75 districts — with Lalitpur, Amethi, Etawah, Chitrakoot, Shravasti, Kannauj, and Balrampur breaking away.**
 
-1. Among beneficiaries with at least one claim, rejected enrolments still contribute 2,107 claims, representing 9.9% of claim volume.
-2. The district pattern holds in 68 of 75 districts, so the rejected-to-claim link is operationally widespread rather than isolated.
-3. The same seven districts — Lalitpur, Amethi, Etawah, Chitrakoot, Shravasti, Kannauj, and Balrampur — are the outliers here as well.
-4. **Implication:** These districts should be checked for whether rejected beneficiaries are being excluded from claim processing more than elsewhere.
+1. REJECTED enrolments account for 2,107 claims statewide, compared with 7,236 for ISA_APPROVED and 7,030 for AUTO_APPROVED.
+2. The “rejected-but-still-claiming” pattern appears in 68 districts, or 90.7% of the state.
+3. Seven districts do not follow the pattern: Lalitpur, Amethi, Etawah, Chitrakoot, Shravasti, Kannauj, and Balrampur.
+4. Implication: rejection status is not consistently preventing scheme use, which points to possible downstream approval, portability, or data-cleanup issues.
 
-**At district level, claim volume is overwhelmingly driven by SECC beneficiaries, with only Muzaffarnagar, Gautam Buddha Nagar, Kanpur Dehat, Chitrakoot, Agra, Aligarh, and Sant Ravidas Nagar breaking the SECC-led claim mix.**
+**SECC beneficiaries drive claims in 67 of 75 districts and 18 of 18 divisions — with Lalitpur, Muzaffarnagar, and a few others off-pattern.**
 
-1. SECC generates 13,547 claims, or 60.2% of all claims, compared with 5,630 claims from STATE_DB (25.0%) and 3,323 from RSBY (14.8%).
-2. The SECC-led claim mix appears in 67 of 75 districts; the main exceptions are Muzaffarnagar, Gautam Buddha Nagar, Kanpur Dehat, Chitrakoot, Agra, Aligarh, and Sant Ravidas Nagar.
-3. This mirrors the enrolment picture and confirms that SECC is not only the largest beneficiary source but also the largest claim source.
-4. **Implication:** The seven exception districts may have a different beneficiary composition or claim conversion pattern that needs closer operational review.
+1. SECC contributes 13,547 claims statewide, or 60.2% of all claims, versus 5,630 from STATE_DB and 3,323 from RSBY.
+2. At district level, 67 of 75 districts follow this same SECC-leading claim mix.
+3. At division level, all 18 divisions show the same SECC lead, with no exception.
+4. The district exceptions include Lalitpur, Muzaffarnagar, Gautam Buddha Nagar, Kanpur Dehat, Chitrakoot, Agra, Aligarh, and Sant Ravidas Nagar.
+5. Implication: SECC remains the main utilisation pipeline, but the off-pattern districts deserve a closer look for local enrolment sourcing differences.
 
-**Among ACTIVE beneficiaries, claim rates are almost perfectly even across SECC, STATE_DB, and RSBY, with Saharanpur the only division that does not fit this balanced uptake pattern.**
+**State DB and RSBY jointly account for the back half of active beneficiary claims in 17 of 18 divisions — except Saharanpur, where SECC drops out of the top two.**
 
-1. Within ACTIVE cards, claim rate is 0.1 for SECC, 0.1 for STATE_DB, and 0.1 for RSBY, showing near-identical uptake across entitlement sources.
-2. This evenness holds across 17 of 18 divisions; Saharanpur is the lone division that does not conform.
-3. The sample sizes are substantial — 107,765 SECC, 45,113 STATE_DB, and 27,010 RSBY beneficiaries — so the balance is not due to small numbers.
-4. **Implication:** Saharanpur should be reviewed for source-specific access barriers or referral behaviour because it is the only division where claim-rate balance breaks down.
+1. Among active beneficiaries, STATE_DB and RSBY together make up the top-two entitlement sources in 17 of 18 divisions.
+2. The only division that breaks this structure is Saharanpur.
+3. Active beneficiary claims total 18,643, with SECC still leading overall at 11,223 claims, compared with 4,666 for STATE_DB and 2,754 for RSBY.
+4. Implication: most divisions rely on the same two non-SECC sources for active utilisation, so Saharanpur may reflect a different beneficiary composition or referral flow.
 
-**AUTO_APPROVED and ISA_APPROVED dominate claim activity in 16 of 18 divisions, but Basti and Mirzapur do not follow the usual two-status concentration.**
+**Young adults remain the lowest-claiming age group in every division and entitlement source view, even though 60+ beneficiaries generate 38% of claims.**
 
-1. Statewide claim counts are led by ISA_APPROVED at 7,635 claims (33.9%) and AUTO_APPROVED at 7,404 claims (32.9%).
-2. SHA_APPROVED contributes 5,262 claims (23.4%), while REJECTED still contributes 2,199 claims (9.8%).
-3. The top-two pattern holds in 16 of 18 divisions; Basti and Mirzapur are the exceptions.
-4. **Implication:** Basti and Mirzapur may have a different approval mix or routing pattern, so their enrolment approval workflow should be examined separately.
+1. Beneficiaries aged 60+ file 7,556 claims, or 38.4% of all claims, while 15–25-year-olds file only 1,776 claims, or 9.0%.
+2. This “15–25 at the bottom” pattern holds across all 18 divisions when claims are split by age.
+3. The same pattern appears by entitlement source too: 60+ contributes 8,649 claims versus 2,028 from 15–25.
+4. Implication: younger beneficiaries are consistently underrepresented in utilisation, suggesting a need to check awareness, need, or access barriers for this cohort.
 
-**Older ACTIVE beneficiaries drive most claims across all divisions, while the 15–25 age group is consistently the smallest claimant segment.**
+**Among active beneficiaries, 15–25-year-olds still sit at the bottom, while 60+ accounts for 38.5% of claims across all age cuts.**
 
-1. Among ACTIVE beneficiaries, the 60+ group accounts for 7,178 claims (38.5%), followed by 41–60 at 5,622 (30.2%) and 26–40 at 4,176 (22.4%).
-2. The 15–25 group contributes only 1,667 claims, or 8.9%, making it the smallest claimant segment.
-3. This age pattern is consistent across all 18 divisions, with no exceptions.
-4. **Implication:** Youth uptake remains weak relative to older age groups, so targeted awareness or access measures for 15–25 year olds may be needed.
+1. In the active-card group, 15–25-year-olds generate 1,667 claims, compared with 7,178 for those aged 60+.
+2. The same age ranking holds in all 18 divisions and all entitlement-source views.
+3. The 26–40 group remains mid-pack at 4,176 claims, while 41–60 contributes 5,622.
+4. Implication: the age gradient is not a card-status issue; low youth uptake appears structural across the active beneficiary pool.
 
-**Among all enrolment statuses, ACTIVE cards account for nearly all claim activity, with only 5.1% from INACTIVE and 3.0% from DISABLED cards.**
+**Gold-record beneficiaries account for 59.5% of active claims in all 18 divisions — while pending records never lead.**
 
-1. ACTIVE cards generate 18,643 claims, or 91.9% of all claims, versus 1,041 claims from INACTIVE cards (5.1%) and 613 from DISABLED cards (3.0%).
-2. This is observed across all 4 age groups, with no break in the status pattern.
-3. The dominance of ACTIVE cards is expected, but the 8.1% combined claim volume from non-active cards is still operationally notable.
-4. **Implication:** Non-active cards are still filing claims often enough to justify review of status controls and post-issuance monitoring.
+1. Among active beneficiaries, GOLD records contribute 11,089 claims, versus 5,648 from SILVER and 1,906 from PENDING.
+2. This GOLD-leading pattern appears in all 18 divisions with no exception.
+3. The same gap holds by entitlement source too, where SECC-linked active claims are 11,223, well above STATE_DB at 4,666 and RSBY at 2,754.
+4. Implication: verified records are much more likely to convert into utilisation, so pending records are a clear bottleneck for uptake.
 
-**Claiming behaviour is remarkably stable across age groups and entitlement sources, with 60+ always the largest claim group and 15–25 always the smallest.**
+**Age is the only measure with a truly even district spread: document count, Aadhaar coverage, claim rate, and care-seeking all sit in the same range.**
 
-1. Across entitlement sources, the 60+ age group leads claim counts at 8,649 claims (38.4%), followed by 41–60 at 6,730 (29.9%), 26–40 at 5,093 (22.6%), and 15–25 at 2,028 (9.0%).
-2. The same ordering holds when looking at claims by age under the separate age-group view: 60+ at 8,649, 41–60 at 6,730, 26–40 at 5,093, and 15–25 at 2,028.
-3. There are no exceptions in this age-order pattern across the reported structures.
-4. **Implication:** The scheme’s realised usage is heavily skewed toward older adults, so low youth claim conversion is a structural issue rather than a district-specific anomaly.
+1. Across districts, average document count ranges only from 1.19 to 1.21, while Aadhaar linkage stays between 0.78 and 0.82.
+2. Claim rate and time to first claim are also flat across districts, with days from card to first claim varying from 430.61 to 437.19.
+3. The “even” pattern holds for 5 of the 7 measures reviewed here.
+4. Implication: age-related documentation and utilisation look stable state-wide, so district-specific anomalies are unlikely to come from age composition alone.
 
-**Among ACTIVE beneficiaries, SECC is the main claim source across all divisions, and its dominance is mirrored in both claim counts and claimant presence.**
+**Card issuance is equally slow for ACTIVE, INACTIVE, and DISABLED beneficiaries, at 15.22–15.48 days.**
 
-1. ACTIVE beneficiaries generate 11,223 claims from SECC, or 60.2% of claim volume, compared with 4,666 from STATE_DB (25.0%) and 2,754 from RSBY (14.8%).
-2. This SECC dominance is uniform across all 18 divisions, with no division-level exception.
-3. The same pattern appears in both claim_count and has_claim views, which suggests SECC beneficiaries are consistently more represented among actual users.
-4. **Implication:** Any improvement in scheme uptake will need to focus on SECC-linked beneficiary channels, since they are carrying the bulk of utilisation.
+1. ACTIVE cards take 15.48 days on average from enrolment to issue, INACTIVE cards 15.37 days, and DISABLED cards 15.22 days.
+2. The averages are tightly clustered, with only 0.26 days between the slowest and fastest groups.
+3. ACTIVE beneficiaries dominate the sample at 179,888, so the overall average is heavily driven by the active-card experience.
+4. Implication: card-processing delays appear unrelated to card status, so system-wide process time matters more than status-specific fixes.
 
-**Across divisions, the average number of identity documents is almost flat, with only a 0.02 gap between the highest and lowest districts.**
+**Insurance uptake is almost perfectly flat across divisions, with claim rates staying around 10% regardless of entitlement source.**
 
-1. Average document_count ranges from 1.21 in Devipatan and Saharanpur to 1.19 in Meerut and Aligarh.
-2. Several divisions sit at 1.20, including Kanpur, Basti, and Ayodhya, which shows very little spread.
-3. All four age groups are represented evenly in this measure, with no outlier age profile.
-4. **Implication:** Document completeness is broadly uniform, so document volume is unlikely to explain district-level differences in uptake or processing.
+1. Among active beneficiaries, claim rates by entitlement source are all near 0.10: SECC at 0.10, STATE_DB at 0.10, and RSBY at 0.10.
+2. This evenness holds in 17 of 18 divisions; Saharanpur is the only division that does not fit cleanly.
+3. The source-level sample sizes are large enough to matter: 107,765 SECC, 45,113 STATE_DB, and 27,010 RSBY beneficiaries.
+4. Implication: once beneficiaries are active, claim propensity is similar across source types, so the bigger issue is likely activation and follow-through rather than source-specific behaviour.
 
-**Aadhaar linkage among ACTIVE beneficiaries is high and stable across all districts, with only Gautam Buddha Nagar and Mahoba at the low end.**
+**Card issuance time barely changes by district for active beneficiaries, but document count stays equally low in every division.**
 
-1. The average has_aadhaar rate ranges narrowly from 0.82 in Hamirpur, Firozabad, Badaun, Maharajganj, and Etawah to 0.78 in Gautam Buddha Nagar and Mahoba.
-2. The spread is only 0.04, which indicates strong uniformity across districts.
-3. This pattern holds across all 75 districts, with no structural exceptions.
-4. **Implication:** Aadhaar linkage is not the major source of district variation here, so attention should move to downstream steps such as card issuance and claim conversion.
+1. Average document count is only 1.19 to 1.21 across divisions, showing that most beneficiaries submit just one document.
+2. The highest averages are 1.21 in Devipatan and Saharanpur, with the lowest at 1.19 in Meerut and Aligarh.
+3. Sample sizes are substantial, including 12,386 in Ayodhya, 12,193 in Agra, and 12,387 in Bareilly.
+4. Implication: documentation depth is uniform but thin, so the scheme may be operating with minimal identity evidence even where uptake is otherwise steady.
 
-**Older age groups also dominate claim activity among all card statuses, while the 15–25 group remains the weakest claimant segment even when card status changes.**
+**Aadhaar linkage is high and flat at 78%–82% across districts, with no district-level break in the pattern.**
 
-1. Across ACTIVE, INACTIVE, and DISABLED cards combined, the 60+ group leads with 7,556 claims (38.4%), followed by 41–60 with 5,908 (30.0%), 26–40 with 4,437 (22.5%), and 15–25 with 1,776 (9.0%).
-2. The same age order appears in the ACTIVE-only claim view, where 60+ again leads and 15–25 remains lowest.
-3. There are no reported exceptions in the age-order pattern at card-status level.
-4. **Implication:** The weakest uptake sits consistently with younger adults, not with any particular card-status group, suggesting a broad demand-side issue.
+1. District Aadhaar linkage ranges from 0.78 in Gautam Buddha Nagar and Mahoba to 0.82 in Hamirpur, Firozabad, Badaun, Maharajganj, and Etawah.
+2. All 75 districts follow the same pattern, with no exception district.
+3. The metric is consistent even with large district sample sizes, such as 4,175 in Agra and 3,724 in Aligarh.
+4. Implication: Aadhaar seeding is not the likely source of utilisation gaps, since coverage is both high and uniform.
 
-**Across all entitlement sources, 15–25 year olds are the least likely to file claims, while 60+ beneficiaries are the most active users.**
+**Active beneficiaries account for 91.9% of all claims, leaving INACTIVE and DISABLED cards with only 8.1% combined.**
 
-1. By entitlement source, the 60+ group contributes 8,649 claims (38.4%), compared with 6,730 from 41–60 (29.9%), 5,093 from 26–40 (22.6%), and just 2,028 from 15–25 (9.0%).
-2. The same pattern is seen in claim count and has_claim views for entitlement source, with no exception districts.
-3. This indicates that the claim gap is not tied to one source category; it is consistent across SECC, STATE_DB, and RSBY.
-4. **Implication:** Youth outreach should be strengthened across all beneficiary sources, not only within one entitlement pathway.
+1. Active cards generate 18,643 claims, compared with 1,041 from INACTIVE cards and 613 from DISABLED cards.
+2. This pattern holds for all age groups, all entitlement sources, and all districts reviewed here.
+3. The same 91.9% share appears in both the age and entitlement-source breakdowns for active beneficiaries.
+4. Implication: utilisation is overwhelmingly concentrated among active cards, so card activation remains the main gateway to scheme use.
 
-**SECC beneficiaries remain the largest claimant group even when data quality is split by BIS status, with the same pattern holding for all verified, partial, and pending records.**
+**Claim behaviour is evenly distributed across document counts, Aadhaar linkage, and waiting times — so the real breaks are in enrolment source and status, not in process timing.**
 
-1. Among ACTIVE beneficiaries, SECC contributes 11,866 claims (60.3%) versus 4,927 from STATE_DB (25.0%) and 2,884 from RSBY (14.7%).
-2. This SECC-led structure holds across GOLD, SILVER, and PENDING BIS record categories, with no exception.
-3. The continuity across data-quality statuses suggests that claim use is not being materially altered by BIS record completeness.
-4. **Implication:** Improving record quality alone is unlikely to shift claim distribution unless paired with broader uptake interventions.
+1. The “measure-level” view is even for 5 of 7 measures across division and age-group breakdowns, including document count, Aadhaar linkage, claim rate, enrolment-to-card days, and card-to-first-claim days.
+2. Claim count and has_claim are the two measures that do not fit the even pattern.
+3. This means process measures are stable, while utilisation measures are the ones that vary by subgroup.
+4. Implication: the operational fault line is not processing consistency; it is who gets enrolled, approved, and converted into actual users.
 
-**BIS record quality is also highly even across districts for ACTIVE Aadhaar linkage, with no district-level exceptions to the 3-way GOLD/SILVER/PENDING split.**
+**Adults aged 60+ generate the most claims in every active-beneficiary view, while 15–25-year-olds stay last.**
 
-1. For ACTIVE beneficiaries, has_aadhaar averages 0.82 in high-performing districts such as Hamirpur and Firozabad, and 0.78 in low-end districts such as Gautam Buddha Nagar and Mahoba.
-2. All 75 districts are represented in this measure, and no district is flagged as an exception.
-3. The narrow 0.04 spread confirms strong consistency in Aadhaar linkage by district.
-4. **Implication:** Since Aadhaar linkage is stable, district differences in downstream PM-JAY use are more likely to come from service delivery or beneficiary engagement than from document capture.
+1. For active beneficiaries, 60+ contributes 7,178 claims, 38.5% of the total, versus 1,667 claims for 15–25-year-olds.
+2. The same top-and-bottom ordering appears across enrolment status and entitlement-source views.
+3. The 41–60 group contributes 5,622 claims, and 26–40 contributes 4,176, sitting between the two extremes.
+4. Implication: utilisation rises sharply with age, so youth-targeted outreach may be needed if the scheme expects more balanced use.
 
-**Among ACTIVE beneficiaries, document count is uniform across enrolment statuses, with all four approval categories showing the same average of 1.2 documents.**
+**SECC remains the leading source among active beneficiaries with GOLD records, and the spread over STATE_DB and RSBY is wide.**
 
-1. GOLD, SILVER, and PENDING BIS statuses all have the same average document_count of 1.2.
-2. The sample sizes are large — 107,758 GOLD, 54,115 SILVER, and 18,015 PENDING beneficiaries — so the flatness is meaningful.
-3. There are no exceptions in this relationship across enrolment status.
-4. **Implication:** Documentation burden does not appear to differ by approval path, so the variation in claim uptake is likely occurring after enrolment rather than at the documentation stage.
+1. In the active and verified-record group, SECC contributes 11,866 claims, or 60.3% of the total.
+2. STATE_DB contributes 4,927 claims and RSBY 2,884, leaving a large gap to the SECC pool.
+3. The same ranking appears in all three BIS record-status groups: GOLD, SILVER, and PENDING.
+4. Implication: verified SECC beneficiaries are the main utilisation engine, so data quality and source integrity around SECC remain operationally important.
 
-**Among ACTIVE beneficiaries, 60+ and 41–60 are the main claim drivers across entitlement sources, while 15–25 remains consistently the smallest claimant group.**
+**Days from card issue to first claim are almost identical by age, holding at about 431–437 days across all age groups.**
 
-1. In ACTIVE cards, 60+ accounts for 7,178 claims (38.5%) and 41–60 for 5,622 claims (30.2%), compared with 4,176 claims from 26–40 (22.4%) and 1,667 from 15–25 (8.9%).
-2. The same age ordering holds in the ACTIVE-only age view and also in the entitlement-source view for claims.
-3. The pattern is stable enough that no age group or entitlement source breaks it.
-4. **Implication:** Age-based uptake interventions should prioritise younger adults, as they are the consistent under-users across the programme.
+1. The average wait from card to first claim is 437.19 days for 60+, 436.47 for 15–25, 432.62 for 41–60, and 430.61 for 26–40.
+2. The spread across ages is only 6.58 days.
+3. Sample sizes are robust: 7,840 for 60+, 6,090 for 41–60, 4,562 for 26–40, and 1,805 for 15–25.
+4. Implication: first-use timing is driven more by scheme-wide behaviour than by age, so age-based waiting differences are not the problem.
 
-**Across divisions, claim counts are concentrated in a small set of large districts, with Lucknow and Meerut leading and Jhansi and Chitrakoot at the bottom among ACTIVE beneficiaries.**
+**Active-card claim counts are led by SECC in all 18 divisions and all three BIS record states, with no division-level exception.**
 
-1. In ACTIVE cards, Lucknow records 2,023 claims (10.3%) and Meerut 1,836 (9.3%), ahead of Varanasi at 1,370 (7.0%) and Prayagraj at 1,359 (6.9%).
-2. At the lower end, Jhansi has 502 claims (2.6%) and Chitrakoot 500 (2.5%).
-3. This division-level claim spread is broad, but the top-two pattern is still dominated by Lucknow and Meerut in 3 of 4 recognised categories.
-4. **Implication:** The low-claim divisions should be checked for access or utilisation barriers, since their volumes are far below the leading districts.
+1. SECC contributes 11,866 active-card claims, versus 4,927 for STATE_DB and 2,884 for RSBY.
+2. The same SECC lead holds across all 18 divisions.
+3. It also holds across GOLD, SILVER, and PENDING record states, with no exception.
+4. Implication: among active beneficiaries, entitlement source is the clearest driver of claim concentration, and SECC-linked outreach remains the highest-yield channel.
 
-**Among ACTIVE beneficiaries, SECC remains the dominant source even when BIS record status is considered, with GOLD, SILVER, and PENDING all following the same source mix.**
+**Age and card status move together cleanly: 91.9% of claims are from ACTIVE cards, and 60+ remains the biggest claimant group.**
 
-1. SECC contributes 11,866 claims (60.3%), while STATE_DB contributes 4,927 (25.0%) and RSBY 2,884 (14.7%).
-2. This source mix is consistent across GOLD, SILVER, and PENDING records, with no recorded exception.
-3. The result shows that claim concentration is not confined to the most verified records; it spans the full BIS quality spectrum.
-4. **Implication:** Operational efforts to broaden claims need to target the SECC channel and not assume that better-recorded beneficiaries alone are driving use.
-
-**Card issuance-to-first-claim time is virtually identical across age groups, with only a 6.6-day range between the youngest and oldest beneficiaries.**
-
-1. The average days from card to first claim is 437.19 for 60+, 436.47 for 15–25, 432.62 for 41–60, and 430.61 for 26–40.
-2. The spread across age groups is only 6.58 days, indicating near-complete uniformity.
-3. Sample sizes are sizable, ranging from 1,805 in 15–25 to 7,840 in 60+.
-4. **Implication:** Age does not appear to drive differences in how quickly beneficiaries use the card after issuance; access barriers are likely more general.
-
-**The claim-status profile of ACTIVE beneficiaries is overwhelmingly concentrated in ACTIVE cards, with INACTIVE and DISABLED contributing only a small minority.**
-
-1. ACTIVE cards account for 18,643 claims, or 91.9% of claim activity among the age-group view.
-2. INACTIVE cards contribute 1,041 claims (5.1%) and DISABLED cards 613 claims (3.0%).
-3. The same status dominance is visible in the broader card-status view and carries no exceptions.
-4. **Implication:** The few claims from non-active cards should be audited, as they are operationally unusual even if numerically small.
-
-**Across age groups, ACTIVE card dominance is the rule, with 91.9% of claims coming from ACTIVE beneficiaries and only 8.1% from non-active cards.**
-
-1. ACTIVE cards generate 18,643 claims out of 20,297 total, which is 91.9%.
-2. INACTIVE and DISABLED cards together contribute only 1,654 claims, or 8.1%.
-3. This is a stable pattern with no exceptions in the age-group view.
-4. **Implication:** Any leakage from inactive or disabled statuses should be monitored closely because even a small percentage can indicate status-control weaknesses.
-
-**The enrolment-status mix is the same whether viewed by age group or by card status, with AUTO_APPROVED and ISA_APPROVED consistently leading claims.**
-
-1. Across the age-group view, ISA_APPROVED contributes 7,635 claims (33.9%) and AUTO_APPROVED 7,404 (32.9%).
-2. SHA_APPROVED follows at 5,262 claims (23.4%), and REJECTED at 2,199 (9.8%).
-3. The same ranking appears when claims are viewed across age groups, with no exception.
-4. **Implication:** The approval pipeline is not just an administrative step; it is closely tied to claim output and should be monitored as part of utilisation management.
-
-**Among ACTIVE beneficiaries, SECC is the main claim source even when broken down by BIS record status, showing the same 60%+ concentration across GOLD, SILVER, and PENDING.**
-
-1. SECC accounts for 11,866 claims, or 60.3% of the ACTIVE cohort’s claim volume.
-2. STATE_DB contributes 4,927 claims (25.0%) and RSBY 2,884 claims (14.7%).
-3. The source split is identical across GOLD, SILVER, and PENDING records, so no BIS status changes the main pattern.
-4. **Implication:** Record verification improvements alone will not rebalance claim sources; the underlying beneficiary mix is the dominant driver.
-
-**For ACTIVE beneficiaries, days from card to first claim are almost the same across age groups, with only about a 6-day difference from youngest to oldest.**
-
-1. The 26–40 group reaches first claim in 430.61 days, while 60+ takes 437.19 days.
-2. The 15–25 group is at 436.47 days and 41–60 at 432.62 days.
-3. The total spread is only 6.58 days, which is very narrow given the long interval being measured.
-4. **Implication:** Beneficiary age is not meaningfully affecting claim timing after card issuance, so delays are likely systemic rather than demographic.
-
-**Data quality status does not appear to alter document count: GOLD, SILVER, and PENDING beneficiaries all average 1.2 documents each.**
-
-1. The average document_count is 1.2 for GOLD, 1.2 for SILVER, and 1.2 for PENDING.
-2. Sample sizes are large enough to make the flat pattern credible: 107,758 GOLD, 54,115 SILVER, and 18,015 PENDING beneficiaries.
-3. There are no exceptions in this measure.
-4. **Implication:** Since document count is stable across BIS quality tiers, document capture is not where the main enrolment quality problem lies.
-
-
+1. ACTIVE cards account for 18,643 of 20,297 claims, or 91.9%, while INACTIVE and DISABLED cards contribute only 5.1% and 3.0%.
+2. At the same time, 60+ beneficiaries contribute 7,556 claims, far more than the 1,776 claims from 15–25-year-olds.
+3. The pattern is consistent across the active-beneficiary cuts shown here.
+4. Implication: card activation and age profile together shape utilisation, so any uplift strategy should focus on older beneficiaries with active cards first.
 
 ---
