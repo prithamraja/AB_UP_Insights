@@ -15,11 +15,18 @@ from __future__ import annotations
 
 import os
 import sys
+import io
 import csv
 from pathlib import Path
 from dotenv import load_dotenv
 
 load_dotenv()
+
+# Fix Windows console encoding so Unicode characters (✓/✗) don't crash prints
+if sys.stdout.encoding and sys.stdout.encoding.lower() != "utf-8":
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+if sys.stderr.encoding and sys.stderr.encoding.lower() != "utf-8":
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
 
 import psycopg2
 import psycopg2.sql as sql
@@ -189,6 +196,7 @@ SCHEMAS: dict[str, list[tuple[str, str]]] = {
         ("code_system", "VARCHAR"),
         ("icd_code", "VARCHAR"),
         ("diagnosis_text", "TEXT"),
+        ("diagnosis_category", "VARCHAR"),
     ],
     "cm_preauth_request": [
         ("preauth_id", "VARCHAR PRIMARY KEY"),
@@ -304,24 +312,34 @@ def _create_tables(cur) -> None:
         # DROP first in case of schema changes between runs
         cur.execute(f"DROP TABLE IF EXISTS {table_name} CASCADE")
         cols_def = ",\n    ".join(f"{c} {t}" for c, t in columns)
-        cur.execute(f"CREATE TABLE {table_name} (\n    {cols_def}\n)")
-    print(f"[init] Created {len(TABLES)} data tables")
+        # UNLOGGED: skips WAL for this table. Critical for small-volume managed
+        # Postgres — a single-txn bulk load of 21 tables otherwise fills the WAL.
+        # Data is truncated on PG crash, but seed is idempotent so we re-run.
+        cur.execute(f"CREATE UNLOGGED TABLE {table_name} (\n    {cols_def}\n)")
+    print(f"[init] Created {len(TABLES)} UNLOGGED data tables")
 
 
-def _copy_csvs(cur) -> None:
+def _copy_csvs(conn) -> None:
+    """Commit per table so accumulated WAL/temp space can be released between
+    tables. Takes `conn` (not `cur`) so it can commit."""
     for table_name in TABLES:
         csv_path = DATA_DIR / f"{table_name}.csv"
         if not csv_path.exists():
             print(f"  ⚠ {table_name}.csv not found — skipping")
             continue
+        cur = conn.cursor()
         with open(csv_path, "r", encoding="utf-8") as f:
             reader = csv.reader(f)
-            headers = next(reader)
+            headers = next(reader)  # consumes the header line from f
+            # Note: WITH CSV (not WITH CSV HEADER) — csv.reader already advanced
+            # past the header, so Postgres should not try to skip another line.
             cur.copy_expert(
-                f"COPY {table_name} ({', '.join(headers)}) FROM STDIN WITH CSV HEADER",
+                f"COPY {table_name} ({', '.join(headers)}) FROM STDIN WITH CSV",
                 f,
             )
         cnt = cur.rowcount if cur.rowcount >= 0 else "?"
+        cur.close()
+        conn.commit()  # release WAL / temp files before next table
         print(f"  ✓ {table_name}: {cnt} rows")
     print(f"[init] CSV import complete")
 
@@ -350,12 +368,21 @@ def main() -> None:
     try:
         cur = conn.cursor()
         _create_tables(cur)
-        _copy_csvs(cur)
+        conn.commit()  # commit DDL so each COPY starts in its own txn
+        cur.close()
+
+        _copy_csvs(conn)  # commits per table internally
+
+        cur = conn.cursor()
         _create_cache_tables(cur)
         conn.commit()
+        cur.close()
         print(f"\n[init] ✓ Supabase initialisation complete.")
     except Exception as e:
-        conn.rollback()
+        try:
+            conn.rollback()
+        except Exception:
+            pass
         print(f"\n[init] ✗ FAILED: {e}", file=sys.stderr)
         raise
     finally:

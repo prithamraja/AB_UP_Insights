@@ -12,6 +12,11 @@ export default defineConfig(({ mode }) => ({
       overlay: false,
     },
   },
+  preview: {
+    // Allow Railway-generated hosts so `vite preview` doesn't 403 them out.
+    // The exact subdomain changes per deploy, so we allow the whole domain.
+    allowedHosts: [".railway.app", ".up.railway.app"],
+  },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
