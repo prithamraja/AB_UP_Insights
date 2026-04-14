@@ -82,6 +82,10 @@ class PandasAdapter:
         import duckdb
 
         self._conn = duckdb.connect()  # pure in-memory, no file
+        # Cap DuckDB's buffer pool so it doesn't balloon to 80% of container
+        # RAM on a 1 GB Hobby instance. Working set for our queries stays
+        # well under this; spills to disk if needed.
+        self._conn.execute("SET memory_limit = '256MB'")
         self.dataframes: dict[str, object] = {}  # kept for backwards compat only
 
         for table in tables:
@@ -152,6 +156,10 @@ class SupabaseAdapter:
         # connections under heavy fan-out, which crashes mid-query. One
         # connection is plenty for demo throughput.
         self._conn = duckdb.connect(config={"threads": "1"})
+        # Cap DuckDB's buffer pool so it doesn't balloon to 80% of container
+        # RAM on a 1 GB Hobby instance. Working set for our queries stays
+        # well under this; spills to disk if needed.
+        self._conn.execute("SET memory_limit = '256MB'")
         self._conn.execute("INSTALL postgres")
         self._conn.execute("LOAD postgres")
         self._conn.execute(f"ATTACH '{database_url}' AS pg (TYPE postgres)")
