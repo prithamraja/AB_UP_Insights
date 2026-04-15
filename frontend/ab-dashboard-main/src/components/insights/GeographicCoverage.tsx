@@ -165,13 +165,12 @@ function GridOverlay({
   return null;
 }
 
-/** Fit map bounds to UP on mount, then bump zoom by 1 */
+/** Fit map bounds to UP on mount */
 function FitBounds() {
   const map = useMap();
   useEffect(() => {
     const layer = L.geoJSON(BOUNDARY_GEOJSON);
     map.fitBounds(layer.getBounds());
-    map.setZoom(map.getZoom() + 1);
   }, [map]);
   return null;
 }
