@@ -164,8 +164,37 @@ export function AnomaliesView() {
 
   const insights = useMemo(() => {
     const parsed = parseReport(gamma05Raw);
-    if (category === "all") return parsed;
-    return parsed.filter((ins) => ins.category === category);
+    if (category !== "all") {
+      return parsed.filter((ins) => ins.category === category);
+    }
+
+    // Round-robin interleave across categories so "All" doesn't show
+    // all-of-one-type-then-all-of-another. Preserves each category's
+    // internal ranking order by taking the nth from each bucket in turn.
+    const buckets: Record<Exclude<Category, "all">, Insight[]> = {
+      claims: [],
+      hospital: [],
+      beneficiary: [],
+    };
+    for (const ins of parsed) {
+      if (ins.category !== "all") buckets[ins.category].push(ins);
+    }
+
+    const rotation: Array<Exclude<Category, "all">> = ["claims", "hospital", "beneficiary"];
+    const ordered: Insight[] = [];
+    const cursors = { claims: 0, hospital: 0, beneficiary: 0 };
+    let progressed = true;
+    while (progressed) {
+      progressed = false;
+      for (const cat of rotation) {
+        if (cursors[cat] < buckets[cat].length) {
+          ordered.push(buckets[cat][cursors[cat]]);
+          cursors[cat]++;
+          progressed = true;
+        }
+      }
+    }
+    return ordered;
   }, [category]);
 
   return (
