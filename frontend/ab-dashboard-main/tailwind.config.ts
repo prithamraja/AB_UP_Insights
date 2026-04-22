@@ -15,8 +15,15 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['Lora', 'Georgia', 'serif'],
       },
       colors: {
+        ivory: '#FAF7F2',
+        ink: '#1A1A1A',
+        line: '#E8E4DC',
+        'muted-design': '#8A857B',
+        'accent-saffron': '#C8501E',
+        'teal-deep': '#1F4E5F',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

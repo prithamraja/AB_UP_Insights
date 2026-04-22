@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Send } from "lucide-react";
+import { Send, Search } from "lucide-react";
 
 interface ChatInputProps {
   onSend: (message: string) => void;
@@ -33,26 +33,29 @@ export function ChatInput({ onSend, disabled }: ChatInputProps) {
   };
 
   return (
-    <div className="border-t border-border bg-card px-4 py-3">
-      <div className="mx-auto flex max-w-5xl items-end gap-2 rounded-xl border border-border bg-chat-input-bg p-2 shadow-sm focus-within:ring-2 focus-within:ring-ring/30 transition-shadow">
-        <textarea
-          ref={textareaRef}
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          onKeyDown={handleKeyDown}
-          placeholder="Ask about PM-JAY enrolment, claims, hospitals…"
-          rows={1}
-          disabled={disabled}
-          className="flex-1 resize-none bg-transparent px-2 py-1.5 text-sm text-foreground placeholder:text-muted-foreground outline-none disabled:opacity-50"
-        />
-        <button
-          onClick={handleSubmit}
-          disabled={disabled || !value.trim()}
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-40 disabled:cursor-not-allowed"
-          aria-label="Send message"
-        >
-          <Send className="h-4 w-4" />
-        </button>
+    <div className="border-t border-line bg-white px-10 py-4">
+      <div className="max-w-[820px] mx-auto">
+        <div className="flex items-center gap-2 bg-ivory border border-line rounded-lg px-4 py-2.5 focus-within:border-ink/40 transition-colors">
+          <Search size={14} className="text-muted-design shrink-0" />
+          <textarea
+            ref={textareaRef}
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder="Ask about enrolment, claims, hospitals, districts..."
+            rows={1}
+            disabled={disabled}
+            className="flex-1 resize-none bg-transparent text-sm text-ink placeholder:text-muted-design outline-none disabled:opacity-50"
+          />
+          <button
+            onClick={handleSubmit}
+            disabled={disabled || !value.trim()}
+            className="ml-1 w-7 h-7 rounded-md bg-ink hover:bg-ink/90 flex items-center justify-center transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            aria-label="Send message"
+          >
+            <Send size={12} className="text-ivory" strokeWidth={2.25} />
+          </button>
+        </div>
       </div>
     </div>
   );

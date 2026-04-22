@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Pencil, Check, X, Download, ArrowUp, ArrowDown, ArrowUpDown, BarChart3 } from "lucide-react";
+import { Pencil, Check, X, Download, ArrowUp, ArrowDown, ArrowUpDown, BarChart3, Shield } from "lucide-react";
 import { BarChart, Bar, XAxis as ReXAxis, YAxis as ReYAxis, CartesianGrid, Tooltip as ReTooltip, ResponsiveContainer } from "recharts";
 import { format, parse } from "date-fns";
 import type { Message } from "@/types/chat";
@@ -37,6 +37,7 @@ function downloadCsv(rows: Record<string, unknown>[]) {
   a.click();
   URL.revokeObjectURL(url);
 }
+
 function isNumericColumn(rows: Record<string, unknown>[], key: string) {
   return rows.some((row) => {
     const val = row[key];
@@ -50,6 +51,7 @@ function ResultTable({ rows }: { rows: Record<string, unknown>[] }) {
   const [sortKey, setSortKey] = useState<string | null>(null);
   const [sortDir, setSortDir] = useState<SortDir>(null);
   const [showChart, setShowChart] = useState(false);
+  const [showAll, setShowAll] = useState(false);
 
   const headers = Object.keys(rows[0]);
   const numericCols = new Set(headers.filter((h) => isNumericColumn(rows, h)));
@@ -81,117 +83,143 @@ function ResultTable({ rows }: { rows: Record<string, unknown>[] }) {
     : rows;
 
   return (
-    <div className="space-y-1.5">
-      <div className={`flex gap-3 ${showChart ? "flex-row" : "flex-col"}`}>
-        {/* Table */}
-        <div className={`rounded-lg border border-border overflow-hidden ${showChart ? "flex-1 min-w-0" : ""}`}>
-          <div className="overflow-x-auto">
-            <table className="w-full text-xs">
-              <thead>
-                <tr className="bg-muted/60">
-                  {headers.map((key) => (
-                    <th
-                      key={key}
-                      className="px-3 py-2 text-left font-semibold text-muted-foreground whitespace-nowrap"
-                    >
-                      {numericCols.has(key) ? (
-                        <button
-                          onClick={() => handleSort(key)}
-                          className="inline-flex items-center gap-1 hover:text-foreground transition-colors"
-                        >
-                          {key}
-                          {sortKey === key && sortDir === "asc" ? (
-                            <ArrowUp className="h-3 w-3" />
-                          ) : sortKey === key && sortDir === "desc" ? (
-                            <ArrowDown className="h-3 w-3" />
-                          ) : (
-                            <ArrowUpDown className="h-3 w-3 opacity-40" />
-                          )}
-                        </button>
-                      ) : (
-                        key
-                      )}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {sortedRows.map((row, i) => (
-                  <tr key={i} className="border-t border-border">
-                    {Object.values(row).map((val, j) => (
-                      <td
-                        key={j}
-                        className="px-3 py-1.5 text-foreground/80 whitespace-nowrap"
-                      >
-                        {val == null ? "—" : String(val)}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+    <div className="space-y-2">
+      {/* Result card */}
+      <div className="bg-white border border-line rounded-lg overflow-hidden">
+        {/* Card header */}
+        <div className="border-b border-line px-4 py-2.5 flex items-center gap-3 bg-ivory/40">
+          <div className="text-[11px] font-semibold uppercase tracking-[0.1em] text-ink">
+            Query Result
+          </div>
+          <div className="text-[11px] text-muted-design">
+            {rows.length} row{rows.length !== 1 ? "s" : ""}
           </div>
         </div>
 
-        {/* Chart section — right side */}
-        {showChart && (
-          <div className="flex-1 min-w-[300px] space-y-2">
-            <div className="flex items-center gap-3 flex-wrap">
-              <div className="flex items-center gap-1.5">
-                <span className="text-xs text-muted-foreground">X:</span>
-                <Select value={xAxis} onValueChange={setXAxis}>
-                  <SelectTrigger className="h-7 w-[120px] text-xs">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {headers.map((h) => (
-                      <SelectItem key={h} value={h} className="text-xs">{h}</SelectItem>
+        <div className={`${showChart ? "grid grid-cols-2 divide-x divide-line" : ""}`}>
+          {/* Table */}
+          <div className="p-0">
+            <div className="overflow-x-auto">
+              <table className="w-full text-[13px]">
+                <thead>
+                  <tr className="text-[10px] uppercase tracking-wider text-muted-design">
+                    {headers.map((key) => (
+                      <th
+                        key={key}
+                        className="text-left font-medium px-4 py-2.5 whitespace-nowrap"
+                      >
+                        {numericCols.has(key) ? (
+                          <button
+                            onClick={() => handleSort(key)}
+                            className="inline-flex items-center gap-1 hover:text-ink transition-colors"
+                          >
+                            {key}
+                            {sortKey === key && sortDir === "asc" ? (
+                              <ArrowUp className="h-3 w-3" />
+                            ) : sortKey === key && sortDir === "desc" ? (
+                              <ArrowDown className="h-3 w-3" />
+                            ) : (
+                              <ArrowUpDown className="h-3 w-3 opacity-40" />
+                            )}
+                          </button>
+                        ) : (
+                          key
+                        )}
+                      </th>
                     ))}
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <span className="text-xs text-muted-foreground">Y:</span>
-                <Select value={yAxis} onValueChange={setYAxis}>
-                  <SelectTrigger className="h-7 w-[120px] text-xs">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {headers.map((h) => (
-                      <SelectItem key={h} value={h} className="text-xs">{h}</SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
+                  </tr>
+                </thead>
+                <tbody>
+                  {(showAll ? sortedRows : sortedRows.slice(0, 10)).map((row, i) => (
+                    <tr key={i} className="border-t border-line/70 hover:bg-ivory/40">
+                      {Object.entries(row).map(([key, val], j) => (
+                        <td
+                          key={j}
+                          className={`px-4 py-2 text-ink whitespace-nowrap ${
+                            numericCols.has(headers[j]) ? "text-right" : ""
+                          }`}
+                        >
+                          {val == null ? "—" : String(val)}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                  {!showAll && sortedRows.length > 10 && (
+                    <tr>
+                      <td colSpan={headers.length} className="px-4 py-2 text-center">
+                        <button
+                          onClick={() => setShowAll(true)}
+                          className="text-[12px] text-muted-design hover:text-ink transition-colors"
+                        >
+                          Show all {sortedRows.length} rows
+                        </button>
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
             </div>
-            <div className="rounded-lg border border-border bg-background p-3">
+          </div>
+
+          {/* Chart section */}
+          {showChart && (
+            <div className="p-4">
+              <div className="flex items-center gap-3 flex-wrap mb-3">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[11px] text-muted-design">X:</span>
+                  <Select value={xAxis} onValueChange={setXAxis}>
+                    <SelectTrigger className="h-7 w-[120px] text-xs border-line">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {headers.map((h) => (
+                        <SelectItem key={h} value={h} className="text-xs">{h}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[11px] text-muted-design">Y:</span>
+                  <Select value={yAxis} onValueChange={setYAxis}>
+                    <SelectTrigger className="h-7 w-[120px] text-xs border-line">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {headers.map((h) => (
+                        <SelectItem key={h} value={h} className="text-xs">{h}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
               <ResponsiveContainer width="100%" height={250}>
                 <BarChart data={sortedRows.map((row) => ({ ...row, [yAxis]: Number(row[yAxis]) || 0 }))}>
-                  <CartesianGrid strokeDasharray="3 3" className="stroke-border" />
-                  <ReXAxis dataKey={xAxis} tick={{ fontSize: 11 }} className="text-muted-foreground" />
-                  <ReYAxis tick={{ fontSize: 11 }} className="text-muted-foreground" />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#E8E4DC" />
+                  <ReXAxis dataKey={xAxis} tick={{ fontSize: 11, fill: '#8A857B' }} />
+                  <ReYAxis tick={{ fontSize: 11, fill: '#8A857B' }} />
                   <ReTooltip
-                    contentStyle={{ fontSize: 12, borderRadius: 8, border: '1px solid hsl(var(--border))' }}
+                    contentStyle={{ fontSize: 12, borderRadius: 8, border: '1px solid #E8E4DC' }}
                   />
-                  <Bar dataKey={yAxis} fill="#0f4c5c" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey={yAxis} fill="#1F4E5F" radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
 
+      {/* Action buttons */}
       <div className="flex items-center gap-2">
         <button
           onClick={() => setShowChart(!showChart)}
-          className="inline-flex items-center gap-1.5 rounded-md border border-border bg-muted/50 px-2.5 py-1 text-xs text-muted-foreground hover:bg-muted transition-colors"
+          className="inline-flex items-center gap-1.5 rounded-md border border-line bg-white px-2.5 py-1 text-xs text-muted-design hover:text-ink hover:border-ink/30 transition-colors"
         >
           <BarChart3 className="h-3 w-3" />
           {showChart ? "Hide Chart" : "Bar Chart"}
         </button>
         <button
           onClick={() => downloadCsv(sortedRows)}
-          className="inline-flex items-center gap-1.5 rounded-md border border-border bg-muted/50 px-2.5 py-1 text-xs text-muted-foreground hover:bg-muted transition-colors"
+          className="inline-flex items-center gap-1.5 rounded-md border border-line bg-white px-2.5 py-1 text-xs text-muted-design hover:text-ink hover:border-ink/30 transition-colors"
         >
           <Download className="h-3 w-3" />
           Download CSV
@@ -250,7 +278,7 @@ function DateRangePill({
     return (
       <button
         onClick={() => setEditing(true)}
-        className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/50 px-3 py-1 text-xs text-muted-foreground hover:bg-muted transition-colors"
+        className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white px-3 py-1 text-xs text-muted-design hover:border-ink/30 transition-colors"
       >
         <span>{label}</span>
         <Pencil className="h-3 w-3" />
@@ -262,7 +290,7 @@ function DateRangePill({
     <div className="flex flex-wrap items-center gap-2">
       <Popover>
         <PopoverTrigger asChild>
-          <Button variant="outline" size="sm" className="h-7 text-xs">
+          <Button variant="outline" size="sm" className="h-7 text-xs border-line">
             {startDate ? format(startDate, "MMM d, yyyy") : "Start"}
           </Button>
         </PopoverTrigger>
@@ -276,10 +304,10 @@ function DateRangePill({
           />
         </PopoverContent>
       </Popover>
-      <span className="text-xs text-muted-foreground">–</span>
+      <span className="text-xs text-muted-design">–</span>
       <Popover>
         <PopoverTrigger asChild>
-          <Button variant="outline" size="sm" className="h-7 text-xs">
+          <Button variant="outline" size="sm" className="h-7 text-xs border-line">
             {endDate ? format(endDate, "MMM d, yyyy") : "End"}
           </Button>
         </PopoverTrigger>
@@ -294,10 +322,10 @@ function DateRangePill({
         </PopoverContent>
       </Popover>
       <Button size="sm" variant="ghost" className="h-7 w-7 p-0" onClick={handleConfirm}>
-        <Check className="h-3.5 w-3.5 text-primary" />
+        <Check className="h-3.5 w-3.5 text-teal-deep" />
       </Button>
       <Button size="sm" variant="ghost" className="h-7 w-7 p-0" onClick={handleCancel}>
-        <X className="h-3.5 w-3.5 text-muted-foreground" />
+        <X className="h-3.5 w-3.5 text-muted-design" />
       </Button>
     </div>
   );
@@ -305,7 +333,6 @@ function DateRangePill({
 
 export function MessageBubble({ message, onDateRangeUpdate }: MessageBubbleProps) {
   const isUser = message.role === "user";
-  const isFallback = message.tier === "fallback";
 
   return (
     <motion.div
@@ -314,34 +341,51 @@ export function MessageBubble({ message, onDateRangeUpdate }: MessageBubbleProps
       transition={{ duration: 0.2 }}
       className={`flex ${isUser ? "justify-end" : "justify-start"}`}
     >
-      <div className="max-w-[90%] space-y-2">
-        {/* Error state */}
-        {message.error && (
-          <div className="rounded-2xl px-4 py-2.5 text-sm leading-relaxed shadow-sm bg-chat-bot text-chat-bot-foreground rounded-bl-md">
-            <p className="whitespace-pre-wrap break-words">{message.error.replace(/\*/g, "")}</p>
-          </div>
-        )}
-
-        {/* Main bubble */}
-        {message.content && (
-          <div
-            className={`rounded-2xl px-4 py-2.5 text-sm leading-relaxed shadow-sm ${
-              isUser
-                ? "bg-chat-user text-chat-user-foreground rounded-br-md"
-                : "bg-chat-bot text-chat-bot-foreground rounded-bl-md"
-            }`}
-          >
-            <p className="whitespace-pre-wrap break-words">{message.content.replace(/\*/g, "")}</p>
-            <span
-              className={`mt-1 block text-[10px] ${
-                isUser ? "text-primary-foreground/60" : "text-muted-foreground"
-              }`}
-            >
+      <div className={`max-w-[90%] space-y-3 ${isUser ? "" : ""}`}>
+        {/* Assistant identity row */}
+        {!isUser && (
+          <div className="flex items-center gap-2">
+            <div className="w-5 h-5 rounded-sm bg-teal-deep flex items-center justify-center">
+              <Shield size={10} className="text-ivory" strokeWidth={2.5} />
+            </div>
+            <div className="text-[11px] text-muted-design">
+              Assistant ·{" "}
               {new Date(message.timestamp).toLocaleTimeString([], {
                 hour: "2-digit",
                 minute: "2-digit",
               })}
-            </span>
+            </div>
+          </div>
+        )}
+
+        {/* Error state */}
+        {message.error && (
+          <div className="text-[15px] text-ink leading-relaxed max-w-2xl">
+            <p className="whitespace-pre-wrap break-words">{message.error.replace(/\*/g, "")}</p>
+          </div>
+        )}
+
+        {/* Main content */}
+        {message.content && isUser && (
+          <div className="flex justify-end">
+            <div>
+              <div className="bg-ink text-ivory px-4 py-2.5 rounded-lg rounded-br-sm text-sm leading-relaxed">
+                <p className="whitespace-pre-wrap break-words">{message.content.replace(/\*/g, "")}</p>
+              </div>
+              <div className="text-[10px] text-muted-design text-right mt-1">
+                {new Date(message.timestamp).toLocaleTimeString([], {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}{" "}
+                · you
+              </div>
+            </div>
+          </div>
+        )}
+
+        {message.content && !isUser && (
+          <div className="text-[15px] text-ink leading-relaxed max-w-2xl">
+            <p className="whitespace-pre-wrap break-words">{message.content.replace(/\*/g, "")}</p>
           </div>
         )}
 
