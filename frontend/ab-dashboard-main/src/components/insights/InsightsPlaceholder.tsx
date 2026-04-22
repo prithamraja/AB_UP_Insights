@@ -1,52 +1,68 @@
 import { useState } from "react";
-import { Building2, MapPin, Activity } from "lucide-react";
+import { MapPin, Activity, Users, FileText } from "lucide-react";
 import { GeographicCoverage } from "./GeographicCoverage";
 
-const subpages = [
-  { key: "geographic-coverage", label: "Speciality Coverage", icon: MapPin },
-  { key: "hospital-performance", label: "Hospital Performance", icon: Activity },
-  { key: "beneficiary-enrolment", label: "Beneficiary Enrolment", icon: Building2 },
+const reports = [
+  { key: "geographic-coverage", label: "Speciality Coverage", icon: MapPin, desc: "Hospital reach by specialty" },
+  { key: "hospital-performance", label: "Hospital Performance", icon: Activity, desc: "Claim volume & outcomes" },
+  { key: "beneficiary-enrolment", label: "Beneficiary Enrolment", icon: Users, desc: "Card issuance by geography" },
 ] as const;
 
-type SubpageKey = (typeof subpages)[number]["key"];
+type SubpageKey = (typeof reports)[number]["key"];
 
 export function InsightsPlaceholder() {
   const [activePage, setActivePage] = useState<SubpageKey>("geographic-coverage");
 
   return (
-    <div className="flex flex-1 min-h-0">
-      {/* Sidebar */}
-      <nav className="w-56 shrink-0 border-r border-border bg-[hsl(var(--sidebar-bg))] flex flex-col">
-        <div className="px-4 py-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+    <div className="h-[calc(100vh-3.5rem)] flex">
+      {/* Reports column */}
+      <aside className="w-64 border-r border-line bg-white/60 px-4 py-6 flex flex-col">
+        <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-accent-saffron mb-4 px-2">
           Reports
         </div>
-        <div className="flex-1 overflow-y-auto px-2 space-y-5">
-          {subpages.map(({ key, label, icon: Icon }) => (
-            <button
-              key={key}
-              onClick={() => setActivePage(key)}
-              className={`flex w-full items-center gap-2.5 rounded-md px-3 py-2 text-sm transition-colors ${
-                activePage === key
-                  ? "bg-[hsl(var(--sidebar-active))] text-[hsl(var(--sidebar-primary))] font-medium"
-                  : "text-[hsl(var(--sidebar-fg))] hover:bg-[hsl(var(--sidebar-hover))]"
-              }`}
-            >
-              <Icon className="h-4 w-4 shrink-0" />
-              {label}
-            </button>
-          ))}
+        <nav className="space-y-1">
+          {reports.map((r) => {
+            const Icon = r.icon;
+            const active = activePage === r.key;
+            return (
+              <button
+                key={r.key}
+                onClick={() => setActivePage(r.key)}
+                className={`w-full text-left px-3 py-2.5 rounded-md transition-colors group ${
+                  active
+                    ? "bg-ink text-ivory"
+                    : "hover:bg-ink/[0.04] text-ink"
+                }`}
+              >
+                <div className="flex items-center gap-2.5">
+                  <Icon size={14} className={active ? "opacity-80" : "text-muted-design"} strokeWidth={2} />
+                  <div className="text-[13px] font-medium">{r.label}</div>
+                </div>
+                <div className={`text-[11px] mt-0.5 ml-6 leading-snug ${active ? "text-ivory/60" : "text-muted-design"}`}>
+                  {r.desc}
+                </div>
+              </button>
+            );
+          })}
+        </nav>
+
+        <div className="mt-auto pt-4 border-t border-line">
+          <button className="w-full text-[11px] text-muted-design hover:text-ink flex items-center gap-1.5 px-3 py-1.5 transition-colors">
+            <FileText size={11} />
+            Download full report (PDF)
+          </button>
         </div>
-      </nav>
+      </aside>
 
       {/* Content area */}
       {activePage === "geographic-coverage" ? (
         <GeographicCoverage />
       ) : (
-        <div className="flex-1 min-w-0 flex flex-col items-center justify-center text-center text-muted-foreground">
-          <p className="text-base font-medium">
-            {subpages.find((p) => p.key === activePage)?.label}
+        <div className="flex-1 min-w-0 flex flex-col items-center justify-center text-center bg-ivory">
+          <p className="text-base font-medium text-ink font-display">
+            {reports.find((p) => p.key === activePage)?.label}
           </p>
-          <p className="mt-1 text-sm opacity-70">Coming soon.</p>
+          <p className="mt-1 text-sm text-muted-design">Coming soon.</p>
         </div>
       )}
     </div>

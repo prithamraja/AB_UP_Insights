@@ -96,26 +96,9 @@ const Index = () => {
   );
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex h-screen overflow-hidden bg-ivory">
       <main className="flex flex-1 flex-col min-w-0">
-        <AppHeader />
-        <div className="flex justify-center gap-2 border-b border-border bg-background px-6 py-1.5">
-          {([["ask", "Ask"], ["discover", "Discover"], ["track", "Track"]] as const).map(
-            ([key, label]) => (
-              <button
-                key={key}
-                onClick={() => setActiveView(key)}
-                className={`rounded-md px-10 py-1.5 text-sm font-medium transition-colors ${
-                  activeView === key
-                    ? "bg-[#0f4c5c] text-white"
-                    : "text-muted-foreground hover:bg-muted"
-                }`}
-              >
-                {label}
-              </button>
-            )
-          )}
-        </div>
+        <AppHeader activeView={activeView} onViewChange={setActiveView} />
         <div className="flex-1 min-h-0 flex flex-col">
           {activeView === "ask" ? (
             <ChatArea

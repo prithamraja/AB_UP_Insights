@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect } from "react";
 import { MapContainer, TileLayer, GeoJSON, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { Search, ChevronRight, Plus, Minus } from "lucide-react";
 import {
   SPECIALTIES,
   UP_CITIES,
@@ -61,7 +62,6 @@ function buildGridGeoJSON(
   specialty: Specialty,
   cellSize: number
 ): GeoJSON.FeatureCollection {
-  // First pass: compute raw scores (pop × distance) and find max for normalization
   const rawScores: number[] = new Array(POP_GRID.cells.length);
   const dists: number[] = new Array(POP_GRID.cells.length);
   let maxScore = 0;
@@ -74,8 +74,7 @@ function buildGridGeoJSON(
     if (score > maxScore) maxScore = score;
   }
 
-  // Build features with normalized scores
-  const half = cellSize / 2;
+  const half = cellSize / 2 * 1.05; // slight overlap to eliminate sub-pixel gaps
   const features: GeoJSON.Feature[] = [];
   for (let i = 0; i < POP_GRID.cells.length; i++) {
     const cell = POP_GRID.cells[i];
@@ -101,18 +100,17 @@ function buildGridGeoJSON(
   return { type: "FeatureCollection", features };
 }
 
-/** Score (0-1) → red gradient (low = transparent, high = bright red) */
+/** Score (0-1) -> dark purple sequential ramp */
 function underserviceColor(score: number): string {
-  // Log-ish scaling — the top 5% should be saturated red
-  if (score > 0.6) return "#67000d";
-  if (score > 0.4) return "#a50f15";
-  if (score > 0.25) return "#cb181d";
-  if (score > 0.15) return "#ef3b2c";
-  if (score > 0.08) return "#fb6a4a";
-  if (score > 0.04) return "#fc9272";
-  if (score > 0.02) return "#fcbba1";
-  if (score > 0.01) return "#fee0d2";
-  return "#fff5f0";
+  if (score > 0.6) return "#2A0F47";
+  if (score > 0.4) return "#3F1D6B";
+  if (score > 0.25) return "#54278F";
+  if (score > 0.15) return "#756BB1";
+  if (score > 0.08) return "#9E9AC8";
+  if (score > 0.04) return "#BCBDDC";
+  if (score > 0.02) return "#BCBDDC";
+  if (score > 0.01) return "#BCBDDC";
+  return "#BCBDDC";
 }
 
 function underserviceOpacity(score: number): number {
@@ -169,9 +167,16 @@ function GridOverlay({
 function FitBounds() {
   const map = useMap();
   useEffect(() => {
-    const layer = L.geoJSON(BOUNDARY_GEOJSON);
-    map.fitBounds(layer.getBounds());
+    // Center on UP and set a fixed zoom level
+    map.setView([27.0, 80.5], 6);
   }, [map]);
+  return null;
+}
+
+/** Store map ref for external zoom controls */
+function MapRefSetter({ onMap }: { onMap: (map: L.Map) => void }) {
+  const map = useMap();
+  useEffect(() => { onMap(map); }, [map, onMap]);
   return null;
 }
 
@@ -223,100 +228,89 @@ const MOST_UNDERSERVED: Record<Specialty, { block: string; district: string }[]>
   ],
 };
 
-const LEGEND_ITEMS = [
-  { label: "Low", color: "#fee0d2" },
-  { label: "", color: "#fc9272" },
-  { label: "", color: "#fb6a4a" },
-  { label: "", color: "#ef3b2c" },
-  { label: "", color: "#cb181d" },
-  { label: "High", color: "#67000d" },
-];
+const LEGEND_COLORS = ["#BCBDDC", "#9E9AC8", "#756BB1", "#54278F", "#3F1D6B", "#2A0F47"];
 
 export function GeographicCoverage() {
-  const [selectedSpecialty, setSelectedSpecialty] =
-    useState<Specialty>("Cardiology");
+  const [selectedSpecialty, setSelectedSpecialty] = useState<Specialty>("Cardiology");
+  const [specialtySearch, setSpecialtySearch] = useState("");
+  const [mapRef, setMapRef] = useState<L.Map | null>(null);
 
   const gridGeoJSON = useMemo(
     () => buildGridGeoJSON(selectedSpecialty, POP_GRID.cell_size_deg),
     [selectedSpecialty]
   );
 
+  const filteredSpecialties = SPECIALTIES.filter((s) =>
+    s.toLowerCase().includes(specialtySearch.toLowerCase())
+  );
+
   return (
     <div className="flex flex-1 min-h-0">
-      {/* Specialty sidebar */}
-      <div className="w-64 shrink-0 border-r border-border bg-[hsl(var(--sidebar-bg))] flex flex-col">
-        <div className="px-4 py-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-          Specialty
+      {/* Specialty list column */}
+      <div className="w-64 border-r border-line bg-white/40 flex flex-col">
+        <div className="px-4 pt-6 pb-3 border-b border-line">
+          <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-design mb-3">
+            Specialty
+          </div>
+          <div className="relative">
+            <Search size={12} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-muted-design" />
+            <input
+              value={specialtySearch}
+              onChange={(e) => setSpecialtySearch(e.target.value)}
+              placeholder="Search specialties"
+              className="w-full pl-7 pr-3 py-1.5 text-[12px] bg-ivory border border-line rounded-md outline-none focus:border-ink/30 placeholder:text-muted-design text-ink"
+            />
+          </div>
         </div>
-        <div className="flex-1 overflow-y-auto px-2 space-y-1">
-          {SPECIALTIES.map((s) => (
-            <button
-              key={s}
-              onClick={() => setSelectedSpecialty(s)}
-              className={`flex w-full items-center rounded-md px-3 py-2 text-sm transition-colors ${
-                selectedSpecialty === s
-                  ? "bg-[hsl(var(--sidebar-active))] text-[hsl(var(--sidebar-primary))] font-medium"
-                  : "text-[hsl(var(--sidebar-fg))] hover:bg-[hsl(var(--sidebar-hover))]"
-              }`}
-            >
-              {s}
-            </button>
-          ))}
-        </div>
-
-        {/* Legend */}
-        <div className="border-t border-border px-4 py-3">
-          <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1">
-            Underservice
-          </div>
-          <div className="text-[10px] text-muted-foreground mb-2">
-            Population × distance to nearest hospital
-          </div>
-          <div className="flex items-center gap-0.5">
-            {LEGEND_ITEMS.map((item, i) => (
-              <div key={i} className="flex-1 flex flex-col items-center">
-                <div
-                  className="w-full h-3 rounded-sm"
-                  style={{ backgroundColor: item.color }}
-                />
-                {item.label && (
-                  <span className="text-[10px] text-muted-foreground mt-0.5">
-                    {item.label}
-                  </span>
-                )}
-              </div>
-            ))}
-          </div>
+        <div className="flex-1 overflow-y-auto py-2">
+          {filteredSpecialties.length === 0 ? (
+            <div className="px-4 py-3 text-[12px] text-muted-design italic">No matches</div>
+          ) : (
+            filteredSpecialties.map((s) => {
+              const active = selectedSpecialty === s;
+              return (
+                <button
+                  key={s}
+                  onClick={() => setSelectedSpecialty(s)}
+                  className={`w-full text-left px-4 py-2 text-[13px] transition-colors flex items-center justify-between group ${
+                    active
+                      ? "bg-accent-saffron/10 text-ink font-medium border-l-2 border-accent-saffron"
+                      : "text-ink hover:bg-ink/[0.03] border-l-2 border-transparent"
+                  }`}
+                >
+                  <span>{s}</span>
+                  {active && <ChevronRight size={12} className="text-accent-saffron" />}
+                </button>
+              );
+            })
+          )}
         </div>
       </div>
 
-      {/* Map */}
-      <div className="flex-1 min-w-0 relative">
-        {/* Underserved blocks panel */}
-        <div className="absolute top-3 right-3 z-[1000] bg-white/90 backdrop-blur-sm border border-border rounded-lg shadow-md px-4 py-3 max-w-[220px]">
-          <p className="text-[11px] font-semibold text-foreground leading-snug mb-2">
-            Most underserved blocks, by population and hospital coverage:
+      {/* Map column */}
+      <div className="flex-1 relative bg-ivory overflow-hidden">
+        {/* Map header overlay */}
+        <div className="absolute top-0 left-0 right-0 z-[1000] bg-gradient-to-b from-white via-white/95 to-white/0 px-6 pt-5 pb-10 pointer-events-none">
+          <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-accent-saffron mb-1">
+            Speciality Coverage · {selectedSpecialty}
+          </div>
+          <h1 className="font-display text-[22px] tracking-tight text-ink">
+            Where {selectedSpecialty} care is reaching Uttar Pradesh
+          </h1>
+          <p className="text-[12px] text-muted-design mt-1 max-w-lg leading-snug">
+            Each block shaded by population × distance to the nearest empanelled {selectedSpecialty.toLowerCase()} hospital.
           </p>
-          <ol className="space-y-1">
-            {MOST_UNDERSERVED[selectedSpecialty].map((item, i) => (
-              <li key={i} className="flex items-baseline gap-1.5 text-[11px]">
-                <span className="text-muted-foreground font-medium w-3 shrink-0">{i + 1}.</span>
-                <span>
-                  <span className="font-medium text-foreground">{item.block}</span>
-                  <span className="text-muted-foreground">, {item.district}</span>
-                </span>
-              </li>
-            ))}
-          </ol>
         </div>
 
+        {/* Map */}
         <MapContainer
           center={[27.0, 80.5]}
-          zoom={7}
+          zoom={8}
           minZoom={5}
           maxZoom={12}
           style={{ height: "100%", width: "100%" }}
           preferCanvas
+          zoomControl={false}
         >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -325,14 +319,77 @@ export function GeographicCoverage() {
           <GeoJSON
             data={BOUNDARY_GEOJSON}
             style={{
-              color: "#0f4c5c",
+              color: "#1F4E5F",
               weight: 2,
               fillOpacity: 0,
             }}
           />
           <GridOverlay gridGeoJSON={gridGeoJSON} />
           <FitBounds />
+          <MapRefSetter onMap={setMapRef} />
         </MapContainer>
+
+        {/* Custom zoom controls */}
+        <div className="absolute left-4 top-28 z-[1000] bg-white border border-line rounded-md shadow-sm flex flex-col">
+          <button
+            onClick={() => mapRef?.zoomIn()}
+            className="w-8 h-8 flex items-center justify-center hover:bg-ivory border-b border-line"
+            aria-label="Zoom in"
+          >
+            <Plus size={14} className="text-ink" />
+          </button>
+          <button
+            onClick={() => mapRef?.zoomOut()}
+            className="w-8 h-8 flex items-center justify-center hover:bg-ivory"
+            aria-label="Zoom out"
+          >
+            <Minus size={14} className="text-ink" />
+          </button>
+        </div>
+
+        {/* Underserved blocks panel */}
+        <div className="absolute top-28 right-4 z-[1000] w-60 bg-white border border-line rounded-lg shadow-sm overflow-hidden">
+          <div className="px-3 py-2 border-b border-line bg-ivory/40">
+            <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-ink">
+              Most underserved blocks
+            </div>
+            <div className="text-[10px] text-muted-design mt-0.5">
+              by population × distance to nearest hospital
+            </div>
+          </div>
+          <div className="divide-y divide-line">
+            {MOST_UNDERSERVED[selectedSpecialty].map((b, i) => (
+              <div key={i} className="px-3 py-2 flex items-center gap-2.5">
+                <div className="text-[10px] font-semibold text-muted-design w-3">
+                  {i + 1}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-[12px] text-ink font-medium leading-tight">{b.block}</div>
+                  <div className="text-[10px] text-muted-design">{b.district}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Legend — amber-to-brown ramp */}
+        <div className="absolute bottom-4 right-4 z-[1000] bg-white border border-line rounded-md shadow-sm px-3 py-2.5">
+          <div className="text-[10px] font-semibold uppercase tracking-[0.1em] text-ink mb-1.5">
+            Underservice
+          </div>
+          <div className="text-[10px] text-muted-design mb-2 leading-tight">
+            Population × distance to nearest hospital
+          </div>
+          <div className="flex items-center gap-0 h-3 w-40">
+            {LEGEND_COLORS.map((c, i) => (
+              <div key={i} className="flex-1 h-full" style={{ background: c }} />
+            ))}
+          </div>
+          <div className="flex justify-between text-[10px] text-muted-design mt-1">
+            <span>Low</span>
+            <span>High</span>
+          </div>
+        </div>
       </div>
     </div>
   );
