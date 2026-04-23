@@ -18,8 +18,10 @@ const landingSuggestions = [
   { category: "CLAIMS", q: "What are the top diagnoses in Sharma Multispeciality Hospital?" },
   { category: "CLAIMS", q: "What is the average claim value by procedure in Ballia?" },
   { category: "CLAIMS", q: "Which district has the most Cardiology cases?" },
-  { category: "ENROLMENT", q: "How many beneficiaries are enrolled in Kanpur?" },
   { category: "ENROLMENT", q: "What is the state wide gender split of beneficiaries?" },
+  { category: "HINGLISH", q: "Lucknow mein kitney beneficiaries hain?" },
+  { category: "HINDI", q: "लखनऊ में कितने लाभार्थी हैं?" },
+  { category: "TAMIL", q: "லக்னோவில் எத்தனை பயனாளிகள் உள்ளனர்?" },
 ];
 
 function EmptyAskState({ onPick }: { onPick: (q: string) => void }) {
@@ -139,7 +141,7 @@ export function ChatArea({ messages, isLoading, onSend, onDateRangeUpdate }: Cha
             Ask
           </div>
           <h1 className="font-display text-[22px] tracking-tight text-ink">
-            Query PM-JAY data in plain English
+            Query PM-JAY data in your language
           </h1>
         </div>
       </div>

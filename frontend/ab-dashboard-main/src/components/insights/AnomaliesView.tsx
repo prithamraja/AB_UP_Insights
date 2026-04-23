@@ -233,7 +233,7 @@ export function AnomaliesView() {
             Discover
           </div>
           <h1 className="font-display text-[34px] leading-[1.1] tracking-tight text-ink">
-            What the data is telling us
+            What the data tells us
           </h1>
           <p className="text-sm text-muted-design mt-2 max-w-xl">
             Priority insights across claims, infrastructure, and enrolment — refreshed weekly.
