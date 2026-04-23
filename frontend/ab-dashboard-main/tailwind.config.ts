@@ -22,7 +22,7 @@ export default {
         ink: '#1A1A1A',
         line: '#E8E4DC',
         'muted-design': '#8A857B',
-        'accent-saffron': '#C8501E',
+        'accent-saffron': '#1F4E5F',
         'teal-deep': '#1F4E5F',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
