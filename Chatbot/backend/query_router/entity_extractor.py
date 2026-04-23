@@ -19,7 +19,7 @@ Extract ONLY these specific values (return null if not present):
 {slot_lines}
 
 Rules:
-- For district/block: return the place name as written in the query
+- For district/block: return the place name in ENGLISH (e.g. आगरा → "Agra", लखनऊ → "Lucknow", वाराणसी → "Varanasi"). Always transliterate to the standard English spelling.
 - For specialty: return the code if given (OBG, CARD, ORTH, OPTH, GS, MED, URO, PEDS, NEURO, ONCO) or the full name
 - For diagnosis_category: return one of COMMUNICABLE, MATERNAL_NEONATAL, NCD, SURGICAL, INJURY
 - For claim_status: return APPROVED, SETTLED, QUERY_RAISED, REJECTED, or PENDING
