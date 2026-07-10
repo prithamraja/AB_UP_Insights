@@ -3,12 +3,13 @@ import type { Message } from "@/types/chat";
 import { MessageBubble } from "./MessageBubble";
 import { TypingIndicator } from "./TypingIndicator";
 import { ChatInput } from "./ChatInput";
+import type { QuestionMode } from "./ChatInput";
 import { Shield, Search, Send, ArrowUpRight } from "lucide-react";
 
 interface ChatAreaProps {
   messages: Message[];
   isLoading: boolean;
-  onSend: (message: string) => void;
+  onSend: (message: string, mode?: QuestionMode) => void;
   onDateRangeUpdate?: (messageId: string, startDate: string, endDate: string) => void;
 }
 
