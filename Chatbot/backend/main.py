@@ -17,8 +17,10 @@ from openai import OpenAI
 from db_factory import get_adapter
 from query_router.entity_validator  import EntityValidator
 from query_router.router            import route
+from query_router.vector_retriever  import VectorRetriever
 from query_router.dashboard_catalog import DASHBOARD_CATALOG
 from query_router.template_catalog  import TEMPLATE_CATALOG
+from query_router.config            import USE_VECTOR_RETRIEVAL
 
 app = FastAPI(title="AB UP Chatbot API")
 
@@ -33,6 +35,7 @@ app.add_middleware(
 # ── Singletons ────────────────────────────────────────────────────────────────
 _validator:           EntityValidator | None       = None
 _openai_client:       OpenAI | None                = None
+_retriever:           VectorRetriever | None       = None
 _dashboard_results:   dict[str, list[dict]]        = {}
 _dashboard_questions: dict[str, str]               = {}
 _template_map:        dict[str, dict]              = {}
@@ -43,7 +46,7 @@ _default_start_date, _default_end_date = _last_year_range()
 
 @app.on_event("startup")
 def startup():
-    global _validator, _openai_client
+    global _validator, _openai_client, _retriever
     global _dashboard_results, _dashboard_questions, _template_map
     global _default_start_date, _default_end_date
 
@@ -78,9 +81,20 @@ def startup():
     _dashboard_questions = {k: v["question"] for k, v in DASHBOARD_CATALOG.items()}
     _template_map        = {k: v for k, v in TEMPLATE_CATALOG.items()}
 
+    # Build the vector-retrieval index (embeds the catalog once; cached to .tmp)
+    if USE_VECTOR_RETRIEVAL:
+        try:
+            _retriever = VectorRetriever(_openai_client, DASHBOARD_CATALOG, TEMPLATE_CATALOG)
+            print(f"[startup] Vector retriever ready — {len(_retriever.ids)} catalog entries")
+        except Exception as e:
+            print(f"[startup] WARNING: vector retriever failed to build ({e}) — "
+                  "falling back to intent classification")
+            _retriever = None
+
     print(f"[startup] Router ready — "
           f"{len(_dashboard_results)} cached results, "
-          f"{len(_template_map)} templates")
+          f"{len(_template_map)} templates, "
+          f"mode={'vector' if _retriever else 'intent'}")
 
 
 # ── Models ────────────────────────────────────────────────────────────────────
@@ -152,6 +166,7 @@ def query_endpoint(req: QueryRequest):
             dashboard_results=_dashboard_results,
             template_map=_template_map,
             dashboard_questions=_dashboard_questions,
+            retriever=_retriever,
             start_date=start_date,
             end_date=end_date,
             session_id=req.session_id,

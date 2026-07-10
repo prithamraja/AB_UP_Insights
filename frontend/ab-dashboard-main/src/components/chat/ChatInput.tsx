@@ -1,13 +1,16 @@
 import { useState, useRef, useEffect } from "react";
 import { Send, Search } from "lucide-react";
 
+export type QuestionMode = "new" | "followup";
+
 interface ChatInputProps {
-  onSend: (message: string) => void;
+  onSend: (message: string, mode: QuestionMode) => void;
   disabled?: boolean;
 }
 
 export function ChatInput({ onSend, disabled }: ChatInputProps) {
   const [value, setValue] = useState("");
+  const [mode, setMode] = useState<QuestionMode>("new");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
@@ -21,8 +24,9 @@ export function ChatInput({ onSend, disabled }: ChatInputProps) {
   const handleSubmit = () => {
     const trimmed = value.trim();
     if (!trimmed || disabled) return;
-    onSend(trimmed);
+    onSend(trimmed, mode);
     setValue("");
+    setMode("new");
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -36,6 +40,34 @@ export function ChatInput({ onSend, disabled }: ChatInputProps) {
     <div className="border-t border-line bg-white px-10 py-4">
       <div className="max-w-[820px] mx-auto">
         <div className="flex items-center gap-2 bg-ivory border border-line rounded-lg px-4 py-2.5 focus-within:border-ink/40 transition-colors">
+          {/* Mode toggle */}
+          <div className="flex items-center bg-line/70 rounded-md p-[3px] shrink-0">
+            <button
+              type="button"
+              onClick={() => setMode("new")}
+              className={`text-[11px] font-medium rounded px-2 py-[3px] transition-colors whitespace-nowrap ${
+                mode === "new"
+                  ? "bg-ink text-ivory"
+                  : "text-muted-design hover:text-ink"
+              }`}
+            >
+              New question
+            </button>
+            <button
+              type="button"
+              onClick={() => setMode("followup")}
+              className={`text-[11px] font-medium rounded px-2 py-[3px] transition-colors whitespace-nowrap ${
+                mode === "followup"
+                  ? "bg-ink text-ivory"
+                  : "text-muted-design hover:text-ink"
+              }`}
+            >
+              Follow-up
+            </button>
+          </div>
+
+          <div className="w-px h-4 bg-line shrink-0" />
+
           <Search size={14} className="text-muted-design shrink-0" />
           <textarea
             ref={textareaRef}

@@ -1,13 +1,21 @@
 from dotenv import load_dotenv; load_dotenv()
-import os, json, io, sys
+import os, json, io, sys, argparse
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 from openai import OpenAI
 from db_factory import get_adapter
 from query_router.entity_validator  import EntityValidator
 from query_router.router            import route
+from query_router.vector_retriever  import VectorRetriever
 from query_router.dashboard_catalog import DASHBOARD_CATALOG
 from query_router.template_catalog  import TEMPLATE_CATALOG
+
+ap = argparse.ArgumentParser()
+ap.add_argument("--mode", choices=["vector", "intent", "both"], default="vector",
+                 help="vector = template-direct retrieval (new default), "
+                      "intent = legacy classify_intent path, "
+                      "both = run every question through both and diff the query_id")
+args = ap.parse_args()
 
 adapter = get_adapter()
 
@@ -27,28 +35,51 @@ for qid, rj in adapter.execute("SELECT query_id, result FROM dashboard_cache WHE
 d_q   = {k: v["question"] for k,v in DASHBOARD_CATALOG.items()}
 t_map = dict(TEMPLATE_CATALOG)
 
+retriever = None
+if args.mode in ("vector", "both"):
+    retriever = VectorRetriever(client, DASHBOARD_CATALOG, TEMPLATE_CATALOG)
+    print(f"[vector] index ready — {len(retriever.ids)} catalog entries")
+
+
+def _route(q, use_retriever: bool):
+    return route(q, validator=val, openai_client=client, cache_conn=adapter,
+                 dashboard_results=d_res, template_map=t_map, dashboard_questions=d_q,
+                 retriever=(retriever if use_retriever else None))
+
+
+def _print_result(r, label=None):
+    rows = len(r.result) if r.result else 0
+    qid  = r.query_id or "—"
+    intent = (r.intent or "fallback")[:32]
+    entities = ", ".join(f"{e.slot_name}={e.resolved_value}({e.confidence})"
+                         for e in (r.entities or []))
+    tier = r.tier.value
+    prefix = f"[{label}] " if label else ""
+    print(f"  ->  {prefix}[{tier}] {qid} | {intent}")
+    if entities: print(f"      entities: {entities}")
+    if r.result and rows > 0:
+        print(f"      result ({rows} rows): {list(r.result[0].items())[:4]}")
+    if tier == "fallback":
+        print(f"      msg: {(r.fallback_message or '')[:120]}")
+    print(f"      {r.total_latency_ms:.0f}ms")
+
+
 def run(label, questions):
     print(f"\n{'='*80}")
     print(f"  {label}")
     print(f"{'='*80}")
     for q in questions:
-        r = route(q, validator=val, openai_client=client, cache_conn=adapter,
-                  dashboard_results=d_res, template_map=t_map, dashboard_questions=d_q)
-        rows = len(r.result) if r.result else 0
-        qid  = r.query_id or "—"
-        intent = (r.intent or "fallback")[:32]
-        entities = ", ".join(f"{e.slot_name}={e.resolved_value}({e.confidence})"
-                             for e in (r.entities or []))
-        tier = r.tier.value
         print(f"\n  Q:  {q}")
-        print(f"  ->  [{tier}] {qid} | {intent}")
-        if entities: print(f"      entities: {entities}")
-        if r.result and rows > 0:
-            # Show first result row
-            print(f"      result ({rows} rows): {list(r.result[0].items())[:4]}")
-        if tier == "fallback":
-            print(f"      msg: {(r.fallback_message or '')[:120]}")
-        print(f"      {r.total_latency_ms:.0f}ms")
+        if args.mode == "both":
+            r_vec    = _route(q, use_retriever=True)
+            r_intent = _route(q, use_retriever=False)
+            _print_result(r_vec, "vector")
+            _print_result(r_intent, "intent")
+            if r_vec.query_id != r_intent.query_id:
+                print(f"      *** MISMATCH: vector={r_vec.query_id} intent={r_intent.query_id}")
+        else:
+            r = _route(q, use_retriever=(args.mode == "vector"))
+            _print_result(r)
 
 # ── Test suites ───────────────────────────────────────────────────────────────
 

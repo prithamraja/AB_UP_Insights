@@ -5,6 +5,7 @@ import { AppHeader } from "@/components/layout/AppHeader";
 import { AnomaliesView } from "@/components/insights/AnomaliesView";
 import { InsightsPlaceholder } from "@/components/insights/InsightsPlaceholder";
 import type { Message } from "@/types/chat";
+import type { QuestionMode } from "@/components/chat/ChatInput";
 
 type ActiveView = "ask" | "discover" | "track";
 
@@ -18,7 +19,7 @@ const Index = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSend = useCallback(
-    async (content: string) => {
+    async (content: string, _mode?: QuestionMode) => {
       const userMsg: Message = {
         id: generateId(),
         role: "user",

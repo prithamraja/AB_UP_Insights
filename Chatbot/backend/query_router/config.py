@@ -1,10 +1,17 @@
 # ── Models ────────────────────────────────────────────────────────────────────
 ABSTRACTION_MODEL    = "gpt-4.1-mini"
 EXTRACTION_MODEL     = "gpt-4.1-mini"
+RERANK_MODEL         = "gpt-4.1-mini"   # picks the best query_id from the vector top-K
 
-# ── Startup-only (used by startup.py, not at runtime) ────────────────────────
+# ── Embeddings / vector retrieval ────────────────────────────────────────────
 EMBEDDING_MODEL      = "text-embedding-3-large"
 EMBEDDING_DIMENSIONS = 3072
+
+# Template-direct vector retrieval: embed the catalog, retrieve top-K candidates,
+# then let an LLM re-ranker pick the query_id. Set False to use the legacy
+# intent-classification path (classify_intent + INTENT_LOOKUP).
+USE_VECTOR_RETRIEVAL = True
+VECTOR_TOP_K         = 30    # validated at k=30 (English & Hinglish recall@30 = 97%)
 
 # ── LLM parameters ───────────────────────────────────────────────────────────
 LLM_TEMPERATURE           = 0.0
