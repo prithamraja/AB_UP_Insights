@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { motion } from "framer-motion";
-import { Pencil, Check, X, Download, ArrowUp, ArrowDown, ArrowUpDown, BarChart3, Shield } from "lucide-react";
+import { Pencil, Check, X, Download, ArrowUp, ArrowDown, ArrowUpDown, BarChart3, CalendarDays, Shield } from "lucide-react";
 import { BarChart, Bar, XAxis as ReXAxis, YAxis as ReYAxis, CartesianGrid, Tooltip as ReTooltip, ResponsiveContainer } from "recharts";
 import { format, parse } from "date-fns";
 import type { Chip, Message } from "@/types/chat";
@@ -81,7 +81,14 @@ function isNumericColumn(rows: Record<string, unknown>[], key: string) {
 
 type SortDir = "asc" | "desc" | null;
 
-function ResultTable({ rows }: { rows: Record<string, unknown>[] }) {
+function ResultTable({
+  rows,
+  toolbarExtra,
+}: {
+  rows: Record<string, unknown>[];
+  // Rendered alongside Bar Chart / Download CSV — the date-range control lives here.
+  toolbarExtra?: ReactNode;
+}) {
   const [sortKey, setSortKey] = useState<string | null>(null);
   const [sortDir, setSortDir] = useState<SortDir>(null);
   const [showChart, setShowChart] = useState(false);
@@ -243,7 +250,7 @@ function ResultTable({ rows }: { rows: Record<string, unknown>[] }) {
       </div>
 
       {/* Action buttons */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 flex-wrap">
         <button
           onClick={() => setShowChart(!showChart)}
           className="inline-flex items-center gap-1.5 rounded-md border border-line bg-white px-2.5 py-1 text-xs text-muted-design hover:text-ink hover:border-ink/30 transition-colors"
@@ -258,6 +265,7 @@ function ResultTable({ rows }: { rows: Record<string, unknown>[] }) {
           <Download className="h-3 w-3" />
           Download CSV
         </button>
+        {toolbarExtra}
       </div>
     </div>
   );
@@ -312,8 +320,9 @@ function DateRangePill({
     return (
       <button
         onClick={() => setEditing(true)}
-        className="inline-flex items-center gap-1.5 rounded-full border border-line bg-white px-3 py-1 text-xs text-muted-design hover:border-ink/30 transition-colors"
+        className="inline-flex items-center gap-1.5 rounded-md border border-line bg-white px-2.5 py-1 text-xs text-muted-design hover:text-ink hover:border-ink/30 transition-colors"
       >
+        <CalendarDays className="h-3 w-3" />
         <span>{label}</span>
         <Pencil className="h-3 w-3" />
       </button>
@@ -367,6 +376,11 @@ function DateRangePill({
 
 export function MessageBubble({ message, onDateRangeUpdate, onSend }: MessageBubbleProps) {
   const isUser = message.role === "user";
+  const hasResult = !!message.result && message.result.length > 0;
+  const dateControl =
+    !isUser && message.date_filter_applied && message.date_range ? (
+      <DateRangePill message={message} onDateRangeUpdate={onDateRangeUpdate} />
+    ) : null;
 
   return (
     <motion.div
@@ -423,9 +437,9 @@ export function MessageBubble({ message, onDateRangeUpdate, onSend }: MessageBub
           </div>
         )}
 
-        {/* Result table */}
-        {message.result && message.result.length > 0 && (
-          <ResultTable rows={message.result} />
+        {/* Result table — the date-range control rides in its toolbar row */}
+        {hasResult && (
+          <ResultTable rows={message.result!} toolbarExtra={dateControl} />
         )}
 
         {/* Clarification options: tap-to-pick interpretations */}
@@ -438,10 +452,8 @@ export function MessageBubble({ message, onDateRangeUpdate, onSend }: MessageBub
           <ChipRow heading="Try next" chips={message.suggestions} onSend={onSend} />
         )}
 
-        {/* Date range pill */}
-        {!isUser && message.date_filter_applied && message.date_range && (
-          <DateRangePill message={message} onDateRangeUpdate={onDateRangeUpdate} />
-        )}
+        {/* Date range pill — standalone only when there's no table to host it */}
+        {!hasResult && dateControl}
       </div>
     </motion.div>
   );
