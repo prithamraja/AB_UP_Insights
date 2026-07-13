@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Pencil, Check, X, Download, ArrowUp, ArrowDown, ArrowUpDown, BarChart3, Shield } from "lucide-react";
 import { BarChart, Bar, XAxis as ReXAxis, YAxis as ReYAxis, CartesianGrid, Tooltip as ReTooltip, ResponsiveContainer } from "recharts";
 import { format, parse } from "date-fns";
-import type { Message } from "@/types/chat";
+import type { Chip, Message } from "@/types/chat";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,40 @@ import { cn } from "@/lib/utils";
 interface MessageBubbleProps {
   message: Message;
   onDateRangeUpdate?: (messageId: string, startDate: string, endDate: string) => void;
+  // Sends a chip's text as a new user message (clarifications, suggestions).
+  // fromChip=true tells the backend the text is a generated catalog question,
+  // so it skips the follow-up classifier and routes straight to matching.
+  onSend?: (text: string, fromChip?: boolean) => void;
+}
+
+function ChipRow({
+  heading,
+  chips,
+  onSend,
+}: {
+  heading?: string;
+  chips: Chip[];
+  onSend: (text: string, fromChip?: boolean) => void;
+}) {
+  if (chips.length === 0) return null;
+  return (
+    <div className="flex items-center gap-2 flex-wrap">
+      {heading && (
+        <span className="text-[10px] uppercase tracking-[0.1em] text-muted-design">
+          {heading}
+        </span>
+      )}
+      {chips.map((chip, i) => (
+        <button
+          key={i}
+          onClick={() => onSend(chip.send_text, true)}
+          className="rounded-full border border-line bg-white px-3 py-1 text-xs text-ink hover:border-ink/40 hover:bg-ivory transition-colors text-left"
+        >
+          {chip.label}
+        </button>
+      ))}
+    </div>
+  );
 }
 
 function downloadCsv(rows: Record<string, unknown>[]) {
@@ -85,7 +119,7 @@ function ResultTable({ rows }: { rows: Record<string, unknown>[] }) {
   return (
     <div className="space-y-2">
       {/* Result card */}
-      <div className="bg-white border border-line rounded-lg overflow-hidden">
+      <div className="inline-block max-w-full align-top bg-white border border-line rounded-lg overflow-hidden">
         {/* Card header */}
         <div className="border-b border-line px-4 py-2.5 flex items-center gap-3 bg-ivory/40">
           <div className="text-[11px] font-semibold uppercase tracking-[0.1em] text-ink">
@@ -100,7 +134,7 @@ function ResultTable({ rows }: { rows: Record<string, unknown>[] }) {
           {/* Table */}
           <div className="p-0">
             <div className="overflow-x-auto">
-              <table className="w-full text-[13px]">
+              <table className="text-[13px]">
                 <thead>
                   <tr className="text-[10px] uppercase tracking-wider text-muted-design">
                     {headers.map((key) => (
@@ -331,7 +365,7 @@ function DateRangePill({
   );
 }
 
-export function MessageBubble({ message, onDateRangeUpdate }: MessageBubbleProps) {
+export function MessageBubble({ message, onDateRangeUpdate, onSend }: MessageBubbleProps) {
   const isUser = message.role === "user";
 
   return (
@@ -392,6 +426,16 @@ export function MessageBubble({ message, onDateRangeUpdate }: MessageBubbleProps
         {/* Result table */}
         {message.result && message.result.length > 0 && (
           <ResultTable rows={message.result} />
+        )}
+
+        {/* Clarification options: tap-to-pick interpretations */}
+        {!isUser && onSend && message.clarification && (
+          <ChipRow chips={message.clarification.options} onSend={onSend} />
+        )}
+
+        {/* Next-question suggestions (pre-filled catalog templates) */}
+        {!isUser && onSend && message.suggestions && message.suggestions.length > 0 && (
+          <ChipRow heading="Try next" chips={message.suggestions} onSend={onSend} />
         )}
 
         {/* Date range pill */}

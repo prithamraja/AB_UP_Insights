@@ -95,11 +95,15 @@ class VectorRetriever:
         return m / norms
 
     # ── Query-time retrieval ──────────────────────────────────────────────────
-    def retrieve(self, query: str, k: int) -> list[tuple[str, str]]:
-        """Returns up to k (query_id, display_question) pairs, most similar first."""
+    def retrieve_scored(self, query: str, k: int) -> list[tuple[str, str, float]]:
+        """Up to k (query_id, display_question, cosine_score), most similar first."""
         resp = self.client.embeddings.create(model=EMBEDDING_MODEL, input=[query])
         qv = np.array(resp.data[0].embedding, dtype=np.float32)
         qv = qv / (np.linalg.norm(qv) or 1.0)
         scores = self._matrix @ qv                       # cosine (rows normalised)
         top = np.argsort(-scores)[:k]
-        return [(self.ids[i], self.display[self.ids[i]]) for i in top]
+        return [(self.ids[i], self.display[self.ids[i]], float(scores[i])) for i in top]
+
+    def retrieve(self, query: str, k: int) -> list[tuple[str, str]]:
+        """Returns up to k (query_id, display_question) pairs, most similar first."""
+        return [(qid, q) for qid, q, _ in self.retrieve_scored(query, k)]

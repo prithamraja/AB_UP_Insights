@@ -1,0 +1,44 @@
+{
+  "description": "Editable POC rules for tagging catalog result columns. Exact overrides win; patterns are evaluated in order.",
+  "exact": {
+    "total_hospitals": "snapshot_stock",
+    "empanelled_hospitals": "snapshot_stock",
+    "public_hospitals": "snapshot_stock",
+    "private_hospitals": "snapshot_stock",
+    "total_beds": "snapshot_stock",
+    "bed_capacity": "snapshot_stock",
+    "total_staff": "snapshot_stock",
+    "active_cards": "additive_count"
+  },
+  "patterns": [
+    {
+      "pattern": "(^|_)(date|day|week|month|quarter|year|fy|period|time)$|_at$|^latest_",
+      "column_type": "temporal"
+    },
+    {
+      "pattern": "(^|_)(id|code|number|reference_no|utr_no)$|_no$",
+      "column_type": "identifier"
+    },
+    {
+      "pattern": "(pct|percent|percentage|rate|ratio|share|proportion|conversion|coverage|density|per_|_per_|average|avg_|mean|median|tat|days|lag|length_of_stay|concentration|index|score|gap|factor|difference)",
+      "column_type": "ratio"
+    },
+    {
+      "pattern": "(hospital_count|hospitals$|bed|staff|doctor|specialist|license|facility|capacity)",
+      "column_type": "snapshot_stock"
+    },
+    {
+      "pattern": "(amount|value|spend|expenditure|payment|paid|payable|price|cost|financial|deduction|claimed)",
+      "column_type": "additive_value"
+    },
+    {
+      "pattern": "(count|^total$|total_|number|cases|claims|beneficiaries|households|cards|admissions|discharges|procedures|patients|members|records|documents|requests|events|episodes|units|(^|_)(with|without|no)_|enrol|utilized|expired|issued|admitted|treated|active$|inactive$|disabled$|inflow|outflow|net_flow|death|duplicate|query_raised|missing|mismatch_queries|medicine_provided|male$|female$|other$|public$|private$|urban$|rural$|approved$|rejected$|pending$|settled$|normal$|lama$)",
+      "column_type": "additive_count"
+    },
+    {
+      "pattern": "(name|district|division|block|hospital|specialty|category|status|type|gender|age|group|source|mode|reason|diagnosis|procedure|package|state|rank|bucket|band|accreditation|auth|role|label|outcome|^is_|step|metric|rnk|order)",
+      "column_type": "dimension"
+    }
+  ],
+  "fallback": "unclassified"
+}
