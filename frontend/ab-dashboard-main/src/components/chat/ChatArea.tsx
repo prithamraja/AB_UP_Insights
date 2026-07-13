@@ -1,16 +1,19 @@
 import { useRef, useEffect, useState } from "react";
-import type { Message } from "@/types/chat";
+import type { ContextFrame, Message } from "@/types/chat";
 import { MessageBubble } from "./MessageBubble";
 import { TypingIndicator } from "./TypingIndicator";
 import { ChatInput } from "./ChatInput";
-import type { QuestionMode } from "./ChatInput";
+import { Breadcrumb } from "./Breadcrumb";
 import { Shield, Search, Send, ArrowUpRight } from "lucide-react";
 
 interface ChatAreaProps {
   messages: Message[];
   isLoading: boolean;
-  onSend: (message: string, mode?: QuestionMode) => void;
+  onSend: (message: string, fromChip?: boolean) => void;
   onDateRangeUpdate?: (messageId: string, startDate: string, endDate: string) => void;
+  currentFrame?: ContextFrame | null;
+  onContextBack?: () => void;
+  onContextReset?: () => void;
 }
 
 const landingSuggestions = [
@@ -114,7 +117,15 @@ function EmptyAskState({ onPick }: { onPick: (q: string) => void }) {
   );
 }
 
-export function ChatArea({ messages, isLoading, onSend, onDateRangeUpdate }: ChatAreaProps) {
+export function ChatArea({
+  messages,
+  isLoading,
+  onSend,
+  onDateRangeUpdate,
+  currentFrame,
+  onContextBack,
+  onContextReset,
+}: ChatAreaProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -147,11 +158,26 @@ export function ChatArea({ messages, isLoading, onSend, onDateRangeUpdate }: Cha
         </div>
       </div>
 
+      {/* Breadcrumb — the current analytical state, always visible */}
+      {currentFrame && (
+        <Breadcrumb
+          frame={currentFrame}
+          disabled={isLoading}
+          onBack={onContextBack}
+          onReset={onContextReset}
+        />
+      )}
+
       {/* Conversation area */}
       <div ref={scrollRef} className="flex-1 overflow-y-auto scrollbar-thin px-10 py-8 bg-ivory">
         <div className="max-w-[820px] mx-auto space-y-6">
           {messages.map((msg) => (
-            <MessageBubble key={msg.id} message={msg} onDateRangeUpdate={onDateRangeUpdate} />
+            <MessageBubble
+              key={msg.id}
+              message={msg}
+              onDateRangeUpdate={onDateRangeUpdate}
+              onSend={isLoading ? undefined : onSend}
+            />
           ))}
           {isLoading && <TypingIndicator />}
         </div>
