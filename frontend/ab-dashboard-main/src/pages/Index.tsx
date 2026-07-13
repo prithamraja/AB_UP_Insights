@@ -84,28 +84,37 @@ const Index = () => {
     [sessionId]
   );
 
-  const handleContextBack = useCallback(async () => {
-    setIsLoading(true);
-    try {
-      const res = await popContext(sessionId);
-      const botMsg: Message = {
-        id: generateId(),
-        role: "assistant",
-        content: res.answer,
-        timestamp: Date.now(),
-        tier: res.tier,
-        result: res.result,
-        context_frame: res.context_frame,
-        suggestions: res.suggestions,
-      };
-      setMessages((prev) => [...prev, botMsg]);
-      setCurrentFrame(res.context_frame ?? null);
-    } catch {
-      // No earlier frame — leave the conversation as is
-    } finally {
-      setIsLoading(false);
-    }
-  }, [sessionId]);
+  // The backend pops one frame at a time; jumping to an older entry in the
+  // history rail means popping repeatedly, showing only the frame we land on.
+  const handleContextJumpBack = useCallback(
+    async (steps: number) => {
+      if (steps < 1) return;
+      setIsLoading(true);
+      try {
+        let res = await popContext(sessionId);
+        for (let i = 1; i < steps; i++) {
+          res = await popContext(sessionId);
+        }
+        const botMsg: Message = {
+          id: generateId(),
+          role: "assistant",
+          content: res.answer,
+          timestamp: Date.now(),
+          tier: res.tier,
+          result: res.result,
+          context_frame: res.context_frame,
+          suggestions: res.suggestions,
+        };
+        setMessages((prev) => [...prev, botMsg]);
+        setCurrentFrame(res.context_frame ?? null);
+      } catch {
+        // No earlier frame — leave the conversation as is
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [sessionId]
+  );
 
   const handleContextReset = useCallback(async () => {
     try {
@@ -165,7 +174,7 @@ const Index = () => {
               onSend={handleSend}
               onDateRangeUpdate={handleDateRangeUpdate}
               currentFrame={currentFrame}
-              onContextBack={handleContextBack}
+              onContextJumpBack={handleContextJumpBack}
               onContextReset={handleContextReset}
             />
           ) : activeView === "discover" ? (

@@ -61,8 +61,9 @@
 ### Frontend (all written, none verified)
 - `src/types/chat.ts`, `src/services/api.ts` — `ContextFrame`, `Chip`, `Clarification` types; `runOperation`, `resetContext`, `popContext`; tiers extended with `operation`/`clarify`.
 - `src/components/chat/MessageBubble.tsx` — `ChipRow` renders clarification options and "Try next" suggestions. **The Compute toolbar was deliberately removed** (2026-07-13, user-requested UI change): operations remain reachable via NL only; `runOperation`/`POST /operation` intentionally kept in `api.ts` (unit-tested) with no component caller. If a toolbar is ever rebuilt: pass the message's `context_frame.result_set.id` (now **required** by `POST /operation`) and enable it only when it equals `currentFrame.result_set.id` — never gate on frontend message IDs.
-- `src/components/chat/Breadcrumb.tsx` — `PM-JAY UP › question › [period] [filter chips]` + Back (pop) + New question (reset). Filter chips are display-only by design (all filters are required template params; removal can't execute within the template — that's the deferred transformation algebra).
-- `src/components/chat/ChatArea.tsx`, `src/pages/Index.tsx` — wiring; `currentFrame` state drives the breadcrumb.
+- `src/components/chat/ContextHistory.tsx` — the analytical trail as a **left rail**, not a top band: collapsed to a 44px strip (history icon + frame count) by default, expands to a 256px panel listing the frame stack hierarchically (indented, current frame marked, period + filter chips under each). Tapping an earlier frame pops back to it (`Index.handleContextJumpBack` calls `/context/pop` N times and renders only the frame it lands on); "New question" (reset) sits in the panel footer. Filter chips are display-only by design (all filters are required template params; removal can't execute within the template — that's the deferred transformation algebra).
+- `src/components/chat/ChatArea.tsx`, `src/pages/Index.tsx` — wiring; `currentFrame` state drives the history rail.
+- Date-range control lives in the result-table toolbar row, beside Bar Chart / Download CSV (falls back to standalone only when a dated answer has no table).
 
 ---
 

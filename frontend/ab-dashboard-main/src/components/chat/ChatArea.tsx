@@ -3,7 +3,7 @@ import type { ContextFrame, Message } from "@/types/chat";
 import { MessageBubble } from "./MessageBubble";
 import { TypingIndicator } from "./TypingIndicator";
 import { ChatInput } from "./ChatInput";
-import { Breadcrumb } from "./Breadcrumb";
+import { ContextHistory } from "./ContextHistory";
 import { Shield, Search, Send, ArrowUpRight } from "lucide-react";
 
 interface ChatAreaProps {
@@ -12,7 +12,7 @@ interface ChatAreaProps {
   onSend: (message: string, fromChip?: boolean) => void;
   onDateRangeUpdate?: (messageId: string, startDate: string, endDate: string) => void;
   currentFrame?: ContextFrame | null;
-  onContextBack?: () => void;
+  onContextJumpBack?: (steps: number) => void;
   onContextReset?: () => void;
 }
 
@@ -123,7 +123,7 @@ export function ChatArea({
   onSend,
   onDateRangeUpdate,
   currentFrame,
-  onContextBack,
+  onContextJumpBack,
   onContextReset,
 }: ChatAreaProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -145,46 +145,48 @@ export function ChatArea({
 
   // Active conversation state
   return (
-    <div className="flex flex-col h-[calc(100vh-3.5rem)]">
-      {/* Header strip */}
-      <div className="border-b border-line bg-white px-10 py-5">
-        <div className="max-w-[820px] mx-auto">
-          <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-accent-saffron mb-1">
-            Ask
-          </div>
-          <h1 className="font-display text-[22px] tracking-tight text-ink">
-            Query PM-JAY data in your language
-          </h1>
-        </div>
-      </div>
-
-      {/* Breadcrumb — the current analytical state, always visible */}
+    <div className="flex h-[calc(100vh-3.5rem)]">
+      {/* Context history — collapsed rail on the left, expands on click */}
       {currentFrame && (
-        <Breadcrumb
+        <ContextHistory
           frame={currentFrame}
           disabled={isLoading}
-          onBack={onContextBack}
+          onJumpBack={onContextJumpBack}
           onReset={onContextReset}
         />
       )}
 
-      {/* Conversation area */}
-      <div ref={scrollRef} className="flex-1 overflow-y-auto scrollbar-thin px-10 py-8 bg-ivory">
-        <div className="max-w-[820px] mx-auto space-y-6">
-          {messages.map((msg) => (
-            <MessageBubble
-              key={msg.id}
-              message={msg}
-              onDateRangeUpdate={onDateRangeUpdate}
-              onSend={isLoading ? undefined : onSend}
-            />
-          ))}
-          {isLoading && <TypingIndicator />}
+      <div className="flex flex-col flex-1 min-w-0">
+        {/* Header strip */}
+        <div className="border-b border-line bg-white px-10 py-5">
+          <div className="max-w-[820px] mx-auto">
+            <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-accent-saffron mb-1">
+              Ask
+            </div>
+            <h1 className="font-display text-[22px] tracking-tight text-ink">
+              Query PM-JAY data in your language
+            </h1>
+          </div>
         </div>
-      </div>
 
-      {/* Input bar */}
-      <ChatInput onSend={onSend} disabled={isLoading} />
+        {/* Conversation area */}
+        <div ref={scrollRef} className="flex-1 overflow-y-auto scrollbar-thin px-10 py-8 bg-ivory">
+          <div className="max-w-[820px] mx-auto space-y-6">
+            {messages.map((msg) => (
+              <MessageBubble
+                key={msg.id}
+                message={msg}
+                onDateRangeUpdate={onDateRangeUpdate}
+                onSend={isLoading ? undefined : onSend}
+              />
+            ))}
+            {isLoading && <TypingIndicator />}
+          </div>
+        </div>
+
+        {/* Input bar */}
+        <ChatInput onSend={onSend} disabled={isLoading} />
+      </div>
     </div>
   );
 }
