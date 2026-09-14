@@ -1,0 +1,105 @@
+# =============================================================================
+# validation.yaml — declarative data-quality checks for the PM-JAY domain pack
+# =============================================================================
+# Consumed by src/build_views.py (step 3: pre-view checks; step 6: post-view
+# checks). Checks LOG ONLY — they never drop or fix rows. The synthetic dataset
+# intentionally carries quality issues (duplicate beneficiaries, expired
+# licenses, orphan FKs) that are analytically meaningful and must flow through.
+#
+# --strict makes any failed check exit non-zero (replacing the old interactive
+# input() prompt). Default mode logs failures and continues.
+#
+# (Row-count expectations for source tables live in sources.yaml as
+#  `expected_rows`; the tolerance is `row_count_tolerance_pct` there.)
+# =============================================================================
+
+# CHECK 4 — columns whose null rate exceeds this are logged (never a failure).
+null_rate_threshold_pct: 20
+
+# CHECK 2 — primary-key uniqueness. table -> pk column.
+primary_keys:
+  bm_household:              household_id
+  bm_beneficiary:            beneficiary_id
+  bm_id_document:            id_doc_id
+  bm_enrolment_request:      enrolment_request_id
+  bm_card:                   card_id
+  hm_hospital:               hospital_id
+  hm_hospital_bank_account:  hospital_bank_id
+  hm_license_certificate:    hospital_license_id
+  hm_specialty_offered:      hospital_specialty_id
+  hm_staff:                  staff_id
+  cm_case:                   case_id
+  cm_case_diagnosis:         case_diagnosis_id
+  cm_preauth_request:        preauth_id
+  cm_preauth_procedure_line: preauth_proc_id
+  cm_discharge:              discharge_id
+  cm_claim:                  claim_id
+  cm_claim_document:         claim_doc_id
+  cm_adjudication_event:     event_id
+  cm_payment:                payment_id
+  ref_hbp_procedure_master:  hbp_procedure_code
+
+# CHECK 3 — foreign-key integrity (orphan child keys are logged).
+foreign_keys:
+  - {child: bm_beneficiary,            child_col: household_id,       parent: bm_household,             parent_col: household_id}
+  - {child: bm_id_document,            child_col: beneficiary_id,     parent: bm_beneficiary,           parent_col: beneficiary_id}
+  - {child: bm_enrolment_request,      child_col: beneficiary_id,     parent: bm_beneficiary,           parent_col: beneficiary_id}
+  - {child: bm_card,                   child_col: beneficiary_id,     parent: bm_beneficiary,           parent_col: beneficiary_id}
+  - {child: hm_hospital_bank_account,  child_col: hospital_id,        parent: hm_hospital,              parent_col: hospital_id}
+  - {child: hm_license_certificate,    child_col: hospital_id,        parent: hm_hospital,              parent_col: hospital_id}
+  - {child: hm_specialty_offered,      child_col: hospital_id,        parent: hm_hospital,              parent_col: hospital_id}
+  - {child: hm_staff,                  child_col: hospital_id,        parent: hm_hospital,              parent_col: hospital_id}
+  - {child: cm_case,                   child_col: beneficiary_id,     parent: bm_beneficiary,           parent_col: beneficiary_id}
+  - {child: cm_case,                   child_col: hospital_id,        parent: hm_hospital,              parent_col: hospital_id}
+  - {child: cm_case_diagnosis,         child_col: case_id,            parent: cm_case,                  parent_col: case_id}
+  - {child: cm_preauth_request,        child_col: case_id,            parent: cm_case,                  parent_col: case_id}
+  - {child: cm_preauth_procedure_line, child_col: preauth_id,         parent: cm_preauth_request,       parent_col: preauth_id}
+  - {child: cm_preauth_procedure_line, child_col: hbp_procedure_code, parent: ref_hbp_procedure_master, parent_col: hbp_procedure_code}
+  - {child: cm_preauth_procedure_line, child_col: clinician_staff_id, parent: hm_staff,                 parent_col: staff_id}
+  - {child: cm_claim,                  child_col: case_id,            parent: cm_case,                  parent_col: case_id}
+  - {child: cm_claim,                  child_col: preauth_id,         parent: cm_preauth_request,       parent_col: preauth_id}
+  - {child: cm_claim_document,         child_col: claim_id,           parent: cm_claim,                 parent_col: claim_id}
+  - {child: cm_adjudication_event,     child_col: claim_id,           parent: cm_claim,                 parent_col: claim_id}
+  - {child: cm_payment,                child_col: claim_id,           parent: cm_claim,                 parent_col: claim_id}
+  - {child: cm_payment,                child_col: hospital_bank_id,   parent: hm_hospital_bank_account, parent_col: hospital_bank_id}
+
+# CHECK 5 — categorical value domains (values outside the set are logged).
+categorical:
+  bm_beneficiary:
+    gender: [M, F]
+  cm_case:
+    admission_type: [EMERGENCY, ELECTIVE]
+    discharge_type: [NORMAL, LIVE, LAMA, DAMA, DEATH]
+  cm_claim:
+    claim_status: [APPROVED, SETTLED, QUERY_RAISED, REJECTED, PENDING]
+  hm_hospital:
+    hospital_type: [PUBLIC, PRIVATE]
+
+# CHECK 6 — date spans. Each column's (max-min) in years must fall in range.
+date_ranges:
+  min_years: 1
+  max_years: 10
+  columns:
+    - {table: cm_case,        column: admission_datetime}
+    - {table: cm_case,        column: discharge_datetime}
+    - {table: cm_claim,       column: submitted_at}
+    - {table: cm_claim,       column: settled_at}
+    - {table: bm_beneficiary, column: created_at}
+    - {table: cm_payment,     column: payment_date}
+
+# Step 6 — post-view checks. Row-count plausibility + grain uniqueness per view.
+post_view:
+  view1_claims_lifecycle:
+    expected_rows: 22500
+    tolerance_pct: 20
+    unique_grain: [case_id]
+  view2_district_month_cube:
+    min_rows: 1000
+    unique_grain: [district, month]
+  view3_hospital_performance:
+    min_rows: 2000
+    unique_grain: [hospital_specialty_id]
+  view4_beneficiary_journey:
+    expected_rows: 200000
+    tolerance_pct: 20
+    unique_grain: [beneficiary_id]

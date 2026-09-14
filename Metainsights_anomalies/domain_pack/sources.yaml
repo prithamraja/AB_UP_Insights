@@ -1,0 +1,207 @@
+# =============================================================================
+# sources.yaml — declarative source-table registration for the PM-JAY domain pack
+# =============================================================================
+# Consumed by src/build_views.py (step 1: "Register sources").
+#
+# For every source table:
+#   file          source filename inside --data-dir (.parquet or .csv)
+#   expected_rows approximate row count (validation CHECK 1 applies +/- tolerance)
+#   casts         column -> logical type. Everything NOT listed here stays a
+#                 string (VARCHAR). IDs are strings, so they are simply omitted.
+#
+# Supported cast types (see build_views.py CAST_EXPR):
+#   timestamp  parse as an instant, express in UTC, strip tz  -> TIMESTAMP (tz-naive)
+#              (mirrors pandas `to_datetime(..., utc=True).tz_localize(None)`;
+#               the runner runs the DuckDB session in UTC so naive strings are
+#               assumed UTC and offset-bearing strings are converted to UTC).
+#   date       calendar date, no time                          -> DATE
+#   float      numeric measure                                 -> DOUBLE
+#   int        integer count / year / rank                     -> BIGINT
+#   bool       True/False flag                                 -> BOOLEAN
+#
+# The runner reads every source as raw text — CSVs with all_varchar=true (no
+# type sampling — a reproducibility hazard), Parquet as written by
+# scripts/csv_to_parquet.py (every column VARCHAR) — and applies these casts
+# explicitly. This is the "explicit types over auto_detect" rule from the handoff.
+# =============================================================================
+
+row_count_tolerance_pct: 20   # CHECK 1: |actual-expected|/expected must be < this
+
+tables:
+
+  # ── Reference ──────────────────────────────────────────────────────────────
+  ref_up_geography:
+    file: ref_up_geography.parquet
+    expected_rows: 1000
+
+  ref_hbp_procedure_master:
+    file: ref_hbp_procedure_master.parquet
+    expected_rows: 25
+    casts:
+      base_package_price: float
+      has_stratification: bool
+      has_implant_or_high_end: bool
+      reserved_public_hospitals_only: bool
+
+  # ── Beneficiary management ─────────────────────────────────────────────────
+  bm_household:
+    file: bm_household.parquet
+    expected_rows: 50000
+    casts:
+      created_at: timestamp
+
+  bm_beneficiary:
+    file: bm_beneficiary.parquet
+    expected_rows: 200000
+    casts:
+      dob: timestamp
+      created_at: timestamp
+      updated_at: timestamp
+      yob: int
+      is_duplicate: bool
+
+  bm_id_document:
+    file: bm_id_document.parquet
+    expected_rows: 300000
+    casts:
+      created_at: timestamp
+
+  bm_enrolment_request:
+    file: bm_enrolment_request.parquet
+    expected_rows: 200000
+    casts:
+      submitted_at: timestamp
+      reviewed_at: timestamp
+
+  bm_card:
+    file: bm_card.parquet
+    expected_rows: 190000
+    casts:
+      issued_at: timestamp
+
+  # ── Hospital management ────────────────────────────────────────────────────
+  hm_hospital:
+    file: hm_hospital.parquet
+    expected_rows: 800
+    casts:
+      total_bed_strength: int
+      inpatient_beds: int
+      delisted_from_gov_schemes: bool
+      has_fully_equipped_ot: bool
+      has_icu_with_ac: bool
+      has_casualty: bool
+      has_opd: bool
+      has_hdu: bool
+      has_general_ward: bool
+      has_labour_room: bool
+      created_at: timestamp
+      updated_at: timestamp
+
+  hm_hospital_bank_account:
+    file: hm_hospital_bank_account.parquet
+    expected_rows: 800
+    casts:
+      tds_exemption: bool
+
+  hm_license_certificate:
+    file: hm_license_certificate.parquet
+    expected_rows: 4000
+    casts:
+      issue_date: date
+      expiry_date: date
+
+  hm_specialty_offered:
+    file: hm_specialty_offered.parquet
+    expected_rows: 4000
+    casts:
+      admissions_prev_fy: int
+      admissions_before_last_year: int
+
+  hm_staff:
+    file: hm_staff.parquet
+    expected_rows: 5000
+    casts:
+      experience_years: float
+
+  # ── Claims management ──────────────────────────────────────────────────────
+  cm_case:
+    file: cm_case.parquet
+    expected_rows: 22500
+    casts:
+      is_portability: bool
+      admission_datetime: timestamp
+      discharge_datetime: timestamp
+      created_at: timestamp
+
+  cm_case_diagnosis:
+    file: cm_case_diagnosis.parquet
+    expected_rows: 35000
+    casts:
+      diagnosis_rank: int
+
+  cm_preauth_request:
+    file: cm_preauth_request.parquet
+    expected_rows: 22500
+    casts:
+      initiated_at: timestamp
+      ppd_decision_at: timestamp
+      last_query_at: timestamp
+      last_query_response_at: timestamp
+      cancelled_at: timestamp
+
+  cm_preauth_procedure_line:
+    file: cm_preauth_procedure_line.parquet
+    expected_rows: 28000
+    casts:
+      procedure_rank: int
+      stratification_amount: float
+      implant_amount: float
+      incentive_amount: float
+      base_amount: float
+      computed_final_amount: float
+      expected_payable_amount: float
+      payout_factor: float
+      is_addon: bool
+
+  cm_discharge:
+    file: cm_discharge.parquet
+    expected_rows: 22500
+    casts:
+      surgery_date: timestamp
+      discharge_date: timestamp
+      lama_date: timestamp
+      death_date: timestamp
+      provided_medicines_flag: bool
+      biometric_auth_used: bool
+
+  cm_claim:
+    file: cm_claim.parquet
+    expected_rows: 22500
+    casts:
+      submitted_at: timestamp
+      settled_at: timestamp
+      hospital_bill_date: date
+      amount_claimed: float
+      amount_approved: float
+      query_count: int
+      settlement_tat_days: float
+      is_portability_claim: bool
+
+  cm_claim_document:
+    file: cm_claim_document.parquet
+    expected_rows: 110000
+    casts:
+      uploaded_at: timestamp
+
+  cm_adjudication_event:
+    file: cm_adjudication_event.parquet
+    expected_rows: 70000
+    casts:
+      event_time: timestamp
+
+  cm_payment:
+    file: cm_payment.parquet
+    expected_rows: 19000
+    casts:
+      payment_date: timestamp
+      amount_paid: float
