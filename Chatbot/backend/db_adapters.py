@@ -67,8 +67,9 @@ class DuckDBAdapter:
 # ── Pandas Adapter (default) ──────────────────────────────────────────────────
 
 class PandasAdapter:
-    """DuckDB in-memory backend. Loads each CSV as a DuckDB table on startup
-    via read_csv_auto, then serves all queries from DuckDB's columnar memory.
+    """DuckDB in-memory backend. Loads each ab_data table on startup (Parquet,
+    typed as read_csv_auto would type the source CSV — or the CSV itself via
+    read_csv_auto), then serves all queries from DuckDB's columnar memory.
 
     Historical note: this used to load CSVs into pandas DataFrames and then
     register DuckDB views over them. That doubled memory (pandas + view
@@ -89,14 +90,15 @@ class PandasAdapter:
         self.dataframes: dict[str, object] = {}  # kept for backwards compat only
 
         for table in tables:
-            # Prefer parquet (smaller, typed, faster to load). Fall back to
-            # CSV so local dev against the raw ab_data/ directory still works.
+            # Prefer parquet (smaller, faster to load). Fall back to CSV for a
+            # raw drop (e.g. a new ministry's data) that isn't converted yet.
             pq_path = data_dir / f"{table}.parquet"
             csv_path = data_dir / f"{table}.csv"
             if pq_path.exists():
                 self._conn.execute(
                     f"CREATE TABLE {table} AS "
-                    f"SELECT * FROM read_parquet('{pq_path.as_posix()}')"
+                    f"SELECT {self._parquet_columns(pq_path)} "
+                    f"FROM read_parquet('{pq_path.as_posix()}')"
                 )
                 self.dataframes[table] = True
             elif csv_path.exists():
@@ -105,6 +107,24 @@ class PandasAdapter:
                     f"SELECT * FROM read_csv_auto('{csv_path.as_posix()}', header=true)"
                 )
                 self.dataframes[table] = True
+
+    def _parquet_columns(self, pq_path: Path) -> str:
+        """Select list that types a parquet file's columns.
+
+        ab_data/ Parquet holds the raw CSV text (every column VARCHAR) plus the
+        types read_csv_auto sniffed from that CSV, stored as key/value metadata
+        by scripts/csv_to_parquet.py. Casting back to them rebuilds exactly the
+        tables the CSV branch produces. Parquet without that metadata is taken
+        as already typed."""
+        import json
+
+        row = self._conn.execute(
+            f"SELECT decode(value) FROM parquet_kv_metadata('{pq_path.as_posix()}') "
+            "WHERE decode(key) = 'csv_sniffed_types'"
+        ).fetchone()
+        if row is None:
+            return "*"
+        return ", ".join(f'CAST("{c}" AS {t}) AS "{c}"' for c, t in json.loads(row[0]))
 
     def execute(self, sql: str, params: list[Any] | None = None) -> DBResult:
         if params:

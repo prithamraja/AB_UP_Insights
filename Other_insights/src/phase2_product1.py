@@ -22,10 +22,20 @@ def section(title):
     print('='*70, flush=True)
 
 def load_csv(name, ts_cols=None, bool_cols=None):
+    """ab_data/ ships as Parquet holding the original CSV text (every column
+    VARCHAR). Re-emit it as CSV so pandas infers dtypes exactly as it did
+    from the raw CSV files."""
+    import io
+    import pyarrow.csv
+    import pyarrow.parquet
+
     path = DATA_DIR / name
     if not path.exists():
         raise FileNotFoundError(f"Missing: {path}")
-    df = pd.read_csv(path, parse_dates=ts_cols or [], low_memory=False)
+    buf = io.BytesIO()
+    pyarrow.csv.write_csv(pyarrow.parquet.read_table(path), buf)
+    buf.seek(0)
+    df = pd.read_csv(buf, parse_dates=ts_cols or [], low_memory=False)
     if bool_cols:
         for col in bool_cols:
             if col in df.columns and df[col].dtype == object:
@@ -63,22 +73,22 @@ print(f"  int_specialty_gap:          {int_sg.shape}")
 
 # ─── Load raw CSVs ────────────────────────────────────────────────────────────
 section("Loading raw CSVs")
-cases_df   = load_csv("cm_case.csv",
+cases_df   = load_csv("cm_case.parquet",
                       ts_cols=["admission_datetime", "discharge_datetime"],
                       bool_cols=["is_portability"])
-diag_df    = load_csv("cm_case_diagnosis.csv")
-claim_df   = load_csv("cm_claim.csv")
-hosp_df    = load_csv("hm_hospital.csv",
+diag_df    = load_csv("cm_case_diagnosis.parquet")
+claim_df   = load_csv("cm_claim.parquet")
+hosp_df    = load_csv("hm_hospital.parquet",
                       bool_cols=["delisted_from_gov_schemes", "has_fully_equipped_ot",
                                  "has_icu_with_ac", "has_casualty", "has_opd",
                                  "has_hdu", "has_general_ward", "has_labour_room"])
-spec_df    = load_csv("hm_specialty_offered.csv")
-ben_df     = load_csv("bm_beneficiary.csv")
-hh_df      = load_csv("bm_household.csv")
-card_df    = load_csv("bm_card.csv")
-enrol_df   = load_csv("bm_enrolment_request.csv", ts_cols=["submitted_at"])
-preauth_df = load_csv("cm_preauth_request.csv",   ts_cols=["initiated_at"])
-proc_df    = load_csv("cm_preauth_procedure_line.csv")
+spec_df    = load_csv("hm_specialty_offered.parquet")
+ben_df     = load_csv("bm_beneficiary.parquet")
+hh_df      = load_csv("bm_household.parquet")
+card_df    = load_csv("bm_card.parquet")
+enrol_df   = load_csv("bm_enrolment_request.parquet", ts_cols=["submitted_at"])
+preauth_df = load_csv("cm_preauth_request.parquet",   ts_cols=["initiated_at"])
+proc_df    = load_csv("cm_preauth_procedure_line.parquet")
 
 # Derived columns on cases
 adm_dt = pd.to_datetime(cases_df["admission_datetime"], utc=True)

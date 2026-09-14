@@ -6,6 +6,13 @@ This repository generates **realistic synthetic data** modelling the full PM-JAY
 
 All data is synthetic. No real beneficiary information is included.
 
+> **Storage (since 2026-09):** the tables ship as `<table>.parquet` (zstd), not
+> CSV, and `ab_data/` is not in git — only this README is tracked; copy the data
+> from the shared Drive folder of this repo. Each Parquet file holds the
+> generator's CSV text unchanged (every column VARCHAR) and was verified
+> lossless by `scripts/csv_to_parquet.py`, which also converts any new CSV drop.
+> The table headings below keep their original `.csv` names.
+
 ---
 
 ## Dataset Sizes

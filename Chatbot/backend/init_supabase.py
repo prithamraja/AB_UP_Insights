@@ -5,7 +5,7 @@ One-time initialisation of Supabase / PostgreSQL.
   python init_supabase.py
 
 What it does:
-  1. Creates the 21 data tables and COPYs CSV data into them
+  1. Creates the 21 data tables and COPYs ab_data/ (Parquet, or CSV) into them
   2. Creates dashboard_cache and query_templates cache tables
   3. Prints a summary
 
@@ -17,6 +17,8 @@ import os
 import sys
 import io
 import csv
+import tempfile
+from contextlib import contextmanager
 from pathlib import Path
 from dotenv import load_dotenv
 
@@ -320,29 +322,56 @@ def _create_tables(cur) -> None:
     print(f"[init] Created {len(TABLES)} UNLOGGED data tables")
 
 
+@contextmanager
+def _source_csv(table_name: str):
+    """Yield a path to the table's CSV text, or None if the table is missing.
+
+    ab_data/ ships as Parquet holding the original CSV text (every column
+    VARCHAR, see scripts/csv_to_parquet.py); DuckDB writes it back out as a
+    temp CSV so COPY parses exactly the text it always has. A raw .csv (e.g.
+    a new ministry's drop) is used as-is."""
+    pq_path = DATA_DIR / f"{table_name}.parquet"
+    csv_path = DATA_DIR / f"{table_name}.csv"
+    if not pq_path.exists():
+        yield csv_path if csv_path.exists() else None
+        return
+    import duckdb
+    fd, tmp = tempfile.mkstemp(suffix=".csv")  # local temp, not the Drive mount
+    os.close(fd)
+    try:
+        src = pq_path.as_posix().replace("'", "''")
+        dst = Path(tmp).as_posix().replace("'", "''")
+        con = duckdb.connect()
+        con.execute(f"COPY (SELECT * FROM read_parquet('{src}')) TO '{dst}' (HEADER, DELIMITER ',')")
+        con.close()
+        yield Path(tmp)
+    finally:
+        os.remove(tmp)
+
+
 def _copy_csvs(conn) -> None:
     """Commit per table so accumulated WAL/temp space can be released between
     tables. Takes `conn` (not `cur`) so it can commit."""
     for table_name in TABLES:
-        csv_path = DATA_DIR / f"{table_name}.csv"
-        if not csv_path.exists():
-            print(f"  ⚠ {table_name}.csv not found — skipping")
-            continue
-        cur = conn.cursor()
-        with open(csv_path, "r", encoding="utf-8") as f:
-            reader = csv.reader(f)
-            headers = next(reader)  # consumes the header line from f
-            # Note: WITH CSV (not WITH CSV HEADER) — csv.reader already advanced
-            # past the header, so Postgres should not try to skip another line.
-            cur.copy_expert(
-                f"COPY {table_name} ({', '.join(headers)}) FROM STDIN WITH CSV",
-                f,
-            )
+        with _source_csv(table_name) as csv_path:
+            if csv_path is None:
+                print(f"  ⚠ {table_name} not found in {DATA_DIR} — skipping")
+                continue
+            cur = conn.cursor()
+            with open(csv_path, "r", encoding="utf-8") as f:
+                reader = csv.reader(f)
+                headers = next(reader)  # consumes the header line from f
+                # Note: WITH CSV (not WITH CSV HEADER) — csv.reader already advanced
+                # past the header, so Postgres should not try to skip another line.
+                cur.copy_expert(
+                    f"COPY {table_name} ({', '.join(headers)}) FROM STDIN WITH CSV",
+                    f,
+                )
         cnt = cur.rowcount if cur.rowcount >= 0 else "?"
         cur.close()
         conn.commit()  # release WAL / temp files before next table
         print(f"  ✓ {table_name}: {cnt} rows")
-    print(f"[init] CSV import complete")
+    print(f"[init] Source import complete")
 
 
 def _set_logged(conn) -> None:

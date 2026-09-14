@@ -18,8 +18,9 @@ except ImportError:
 # ── Shared constants ─────────────────────────────────────────────────────────
 
 # Default: ab_data/ is two levels up from Chatbot/backend/. Override with
-# DATA_DIR env var when the CSVs live elsewhere (e.g. when the backend ships
-# its own copy in a Railway deploy, DATA_DIR=./ab_data).
+# DATA_DIR env var when the data files (.parquet, or .csv) live elsewhere
+# (e.g. when the backend ships its own copy in a Railway deploy,
+# DATA_DIR=./ab_data). ab_data/ is not in git — see its README_Dataset.md.
 _default_data_dir = Path(__file__).resolve().parent.parent.parent / "ab_data"
 DATA_DIR = Path(os.environ.get("DATA_DIR") or _default_data_dir).resolve()
 

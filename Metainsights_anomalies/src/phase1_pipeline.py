@@ -137,10 +137,25 @@ CSV_NAMES = [
 
 tables: dict[str, pd.DataFrame] = {}
 
+
+def read_source(path: str, **kwargs) -> pd.DataFrame:
+    """ab_data/ ships as Parquet holding the original CSV text (every column
+    VARCHAR). Re-emit it as CSV so pandas infers dtypes exactly as it did
+    from the raw CSV files."""
+    import io
+    import pyarrow.csv
+    import pyarrow.parquet
+
+    buf = io.BytesIO()
+    pyarrow.csv.write_csv(pyarrow.parquet.read_table(path), buf)
+    buf.seek(0)
+    return pd.read_csv(buf, **kwargs)
+
+
 log("\n--- Row counts at load ---")
 for name in CSV_NAMES:
-    filepath = os.path.join(DATA_DIR, f"{name}.csv")
-    tables[name] = pd.read_csv(filepath, low_memory=False)
+    filepath = os.path.join(DATA_DIR, f"{name}.parquet")
+    tables[name] = read_source(filepath, low_memory=False)
     log(f"  {name}: {len(tables[name]):,} rows x {tables[name].shape[1]} cols")
 
 

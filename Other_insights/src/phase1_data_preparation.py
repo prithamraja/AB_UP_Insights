@@ -24,30 +24,30 @@ CURRENT_YEAR = 2026
 # ─── Source file registry ─────────────────────────────────────────────────────
 SOURCE_FILES = {
     # Reference
-    "ref_up_geography":          ("ref_up_geography.csv",          "state_code"),
-    "ref_hbp_procedure_master":  ("ref_hbp_procedure_master.csv",  "hbp_procedure_code"),
+    "ref_up_geography":          ("ref_up_geography.parquet",          "state_code"),
+    "ref_hbp_procedure_master":  ("ref_hbp_procedure_master.parquet",  "hbp_procedure_code"),
     # Beneficiary
-    "bm_household":              ("bm_household.csv",              "household_id"),
-    "bm_beneficiary":            ("bm_beneficiary.csv",            "beneficiary_id"),
-    "bm_id_document":            ("bm_id_document.csv",            "id_doc_id"),
-    "bm_enrolment_request":      ("bm_enrolment_request.csv",      "enrolment_request_id"),
-    "bm_card":                   ("bm_card.csv",                   "card_id"),
+    "bm_household":              ("bm_household.parquet",              "household_id"),
+    "bm_beneficiary":            ("bm_beneficiary.parquet",            "beneficiary_id"),
+    "bm_id_document":            ("bm_id_document.parquet",            "id_doc_id"),
+    "bm_enrolment_request":      ("bm_enrolment_request.parquet",      "enrolment_request_id"),
+    "bm_card":                   ("bm_card.parquet",                   "card_id"),
     # Hospital
-    "hm_hospital":               ("hm_hospital.csv",               "hospital_id"),
-    "hm_hospital_bank_account":  ("hm_hospital_bank_account.csv",  "hospital_bank_id"),
-    "hm_license_certificate":    ("hm_license_certificate.csv",    "hospital_license_id"),
-    "hm_specialty_offered":      ("hm_specialty_offered.csv",      "hospital_specialty_id"),
-    "hm_staff":                  ("hm_staff.csv",                  "staff_id"),
+    "hm_hospital":               ("hm_hospital.parquet",               "hospital_id"),
+    "hm_hospital_bank_account":  ("hm_hospital_bank_account.parquet",  "hospital_bank_id"),
+    "hm_license_certificate":    ("hm_license_certificate.parquet",    "hospital_license_id"),
+    "hm_specialty_offered":      ("hm_specialty_offered.parquet",      "hospital_specialty_id"),
+    "hm_staff":                  ("hm_staff.parquet",                  "staff_id"),
     # Claims
-    "cm_case":                   ("cm_case.csv",                   "case_id"),
-    "cm_case_diagnosis":         ("cm_case_diagnosis.csv",         "case_diagnosis_id"),
-    "cm_preauth_request":        ("cm_preauth_request.csv",        "preauth_id"),
-    "cm_preauth_procedure_line": ("cm_preauth_procedure_line.csv", "preauth_proc_id"),
-    "cm_discharge":              ("cm_discharge.csv",              "discharge_id"),
-    "cm_claim":                  ("cm_claim.csv",                  "claim_id"),
-    "cm_claim_document":         ("cm_claim_document.csv",         "claim_doc_id"),
-    "cm_adjudication_event":     ("cm_adjudication_event.csv",     "event_id"),
-    "cm_payment":                ("cm_payment.csv",                "payment_id"),
+    "cm_case":                   ("cm_case.parquet",                   "case_id"),
+    "cm_case_diagnosis":         ("cm_case_diagnosis.parquet",         "case_diagnosis_id"),
+    "cm_preauth_request":        ("cm_preauth_request.parquet",        "preauth_id"),
+    "cm_preauth_procedure_line": ("cm_preauth_procedure_line.parquet", "preauth_proc_id"),
+    "cm_discharge":              ("cm_discharge.parquet",              "discharge_id"),
+    "cm_claim":                  ("cm_claim.parquet",                  "claim_id"),
+    "cm_claim_document":         ("cm_claim_document.parquet",         "claim_doc_id"),
+    "cm_adjudication_event":     ("cm_adjudication_event.parquet",     "event_id"),
+    "cm_payment":                ("cm_payment.parquet",                "payment_id"),
 }
 
 # Timestamp columns per table (for parse_dates)
@@ -108,6 +108,20 @@ section("STEP 1 — Load and Validate")
 tables = {}
 critical_errors = []
 
+
+def read_source(path, **kwargs):
+    """ab_data/ ships as Parquet holding the original CSV text (every column
+    VARCHAR). Re-emit it as CSV so pandas infers dtypes exactly as it did
+    from the raw CSV files."""
+    import io
+    import pyarrow.csv
+
+    buf = io.BytesIO()
+    pyarrow.csv.write_csv(pq.read_table(path), buf)
+    buf.seek(0)
+    return pd.read_csv(buf, **kwargs)
+
+
 for name, (fname, pk_col) in SOURCE_FILES.items():
     fpath = DATA_DIR / fname
     if not fpath.exists():
@@ -116,7 +130,7 @@ for name, (fname, pk_col) in SOURCE_FILES.items():
         continue
 
     ts_cols = TIMESTAMP_COLS.get(name, [])
-    df = pd.read_csv(fpath, parse_dates=ts_cols, low_memory=False)
+    df = read_source(fpath, parse_dates=ts_cols, low_memory=False)
 
     # Shape
     print(f"\n[{name}]  shape={df.shape}")

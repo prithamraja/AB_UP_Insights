@@ -5,3 +5,8 @@ __pycache__/
 .DS_Store
 .claude/
 Chatbot/backend/.tmp/
+
+# Source data is not versioned: it lives on Drive as Parquet (see
+# ab_data/README_Dataset.md). Only the dataset README is tracked.
+ab_data/*
+!ab_data/README_Dataset.md
