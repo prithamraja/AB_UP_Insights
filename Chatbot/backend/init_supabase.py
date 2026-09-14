@@ -312,9 +312,10 @@ def _create_tables(cur) -> None:
         # DROP first in case of schema changes between runs
         cur.execute(f"DROP TABLE IF EXISTS {table_name} CASCADE")
         cols_def = ",\n    ".join(f"{c} {t}" for c, t in columns)
-        # UNLOGGED: skips WAL for this table. Critical for small-volume managed
-        # Postgres — a single-txn bulk load of 21 tables otherwise fills the WAL.
-        # Data is truncated on PG crash, but seed is idempotent so we re-run.
+        # UNLOGGED for the bulk load only: skips WAL, which otherwise fills the
+        # small managed-Postgres volume during COPY. _set_logged() converts each
+        # table to permanent afterwards — an UNLOGGED table is truncated by any
+        # Postgres crash recovery (this wiped the Railway DB on 2026-08-21).
         cur.execute(f"CREATE UNLOGGED TABLE {table_name} (\n    {cols_def}\n)")
     print(f"[init] Created {len(TABLES)} UNLOGGED data tables")
 
@@ -342,6 +343,21 @@ def _copy_csvs(conn) -> None:
         conn.commit()  # release WAL / temp files before next table
         print(f"  ✓ {table_name}: {cnt} rows")
     print(f"[init] CSV import complete")
+
+
+def _set_logged(conn) -> None:
+    """Convert each table to permanent (WAL-logged), one per transaction, with
+    a CHECKPOINT after each so the WAL written by the rewrite is recycled
+    before the next table — keeps peak disk use to ~one table's size."""
+    for table_name in TABLES:
+        cur = conn.cursor()
+        cur.execute(f"ALTER TABLE {table_name} SET LOGGED")
+        conn.commit()
+        cur.execute("CHECKPOINT")
+        conn.commit()
+        cur.close()
+        print(f"  ✓ {table_name}: now LOGGED")
+    print(f"[init] All data tables converted to permanent")
 
 
 def _create_cache_tables(cur) -> None:
@@ -372,6 +388,7 @@ def main() -> None:
         cur.close()
 
         _copy_csvs(conn)  # commits per table internally
+        _set_logged(conn)  # commits + checkpoints per table internally
 
         cur = conn.cursor()
         _create_cache_tables(cur)

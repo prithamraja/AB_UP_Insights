@@ -1,7 +1,9 @@
 -- DDL for cache tables used by the query router.
--- Run automatically by db.py on first connection (CREATE UNLOGGED TABLE IF NOT EXISTS).
+-- Run automatically by db.py on first connection (CREATE TABLE IF NOT EXISTS).
+-- Permanent (logged) tables: UNLOGGED tables are truncated by Postgres crash
+-- recovery, which wiped the Railway DB on 2026-08-21.
 
-CREATE UNLOGGED TABLE IF NOT EXISTS dashboard_cache (
+CREATE TABLE IF NOT EXISTS dashboard_cache (
     query_id     VARCHAR PRIMARY KEY,   -- "D01" ... "D36"
     question     TEXT    NOT NULL,       -- canonical natural-language question
     embedding    TEXT,                   -- JSON-serialised float list (startup-only)
@@ -12,7 +14,7 @@ CREATE UNLOGGED TABLE IF NOT EXISTS dashboard_cache (
     status       VARCHAR DEFAULT 'STALE' -- FRESH | STALE | ERROR
 );
 
-CREATE UNLOGGED TABLE IF NOT EXISTS query_templates (
+CREATE TABLE IF NOT EXISTS query_templates (
     template_id          VARCHAR PRIMARY KEY,  -- "T01" ... "T35"
     abstract_question    TEXT    NOT NULL,      -- "How many beneficiaries in {district}?"
     abstract_embedding   TEXT,                  -- JSON-serialised float list (startup-only)
