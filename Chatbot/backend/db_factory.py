@@ -12,8 +12,10 @@ from pathlib import Path
 
 try:
     from .db_adapters import PandasAdapter, SupabaseAdapter
+    from .data_sync import sync_from_bucket
 except ImportError:
     from db_adapters import PandasAdapter, SupabaseAdapter
+    from data_sync import sync_from_bucket
 
 # ── Shared constants ─────────────────────────────────────────────────────────
 
@@ -68,7 +70,17 @@ def get_adapter() -> PandasAdapter | SupabaseAdapter:
         return _adapter
 
     # ── Pandas + DuckDB in-memory (default) ──────────────────────────────────
+    fetched = sync_from_bucket(DATA_DIR)
+    if fetched:
+        print(f"[db] Fetched {fetched} data files from bucket {os.environ['DATA_BUCKET']}")
     _adapter = PandasAdapter(DATA_DIR, TABLES)
+    # Refuse to boot on missing data: a failed start keeps Railway on the
+    # previous deployment instead of serving empty answers.
+    missing = [t for t in TABLES if t not in _adapter.dataframes]
+    if missing:
+        raise RuntimeError(
+            f"{len(missing)} data table(s) missing from {DATA_DIR}: {', '.join(missing)}"
+        )
 
     # Ensure cache tables exist
     ddl_path = Path(__file__).parent / "sql" / "cache_tables.sql"
@@ -81,5 +93,5 @@ def get_adapter() -> PandasAdapter | SupabaseAdapter:
             if stmt:
                 _adapter.execute_ddl(stmt)
 
-    print(f"[db] Loaded {len(_adapter.dataframes)} CSV tables via pandas (in-memory)")
+    print(f"[db] Loaded {len(_adapter.dataframes)} data tables into in-memory DuckDB")
     return _adapter
